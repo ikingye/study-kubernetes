@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="第三部分 设计与实现"><meta property="og:title" content="第三部分 设计与实现" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/source/" />
-
-<title>第三部分 设计与实现 | Kubernetes 学习笔记</title>
+<meta name="description" content="ConfigMap"><meta property="og:title" content="ConfigMap" />
+<meta property="og:description" content="ConfigMap 基础 ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
+ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。
+创建 ConfigMap 使用以下命令创建 ConfigMap：
+kubectl create configmap [NAME] [DATA]
+[DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &ndash;from-file 标志指示 键值对，每个键值对都使用 &ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
+您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
+使用 ConfigMap apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [ &#34;/bin/sh&#34;, &#34;-c&#34;, &#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34; ] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/" />
+<meta property="article:modified_time" content="2020-03-02T22:10:47+08:00" />
+<title>ConfigMap | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +24,6 @@
 
 <script defer src="/study-k8s/en.search.min.f921cf9fb0b9834b8e8b9c5bd17b9a1c9075e62be6f322ea1d7d2cdc5c7c1f7e.js" integrity="sha256-&#43;SHPn7C5g0uOi5xb0XuaHJB15ivm8yLqHX0s3Fx8H34="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/source/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -331,7 +336,7 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/configmap/" >
+  <a href="/study-k8s/docs/basic/resource/configmap/"  class="active">
       ConfigMap
   </a>
 
@@ -567,7 +572,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>第三部分 设计与实现</strong>
+  <strong>ConfigMap</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -579,7 +584,16 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configmap-">ConfigMap 基础</a>
+      <ul>
+        <li><a href="#-configmap">创建 ConfigMap</a></li>
+        <li><a href="#-configmap-1">使用 ConfigMap</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -589,7 +603,41 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="configmap-">ConfigMap 基础</h1>
+<p>ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。</p>
+<p>ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。</p>
+<img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200302214214.png" width="30%" height="30%">
+<h2 id="-configmap">创建 ConfigMap</h2>
+<p>使用以下命令创建 ConfigMap：</p>
+<p><code>kubectl create configmap [NAME] [DATA]</code></p>
+<p>[DATA] 可以是：
+包含一个或多个配置文件的目录的路径，使用 &ndash;from-file 标志指示
+键值对，每个键值对都使用 &ndash;from-literal 标志指定
+如需详细了解 kubectl create，请参阅<a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create">参考文档</a>。</p>
+<p>您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。</p>
+<h2 id="-configmap-1">使用 ConfigMap</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ <span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;</span> ]
+      env:
+        - name: SPECIAL_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_LEVEL
+        - name: SPECIAL_TYPE_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_TYPE
+  restartPolicy: Never
+</code></pre></div></article>
  
       
 
@@ -614,6 +662,17 @@ https://github.com/alex-shpak/hugo-book
  
         
   
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-k8s"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
+  
  
       </footer>
       
@@ -624,7 +683,16 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configmap-">ConfigMap 基础</a>
+      <ul>
+        <li><a href="#-configmap">创建 ConfigMap</a></li>
+        <li><a href="#-configmap-1">使用 ConfigMap</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -3,23 +3,98 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/api-server/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/</loc>
-    <lastmod>2020-03-01T13:33:57+08:00</lastmod>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/practice/</loc>
-    <lastmod>2020-03-01T13:33:57+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/spec/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/design/</loc>
-    <lastmod>2020-03-01T13:33:57+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/schedule/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/advanced/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/controller-manager/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/source/</loc>
-    <lastmod>2020-03-01T13:33:57+08:00</lastmod>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/kube-proxy/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/component/kubelet/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/version/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/</loc>
+    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>

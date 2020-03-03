@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubelet"><meta property="og:title" content="Kubelet" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/component/kubelet/" />
-
-<title>Kubelet | Kubernetes 学习笔记</title>
+<meta name="description" content="CoreDNS"><meta property="og:title" content="CoreDNS" />
+<meta property="og:description" content="CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
+ kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
+在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/network/coredns/" />
+<meta property="article:modified_time" content="2020-03-04T00:47:20+08:00" />
+<title>CoreDNS | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +20,6 @@
 
 <script defer src="/study-k8s/en.search.min.b4c9106707dc3d8d59023af7ceebca746517037a9fe185106eb2de6d6dff347e.js" integrity="sha256-tMkQZwfcPY1ZAjr3zuvKdGUXA3qf4YUQbrLebW3/NH4="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/component/kubelet/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -267,7 +268,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/study-k8s/docs/basic/component/kubelet/"  class="active">
+  <a href="/study-k8s/docs/basic/component/kubelet/" >
       Kubelet
   </a>
 
@@ -397,7 +398,7 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/coredns/" >
+  <a href="/study-k8s/docs/basic/network/coredns/"  class="active">
       CoreDNS
   </a>
 
@@ -743,7 +744,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kubelet</strong>
+  <strong>CoreDNS</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -757,7 +758,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubelet-">Kubelet 基础</a></li>
+    <li><a href="#coredns">CoreDNS</a>
+      <ul>
+        <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -769,7 +774,18 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"><h1 id="kubelet-">Kubelet 基础</h1>
+<article class="markdown"><h1 id="coredns">CoreDNS</h1>
+<h2 id="coredns-vs-kubedns">CoreDNS vs KubeDNS</h2>
+<p>在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。</p>
+<ul>
+<li>kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录，</li>
+<li>dnsmasq 提供缓存和存根域支持，</li>
+<li>sidecar 提供指标和健康检查。</li>
+</ul>
+<p>此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。
+此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。</p>
+<p>在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。
+启用的不同插件来复制（并增强）kube-dns 中的功能。</p>
 </article>
  
       
@@ -782,9 +798,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4c4d9d5d293e3ab8791dd3b819bd86deed01ed79" title='Last modified by yewang | 2020-03-02' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9c7e65d940f56437d72c0f5bdc8dac1f747a049f" title='Last modified by yewang | 2020-03-04' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-02</span>
+      <span>2020-03-04</span>
     </a>
   </div>
 
@@ -818,7 +834,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubelet-">Kubelet 基础</a></li>
+    <li><a href="#coredns">CoreDNS</a>
+      <ul>
+        <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

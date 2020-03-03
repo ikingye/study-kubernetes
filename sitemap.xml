@@ -3,8 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/alpine/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/api-server/</loc>
     <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/docker/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
   </url>
   
   <url>
@@ -18,12 +38,12 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/advanced/best-practice/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/spec/</loc>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/</loc>
     <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
@@ -33,13 +53,18 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</loc>
     <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</loc>
-    <lastmod>2020-03-02T22:13:04+08:00</lastmod>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
   </url>
   
   <url>
@@ -63,12 +88,17 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/source/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/source/</loc>
     <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
@@ -88,13 +118,28 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/network/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/version/</loc>
     <lastmod>2020-03-02T22:10:47+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/spec/</loc>
+    <lastmod>2020-03-04T00:47:20+08:00</lastmod>
   </url>
   
   <url>

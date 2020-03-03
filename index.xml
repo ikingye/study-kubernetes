@@ -10,6 +10,27 @@
     
     
     <item>
+      <title>alpine</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/alpine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/alpine/</guid>
+      <description>alpine 安装 telnet apk add busybox-extras</description>
+    </item>
+    
+    <item>
+      <title>Kube DNS</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</guid>
+      <description>Kube DNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
+nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 k8s 中域名是如何被解析的 在 k8s 中，一个 Pod 如果要访问相同同 Namespace 下的 Service（比如 user-svc），那么只需要 curl user-svc。 如果 Pod 和 Service 不在同一域名下，那么就需要在 Service Name 之后添加上 Service 所在的 Namespace（比如 beta），curl user-svc.beta。 那么 k8s 是如何知道这些域名是内部域名并为他们做解析的呢？
+无论是在 宿主机 或者是在 k8s 集群中，DNS 解析会依赖这个三个文件
+ /etc/host.conf /etc/hosts /etc/resolv.conf  /etc/resolv.conf resolv.conf 是 Pod 在 dnsPolicy: ClusterFirst 的情况下，k8s 为其自动生成的。 在该 Pod 内请求的所有的域名解析都需要经过 DNS Service 进行解析，不管是集群内部域名还是外部域名。</description>
+    </item>
+    
+    <item>
       <title>Pod</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,6 +64,17 @@ kubectl create configmap [NAME] [DATA]
     </item>
     
     <item>
+      <title>CoreDNS</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</guid>
+      <description>CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
+ kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
+在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。</description>
+    </item>
+    
+    <item>
       <title>Deployment</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -57,7 +89,7 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</guid>
-      <description>Kubectl 常用命令 kubectl get  获取 service ip, port  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39; </description>
+      <description>Kubectl 常用命令 kubectl get  获取 service ip, port  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39; 参考 kubectl Cheat Sheet </description>
     </item>
     
     <item>
@@ -67,6 +99,16 @@ kubectl create configmap [NAME] [DATA]
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</guid>
       <description>CRD </description>
+    </item>
+    
+    <item>
+      <title>Helm</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</guid>
+      <description>Helm  Helm is the best way to find, share, and use software built for Kubernetes.
+ 官网：https://helm.sh</description>
     </item>
     
   </channel>

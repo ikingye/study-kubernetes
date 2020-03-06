@@ -106,6 +106,24 @@ kubectl create configmap [NAME] [DATA]
     </item>
     
     <item>
+      <title>基础</title>
+      <link>https://ikingye.github.io/study-k8s/docs/appendix/interview/basic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/appendix/interview/basic/</guid>
+      <description>Java 基础面试题 </description>
+    </item>
+    
+    <item>
+      <title>进阶</title>
+      <link>https://ikingye.github.io/study-k8s/docs/appendix/interview/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/appendix/interview/advanced/</guid>
+      <description>Java 进阶面试题 </description>
+    </item>
+    
+    <item>
       <title>CRD</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -122,6 +140,15 @@ kubectl create configmap [NAME] [DATA]
       <guid>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</guid>
       <description>Helm  Helm is the best way to find, share, and use software built for Kubernetes.
  官网：https://helm.sh</description>
+    </item>
+    
+    <item>
+      <title>高阶</title>
+      <link>https://ikingye.github.io/study-k8s/docs/appendix/interview/expert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/appendix/interview/expert/</guid>
+      <description>Java 高阶面试题 </description>
     </item>
     
   </channel>

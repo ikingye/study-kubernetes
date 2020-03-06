@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kube DNS"><meta property="og:title" content="Kube DNS" />
-<meta property="og:description" content="Kube DNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
+<meta name="description" content="KubeDNS"><meta property="og:title" content="KubeDNS" />
+<meta property="og:description" content="KubeDNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
 nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 k8s 中域名是如何被解析的 在 k8s 中，一个 Pod 如果要访问相同同 Namespace 下的 Service（比如 user-svc），那么只需要 curl user-svc。 如果 Pod 和 Service 不在同一域名下，那么就需要在 Service Name 之后添加上 Service 所在的 Namespace（比如 beta），curl user-svc.beta。 那么 k8s 是如何知道这些域名是内部域名并为他们做解析的呢？
 无论是在 宿主机 或者是在 k8s 集群中，DNS 解析会依赖这个三个文件
  /etc/host.conf /etc/hosts /etc/resolv.conf  /etc/resolv.conf resolv.conf 是 Pod 在 dnsPolicy: ClusterFirst 的情况下，k8s 为其自动生成的。 在该 Pod 内请求的所有的域名解析都需要经过 DNS Service 进行解析，不管是集群内部域名还是外部域名。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/" />
-<meta property="article:modified_time" content="2020-03-04T00:47:20+08:00" />
-<title>Kube DNS | Kubernetes 学习笔记</title>
+<meta property="article:modified_time" content="2020-03-06T23:30:13+08:00" />
+<title>KubeDNS | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.b4c9106707dc3d8d59023af7ceebca746517037a9fe185106eb2de6d6dff347e.js" integrity="sha256-tMkQZwfcPY1ZAjr3zuvKdGUXA3qf4YUQbrLebW3/NH4="></script>
+<script defer src="/study-k8s/en.search.min.055af25e6494a645d0d3266b92c5f31ee9f9a0430322c86dc60e23dd68875083.js" integrity="sha256-BVryXmSUpkXQ0yZrksXzHun5oEMDIshtxg4j3WiHUIM="></script>
 
 <!--
 Made with Book Theme
@@ -93,13 +93,45 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-        <li>
+        
+
+  <li >
+    
+      
 
   <a href="/study-k8s/docs/basic/quick-start/" >
       快速上手
   </a>
 
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/quick-start/install/" >
+      安装
+  </a>
+
 </li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
       
     
       
@@ -375,7 +407,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Kubernetes 网络</span>
+      <span>K8s 网络</span>
     
 
     
@@ -389,8 +421,18 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
+  <a href="/study-k8s/docs/basic/network/port/" >
+      K8s 端口
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
   <a href="/study-k8s/docs/basic/network/kubedns/"  class="active">
-      Kube DNS
+      KubeDNS
   </a>
 
 </li>
@@ -437,7 +479,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Docker</span>
+      
+
+  <a href="/study-k8s/docs/basic/container/docker/" >
+      Docker
+  </a>
+
+
     
 
     
@@ -517,8 +565,104 @@ https://github.com/alex-shpak/hugo-book
     
       
 
+  <a href="/study-k8s/docs/basic/best-practice/" >
+      最佳实践
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/basic/best-practice/spec/" >
+      编程规范
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
   <a href="/study-k8s/docs/basic/version/" >
       版本
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/basic/debug/" >
+      除错
   </a>
 
 
@@ -578,6 +722,84 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>第二部分 设计</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>第三部分 源码实现</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>第四部分 附录</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
       
         
 
@@ -585,8 +807,126 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/study-k8s/docs/basic/spec/" >
-      编程规范
+  <a href="/study-k8s/docs/appendix/tutorial/" >
+      教程
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/appendix/interview/" >
+      面试题
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/appendix/interview/basic/" >
+      基础
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/appendix/interview/advanced/" >
+      进阶
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/appendix/interview/expert/" >
+      高阶
   </a>
 
 
@@ -619,80 +959,6 @@ https://github.com/alex-shpak/hugo-book
 
 
       
-    
-      
-        
-
-  <li >
-    
-      <span>第二部分 进阶</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/study-k8s/docs/advanced/best-practice/" >
-      最佳实践
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      <span>第三部分 设计与实现</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
     
   </ul>
   
@@ -745,7 +1011,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kube DNS</strong>
+  <strong>KubeDNS</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -759,7 +1025,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-dns">Kube DNS</a>
+    <li><a href="#kubedns">KubeDNS</a>
       <ul>
         <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
           <ul>
@@ -780,7 +1046,7 @@ https://github.com/alex-shpak/hugo-book
         </li>
         <li><a href="#kube-dns-">kube-dns 组成</a>
           <ul>
-            <li><a href="#kubedns">kubedns</a></li>
+            <li><a href="#kubedns-1">kubedns</a></li>
             <li><a href="#dnsmasq">dnsmasq</a></li>
             <li><a href="#sidecar">sidecar</a></li>
           </ul>
@@ -799,7 +1065,7 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"><h1 id="kube-dns">Kube DNS</h1>
+<article class="markdown"><h1 id="kubedns">KubeDNS</h1>
 <p>在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件，
 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。</p>
 <pre><code>nameserver 10.99.0.2  # 这里存储的是kube-dns的Service IP
@@ -893,7 +1159,7 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 <p>不会使用集群和宿主机的 DNS 策略，而是和 dnsConfig 配合一起使用，来自定义 DNS 配置，否则在提交修改时报错。</p>
 <h2 id="kube-dns-">kube-dns 组成</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200303235621.png" alt=""></p>
-<h3 id="kubedns">kubedns</h3>
+<h3 id="kubedns-1">kubedns</h3>
 <p>依赖 client-go 中的 informer 机制监视 k8s 中的 Service 和 Endpoint 的变化，并将这些结构维护进内存来服务内部 DNS 解析请求。</p>
 <h3 id="dnsmasq">dnsmasq</h3>
 <p>区分 Domain 是集群内部还是外部，给外部域名提供上游解析，内部域名发往 10053 端口，并将解析结果缓存，提高解析效率。</p>
@@ -913,9 +1179,9 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9c7e65d940f56437d72c0f5bdc8dac1f747a049f" title='Last modified by yewang | 2020-03-04' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/83e45d2b49545117f8d2d7319cc00b642798d6f8" title='Last modified by yewang | 2020-03-06' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-04</span>
+      <span>2020-03-06</span>
     </a>
   </div>
 
@@ -949,7 +1215,7 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-dns">Kube DNS</a>
+    <li><a href="#kubedns">KubeDNS</a>
       <ul>
         <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
           <ul>
@@ -970,7 +1236,7 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
         </li>
         <li><a href="#kube-dns-">kube-dns 组成</a>
           <ul>
-            <li><a href="#kubedns">kubedns</a></li>
+            <li><a href="#kubedns-1">kubedns</a></li>
             <li><a href="#dnsmasq">dnsmasq</a></li>
             <li><a href="#sidecar">sidecar</a></li>
           </ul>

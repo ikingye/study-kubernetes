@@ -10,15 +10,6 @@
     
     
     <item>
-      <title>快速上手</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</guid>
-      <description>Kubernetes 快速上手 架构 概念 安装 简单使用 </description>
-    </item>
-    
-    <item>
       <title>Kubectl</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

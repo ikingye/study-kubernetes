@@ -11,7 +11,7 @@ nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.sv
  /etc/host.conf /etc/hosts /etc/resolv.conf  /etc/resolv.conf resolv.conf 是 Pod 在 dnsPolicy: ClusterFirst 的情况下，k8s 为其自动生成的。 在该 Pod 内请求的所有的域名解析都需要经过 DNS Service 进行解析，不管是集群内部域名还是外部域名。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/" />
-<meta property="article:modified_time" content="2020-03-06T23:30:13+08:00" />
+<meta property="article:modified_time" content="2020-03-16T14:02:51+08:00" />
 <title>KubeDNS | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -1111,9 +1111,9 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/83e45d2b49545117f8d2d7319cc00b642798d6f8" title='Last modified by yewang | 2020-03-06' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4fbbceaa7aa8f6b9fb8ba96df998df1494708a3b" title='Last modified by yewang | 2020-03-16' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-06</span>
+      <span>2020-03-16</span>
     </a>
   </div>
 

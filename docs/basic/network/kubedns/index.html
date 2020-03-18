@@ -953,39 +953,35 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubedns">KubeDNS</a>
+    <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
       <ul>
-        <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
+        <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
+        <li><a href="#nameserver">nameserver</a></li>
+        <li><a href="#search-">search 域</a></li>
+        <li><a href="#options">options</a>
           <ul>
-            <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
-            <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-">search 域</a></li>
-            <li><a href="#options">options</a>
-              <ul>
-                <li><a href="#heading">优化外网域名解析</a></li>
-              </ul>
-            </li>
+            <li><a href="#heading">优化外网域名解析</a></li>
           </ul>
         </li>
-        <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
-        <li><a href="#dnspolicy">dnsPolicy</a>
-          <ul>
-            <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
-            <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
-            <li><a href="#default">Default</a></li>
-            <li><a href="#none">None</a></li>
-          </ul>
-        </li>
-        <li><a href="#kube-dns-">kube-dns 组成</a>
-          <ul>
-            <li><a href="#kubedns-1">kubedns</a></li>
-            <li><a href="#dnsmasq">dnsmasq</a></li>
-            <li><a href="#sidecar">sidecar</a></li>
-          </ul>
-        </li>
-        <li><a href="#-dns-">如何调试 DNS 解析</a></li>
       </ul>
     </li>
+    <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
+    <li><a href="#dnspolicy">dnsPolicy</a>
+      <ul>
+        <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
+        <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
+        <li><a href="#default">Default</a></li>
+        <li><a href="#none">None</a></li>
+      </ul>
+    </li>
+    <li><a href="#kube-dns-">kube-dns 组成</a>
+      <ul>
+        <li><a href="#kubedns-1">kubedns</a></li>
+        <li><a href="#dnsmasq">dnsmasq</a></li>
+        <li><a href="#sidecar">sidecar</a></li>
+      </ul>
+    </li>
+    <li><a href="#-dns-">如何调试 DNS 解析</a></li>
   </ul>
 </nav>
 
@@ -1147,39 +1143,35 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubedns">KubeDNS</a>
+    <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
       <ul>
-        <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
+        <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
+        <li><a href="#nameserver">nameserver</a></li>
+        <li><a href="#search-">search 域</a></li>
+        <li><a href="#options">options</a>
           <ul>
-            <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
-            <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-">search 域</a></li>
-            <li><a href="#options">options</a>
-              <ul>
-                <li><a href="#heading">优化外网域名解析</a></li>
-              </ul>
-            </li>
+            <li><a href="#heading">优化外网域名解析</a></li>
           </ul>
         </li>
-        <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
-        <li><a href="#dnspolicy">dnsPolicy</a>
-          <ul>
-            <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
-            <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
-            <li><a href="#default">Default</a></li>
-            <li><a href="#none">None</a></li>
-          </ul>
-        </li>
-        <li><a href="#kube-dns-">kube-dns 组成</a>
-          <ul>
-            <li><a href="#kubedns-1">kubedns</a></li>
-            <li><a href="#dnsmasq">dnsmasq</a></li>
-            <li><a href="#sidecar">sidecar</a></li>
-          </ul>
-        </li>
-        <li><a href="#-dns-">如何调试 DNS 解析</a></li>
       </ul>
     </li>
+    <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
+    <li><a href="#dnspolicy">dnsPolicy</a>
+      <ul>
+        <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
+        <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
+        <li><a href="#default">Default</a></li>
+        <li><a href="#none">None</a></li>
+      </ul>
+    </li>
+    <li><a href="#kube-dns-">kube-dns 组成</a>
+      <ul>
+        <li><a href="#kubedns-1">kubedns</a></li>
+        <li><a href="#dnsmasq">dnsmasq</a></li>
+        <li><a href="#sidecar">sidecar</a></li>
+      </ul>
+    </li>
+    <li><a href="#-dns-">如何调试 DNS 解析</a></li>
   </ul>
 </nav>
 

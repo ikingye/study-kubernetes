@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.69eb06f589178a4f912676534706f5360b1569f84221be21d600fcbc1d8efb01.js" integrity="sha256-aesG9YkXik&#43;RJnZTRwb1NgsVafhCIb4h1gD8vB2O&#43;wE="></script>
+<script defer src="/study-k8s/en.search.min.6243ce9e34386535379f15756c7c7fad397d4525430bf5fc916ccd9219236198.js" integrity="sha256-YkPOnjQ4ZTU3nxV1bHx/rTl9RSVDC/X8kWzNkhkjYZg="></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/appendix/interview/index.xml" title="Kubernetes 学习笔记" />
 <!--
@@ -835,7 +835,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>面试题</span>
+      
+
+  <a href="/study-k8s/docs/appendix/interview/"  class="active">
+      面试题
+  </a>
+
+
     
 
     
@@ -949,7 +955,11 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">面试题</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -959,7 +969,65 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="heading">面试题</h1>
+<p>头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义
+算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。
+人选反馈：面试官会抓住一个点一直追问，问的比较细。</p>
+<p>头条人选二（两周前面试 paas 平台开发工程师）
+一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树
+4.10 亿个数字排序 5.大型企业的上线流程
+二面
+连续子数组的最大和
+链表回文
+三面
+基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。</p>
+<p>头条人选三（面试基础架构部门容器岗位）</p>
+<ol>
+<li>系统
+（Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络
+TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法</li>
+<li>数据库
+MyISAM 和 InnoDB 的简单区别</li>
+<li>Docker/K8s
+CGroup 如何做 cpu 的资源限制，哪几种限制方式
+K8s 中的 request 和 limit 是如何实现的
+K8s 中的 rc、rs、deployment 的区别，特点 5.算法
+合并两个有序链表</li>
+</ol>
+<p>头条人选四（基础架构部门研发）
+docker pull 镜像原理<br>
+registry 镜像存储原理<br>
+k8s deployment 创建过程<br>
+gpu 资源共享<br>
+scheduler 工作原理<br>
+docker 架构<br>
+docker exec 过程<br>
+goroutine 挂起<br>
+实现阻塞队列<br>
+项目<br>
+linux 进程调度<br>
+http 请求过程<br>
+tcp 建立连接和断开连接<br>
+goroutine 原理<br>
+flannel 工作原理</p>
+<p>头条人选五（devops 偏容器的人选）
+服务器负载是怎么计算的
+如何查看服务执行卡住时服务器做了哪些事
+查看进程打开哪些文件，查看哪些进程打开文件多
+docker 网络模式有几种 分别是做什么
+浏览器输入域名到返回结果过程
+DNS 使用了什么协议，为什么要用这种协议
+tcp 协议如何保证传输安全
+timewait 状态的前后过程以及 timewait 过多时怎么处理 怎么优化
+K8S 是怎么调度的
+iptables 主要有哪些链和哪些表，分别是做什么用
+docker 会调用 iptables 的哪些链
+常驻空间和虚拟空间有什么区别
+网络加速或者网络优化是怎么来做的，服务端和客户端分别可以做哪些
+动态 CDN 和静态 CDN 的区别
+算法题：
+求两个文本文件的交集，并输出，比如 ABC 在 a.txt 有 5 行，在 b.txt 有 3 行 那么在结果文件中输出 3 行</p>
+</article>
  
       
 
@@ -971,9 +1039,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/98873811ceda604c9410c887787db1a17cd4da15" title='Last modified by yewang | 2020-03-06' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/00a3f697b9c985e0e7e83bee6f63f61b0ed9d3c1" title='Last modified by yewang | 2020-03-30' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-06</span>
+      <span>2020-03-30</span>
     </a>
   </div>
 
@@ -983,6 +1051,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-k8s"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
   
  
       </footer>
@@ -994,7 +1073,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">面试题</a></li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -15,11 +15,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/network/port/</guid>
-      <description>K8s 端口 总的来说，port 和 nodePort 都是 service 的端口，前者暴露给集群内客户访问服务，后者暴露给集群外客户访问服务。从这两个端口到来的数据都需要经过反向代理 kube-proxy 流入后端 pod 的 targetPod，从而到达 pod 上的容器内。
-pod 模板 作用类似于 docker -p 选项 containerPort: 容器需要暴露的端口 hostPort: 容器暴露的端口映射到的主机端口
-service (ClusterIP) port: service 中 clusterIP 对应的端口 targetPort: clusterIP 作为负载均衡， 后端目标实例 (容器) 的端口
-service (NodePort) nodePort: cluster ip 只能集群内部访问 (源与目标需要满足两个条件: kube-proxy 正常运行，跨主机容器网络通信正常)， nodePort 会在每个 kubelet 节点的宿主机开启一个端口，用于应用集群外部访问
-nodePort 到 clusterIP 的映射，是 kube-proxy 实现的。</description>
+      <description>K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port   nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &amp;lt;hostIP, hostPort, protocol&amp;gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.</description>
     </item>
     
     <item>

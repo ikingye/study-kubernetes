@@ -8,12 +8,12 @@
 <meta property="og:description" content="关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
 kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
 一般用于本地开发、测试和学习，不能用于生产环境
-kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  其他 kubeflow/kubeflow  Machine Learning Toolkit for Kubernetes
-alauda/kube-ovn  A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations https://kube-ovn.io
-rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。" />
+kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  其他 ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
+kubeflow/kubeflow  Machine Learning Toolkit for Kubernetes
+alauda/kube-ovn  A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations https://kube-ovn." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/appendix/attention/" />
-<meta property="article:modified_time" content="2020-04-02T23:30:55+08:00" />
+<meta property="article:modified_time" content="2020-04-03T02:07:06+08:00" />
 <title>关注 | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -21,7 +21,7 @@ rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实�
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.4fab2ee08c101331e44762b2deb03ca8e6decc07d1fbba024ea5d33a3cdd186a.js" integrity="sha256-T6su4IwQEzHkR2Ky3rA8qObezAfR&#43;7oCTqXTOjzdGGo="></script>
+<script defer src="/study-k8s/en.search.min.d1dd3d5619c52225d3b3f19860cd0349b73e770fe90d1c53589d1f87630692f6.js" integrity="sha256-0d09VhnFIiXTs/GYYM0DSbc&#43;dw/pDRxTWJ0fh2MGkvY="></script>
 
 <!--
 Made with Book Theme
@@ -1052,6 +1052,7 @@ https://github.com/alex-shpak/hugo-book
         </li>
         <li><a href="#heading-1">其他</a>
           <ul>
+            <li><a href="#ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg">ubuntu/microk8s </a></li>
             <li><a href="#kubeflowkubeflowhttpsgithubcomkubeflowkubeflow-httpsimgshieldsiogithubstarskubeflowkubeflowsvg">kubeflow/kubeflow </a></li>
             <li><a href="#alaudakube-ovnhttpsgithubcomalaudakube-ovn-httpsimgshieldsiogithubstarsalaudakube-ovnsvg">alauda/kube-ovn </a></li>
             <li><a href="#rancherrancherhttpsgithubcomrancherrancher-httpsimgshieldsiogithubstarsrancherranchersvg">rancher/rancher </a></li>
@@ -1086,6 +1087,8 @@ https://github.com/alex-shpak/hugo-book
 <li>kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群</li>
 </ul>
 <h2 id="heading-1">其他</h2>
+<h3 id="ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">ubuntu/microk8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt=""></h3>
+<p>MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. <a href="https://microk8s.io">https://microk8s.io</a></p>
 <h3 id="kubeflowkubeflowhttpsgithubcomkubeflowkubeflow-httpsimgshieldsiogithubstarskubeflowkubeflowsvg"><a href="https://github.com/kubeflow/kubeflow">kubeflow/kubeflow</a> <img src="https://img.shields.io/github/stars/kubeflow/kubeflow.svg" alt=""></h3>
 <p>Machine Learning Toolkit for Kubernetes</p>
 <h3 id="alaudakube-ovnhttpsgithubcomalaudakube-ovn-httpsimgshieldsiogithubstarsalaudakube-ovnsvg"><a href="https://github.com/alauda/kube-ovn">alauda/kube-ovn</a> <img src="https://img.shields.io/github/stars/alauda/kube-ovn.svg" alt=""></h3>
@@ -1109,9 +1112,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/3abe54fb1409ac1860de24d25028f6dd77b022b9" title='Last modified by yewang | 2020-04-02' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/7ca24f06351cf1c8d22fbad7e3a082861ba92744" title='Last modified by yewang | 2020-04-03' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-04-02</span>
+      <span>2020-04-03</span>
     </a>
   </div>
 
@@ -1156,6 +1159,7 @@ https://github.com/alex-shpak/hugo-book
         </li>
         <li><a href="#heading-1">其他</a>
           <ul>
+            <li><a href="#ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg">ubuntu/microk8s </a></li>
             <li><a href="#kubeflowkubeflowhttpsgithubcomkubeflowkubeflow-httpsimgshieldsiogithubstarskubeflowkubeflowsvg">kubeflow/kubeflow </a></li>
             <li><a href="#alaudakube-ovnhttpsgithubcomalaudakube-ovn-httpsimgshieldsiogithubstarsalaudakube-ovnsvg">alauda/kube-ovn </a></li>
             <li><a href="#rancherrancherhttpsgithubcomrancherrancher-httpsimgshieldsiogithubstarsrancherranchersvg">rancher/rancher </a></li>

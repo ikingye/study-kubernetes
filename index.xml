@@ -54,7 +54,7 @@ nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.sv
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/quick-start/install/</guid>
-      <description>Kubernetes 安装 Minikube Docker Desktop MicroK8s </description>
+      <description>Kubernetes 安装 安装方式对比 MacOS  Minikube  Pros:  Mature solution Works on Windows (any version and edition), Mac and Linux Multiple drivers that can match any environment Installs several plugins (such as dashboard) by default Very flexible on installation requirements and upgrades  Cons:  Installation and removal not as streamlined as other solutions Does not integrate into the MacOS UI  Docker Desktop Pros:  Very easy installation for beginners All-in-one Docker and Kubernetes solution Configurable via UI  Cons:  Relatively new, possibly unstable Limited configuration options (i.</description>
     </item>
     
     <item>
@@ -156,9 +156,9 @@ kubectl create configmap [NAME] [DATA]
       <description>关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
 kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
 一般用于本地开发、测试和学习，不能用于生产环境
-kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  其他 kubeflow/kubeflow  Machine Learning Toolkit for Kubernetes
-alauda/kube-ovn  A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations https://kube-ovn.io
-rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。</description>
+kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  其他 ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
+kubeflow/kubeflow  Machine Learning Toolkit for Kubernetes
+alauda/kube-ovn  A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations https://kube-ovn.</description>
     </item>
     
   </channel>

@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="安装"><meta property="og:title" content="安装" />
-<meta property="og:description" content="Kubernetes 安装 Minikube Docker Desktop MicroK8s " />
+<meta property="og:description" content="Kubernetes 安装 安装方式对比 MacOS  Minikube  Pros:  Mature solution Works on Windows (any version and edition), Mac and Linux Multiple drivers that can match any environment Installs several plugins (such as dashboard) by default Very flexible on installation requirements and upgrades  Cons:  Installation and removal not as streamlined as other solutions Does not integrate into the MacOS UI  Docker Desktop Pros:  Very easy installation for beginners All-in-one Docker and Kubernetes solution Configurable via UI  Cons:  Relatively new, possibly unstable Limited configuration options (i." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/quick-start/install/" />
-<meta property="article:modified_time" content="2020-03-16T14:02:51+08:00" />
+<meta property="article:modified_time" content="2020-04-03T02:07:06+08:00" />
 <title>安装 | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.4fab2ee08c101331e44762b2deb03ca8e6decc07d1fbba024ea5d33a3cdd186a.js" integrity="sha256-T6su4IwQEzHkR2Ky3rA8qObezAfR&#43;7oCTqXTOjzdGGo="></script>
+<script defer src="/study-k8s/en.search.min.d1dd3d5619c52225d3b3f19860cd0349b73e770fe90d1c53589d1f87630692f6.js" integrity="sha256-0d09VhnFIiXTs/GYYM0DSbc&#43;dw/pDRxTWJ0fh2MGkvY="></script>
 
 <!--
 Made with Book Theme
@@ -1038,9 +1038,13 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubernetes-">Kubernetes 安装</a>
       <ul>
-        <li><a href="#minikube">Minikube</a></li>
-        <li><a href="#docker-desktop">Docker Desktop</a></li>
-        <li><a href="#microk8s">MicroK8s</a></li>
+        <li><a href="#heading">安装方式对比</a></li>
+        <li><a href="#heading-1">参考</a>
+          <ul>
+            <li><a href="#kubernetesminikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg">kubernetes/minikube </a></li>
+            <li><a href="#ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg">ubuntu/microk8s </a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1055,9 +1059,129 @@ https://github.com/alex-shpak/hugo-book
       
       
 <article class="markdown"><h1 id="kubernetes-">Kubernetes 安装</h1>
-<h2 id="minikube">Minikube</h2>
+<h2 id="heading">安装方式对比</h2>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="hidden" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+  <label for="tabs-uniqueid-0">
+    MacOS
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    <h2 id="minikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt=""></h2>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Mature solution</li>
+<li>Works on Windows (any version and edition), Mac and Linux</li>
+<li>Multiple drivers that can match any environment</li>
+<li>Installs several plugins (such as dashboard) by default</li>
+<li>Very flexible on installation requirements and upgrades</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Installation and removal not as streamlined as other solutions</li>
+<li>Does not integrate into the MacOS UI</li>
+</ul>
 <h2 id="docker-desktop">Docker Desktop</h2>
-<h2 id="microk8s">MicroK8s</h2>
+<h3 id="pros-1">Pros:</h3>
+<ul>
+<li>Very easy installation for beginners</li>
+<li>All-in-one Docker and Kubernetes solution</li>
+<li>Configurable via UI</li>
+</ul>
+<h3 id="cons-1">Cons:</h3>
+<ul>
+<li>Relatively new, possibly unstable</li>
+<li>Limited configuration options (i.e. driver support)</li>
+</ul>
+<h2 id="heading">参考</h2>
+<ul>
+<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-mac-minikube-vs-docker-desktop/">Local Kubernetes for Mac– MiniKube vs Docker Desktop</a></li>
+</ul>
+  </div><input type="radio" class="hidden" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
+  <label for="tabs-uniqueid-1">
+    Linux
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    <h2 id="minikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt=""></h2>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Mature solution</li>
+<li>Works on Windows (any version and edition), Mac and Linux</li>
+<li>Multiple drivers that can match any environment</li>
+<li>Can work with or without an intermediate VM on Linux (vmdriver=none)</li>
+<li>Installs several plugins (such as dashboard) by default</li>
+<li>Very flexible on installation requirements and upgrades</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Installation and removal not as streamlined as other solutions</li>
+<li>Can conflict with local installation of other tools (such as Virtualbox)</li>
+</ul>
+<h2 id="microk8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">MicroK8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt=""></h2>
+<h3 id="pros-1">Pros:</h3>
+<ul>
+<li>Very easy to install, upgrade, remove</li>
+<li>Completely isolated from other tools in your machine</li>
+<li>Does not need a VM, all services run locally</li>
+</ul>
+<h3 id="cons-1">Cons:</h3>
+<ul>
+<li>Only available for Snap supported Linux Distributions</li>
+<li>Relatively new, possible unstable</li>
+<li>Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished</li>
+</ul>
+<h2 id="heading">参考</h2>
+<ul>
+<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-linux-minikube-vs-microk8s/">Local Kubernetes for Linux – MiniKube vs MicroK8s</a></li>
+</ul>
+  </div><input type="radio" class="hidden" name="tabs-uniqueid" id="tabs-uniqueid-2"  />
+  <label for="tabs-uniqueid-2">
+    Windows
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    <h2 id="minikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt=""></h2>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Mature solution</li>
+<li>Works on Windows (any version and edition), Mac and Linux</li>
+<li>Multiple drivers that can match any environment</li>
+<li>Can work with or without an intermediate VM on Linux (vmdriver=none)</li>
+<li>Installs several plugins (such as dashboard) by default</li>
+<li>Very flexible on installation requirements and upgrades</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Installation and removal not as streamlined as other solutions</li>
+<li>Can conflict with local installation of other tools (such as Virtualbox)</li>
+</ul>
+<h2 id="docker-desktop">Docker Desktop</h2>
+<h3 id="pros-1">Pros:</h3>
+<ul>
+<li>Very easy installation for beginners</li>
+<li>The best solution for running Windows containers</li>
+<li>Integrated Docker and Kubernetes solution</li>
+</ul>
+<h3 id="cons-1">Cons:</h3>
+<ul>
+<li>Requires Windows 10 Pro edition and Hyper V</li>
+<li>Cannot use simultaneously with Virtualbox, Vagrant etc</li>
+<li>Relatively new, possibly unstable</li>
+<li>The sole solution for running Windows containers</li>
+</ul>
+<h2 id="heading">参考</h2>
+<ul>
+<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-windows-minikube-vs-docker-desktop/">Local Kubernetes for Windows – MiniKube vs Docker Desktop</a></li>
+</ul>
+  </div></div>
+
+<h2 id="heading-1">参考</h2>
+<h3 id="kubernetesminikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">kubernetes/minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt=""></h3>
+<p>Run Kubernetes locally
+<a href="https://minikube.sigs.k8s.io/">https://minikube.sigs.k8s.io</a></p>
+<h3 id="ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">ubuntu/microk8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt=""></h3>
+<p>MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. <a href="https://microk8s.io">https://microk8s.io</a></p>
 </article>
  
       
@@ -1070,9 +1194,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4fbbceaa7aa8f6b9fb8ba96df998df1494708a3b" title='Last modified by yewang | 2020-03-16' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/7ca24f06351cf1c8d22fbad7e3a082861ba92744" title='Last modified by yewang | 2020-04-03' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-16</span>
+      <span>2020-04-03</span>
     </a>
   </div>
 
@@ -1108,9 +1232,13 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubernetes-">Kubernetes 安装</a>
       <ul>
-        <li><a href="#minikube">Minikube</a></li>
-        <li><a href="#docker-desktop">Docker Desktop</a></li>
-        <li><a href="#microk8s">MicroK8s</a></li>
+        <li><a href="#heading">安装方式对比</a></li>
+        <li><a href="#heading-1">参考</a>
+          <ul>
+            <li><a href="#kubernetesminikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg">kubernetes/minikube </a></li>
+            <li><a href="#ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg">ubuntu/microk8s </a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

@@ -15,7 +15,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/quick-start/install/</guid>
-      <description>Kubernetes 安装 Minikube Docker Desktop MicroK8s </description>
+      <description>Kubernetes 安装 安装方式对比 MacOS  Minikube  Pros:  Mature solution Works on Windows (any version and edition), Mac and Linux Multiple drivers that can match any environment Installs several plugins (such as dashboard) by default Very flexible on installation requirements and upgrades  Cons:  Installation and removal not as streamlined as other solutions Does not integrate into the MacOS UI  Docker Desktop Pros:  Very easy installation for beginners All-in-one Docker and Kubernetes solution Configurable via UI  Cons:  Relatively new, possibly unstable Limited configuration options (i.</description>
     </item>
     
   </channel>

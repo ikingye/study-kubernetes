@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="第二部分 设计"><meta property="og:title" content="第二部分 设计" />
+<meta name="description" content="MiniKube"><meta property="og:title" content="MiniKube" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/design/" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/tool/minikube/" />
 
-<title>第二部分 设计 | Kubernetes 学习笔记</title>
+<title>MiniKube | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +18,7 @@
 
 <script defer src="/study-k8s/en.search.min.4fab2ee08c101331e44762b2deb03ca8e6decc07d1fbba024ea5d33a3cdd186a.js" integrity="sha256-T6su4IwQEzHkR2Ky3rA8qObezAfR&#43;7oCTqXTOjzdGGo="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/design/index.xml" title="Kubernetes 学习笔记" />
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/tool/minikube/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -755,7 +755,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/study-k8s/docs/basic/tool/minikube/" >
+  <a href="/study-k8s/docs/basic/tool/minikube/"  class="active">
       MiniKube
   </a>
 
@@ -1023,7 +1023,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>第二部分 设计</strong>
+  <strong>MiniKube</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -1035,7 +1035,16 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#minikube">MiniKube</a>
+      <ul>
+        <li><a href="#heading">安装</a></li>
+        <li><a href="#heading-1">启动</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -1045,7 +1054,64 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="minikube">MiniKube</h1>
+<h2 id="heading">安装</h2>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="hidden" name="tabs-install" id="tabs-install-0" checked="checked" />
+  <label for="tabs-install-0">
+    MacOS
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    <h2 id="1-install-kubectlhttpskubernetesiodocstaskstoolsinstall-kubectlinstall-kubectl-on-macos">1. <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos">Install kubectl</a></h2>
+<hr>
+<h2 id="2-install-a-hypervisor">2. Install a Hypervisor</h2>
+<ul>
+<li>HyperKit</li>
+<li>VirtualBox</li>
+<li>VMware Fusion</li>
+</ul>
+<hr>
+<h2 id="3-install-minikube">3. Install Minikube</h2>
+<h3 id="homebrew">Homebrew</h3>
+<p><code>brew install minikube</code></p>
+<h3 id="curl">curl</h3>
+<pre><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+  &amp;&amp; chmod +x minikube
+
+sudo mv minikube /usr/local/bin
+</code></pre>
+  </div><input type="radio" class="hidden" name="tabs-install" id="tabs-install-1"  />
+  <label for="tabs-install-1">
+    Linux
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    
+  </div><input type="radio" class="hidden" name="tabs-install" id="tabs-install-2"  />
+  <label for="tabs-install-2">
+    Windows
+  </label>
+  <div class="book-tabs-content markdown-inner">
+    
+  </div></div>
+
+<p>参考：<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></p>
+<h2 id="heading-1">启动</h2>
+<ul>
+<li>
+<p><code>minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers</code></p>
+</li>
+<li>
+<p><code>minikube start --cpus=2 --disk-size='10g' --image-mirror-country='cn' --image-repository='registry.cn-hangzhou.aliyuncs.com/google_containers'</code></p>
+</li>
+<li>
+<p><code>minikube start --image-mirror-country='cn' --registry-mirror=https://registry.docker-cn.com</code>
+<img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200402172243.png" alt=""></p>
+</li>
+</ul>
+</article>
  
       
 
@@ -1057,9 +1123,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/83e45d2b49545117f8d2d7319cc00b642798d6f8" title='Last modified by yewang | 2020-03-06' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/3abe54fb1409ac1860de24d25028f6dd77b022b9" title='Last modified by yewang | 2020-04-02' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-06</span>
+      <span>2020-04-02</span>
     </a>
   </div>
 
@@ -1069,6 +1135,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-k8s"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
   
  
       </footer>
@@ -1080,7 +1157,16 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#minikube">MiniKube</a>
+      <ul>
+        <li><a href="#heading">安装</a></li>
+        <li><a href="#heading-1">启动</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -34,7 +34,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</loc>
-    <lastmod>2020-03-16T14:02:51+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -49,7 +49,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</loc>
-    <lastmod>2020-03-30T18:15:14+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -79,7 +79,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</loc>
-    <lastmod>2020-03-16T14:02:51+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -119,7 +119,12 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</loc>
-    <lastmod>2020-03-16T14:02:51+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/kubeadm/</loc>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -139,7 +144,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -174,12 +179,17 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/minikube/</loc>
-    <lastmod>2020-04-02T23:30:55+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/attention/</loc>
-    <lastmod>2020-04-03T02:07:06+08:00</lastmod>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/docker/attention/</loc>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>
@@ -195,6 +205,11 @@
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/debug/</loc>
     <lastmod>2020-03-06T23:30:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/container/docker/tutorial/</loc>
+    <lastmod>2020-04-03T14:35:01+08:00</lastmod>
   </url>
   
   <url>

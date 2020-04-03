@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="API 资源"><meta property="og:title" content="API 资源" />
+<meta name="description" content="API 对象"><meta property="og:title" content="API 对象" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/resource/" />
 
-<title>API 资源 | Kubernetes 学习笔记</title>
+<title>API 对象 | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.d1dd3d5619c52225d3b3f19860cd0349b73e770fe90d1c53589d1f87630692f6.js" integrity="sha256-0d09VhnFIiXTs/GYYM0DSbc&#43;dw/pDRxTWJ0fh2MGkvY="></script>
+<script defer src="/study-k8s/en.search.min.2db7f988016dd7f36cfad8d0c3ed60aa9d747b73e519f103ca5336dbc35f51f3.js" integrity="sha256-Lbf5iAFt1/Ns&#43;tjQw&#43;1gqp10e3PlGfEDylM228NfUfM="></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/resource/index.xml" title="Kubernetes 学习笔记" />
 <!--
@@ -339,7 +339,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>API 资源</span>
+      
+
+  <a href="/study-k8s/docs/basic/resource/"  class="active">
+      API 对象
+  </a>
+
+
     
 
     
@@ -568,6 +574,26 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/attention/" >
+      关注
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/tutorial/" >
+      Docker 教程
+  </a>
+
+</li>
+      
+    
   </ul>
   
 
@@ -739,13 +765,67 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-        <li>
+        
+
+  <li >
+    
+      
 
   <a href="/study-k8s/docs/basic/tool/helm/" >
       Helm
   </a>
 
-</li>
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/basic/tool/kubeadm/" >
+      Kubeadm
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
       
     
       
@@ -1023,7 +1103,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>API 资源</strong>
+  <strong>API 对象</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -1035,7 +1115,16 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#api-">API 对象</a>
+      <ul>
+        <li><a href="#-api">声明式 API</a></li>
+        <li><a href="#heading">控制器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -1045,7 +1134,21 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="api-">API 对象</h1>
+<h2 id="-api">声明式 API</h2>
+<ul>
+<li>提交一个定义好的 API 对象来 “声明”</li>
+<li>启动一个对应的控制器进行调谐 / 编排</li>
+</ul>
+<h2 id="heading">控制器</h2>
+<p>一个 Kubernetes 的控制器，实际上就是一个死循环：</p>
+<ul>
+<li>不断地获取 “实际状态”，</li>
+<li>然后与 “期望状态” 作对比，</li>
+<li>并以此为依据决定下一步的操作</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200403112802.png" alt=""></p>
+</article>
  
       
 
@@ -1057,9 +1160,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4c4d9d5d293e3ab8791dd3b819bd86deed01ed79" title='Last modified by yewang | 2020-03-02' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/493ca0e268a7b43d10330f2c41ffd9f4db711155" title='Last modified by yewang | 2020-04-03' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-02</span>
+      <span>2020-04-03</span>
     </a>
   </div>
 
@@ -1069,6 +1172,17 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-k8s"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
   
  
       </footer>
@@ -1080,7 +1194,16 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#api-">API 对象</a>
+      <ul>
+        <li><a href="#-api">声明式 API</a></li>
+        <li><a href="#heading">控制器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

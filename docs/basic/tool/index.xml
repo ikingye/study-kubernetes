@@ -9,15 +9,5 @@
 	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/tool/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Helm</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/tool/helm/</guid>
-      <description>Helm  Helm is the best way to find, share, and use software built for Kubernetes.
- 官网：https://helm.sh</description>
-    </item>
-    
   </channel>
 </rss>

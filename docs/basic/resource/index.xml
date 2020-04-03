@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>API 资源 on Kubernetes 学习笔记</title>
+    <title>API 对象 on Kubernetes 学习笔记</title>
     <link>https://ikingye.github.io/study-k8s/docs/basic/resource/</link>
-    <description>Recent content in API 资源 on Kubernetes 学习笔记</description>
+    <description>Recent content in API 对象 on Kubernetes 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/resource/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +15,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</guid>
-      <description>Pod </description>
+      <description>Pod Infra 容器 使用镜像：k8s.gcr.io/pause
+这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
+Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
+下表展示了在调试 Init 容器时可能见到的状态值。
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。</description>
     </item>
     
     <item>

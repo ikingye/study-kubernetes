@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Helm"><meta property="og:title" content="Helm" />
-<meta property="og:description" content="Helm  Helm is the best way to find, share, and use software built for Kubernetes.
- 官网：https://helm.sh" />
-<meta property="og:type" content="article" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/tool/helm/" />
-<meta property="article:modified_time" content="2020-03-16T14:02:51+08:00" />
+
 <title>Helm | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -17,8 +16,9 @@
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.d1dd3d5619c52225d3b3f19860cd0349b73e770fe90d1c53589d1f87630692f6.js" integrity="sha256-0d09VhnFIiXTs/GYYM0DSbc&#43;dw/pDRxTWJ0fh2MGkvY="></script>
+<script defer src="/study-k8s/en.search.min.2db7f988016dd7f36cfad8d0c3ed60aa9d747b73e519f103ca5336dbc35f51f3.js" integrity="sha256-Lbf5iAFt1/Ns&#43;tjQw&#43;1gqp10e3PlGfEDylM228NfUfM="></script>
 
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/tool/helm/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -339,7 +339,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>API 资源</span>
+      
+
+  <a href="/study-k8s/docs/basic/resource/" >
+      API 对象
+  </a>
+
+
     
 
     
@@ -568,6 +574,26 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/attention/" >
+      关注
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/tutorial/" >
+      Docker 教程
+  </a>
+
+</li>
+      
+    
   </ul>
   
 
@@ -739,13 +765,67 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-        <li>
+        
+
+  <li >
+    
+      
 
   <a href="/study-k8s/docs/basic/tool/helm/"  class="active">
       Helm
   </a>
 
-</li>
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/basic/tool/kubeadm/" >
+      Kubeadm
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
       
     
       
@@ -1037,7 +1117,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#helm">Helm</a></li>
+    <li><a href="#helmhttpsgithubcomhelmhelm-httpsimgshieldsiogithubstarshelmhelmsvg">Helm </a></li>
   </ul>
 </nav>
 
@@ -1049,11 +1129,20 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"><h1 id="helm">Helm</h1>
+<article class="markdown"><h1 id="helmhttpsgithubcomhelmhelm-httpsimgshieldsiogithubstarshelmhelmsvg"><a href="https://github.com/helm/helm">Helm</a> <img src="https://img.shields.io/github/stars/helm/helm.svg" alt=""></h1>
 <blockquote>
 <p>Helm is the best way to find, share, and use software built for Kubernetes.</p>
 </blockquote>
 <p>官网：<a href="https://helm.sh/">https://helm.sh</a></p>
+<p>Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.</p>
+<p>Use Helm to:</p>
+<ul>
+<li>Find and use popular software packaged as Helm Charts to run in Kubernetes</li>
+<li>Share your own applications as Helm Charts</li>
+<li>Create reproducible builds of your Kubernetes applications</li>
+<li>Intelligently manage your Kubernetes manifest files</li>
+<li>Manage releases of Helm packages</li>
+</ul>
 </article>
  
       
@@ -1066,9 +1155,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4fbbceaa7aa8f6b9fb8ba96df998df1494708a3b" title='Last modified by yewang | 2020-03-16' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/493ca0e268a7b43d10330f2c41ffd9f4db711155" title='Last modified by yewang | 2020-04-03' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-16</span>
+      <span>2020-04-03</span>
     </a>
   </div>
 
@@ -1102,7 +1191,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#helm">Helm</a></li>
+    <li><a href="#helmhttpsgithubcomhelmhelm-httpsimgshieldsiogithubstarshelmhelmsvg">Helm </a></li>
   </ul>
 </nav>
 

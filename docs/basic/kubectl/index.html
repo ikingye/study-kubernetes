@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kubectl"><meta property="og:title" content="Kubectl" />
-<meta property="og:description" content="Kubectl 常用命令 kubectl get  获取 service ip, port  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39; 参考 kubectl Cheat Sheet " />
+<meta property="og:description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  参考 kubectl Cheat Sheet " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/kubectl/" />
-<meta property="article:modified_time" content="2020-03-16T14:02:51+08:00" />
+<meta property="article:modified_time" content="2020-04-03T14:35:01+08:00" />
 <title>Kubectl | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.33dd7934182d4abfe269db67d0d9821bdd866c149d8327944bc47573db5a4d82.css" integrity="sha256-M915NBgtSr/iadtn0NmCG92GbBSdgyeUS8R1c9taTYI=">
 
 
-<script defer src="/study-k8s/en.search.min.d1dd3d5619c52225d3b3f19860cd0349b73e770fe90d1c53589d1f87630692f6.js" integrity="sha256-0d09VhnFIiXTs/GYYM0DSbc&#43;dw/pDRxTWJ0fh2MGkvY="></script>
+<script defer src="/study-k8s/en.search.min.2db7f988016dd7f36cfad8d0c3ed60aa9d747b73e519f103ca5336dbc35f51f3.js" integrity="sha256-Lbf5iAFt1/Ns&#43;tjQw&#43;1gqp10e3PlGfEDylM228NfUfM="></script>
 
 <!--
 Made with Book Theme
@@ -338,7 +338,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>API 资源</span>
+      
+
+  <a href="/study-k8s/docs/basic/resource/" >
+      API 对象
+  </a>
+
+
     
 
     
@@ -567,6 +573,26 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/attention/" >
+      关注
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/study-k8s/docs/basic/container/docker/tutorial/" >
+      Docker 教程
+  </a>
+
+</li>
+      
+    
   </ul>
   
 
@@ -738,13 +764,67 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-        <li>
+        
+
+  <li >
+    
+      
 
   <a href="/study-k8s/docs/basic/tool/helm/" >
       Helm
   </a>
 
-</li>
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/study-k8s/docs/basic/tool/kubeadm/" >
+      Kubeadm
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
       
     
       
@@ -1038,9 +1118,11 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubectl">Kubectl</a>
       <ul>
-        <li><a href="#heading">常用命令</a>
+        <li><a href="#heading">集群信息查询</a></li>
+        <li><a href="#node">node</a></li>
+        <li><a href="#heading-1">常用操作</a>
           <ul>
-            <li><a href="#kubectl-get">kubectl get</a></li>
+            <li><a href="#-service-ip-port">获取 service ip, port</a></li>
           </ul>
         </li>
         <li><a href="#-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 kubectl Cheat Sheet</a></li>
@@ -1058,13 +1140,21 @@ https://github.com/alex-shpak/hugo-book
       
       
 <article class="markdown"><h1 id="kubectl">Kubectl</h1>
-<h2 id="heading">常用命令</h2>
-<h3 id="kubectl-get">kubectl get</h3>
+<h2 id="heading">集群信息查询</h2>
 <ul>
-<li>获取 service ip, port</li>
+<li><code>kubectl cluster-info</code></li>
 </ul>
+<h2 id="node">node</h2>
+<ul>
+<li><code>kubectl get nodes</code></li>
+<li><code>kubectl describe node</code></li>
+</ul>
+<hr>
+<h2 id="heading-1">常用操作</h2>
+<h3 id="-service-ip-port">获取 service ip, port</h3>
 <pre><code>kubectl get service/servicename -o jsonpath='{.spec.clusterIP}:{.spec.ports[*].port}'
-</code></pre><h2 id="-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></h2>
+</code></pre><hr>
+<h2 id="-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></h2>
 </article>
  
       
@@ -1077,9 +1167,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4fbbceaa7aa8f6b9fb8ba96df998df1494708a3b" title='Last modified by yewang | 2020-03-16' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/493ca0e268a7b43d10330f2c41ffd9f4db711155" title='Last modified by yewang | 2020-04-03' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-16</span>
+      <span>2020-04-03</span>
     </a>
   </div>
 
@@ -1115,9 +1205,11 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubectl">Kubectl</a>
       <ul>
-        <li><a href="#heading">常用命令</a>
+        <li><a href="#heading">集群信息查询</a></li>
+        <li><a href="#node">node</a></li>
+        <li><a href="#heading-1">常用操作</a>
           <ul>
-            <li><a href="#kubectl-get">kubectl get</a></li>
+            <li><a href="#-service-ip-port">获取 service ip, port</a></li>
           </ul>
         </li>
         <li><a href="#-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 kubectl Cheat Sheet</a></li>

@@ -16,11 +16,11 @@
       
       <guid>https://ikingye.github.io/study-k8s/docs/appendix/attention/</guid>
       <description>关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
-kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
+安装 kubernetes kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
 一般用于本地开发、测试和学习，不能用于生产环境
-kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  其他 ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
-kubeflow/kubeflow  Machine Learning Toolkit for Kubernetes
-alauda/kube-ovn  A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations https://kube-ovn.</description>
+kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
+Kubernetes 周边工具 rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。
+helm/helm  The Kubernetes Package Manager https://helm.</description>
     </item>
     
   </channel>

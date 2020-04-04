@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="面试题"><meta property="og:title" content="面试题" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/appendix/interview/" />
-
-<title>面试题 | Kubernetes 学习笔记</title>
+<meta name="description" content="Service"><meta property="og:title" content="Service" />
+<meta property="og:description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/resource/service/" />
+<meta property="article:modified_time" content="2020-04-04T22:07:08+08:00" />
+<title>Service | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +18,6 @@
 
 <script defer src="/study-k8s/en.search.min.a8fc5d9bc4e7ac09cbab6063031272156538cb9bb1d72067760c6d5b370a6c9f.js" integrity="sha256-qPxdm8TnrAnLq2BjAxJyFWU4y5ux1yBndgxtWzcKbJ8="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/appendix/interview/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -399,7 +398,7 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/service/" >
+  <a href="/study-k8s/docs/basic/resource/service/"  class="active">
       Service
   </a>
 
@@ -997,7 +996,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/study-k8s/docs/appendix/interview/"  class="active">
+  <a href="/study-k8s/docs/appendix/interview/" >
       面试题
   </a>
 
@@ -1113,7 +1112,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>面试题</strong>
+  <strong>Service</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -1127,7 +1126,18 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">面试题</a></li>
+    <li><a href="#service">Service</a>
+      <ul>
+        <li><a href="#type">type</a>
+          <ul>
+            <li><a href="#clusterip">ClusterIP</a></li>
+            <li><a href="#nodeport">NodePort</a></li>
+            <li><a href="#loadbalancer">LoadBalancer</a></li>
+            <li><a href="#externalname">ExternalName</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1139,71 +1149,30 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown"><h1 id="heading">面试题</h1>
-<p>头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师）
-1.解释一下 acid
-2.数据库的隔离级别
-3.每个隔离级别的实现原理
-4.讲一下分布式事务现有的方案，优缺点
-5.说一下 cgroup 原理
-6.说一下 mesos，k8s 的架构
-7.说一下 actor 编程模型的原理和意义
-算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。
-人选反馈：面试官会抓住一个点一直追问，问的比较细。</p>
-<p>头条人选二（两周前面试 paas 平台开发工程师）
-一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树
-4.10 亿个数字排序 5.大型企业的上线流程
-二面
-连续子数组的最大和
-链表回文
-三面
-基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。</p>
-<p>头条人选三（面试基础架构部门容器岗位）</p>
-<ol>
-<li>系统
-（Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络
-TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法</li>
-<li>数据库
-MyISAM 和 InnoDB 的简单区别</li>
-<li>Docker/K8s
-CGroup 如何做 cpu 的资源限制，哪几种限制方式
-K8s 中的 request 和 limit 是如何实现的
-K8s 中的 rc、rs、deployment 的区别，特点 5.算法
-合并两个有序链表</li>
-</ol>
-<p>头条人选四（基础架构部门研发）
-docker pull 镜像原理<br>
-registry 镜像存储原理<br>
-k8s deployment 创建过程<br>
-gpu 资源共享<br>
-scheduler 工作原理<br>
-docker 架构<br>
-docker exec 过程<br>
-goroutine 挂起<br>
-实现阻塞队列<br>
-项目<br>
-linux 进程调度<br>
-http 请求过程<br>
-tcp 建立连接和断开连接<br>
-goroutine 原理<br>
-flannel 工作原理</p>
-<p>头条人选五（devops 偏容器的人选）
-服务器负载是怎么计算的
-如何查看服务执行卡住时服务器做了哪些事
-查看进程打开哪些文件，查看哪些进程打开文件多
-docker 网络模式有几种 分别是做什么
-浏览器输入域名到返回结果过程
-DNS 使用了什么协议，为什么要用这种协议
-tcp 协议如何保证传输安全
-timewait 状态的前后过程以及 timewait 过多时怎么处理 怎么优化
-K8S 是怎么调度的
-iptables 主要有哪些链和哪些表，分别是做什么用
-docker 会调用 iptables 的哪些链
-常驻空间和虚拟空间有什么区别
-网络加速或者网络优化是怎么来做的，服务端和客户端分别可以做哪些
-动态 CDN 和静态 CDN 的区别
-算法题：
-求两个文本文件的交集，并输出，比如 ABC 在 a.txt 有 5 行，在 b.txt 有 3 行 那么在结果文件中输出 3 行</p>
+<article class="markdown"><h1 id="service">Service</h1>
+<h2 id="type">type</h2>
+<h3 id="clusterip">ClusterIP</h3>
+<ul>
+<li>通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问</li>
+<li>这也是默认的 ServiceType</li>
+</ul>
+<h3 id="nodeport">NodePort</h3>
+<ul>
+<li>通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务</li>
+<li>NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建</li>
+<li>通过请求 <code>&lt;NodeIP&gt;:&lt;NodePort&gt;</code>，可以从集群的外部访问一个 NodePort 服务</li>
+</ul>
+<h3 id="loadbalancer">LoadBalancer</h3>
+<ul>
+<li>使用云提供商的负载局衡器，可以向外部暴露服务</li>
+<li>外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务</li>
+</ul>
+<h3 id="externalname">ExternalName</h3>
+<ul>
+<li>通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com）</li>
+<li>没有任何类型代理被创建</li>
+<li>CoreDNS 1.7 或更高版本才能使用 ExternalName 类型</li>
+</ul>
 </article>
  
       
@@ -1216,9 +1185,9 @@ docker 会调用 iptables 的哪些链
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/e79eecd20b4635efc9d75c63f0250a39948aff39" title='Last modified by yewang | 2020-03-30' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/ba49ababac4675d64d4d9eab79c5f4bb641859dd" title='Last modified by yewang | 2020-04-04' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-30</span>
+      <span>2020-04-04</span>
     </a>
   </div>
 
@@ -1252,7 +1221,18 @@ docker 会调用 iptables 的哪些链
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">面试题</a></li>
+    <li><a href="#service">Service</a>
+      <ul>
+        <li><a href="#type">type</a>
+          <ul>
+            <li><a href="#clusterip">ClusterIP</a></li>
+            <li><a href="#nodeport">NodePort</a></li>
+            <li><a href="#loadbalancer">LoadBalancer</a></li>
+            <li><a href="#externalname">ExternalName</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

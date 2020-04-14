@@ -1131,10 +1131,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#pod">Pod</a>
       <ul>
-        <li><a href="#infra-">Infra 容器</a></li>
-        <li><a href="#init-">Init 容器</a></li>
-        <li><a href="#pod-phase">Pod phase（运行阶段）</a></li>
-        <li><a href="#pod-">Pod 状态</a></li>
+        <li><a href="#infra-容器">Infra 容器</a></li>
+        <li><a href="#init-容器">Init 容器</a></li>
+        <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
+        <li><a href="#pod-状态">Pod 状态</a></li>
       </ul>
     </li>
   </ul>
@@ -1148,10 +1148,10 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="pod">Pod</h1>
-<h2 id="infra-">Infra 容器</h2>
+<h2 id="infra-容器">Infra 容器</h2>
 <p>使用镜像：<code>k8s.gcr.io/pause</code></p>
 <p>这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。</p>
-<h2 id="init-">Init 容器</h2>
+<h2 id="init-容器">Init 容器</h2>
 <p>以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。</p>
 <p>下表展示了在调试 Init 容器时可能见到的状态值。</p>
 <table>
@@ -1184,7 +1184,7 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<h2 id="pod-phase">Pod phase（运行阶段）</h2>
+<h2 id="pod-phase运行阶段">Pod phase（运行阶段）</h2>
 <p>Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。</p>
 <p>下面是 phase 可能的值：</p>
 <table>
@@ -1223,7 +1223,7 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<h2 id="pod-">Pod 状态</h2>
+<h2 id="pod-状态">Pod 状态</h2>
 <p>Pod 有一个 PodStatus 对象，其中包含一个 PodCondition 数组。</p>
 <p>PodCondition 数组的每个元素都有一个 <code>type</code> 字段和一个 <code>status</code> 字段。</p>
 <ul>
@@ -1290,10 +1290,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#pod">Pod</a>
       <ul>
-        <li><a href="#infra-">Infra 容器</a></li>
-        <li><a href="#init-">Init 容器</a></li>
-        <li><a href="#pod-phase">Pod phase（运行阶段）</a></li>
-        <li><a href="#pod-">Pod 状态</a></li>
+        <li><a href="#infra-容器">Infra 容器</a></li>
+        <li><a href="#init-容器">Init 容器</a></li>
+        <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
+        <li><a href="#pod-状态">Pod 状态</a></li>
       </ul>
     </li>
   </ul>

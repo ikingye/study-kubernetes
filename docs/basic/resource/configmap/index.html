@@ -1131,10 +1131,10 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#configmap-">ConfigMap 基础</a>
+    <li><a href="#configmap-基础">ConfigMap 基础</a>
       <ul>
-        <li><a href="#-configmap">创建 ConfigMap</a></li>
-        <li><a href="#-configmap-1">使用 ConfigMap</a></li>
+        <li><a href="#创建-configmap">创建 ConfigMap</a></li>
+        <li><a href="#使用-configmap">使用 ConfigMap</a></li>
       </ul>
     </li>
   </ul>
@@ -1147,11 +1147,11 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="configmap-">ConfigMap 基础</h1>
+<article class="markdown"><h1 id="configmap-基础">ConfigMap 基础</h1>
 <p>ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。</p>
 <p>ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。</p>
 <img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200302214214.png" width="30%" height="30%">
-<h2 id="-configmap">创建 ConfigMap</h2>
+<h2 id="创建-configmap">创建 ConfigMap</h2>
 <p>使用以下命令创建 ConfigMap：</p>
 <p><code>kubectl create configmap [NAME] [DATA]</code></p>
 <p>[DATA] 可以是：
@@ -1159,28 +1159,28 @@ https://github.com/alex-shpak/hugo-book
 键值对，每个键值对都使用 &ndash;from-literal 标志指定
 如需详细了解 kubectl create，请参阅<a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create">参考文档</a>。</p>
 <p>您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。</p>
-<h2 id="-configmap-1">使用 ConfigMap</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v1
-kind: Pod
-metadata:
-  name: dapi-test-pod
-spec:
-  containers:
-    - name: test-container
-      image: k8s.gcr.io/busybox
-      command: [ <span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;</span> ]
-      env:
-        - name: SPECIAL_LEVEL_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: special-config
-              key: SPECIAL_LEVEL
-        - name: SPECIAL_TYPE_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: special-config
-              key: SPECIAL_TYPE
-  restartPolicy: Never
+<h2 id="使用-configmap">使用 ConfigMap</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: dapi-test-pod
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">containers</span>:
+    - <span style="color:#66d9ef">name</span>: test-container
+      <span style="color:#66d9ef">image</span>: k8s.gcr.io/busybox
+      <span style="color:#66d9ef">command</span>: [ <span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;</span> ]
+      <span style="color:#66d9ef">env</span>:
+        - <span style="color:#66d9ef">name</span>: SPECIAL_LEVEL_KEY
+          <span style="color:#66d9ef">valueFrom</span>:
+            <span style="color:#66d9ef">configMapKeyRef</span>:
+              <span style="color:#66d9ef">name</span>: special-config
+              <span style="color:#66d9ef">key</span>: SPECIAL_LEVEL
+        - <span style="color:#66d9ef">name</span>: SPECIAL_TYPE_KEY
+          <span style="color:#66d9ef">valueFrom</span>:
+            <span style="color:#66d9ef">configMapKeyRef</span>:
+              <span style="color:#66d9ef">name</span>: special-config
+              <span style="color:#66d9ef">key</span>: SPECIAL_TYPE
+  <span style="color:#66d9ef">restartPolicy</span>: Never
 </code></pre></div></article>
  
 
@@ -1226,10 +1226,10 @@ spec:
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#configmap-">ConfigMap 基础</a>
+    <li><a href="#configmap-基础">ConfigMap 基础</a>
       <ul>
-        <li><a href="#-configmap">创建 ConfigMap</a></li>
-        <li><a href="#-configmap-1">使用 ConfigMap</a></li>
+        <li><a href="#创建-configmap">创建 ConfigMap</a></li>
+        <li><a href="#使用-configmap">使用 ConfigMap</a></li>
       </ul>
     </li>
   </ul>

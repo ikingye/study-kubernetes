@@ -1127,14 +1127,14 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubectl">Kubectl</a>
       <ul>
-        <li><a href="#heading">集群信息查询</a></li>
+        <li><a href="#集群信息查询">集群信息查询</a></li>
         <li><a href="#node">node</a></li>
-        <li><a href="#heading-1">常用操作</a>
+        <li><a href="#常用操作">常用操作</a>
           <ul>
-            <li><a href="#-service-ip-port">获取 service ip, port</a></li>
+            <li><a href="#获取-service-ip-port">获取 service ip, port</a></li>
           </ul>
         </li>
-        <li><a href="#-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 kubectl Cheat Sheet</a></li>
+        <li><a href="#参考-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></a></li>
       </ul>
     </li>
   </ul>
@@ -1148,7 +1148,7 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="kubectl">Kubectl</h1>
-<h2 id="heading">集群信息查询</h2>
+<h2 id="集群信息查询">集群信息查询</h2>
 <ul>
 <li><code>kubectl cluster-info</code></li>
 </ul>
@@ -1158,11 +1158,11 @@ https://github.com/alex-shpak/hugo-book
 <li><code>kubectl describe node</code></li>
 </ul>
 <hr>
-<h2 id="heading-1">常用操作</h2>
-<h3 id="-service-ip-port">获取 service ip, port</h3>
+<h2 id="常用操作">常用操作</h2>
+<h3 id="获取-service-ip-port">获取 service ip, port</h3>
 <pre><code>kubectl get service/servicename -o jsonpath='{.spec.clusterIP}:{.spec.ports[*].port}'
 </code></pre><hr>
-<h2 id="-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></h2>
+<h2 id="参考-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></h2>
 </article>
  
 
@@ -1210,14 +1210,14 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubectl">Kubectl</a>
       <ul>
-        <li><a href="#heading">集群信息查询</a></li>
+        <li><a href="#集群信息查询">集群信息查询</a></li>
         <li><a href="#node">node</a></li>
-        <li><a href="#heading-1">常用操作</a>
+        <li><a href="#常用操作">常用操作</a>
           <ul>
-            <li><a href="#-service-ip-port">获取 service ip, port</a></li>
+            <li><a href="#获取-service-ip-port">获取 service ip, port</a></li>
           </ul>
         </li>
-        <li><a href="#-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 kubectl Cheat Sheet</a></li>
+        <li><a href="#参考-kubectl-cheat-sheethttpskubernetesiodocsreferencekubectlcheatsheet">参考 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></a></li>
       </ul>
     </li>
   </ul>

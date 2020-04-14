@@ -1130,35 +1130,35 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#kubedns">KubeDNS</a>
       <ul>
-        <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
+        <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
           <ul>
             <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
             <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-">search 域</a></li>
+            <li><a href="#search-域">search 域</a></li>
             <li><a href="#options">options</a>
               <ul>
-                <li><a href="#heading">优化外网域名解析</a></li>
+                <li><a href="#优化外网域名解析">优化外网域名解析</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
+        <li><a href="#如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</a></li>
         <li><a href="#dnspolicy">dnsPolicy</a>
           <ul>
-            <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
+            <li><a href="#clusterfirst默认">ClusterFirst（默认）</a></li>
             <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
             <li><a href="#default">Default</a></li>
             <li><a href="#none">None</a></li>
           </ul>
         </li>
-        <li><a href="#kube-dns-">kube-dns 组成</a>
+        <li><a href="#kube-dns-组成">kube-dns 组成</a>
           <ul>
             <li><a href="#kubedns-1">kubedns</a></li>
             <li><a href="#dnsmasq">dnsmasq</a></li>
             <li><a href="#sidecar">sidecar</a></li>
           </ul>
         </li>
-        <li><a href="#-dns-">如何调试 DNS 解析</a></li>
+        <li><a href="#如何调试-dns-解析">如何调试 DNS 解析</a></li>
       </ul>
     </li>
   </ul>
@@ -1177,7 +1177,7 @@ https://github.com/alex-shpak/hugo-book
 <pre><code>nameserver 10.99.0.2  # 这里存储的是kube-dns的Service IP
 search default.svc.cluster.local. svc.cluster.local. cluster.local.
 options ndots:5
-</code></pre><h2 id="k8s-">k8s 中域名是如何被解析的</h2>
+</code></pre><h2 id="k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</h2>
 <p>在 k8s 中，一个 Pod 如果要访问相同同 Namespace 下的 Service（比如 user-svc），那么只需要 <code>curl user-svc</code>。
 如果 Pod 和 Service 不在同一域名下，那么就需要在 Service Name 之后添加上 Service 所在的 Namespace（比如 beta），<code>curl user-svc.beta</code>。
 那么 k8s 是如何知道这些域名是内部域名并为他们做解析的呢？</p>
@@ -1204,7 +1204,7 @@ search default.svc.cluster.local svc.cluster.local cluster.local
 options ndots:5
 </code></pre><h3 id="nameserver">nameserver</h3>
 <p>nameserver 所对应的地址正是 DNS Service 的 Cluster IP（该值在启动 kubelet 的时候，通过 clusterDNS 指定）。</p>
-<h3 id="search-">search 域</h3>
+<h3 id="search-域">search 域</h3>
 <p>search 域默认包含了 namespace.svc.cluster.local、svc.cluster.local 和 cluster.local 三种。</p>
 <p>当我们在 Pod 中访问 a Service 时（ curl a ），会选择 nameserver 10.250.0.10 进行解析，然后依次带入 search 域进行 DNS 查找，直到找到为止。</p>
 <pre><code># curl a
@@ -1228,7 +1228,7 @@ b.default.svc.cluster.local # Found
 </ul>
 <p>如果是绝对域名则不会走 search 域，如果是非绝对域名，就会按照 search 域中进行逐一匹配查询，
 如果 search 走完了都没有找到，那么就会使用原域名进行查找。</p>
-<h4 id="heading">优化外网域名解析</h4>
+<h4 id="优化外网域名解析">优化外网域名解析</h4>
 <p>在真正解析 <a href="http://iftech.io">http://iftech.io</a> 之前，经历了</p>
 <pre><code>iftech.io.default.svc.cluster.local. 
 -&gt; iftech.io.svc.cluster.local. 
@@ -1242,7 +1242,7 @@ b.default.svc.cluster.local # Found
 比如配置 <code>ndots:1</code>，<code>iftech.io.</code> 就会使用原域名进行查找。</li>
 </ul>
 <p><img src="https://pic2.zhimg.com/v2-c6350769871dc7610b22c5cbcd37f8f9_r.jpg" alt=""></p>
-<h2 id="-kube-dns-">如何进入 kube-dns 容器进行抓包</h2>
+<h2 id="如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</h2>
 <p>DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。</p>
 <pre><code>docker inspect --format &quot;{{.State.Pid}}&quot; dns_container_id
 # 进入 container 的 network namespace
@@ -1250,7 +1250,7 @@ nsenter -n -t pid
 # 对 53 端口进行抓包
 tcpdump -i eth0 -N udp dst port 53
 </code></pre><h2 id="dnspolicy">dnsPolicy</h2>
-<h3 id="clusterfirst">ClusterFirst（默认）</h3>
+<h3 id="clusterfirst默认">ClusterFirst（默认）</h3>
 <p>优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</p>
 <h3 id="clusterfirstwithhostnet">ClusterFirstWithHostNet</h3>
 <p>当一个 Pod 以 HOST 模式（和宿主机共享网络，hostNetwork: true）启动时，这个 POD 中的所有容器都会使用宿主机的 /etc/resolv.conf 配置进行 DNS 查询。
@@ -1263,7 +1263,7 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 而并非使用默认值 ClusterFirst，否则该 DNS 服务的上游解析地址会变成它自身的 Service 的 ClusterIP（我解析我自己），导致域名无法解析。</p>
 <h3 id="none">None</h3>
 <p>不会使用集群和宿主机的 DNS 策略，而是和 dnsConfig 配合一起使用，来自定义 DNS 配置，否则在提交修改时报错。</p>
-<h2 id="kube-dns-">kube-dns 组成</h2>
+<h2 id="kube-dns-组成">kube-dns 组成</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200303235621.png" alt=""></p>
 <h3 id="kubedns-1">kubedns</h3>
 <p>依赖 client-go 中的 informer 机制监视 k8s 中的 Service 和 Endpoint 的变化，并将这些结构维护进内存来服务内部 DNS 解析请求。</p>
@@ -1271,7 +1271,7 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 <p>区分 Domain 是集群内部还是外部，给外部域名提供上游解析，内部域名发往 10053 端口，并将解析结果缓存，提高解析效率。</p>
 <h3 id="sidecar">sidecar</h3>
 <p>对 kubedns 和 dnsmasq 进行健康检查和收集监控指标。</p>
-<h2 id="-dns-">如何调试 DNS 解析</h2>
+<h2 id="如何调试-dns-解析">如何调试 DNS 解析</h2>
 <p>参考 k8smeetup：<a href="https://k8smeetup.github.io/docs/tasks/administer-cluster/dns-debugging-resolution/">调试 DNS 解析</a></p>
 </article>
  
@@ -1320,35 +1320,35 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
   <ul>
     <li><a href="#kubedns">KubeDNS</a>
       <ul>
-        <li><a href="#k8s-">k8s 中域名是如何被解析的</a>
+        <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
           <ul>
             <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
             <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-">search 域</a></li>
+            <li><a href="#search-域">search 域</a></li>
             <li><a href="#options">options</a>
               <ul>
-                <li><a href="#heading">优化外网域名解析</a></li>
+                <li><a href="#优化外网域名解析">优化外网域名解析</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <li><a href="#-kube-dns-">如何进入 kube-dns 容器进行抓包</a></li>
+        <li><a href="#如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</a></li>
         <li><a href="#dnspolicy">dnsPolicy</a>
           <ul>
-            <li><a href="#clusterfirst">ClusterFirst（默认）</a></li>
+            <li><a href="#clusterfirst默认">ClusterFirst（默认）</a></li>
             <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
             <li><a href="#default">Default</a></li>
             <li><a href="#none">None</a></li>
           </ul>
         </li>
-        <li><a href="#kube-dns-">kube-dns 组成</a>
+        <li><a href="#kube-dns-组成">kube-dns 组成</a>
           <ul>
             <li><a href="#kubedns-1">kubedns</a></li>
             <li><a href="#dnsmasq">dnsmasq</a></li>
             <li><a href="#sidecar">sidecar</a></li>
           </ul>
         </li>
-        <li><a href="#-dns-">如何调试 DNS 解析</a></li>
+        <li><a href="#如何调试-dns-解析">如何调试 DNS 解析</a></li>
       </ul>
     </li>
   </ul>

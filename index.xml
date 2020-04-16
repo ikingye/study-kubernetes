@@ -11,28 +11,28 @@
     
     <item>
       <title>alpine</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/alpine/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/image/alpine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/container/docker/image/alpine/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/image/alpine/</guid>
       <description>alpine 安装 telnet apk add busybox-extras</description>
     </item>
     
     <item>
       <title>K8s 端口</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/network/port/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/network/port/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/network/port/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/network/port/</guid>
       <description>K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port   nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &amp;lt;hostIP, hostPort, protocol&amp;gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.</description>
     </item>
     
     <item>
       <title>KubeDNS</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/network/kubedns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/network/kubedns/</guid>
       <description>KubeDNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
 nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 k8s 中域名是如何被解析的 在 k8s 中，一个 Pod 如果要访问相同同 Namespace 下的 Service（比如 user-svc），那么只需要 curl user-svc。 如果 Pod 和 Service 不在同一域名下，那么就需要在 Service Name 之后添加上 Service 所在的 Namespace（比如 beta），curl user-svc.beta。 那么 k8s 是如何知道这些域名是内部域名并为他们做解析的呢？
 无论是在 宿主机 或者是在 k8s 集群中，DNS 解析会依赖这个三个文件
@@ -41,10 +41,10 @@ nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.sv
     
     <item>
       <title>Pod</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/resource/pod/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/resource/pod/</guid>
       <description>Pod Infra 容器 使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
@@ -62,24 +62,11 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
     </item>
     
     <item>
-      <title>教程</title>
-      <link>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</guid>
-      <description>Kubernetes 教程 基础 collabnix/dockerlabs  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
-To get started with Kubernetes, follow the below steps:
-Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster
-feiskyer/kubernetes-handbook  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.feisky.xyz
-play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.</description>
-    </item>
-    
-    <item>
       <title>ConfigMap</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/resource/configmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/resource/configmap/</guid>
       <description>ConfigMap 基础 ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
 ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。
 创建 ConfigMap 使用以下命令创建 ConfigMap：
@@ -91,10 +78,10 @@ kubectl create configmap [NAME] [DATA]
     
     <item>
       <title>CoreDNS</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/network/coredns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/network/coredns/</guid>
       <description>CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
  kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
 在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。</description>
@@ -102,19 +89,19 @@ kubectl create configmap [NAME] [DATA]
     
     <item>
       <title>Deployment</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/resource/deployment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/resource/deployment/</guid>
       <description>Deployment </description>
     </item>
     
     <item>
       <title>Kubectl</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/quick-start/kubectl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/quick-start/kubectl/</guid>
       <description>Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  参考 kubectl Cheat Sheet </description>
     </item>
     
@@ -138,10 +125,10 @@ kubectl create configmap [NAME] [DATA]
     
     <item>
       <title>CRD</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/resource/crd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/resource/crd/</guid>
       <description>CRD </description>
     </item>
     
@@ -156,11 +143,47 @@ kubectl create configmap [NAME] [DATA]
     
     <item>
       <title>Service</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</link>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/resource/service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</guid>
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/resource/service/</guid>
       <description>Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &amp;lt;NodeIP&amp;gt;:&amp;lt;NodePort&amp;gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  </description>
+    </item>
+    
+    <item>
+      <title>关注</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/attention/</guid>
+      <description>关注 moby/moby  Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
+docker/docker-ce  Docker CE https://www.docker.com/community-edition
+play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</guid>
+      <description>Kubernetes 教程 基础 collabnix/dockerlabs  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
+To get started with Kubernetes, follow the below steps:
+Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster
+feiskyer/kubernetes-handbook  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.feisky.xyz
+play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.</description>
+    </item>
+    
+    <item>
+      <title>Docker 教程</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/container/docker/tutorial/</guid>
+      <description>Docker 教程 play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.
+A live version is available at: http://play-with-docker.com/</description>
     </item>
     
     <item>
@@ -178,26 +201,15 @@ helm/helm  The Kubernetes Package Manager https://helm.</description>
     </item>
     
     <item>
-      <title>关注</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/container/docker/attention/</link>
+      <title>草稿</title>
+      <link>https://ikingye.github.io/study-k8s/docs/appendix/interview/draft/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/container/docker/attention/</guid>
-      <description>关注 moby/moby  Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
-docker/docker-ce  Docker CE https://www.docker.com/community-edition
-play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
-Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
-    </item>
-    
-    <item>
-      <title>Docker 教程</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/container/docker/tutorial/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/container/docker/tutorial/</guid>
-      <description>Docker 教程 play-with-docker/play-with-docker  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
-Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.
-A live version is available at: http://play-with-docker.com/</description>
+      <guid>https://ikingye.github.io/study-k8s/docs/appendix/interview/draft/</guid>
+      <description>草稿 头条面试题 容器 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。
+头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。
+头条人选三（面试基础架构部门容器岗位）
+ 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 数据库 MyISAM 和 InnoDB 的简单区别 Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.算法 合并两个有序链表  头条人选四（基础架构部门研发） docker pull 镜像原理 registry 镜像存储原理 k8s deployment 创建过程 gpu 资源共享 scheduler 工作原理 docker 架构 docker exec 过程 goroutine 挂起 实现阻塞队列 项目 linux 进程调度 http 请求过程 tcp 建立连接和断开连接 goroutine 原理 flannel 工作原理</description>
     </item>
     
   </channel>

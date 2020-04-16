@@ -4,10 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="面试题 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。
-头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。
-头条人选三（面试基础架构部门容器岗位）
- 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 数据库 MyISAM 和 InnoDB 的简单区别 Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.算法 合并两个有序链表  头条人选四（基础架构部门研发） docker pull 镜像原理"><meta property="og:title" content="面试题" />
+<meta name="description" content="面试题 "><meta property="og:title" content="面试题" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/appendix/interview/" />
@@ -19,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.eb333fc602962ae610d91bf8e4a5d30064eed4495835516aba776ef6ed78ba2c.js" integrity="sha256-6zM/xgKWKuYQ2Rv45KXTAGTu1ElYNVFqundu9u14uiw="></script>
+<script defer src="/study-k8s/en.search.min.c59ac21765a0163616f89cb03d7823845b5eb7b29266ab9220cba871cd0722a3.js" integrity="sha256-xZrCF2WgFjYW&#43;JywPXgjhFtet7KSZquSIMuocc0HIqM="></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/appendix/interview/index.xml" title="Kubernetes 学习笔记" />
 <!--
@@ -103,7 +100,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/quick-start/" class="">快速上手</a>
+  <a href="/study-k8s/docs/basic/quick-start/" class="collapsed ">快速上手</a>
   
 
 
@@ -111,80 +108,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/quick-start/install/" class="">安装</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/kubectl/" class="">Kubectl</a>
-  
-
-</li>
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/" class="">核心组件</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/api-server/" class="">api-server</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
@@ -200,7 +123,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/component/schedule/" class="">Schedule</a>
+  <a href="/study-k8s/docs/basic/architecture/" class="collapsed ">架构</a>
   
 
 
@@ -208,12 +131,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
@@ -229,7 +146,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/component/controller-manager/" class="">Controller Manager</a>
+  <a href="/study-k8s/docs/basic/component/" class="collapsed ">组件</a>
   
 
 
@@ -237,12 +154,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
@@ -258,7 +169,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
+  <a href="/study-k8s/docs/basic/others/" class="collapsed ">其他</a>
   
 
 
@@ -266,596 +177,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/kubelet/" class="">Kubelet</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/resource/" class="">API 对象</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/resource/pod/" class="">Pod</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/resource/configmap/" class="">ConfigMap</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/resource/deployment/" class="">Deployment</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/resource/crd/" class="">CRD</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/resource/service/" class="">Service</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>K8s 网络</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/network/port/" class="">K8s 端口</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/network/kubedns/" class="">KubeDNS</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/network/coredns/" class="">CoreDNS</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>容器运行时</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/" class="">Docker</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/image/" class="">Docker 镜像</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" class="">alpine</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/network/" class="">Docker 网络</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/attention/" class="">关注</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/tutorial/" class="">Docker 教程</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/best-practice/" class="">最佳实践</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/best-practice/spec/" class="">编程规范</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/version/" class="">版本</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/debug/" class="">除错</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/" class="">常用工具</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/helm/" class="">Helm</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/kubeadm/" class="">Kubeadm</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/kustomize/" class="">Kustomize</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/minikube/" class="">MiniKube</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
 
 
 
@@ -968,7 +289,40 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="active">面试题</a>
+  <a href="/study-k8s/docs/appendix/snippet/" class="collapsed ">代码片段</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/appendix/attention/" class="">关注</a>
+  
+
+</li>
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/appendix/interview/" class="collapsed active">面试题</a>
   
 
 
@@ -1010,6 +364,16 @@ https://github.com/alex-shpak/hugo-book
 </li>
       
     
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/appendix/interview/draft/" class="">草稿</a>
+  
+
+</li>
+      
+    
   </ul>
   
 
@@ -1018,16 +382,6 @@ https://github.com/alex-shpak/hugo-book
   </li>
 
 
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/appendix/attention/" class="">关注</a>
-  
-
-</li>
       
     
   </ul>
@@ -1108,70 +462,6 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="面试题">面试题</h1>
-<p>头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师）
-1.解释一下 acid
-2.数据库的隔离级别
-3.每个隔离级别的实现原理
-4.讲一下分布式事务现有的方案，优缺点
-5.说一下 cgroup 原理
-6.说一下 mesos，k8s 的架构
-7.说一下 actor 编程模型的原理和意义
-算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。
-人选反馈：面试官会抓住一个点一直追问，问的比较细。</p>
-<p>头条人选二（两周前面试 paas 平台开发工程师）
-一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树
-4.10 亿个数字排序 5.大型企业的上线流程
-二面
-连续子数组的最大和
-链表回文
-三面
-基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。</p>
-<p>头条人选三（面试基础架构部门容器岗位）</p>
-<ol>
-<li>系统
-（Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络
-TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法</li>
-<li>数据库
-MyISAM 和 InnoDB 的简单区别</li>
-<li>Docker/K8s
-CGroup 如何做 cpu 的资源限制，哪几种限制方式
-K8s 中的 request 和 limit 是如何实现的
-K8s 中的 rc、rs、deployment 的区别，特点 5.算法
-合并两个有序链表</li>
-</ol>
-<p>头条人选四（基础架构部门研发）
-docker pull 镜像原理<br>
-registry 镜像存储原理<br>
-k8s deployment 创建过程<br>
-gpu 资源共享<br>
-scheduler 工作原理<br>
-docker 架构<br>
-docker exec 过程<br>
-goroutine 挂起<br>
-实现阻塞队列<br>
-项目<br>
-linux 进程调度<br>
-http 请求过程<br>
-tcp 建立连接和断开连接<br>
-goroutine 原理<br>
-flannel 工作原理</p>
-<p>头条人选五（devops 偏容器的人选）
-服务器负载是怎么计算的
-如何查看服务执行卡住时服务器做了哪些事
-查看进程打开哪些文件，查看哪些进程打开文件多
-docker 网络模式有几种 分别是做什么
-浏览器输入域名到返回结果过程
-DNS 使用了什么协议，为什么要用这种协议
-tcp 协议如何保证传输安全
-timewait 状态的前后过程以及 timewait 过多时怎么处理 怎么优化
-K8S 是怎么调度的
-iptables 主要有哪些链和哪些表，分别是做什么用
-docker 会调用 iptables 的哪些链
-常驻空间和虚拟空间有什么区别
-网络加速或者网络优化是怎么来做的，服务端和客户端分别可以做哪些
-动态 CDN 和静态 CDN 的区别
-算法题：
-求两个文本文件的交集，并输出，比如 ABC 在 a.txt 有 5 行，在 b.txt 有 3 行 那么在结果文件中输出 3 行</p>
 </article>
  
       

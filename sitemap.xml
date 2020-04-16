@@ -9,7 +9,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/api-server/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -74,7 +74,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/schedule/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -94,7 +94,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/controller-manager/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -129,17 +129,17 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/others/resource/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/kube-proxy/</loc>
-    <lastmod>2020-03-02T22:10:47+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/kubelet/</loc>
-    <lastmod>2020-03-22T18:05:27+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -189,17 +189,17 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/others/version/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/others/debug/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -253,7 +253,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>

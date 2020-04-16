@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pod"><meta property="og:title" content="Pod" />
+<meta name="description" content="Pod Infra 容器 使用镜像：k8s.gcr.io/pause
+这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
+Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
+下表展示了在调试 Init 容器时可能见到的状态值。
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。"><meta property="og:title" content="Pod" />
 <meta property="og:description" content="Pod Infra 容器 使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
@@ -17,10 +21,10 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.scss" integrity="">
+<link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.07a8751bb52a7ec36eb0454ccb505c04fd025c5fa66bccaca024daafd804677e.js" integrity="sha256-B6h1G7UqfsNusEVMy1BcBP0CXF&#43;ma8ysoCTar9gEZ34="></script>
+<script defer src="/study-k8s/en.search.min.eb333fc602962ae610d91bf8e4a5d30064eed4495835516aba776ef6ed78ba2c.js" integrity="sha256-6zM/xgKWKuYQ2Rv45KXTAGTu1ElYNVFqundu9u14uiw="></script>
 
 <!--
 Made with Book Theme
@@ -52,6 +56,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
+
   
 
   
@@ -74,10 +84,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第一部分 基础</span>
-    
+
+  
+  <span>第一部分 基础</span>
+  
+
 
     
 
@@ -90,16 +103,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/quick-start/" >
-      快速上手
-  </a>
+  
+  <a href="/study-k8s/docs/basic/quick-start/" class="">快速上手</a>
+  
 
-
-    
 
     
 
@@ -112,9 +122,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/quick-start/install/" >
-      安装
-  </a>
+  
+  <a href="/study-k8s/docs/basic/quick-start/install/" class="">安装</a>
+  
 
 </li>
       
@@ -132,9 +142,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/kubectl/" >
-      Kubectl
-  </a>
+  
+  <a href="/study-k8s/docs/basic/kubectl/" class="">Kubectl</a>
+  
 
 </li>
       
@@ -142,16 +152,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/" >
-      核心组件
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/" class="">核心组件</a>
+  
 
-
-    
 
     
 
@@ -164,16 +171,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/api-server/" >
-      api-server
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/api-server/" class="">api-server</a>
+  
 
-
-    
 
     
 
@@ -196,16 +200,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/schedule/" >
-      Schedule
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/schedule/" class="">Schedule</a>
+  
 
-
-    
 
     
 
@@ -228,16 +229,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/controller-manager/" >
-      Controller Manager
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/controller-manager/" class="">Controller Manager</a>
+  
 
-
-    
 
     
 
@@ -260,16 +258,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" >
-      Kube-proxy
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
+  
 
-
-    
 
     
 
@@ -292,16 +287,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/kubelet/" >
-      Kubelet
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/kubelet/" class="">Kubelet</a>
+  
 
-
-    
 
     
 
@@ -334,16 +326,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/resource/" >
-      API 对象
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/" class="">API 对象</a>
+  
 
-
-    
 
     
 
@@ -356,9 +345,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/pod/"  class="active">
-      Pod
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/pod/" class="active">Pod</a>
+  
 
 </li>
       
@@ -366,9 +355,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/configmap/" >
-      ConfigMap
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/configmap/" class="">ConfigMap</a>
+  
 
 </li>
       
@@ -376,9 +365,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/deployment/" >
-      Deployment
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/deployment/" class="">Deployment</a>
+  
 
 </li>
       
@@ -386,9 +375,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/crd/" >
-      CRD
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/crd/" class="">CRD</a>
+  
 
 </li>
       
@@ -396,9 +385,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/service/" >
-      Service
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/service/" class="">Service</a>
+  
 
 </li>
       
@@ -416,10 +405,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>K8s 网络</span>
-    
+
+  
+  <span>K8s 网络</span>
+  
+
 
     
 
@@ -432,9 +424,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/port/" >
-      K8s 端口
-  </a>
+  
+  <a href="/study-k8s/docs/basic/network/port/" class="">K8s 端口</a>
+  
 
 </li>
       
@@ -442,9 +434,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/kubedns/" >
-      KubeDNS
-  </a>
+  
+  <a href="/study-k8s/docs/basic/network/kubedns/" class="">KubeDNS</a>
+  
 
 </li>
       
@@ -452,89 +444,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/coredns/" >
-      CoreDNS
-  </a>
-
-</li>
-      
-    
-  </ul>
   
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      <span>容器运行时</span>
-    
-
-    
-
-
-
-
+  <a href="/study-k8s/docs/basic/network/coredns/" class="">CoreDNS</a>
   
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/study-k8s/docs/basic/container/docker/" >
-      Docker
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/study-k8s/docs/basic/container/docker/image/" >
-      Docker 镜像
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" >
-      alpine
-  </a>
 
 </li>
       
@@ -552,16 +464,90 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
+    
+
+  
+  <span>容器运行时</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
     
       
+        
 
-  <a href="/study-k8s/docs/basic/container/docker/network/" >
-      Docker 网络
-  </a>
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/" class="">Docker</a>
+  
 
 
     
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/image/" class="">Docker 镜像</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" class="">alpine</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/network/" class="">Docker 网络</a>
+  
+
 
     
 
@@ -584,9 +570,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/container/docker/attention/" >
-      关注
-  </a>
+  
+  <a href="/study-k8s/docs/basic/container/docker/attention/" class="">关注</a>
+  
 
 </li>
       
@@ -594,9 +580,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/container/docker/tutorial/" >
-      Docker 教程
-  </a>
+  
+  <a href="/study-k8s/docs/basic/container/docker/tutorial/" class="">Docker 教程</a>
+  
 
 </li>
       
@@ -624,16 +610,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/best-practice/" >
-      最佳实践
-  </a>
+  
+  <a href="/study-k8s/docs/basic/best-practice/" class="">最佳实践</a>
+  
 
-
-    
 
     
 
@@ -646,16 +629,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/best-practice/spec/" >
-      编程规范
-  </a>
+  
+  <a href="/study-k8s/docs/basic/best-practice/spec/" class="">编程规范</a>
+  
 
-
-    
 
     
 
@@ -688,16 +668,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/version/" >
-      版本
-  </a>
+  
+  <a href="/study-k8s/docs/basic/version/" class="">版本</a>
+  
 
-
-    
 
     
 
@@ -720,16 +697,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/debug/" >
-      除错
-  </a>
+  
+  <a href="/study-k8s/docs/basic/debug/" class="">除错</a>
+  
 
-
-    
 
     
 
@@ -752,16 +726,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/" >
-      常用工具
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/" class="">常用工具</a>
+  
 
-
-    
 
     
 
@@ -774,16 +745,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/helm/" >
-      Helm
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/helm/" class="">Helm</a>
+  
 
-
-    
 
     
 
@@ -806,16 +774,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/kubeadm/" >
-      Kubeadm
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/kubeadm/" class="">Kubeadm</a>
+  
 
-
-    
 
     
 
@@ -838,16 +803,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/kustomize/" >
-      Kustomize
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/kustomize/" class="">Kustomize</a>
+  
 
-
-    
 
     
 
@@ -870,16 +832,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/minikube/" >
-      MiniKube
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/minikube/" class="">MiniKube</a>
+  
 
-
-    
 
     
 
@@ -922,10 +881,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第二部分 设计</span>
-    
+
+  
+  <span>第二部分 设计</span>
+  
+
 
     
 
@@ -948,10 +910,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第三部分 源码实现</span>
-    
+
+  
+  <span>第三部分 源码实现</span>
+  
+
 
     
 
@@ -974,10 +939,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第四部分 附录</span>
-    
+
+  
+  <span>第四部分 附录</span>
+  
+
 
     
 
@@ -990,9 +958,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/tutorial/" >
-      教程
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/tutorial/" class="">教程</a>
+  
 
 </li>
       
@@ -1000,16 +968,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/appendix/interview/" >
-      面试题
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/" class="">面试题</a>
+  
 
-
-    
 
     
 
@@ -1022,9 +987,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/basic/" >
-      基础
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/basic/" class="">基础</a>
+  
 
 </li>
       
@@ -1032,9 +997,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/advanced/" >
-      进阶
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/advanced/" class="">进阶</a>
+  
 
 </li>
       
@@ -1042,9 +1007,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/expert/" >
-      高阶
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/expert/" class="">高阶</a>
+  
 
 </li>
       
@@ -1062,9 +1027,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/attention/" >
-      关注
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/attention/" class="">关注</a>
+  
 
 </li>
       
@@ -1085,6 +1050,11 @@ https://github.com/alex-shpak/hugo-book
 
 
   
+
+
+
+
+
 
 
 
@@ -1147,7 +1117,8 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="pod">Pod</h1>
+      
+  <article class="markdown"><h1 id="pod">Pod</h1>
 <h2 id="infra-容器">Infra 容器</h2>
 <p>使用镜像：<code>k8s.gcr.io/pause</code></p>
 <p>这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。</p>
@@ -1245,6 +1216,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </article>
  
+      
 
       <footer class="book-footer">
         
@@ -1266,6 +1238,9 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+      </footer>
+
+      
   
   <div class="book-comments">
 <script src="https://utteranc.es/client.js"
@@ -1279,8 +1254,8 @@ https://github.com/alex-shpak/hugo-book
 </div>
   
  
-      </footer>
-      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     

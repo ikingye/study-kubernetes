@@ -4,7 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="关注"><meta property="og:title" content="关注" />
+<meta name="description" content="关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
+安装 kubernetes kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
+一般用于本地开发、测试和学习，不能用于生产环境
+kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
+Kubernetes 周边工具 rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。
+helm/helm  The Kubernetes Package Manager https://helm."><meta property="og:title" content="关注" />
 <meta property="og:description" content="关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
 安装 kubernetes kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
 一般用于本地开发、测试和学习，不能用于生产环境
@@ -18,10 +23,10 @@ helm/helm  The Kubernetes Package Manager https://helm." />
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.scss" integrity="">
+<link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.07a8751bb52a7ec36eb0454ccb505c04fd025c5fa66bccaca024daafd804677e.js" integrity="sha256-B6h1G7UqfsNusEVMy1BcBP0CXF&#43;ma8ysoCTar9gEZ34="></script>
+<script defer src="/study-k8s/en.search.min.eb333fc602962ae610d91bf8e4a5d30064eed4495835516aba776ef6ed78ba2c.js" integrity="sha256-6zM/xgKWKuYQ2Rv45KXTAGTu1ElYNVFqundu9u14uiw="></script>
 
 <!--
 Made with Book Theme
@@ -53,6 +58,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
+
   
 
   
@@ -75,10 +86,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第一部分 基础</span>
-    
+
+  
+  <span>第一部分 基础</span>
+  
+
 
     
 
@@ -91,16 +105,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/quick-start/" >
-      快速上手
-  </a>
+  
+  <a href="/study-k8s/docs/basic/quick-start/" class="">快速上手</a>
+  
 
-
-    
 
     
 
@@ -113,9 +124,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/quick-start/install/" >
-      安装
-  </a>
+  
+  <a href="/study-k8s/docs/basic/quick-start/install/" class="">安装</a>
+  
 
 </li>
       
@@ -133,9 +144,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/kubectl/" >
-      Kubectl
-  </a>
+  
+  <a href="/study-k8s/docs/basic/kubectl/" class="">Kubectl</a>
+  
 
 </li>
       
@@ -143,16 +154,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/" >
-      核心组件
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/" class="">核心组件</a>
+  
 
-
-    
 
     
 
@@ -165,16 +173,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/api-server/" >
-      api-server
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/api-server/" class="">api-server</a>
+  
 
-
-    
 
     
 
@@ -197,16 +202,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/schedule/" >
-      Schedule
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/schedule/" class="">Schedule</a>
+  
 
-
-    
 
     
 
@@ -229,16 +231,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/controller-manager/" >
-      Controller Manager
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/controller-manager/" class="">Controller Manager</a>
+  
 
-
-    
 
     
 
@@ -261,16 +260,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" >
-      Kube-proxy
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
+  
 
-
-    
 
     
 
@@ -293,16 +289,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/component/kubelet/" >
-      Kubelet
-  </a>
+  
+  <a href="/study-k8s/docs/basic/component/kubelet/" class="">Kubelet</a>
+  
 
-
-    
 
     
 
@@ -335,16 +328,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/resource/" >
-      API 对象
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/" class="">API 对象</a>
+  
 
-
-    
 
     
 
@@ -357,9 +347,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/pod/" >
-      Pod
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/pod/" class="">Pod</a>
+  
 
 </li>
       
@@ -367,9 +357,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/configmap/" >
-      ConfigMap
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/configmap/" class="">ConfigMap</a>
+  
 
 </li>
       
@@ -377,9 +367,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/deployment/" >
-      Deployment
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/deployment/" class="">Deployment</a>
+  
 
 </li>
       
@@ -387,9 +377,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/crd/" >
-      CRD
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/crd/" class="">CRD</a>
+  
 
 </li>
       
@@ -397,9 +387,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/resource/service/" >
-      Service
-  </a>
+  
+  <a href="/study-k8s/docs/basic/resource/service/" class="">Service</a>
+  
 
 </li>
       
@@ -417,10 +407,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>K8s 网络</span>
-    
+
+  
+  <span>K8s 网络</span>
+  
+
 
     
 
@@ -433,9 +426,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/port/" >
-      K8s 端口
-  </a>
+  
+  <a href="/study-k8s/docs/basic/network/port/" class="">K8s 端口</a>
+  
 
 </li>
       
@@ -443,9 +436,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/kubedns/" >
-      KubeDNS
-  </a>
+  
+  <a href="/study-k8s/docs/basic/network/kubedns/" class="">KubeDNS</a>
+  
 
 </li>
       
@@ -453,89 +446,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/network/coredns/" >
-      CoreDNS
-  </a>
-
-</li>
-      
-    
-  </ul>
   
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      <span>容器运行时</span>
-    
-
-    
-
-
-
-
+  <a href="/study-k8s/docs/basic/network/coredns/" class="">CoreDNS</a>
   
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/study-k8s/docs/basic/container/docker/" >
-      Docker
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/study-k8s/docs/basic/container/docker/image/" >
-      Docker 镜像
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" >
-      alpine
-  </a>
 
 </li>
       
@@ -553,16 +466,90 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
+    
+
+  
+  <span>容器运行时</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
     
       
+        
 
-  <a href="/study-k8s/docs/basic/container/docker/network/" >
-      Docker 网络
-  </a>
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/" class="">Docker</a>
+  
 
 
     
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/image/" class="">Docker 镜像</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" class="">alpine</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/container/docker/network/" class="">Docker 网络</a>
+  
+
 
     
 
@@ -585,9 +572,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/container/docker/attention/" >
-      关注
-  </a>
+  
+  <a href="/study-k8s/docs/basic/container/docker/attention/" class="">关注</a>
+  
 
 </li>
       
@@ -595,9 +582,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/basic/container/docker/tutorial/" >
-      Docker 教程
-  </a>
+  
+  <a href="/study-k8s/docs/basic/container/docker/tutorial/" class="">Docker 教程</a>
+  
 
 </li>
       
@@ -625,16 +612,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/best-practice/" >
-      最佳实践
-  </a>
+  
+  <a href="/study-k8s/docs/basic/best-practice/" class="">最佳实践</a>
+  
 
-
-    
 
     
 
@@ -647,16 +631,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/best-practice/spec/" >
-      编程规范
-  </a>
+  
+  <a href="/study-k8s/docs/basic/best-practice/spec/" class="">编程规范</a>
+  
 
-
-    
 
     
 
@@ -689,16 +670,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/version/" >
-      版本
-  </a>
+  
+  <a href="/study-k8s/docs/basic/version/" class="">版本</a>
+  
 
-
-    
 
     
 
@@ -721,16 +699,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/debug/" >
-      除错
-  </a>
+  
+  <a href="/study-k8s/docs/basic/debug/" class="">除错</a>
+  
 
-
-    
 
     
 
@@ -753,16 +728,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/" >
-      常用工具
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/" class="">常用工具</a>
+  
 
-
-    
 
     
 
@@ -775,16 +747,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/helm/" >
-      Helm
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/helm/" class="">Helm</a>
+  
 
-
-    
 
     
 
@@ -807,16 +776,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/kubeadm/" >
-      Kubeadm
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/kubeadm/" class="">Kubeadm</a>
+  
 
-
-    
 
     
 
@@ -839,16 +805,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/kustomize/" >
-      Kustomize
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/kustomize/" class="">Kustomize</a>
+  
 
-
-    
 
     
 
@@ -871,16 +834,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/basic/tool/minikube/" >
-      MiniKube
-  </a>
+  
+  <a href="/study-k8s/docs/basic/tool/minikube/" class="">MiniKube</a>
+  
 
-
-    
 
     
 
@@ -923,10 +883,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第二部分 设计</span>
-    
+
+  
+  <span>第二部分 设计</span>
+  
+
 
     
 
@@ -949,10 +912,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第三部分 源码实现</span>
-    
+
+  
+  <span>第三部分 源码实现</span>
+  
+
 
     
 
@@ -975,10 +941,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      <span>第四部分 附录</span>
-    
+
+  
+  <span>第四部分 附录</span>
+  
+
 
     
 
@@ -991,9 +960,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/tutorial/" >
-      教程
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/tutorial/" class="">教程</a>
+  
 
 </li>
       
@@ -1001,16 +970,13 @@ https://github.com/alex-shpak/hugo-book
       
         
 
-  <li >
+  <li>
     
-      
 
-  <a href="/study-k8s/docs/appendix/interview/" >
-      面试题
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/" class="">面试题</a>
+  
 
-
-    
 
     
 
@@ -1023,9 +989,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/basic/" >
-      基础
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/basic/" class="">基础</a>
+  
 
 </li>
       
@@ -1033,9 +999,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/advanced/" >
-      进阶
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/advanced/" class="">进阶</a>
+  
 
 </li>
       
@@ -1043,9 +1009,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/interview/expert/" >
-      高阶
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/interview/expert/" class="">高阶</a>
+  
 
 </li>
       
@@ -1063,9 +1029,9 @@ https://github.com/alex-shpak/hugo-book
       
         <li>
 
-  <a href="/study-k8s/docs/appendix/attention/"  class="active">
-      关注
-  </a>
+  
+  <a href="/study-k8s/docs/appendix/attention/" class="active">关注</a>
+  
 
 </li>
       
@@ -1086,6 +1052,11 @@ https://github.com/alex-shpak/hugo-book
 
 
   
+
+
+
+
+
 
 
 
@@ -1175,49 +1146,51 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="关注">关注</h1>
-<h3 id="kuberneteskuberneteshttpsgithubcomkuberneteskubernetes-httpsimgshieldsiogithubstarskuberneteskubernetessvg"><a href="https://github.com/kubernetes/kubernetes">kubernetes/kubernetes</a> <img src="https://img.shields.io/github/stars/kubernetes/kubernetes.svg" alt=""></h3>
+      
+  <article class="markdown"><h1 id="关注">关注</h1>
+<h3 id="kuberneteskuberneteshttpsgithubcomkuberneteskubernetes-httpsimgshieldsiogithubstarskuberneteskubernetessvg"><a href="https://github.com/kubernetes/kubernetes">kubernetes/kubernetes</a> <img src="https://img.shields.io/github/stars/kubernetes/kubernetes.svg" alt="" /></h3>
 <p>Production-Grade Container Scheduling and Management <a href="https://kubernetes.io">https://kubernetes.io</a></p>
 <h2 id="安装-kubernetes">安装 kubernetes</h2>
-<h3 id="kubernetesminikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">kubernetes/minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt=""></h3>
+<h3 id="kubernetesminikubehttpsgithubcomkubernetesminikube-httpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">kubernetes/minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="" /></h3>
 <p>Run Kubernetes locally
 <a href="https://minikube.sigs.k8s.io/">https://minikube.sigs.k8s.io</a></p>
 <p>一般用于本地开发、测试和学习，不能用于生产环境</p>
-<h3 id="kuberneteskubeadmhttpsgithubcomkuberneteskubeadm-httpsimgshieldsiogithubstarskuberneteskubeadmsvg"><a href="https://github.com/kubernetes/kubeadm">kubernetes/kubeadm</a> <img src="https://img.shields.io/github/stars/kubernetes/kubeadm.svg" alt=""></h3>
+<h3 id="kuberneteskubeadmhttpsgithubcomkuberneteskubeadm-httpsimgshieldsiogithubstarskuberneteskubeadmsvg"><a href="https://github.com/kubernetes/kubeadm">kubernetes/kubeadm</a> <img src="https://img.shields.io/github/stars/kubernetes/kubeadm.svg" alt="" /></h3>
 <ul>
 <li>用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用</li>
 <li>kubeadm 是 Kubernetes 1.4 开始新增的特性</li>
 <li>kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群</li>
 </ul>
-<h3 id="ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">ubuntu/microk8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt=""></h3>
+<h3 id="ubuntumicrok8shttpsgithubcomubuntumicrok8s-httpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">ubuntu/microk8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="" /></h3>
 <p>MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. <a href="https://microk8s.io">https://microk8s.io</a></p>
 <h2 id="kubernetes-周边工具">Kubernetes 周边工具</h2>
-<h3 id="rancherrancherhttpsgithubcomrancherrancher-httpsimgshieldsiogithubstarsrancherranchersvg"><a href="https://github.com/rancher/rancher">rancher/rancher</a> <img src="https://img.shields.io/github/stars/rancher/rancher.svg" alt=""></h3>
+<h3 id="rancherrancherhttpsgithubcomrancherrancher-httpsimgshieldsiogithubstarsrancherranchersvg"><a href="https://github.com/rancher/rancher">rancher/rancher</a> <img src="https://img.shields.io/github/stars/rancher/rancher.svg" alt="" /></h3>
 <p>Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。</p>
-<h3 id="helmhelmhttpsgithubcomhelmhelm-httpsimgshieldsiogithubstarshelmhelmsvg"><a href="https://github.com/helm/helm">helm/helm</a> <img src="https://img.shields.io/github/stars/helm/helm.svg" alt=""></h3>
+<h3 id="helmhelmhttpsgithubcomhelmhelm-httpsimgshieldsiogithubstarshelmhelmsvg"><a href="https://github.com/helm/helm">helm/helm</a> <img src="https://img.shields.io/github/stars/helm/helm.svg" alt="" /></h3>
 <p>The Kubernetes Package Manager <a href="https://helm.sh">https://helm.sh</a></p>
-<h3 id="rancherk3shttpsgithubcomrancherk3s-httpsimgshieldsiogithubstarsrancherk3ssvg"><a href="https://github.com/rancher/k3s">rancher/k3s</a> <img src="https://img.shields.io/github/stars/rancher/k3s.svg" alt=""></h3>
+<h3 id="rancherk3shttpsgithubcomrancherk3s-httpsimgshieldsiogithubstarsrancherk3ssvg"><a href="https://github.com/rancher/k3s">rancher/k3s</a> <img src="https://img.shields.io/github/stars/rancher/k3s.svg" alt="" /></h3>
 <p>Lightweight Kubernetes. 5 less than k8s. <a href="https://k3s.io">https://k3s.io</a></p>
-<h3 id="kubernetes-sigskustomizehttpsgithubcomkubernetes-sigskustomize-httpsimgshieldsiogithubstarskubernetes-sigskustomizesvg"><a href="https://github.com/kubernetes-sigs/kustomize">kubernetes-sigs/kustomize</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt=""></h3>
+<h3 id="kubernetes-sigskustomizehttpsgithubcomkubernetes-sigskustomize-httpsimgshieldsiogithubstarskubernetes-sigskustomizesvg"><a href="https://github.com/kubernetes-sigs/kustomize">kubernetes-sigs/kustomize</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt="" /></h3>
 <p>Customization of kubernetes YAML configurations</p>
-<h3 id="rancherk3oshttpsgithubcomrancherk3os-httpsimgshieldsiogithubstarsrancherk3ossvg"><a href="https://github.com/rancher/k3os">rancher/k3os</a> <img src="https://img.shields.io/github/stars/rancher/k3os.svg" alt=""></h3>
+<h3 id="rancherk3oshttpsgithubcomrancherk3os-httpsimgshieldsiogithubstarsrancherk3ossvg"><a href="https://github.com/rancher/k3os">rancher/k3os</a> <img src="https://img.shields.io/github/stars/rancher/k3os.svg" alt="" /></h3>
 <p>Purpose-built OS for Kubernetes, fully managed by Kubernetes. <a href="https://k3os.io">https://k3os.io</a></p>
-<h3 id="rancherfleethttpsgithubcomrancherfleet-httpsimgshieldsiogithubstarsrancherfleetsvg"><a href="https://github.com/rancher/fleet">rancher/fleet</a> <img src="https://img.shields.io/github/stars/rancher/fleet.svg" alt=""></h3>
+<h3 id="rancherfleethttpsgithubcomrancherfleet-httpsimgshieldsiogithubstarsrancherfleetsvg"><a href="https://github.com/rancher/fleet">rancher/fleet</a> <img src="https://img.shields.io/github/stars/rancher/fleet.svg" alt="" /></h3>
 <p>Manage large fleets of Kubernetes clusters</p>
-<h3 id="baiduote-stackhttpsgithubcombaiduote-stack-httpsimgshieldsiogithubstarsbaiduote-stacksvg"><a href="https://github.com/baidu/ote-stack">baidu/ote-stack</a> <img src="https://img.shields.io/github/stars/baidu/ote-stack.svg" alt=""></h3>
+<h3 id="baiduote-stackhttpsgithubcombaiduote-stack-httpsimgshieldsiogithubstarsbaiduote-stacksvg"><a href="https://github.com/baidu/ote-stack">baidu/ote-stack</a> <img src="https://img.shields.io/github/stars/baidu/ote-stack.svg" alt="" /></h3>
 <p>OTE-Stack is an edge computing platform for 5G and AI <a href="https://ote.baidu.com/">https://ote.baidu.com/</a></p>
 <h2 id="其他">其他</h2>
-<h3 id="knativeservinghttpsgithubcomknativeserving-httpsimgshieldsiogithubstarsknativeservingsvg"><a href="https://github.com/knative/serving">knative/serving</a> <img src="https://img.shields.io/github/stars/knative/serving.svg" alt=""></h3>
+<h3 id="knativeservinghttpsgithubcomknativeserving-httpsimgshieldsiogithubstarsknativeservingsvg"><a href="https://github.com/knative/serving">knative/serving</a> <img src="https://img.shields.io/github/stars/knative/serving.svg" alt="" /></h3>
 <p>Kubernetes-based, scale-to-zero, request-driven compute <a href="https://knative.dev/docs/serving">https://knative.dev/docs/serving</a></p>
-<h3 id="kubeflowkubeflowhttpsgithubcomkubeflowkubeflow-httpsimgshieldsiogithubstarskubeflowkubeflowsvg"><a href="https://github.com/kubeflow/kubeflow">kubeflow/kubeflow</a> <img src="https://img.shields.io/github/stars/kubeflow/kubeflow.svg" alt=""></h3>
+<h3 id="kubeflowkubeflowhttpsgithubcomkubeflowkubeflow-httpsimgshieldsiogithubstarskubeflowkubeflowsvg"><a href="https://github.com/kubeflow/kubeflow">kubeflow/kubeflow</a> <img src="https://img.shields.io/github/stars/kubeflow/kubeflow.svg" alt="" /></h3>
 <p>Machine Learning Toolkit for Kubernetes</p>
-<h3 id="alaudakube-ovnhttpsgithubcomalaudakube-ovn-httpsimgshieldsiogithubstarsalaudakube-ovnsvg"><a href="https://github.com/alauda/kube-ovn">alauda/kube-ovn</a> <img src="https://img.shields.io/github/stars/alauda/kube-ovn.svg" alt=""></h3>
+<h3 id="alaudakube-ovnhttpsgithubcomalaudakube-ovn-httpsimgshieldsiogithubstarsalaudakube-ovnsvg"><a href="https://github.com/alauda/kube-ovn">alauda/kube-ovn</a> <img src="https://img.shields.io/github/stars/alauda/kube-ovn.svg" alt="" /></h3>
 <p>A Kubernetes Network Fabric for Enterprises that is Rich in Functions and Easy in Operations <a href="https://kube-ovn.io">https://kube-ovn.io</a></p>
 <h3 id="opennesshttpswwwopennessorg"><a href="https://www.openness.org/">OpenNESS</a></h3>
 <p>OpenNESS（Open Network Edge Services Software）是一个开源的边缘应用程序管理系统，使服务提供商和企业能够在任何网络的边缘上构建、部署和操作自己的边缘应用程序（ME APP），支持通过简易的方式将运行在 Telco/Public Cloud 中的 APP 迁移到边缘。</p>
 <p>OpenNESS, the easy button to deploy innovative services at the Edge. OpenNESS is an open source reference toolkit that makes it easy to move applications from the Cloud to the Network and On-Premise Edge.</p>
 </article>
  
+      
 
       <footer class="book-footer">
         
@@ -1239,6 +1212,9 @@ https://github.com/alex-shpak/hugo-book
 
  
         
+      </footer>
+
+      
   
   <div class="book-comments">
 <script src="https://utteranc.es/client.js"
@@ -1252,8 +1228,8 @@ https://github.com/alex-shpak/hugo-book
 </div>
   
  
-      </footer>
-      
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     

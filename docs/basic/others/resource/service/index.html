@@ -8,7 +8,7 @@
 <meta property="og:description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/others/resource/service/" />
-
+<meta property="article:modified_time" content="2020-04-16T23:25:05+08:00" />
 <title>Service | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -1009,6 +1009,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/81d6c88cb75b6eae98fd29aeebc0bfc0ad7a54ad" title='Last modified by yewang | 2020-04-16' target="_blank" rel="noopener">
+      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-04-16</span>
+    </a>
+  </div>
 
 
 

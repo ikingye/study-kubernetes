@@ -28,12 +28,14 @@ play-with-docker/play-with-docker  Play With Docker gives you the experience of 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/appendix/attention/</guid>
-      <description>关注 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
-安装 kubernetes kubernetes/minikube  Run Kubernetes locally https://minikube.sigs.k8s.io
-一般用于本地开发、测试和学习，不能用于生产环境
-kubernetes/kubeadm   用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.4 开始新增的特性 kubeadm init 以及 kubeadm join 这两个命令可以快速创建 kubernetes 集群  ubuntu/microk8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge. https://microk8s.io
-Kubernetes 周边工具 rancher/rancher  Rancher 是一个容器管理平台，通过 Rancher 可以实现 Docker 和 Kubernetes 的轻松部署。
-helm/helm  The Kubernetes Package Manager https://helm.</description>
+      <description>关注 kubernetes 官方 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
+kubernetes/client-go  Go client for Kubernetes.
+kubernetes/kops  kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.
+kubernetes/dashboard  General-purpose web UI for Kubernetes clusters
+kubernetes/kube-state-metrics  Add-on agent to generate and expose cluster-level metrics.
+kubernetes/examples  Kubernetes application example tutorials
+kubernetes/sample-controller  Repository for sample controller. Complements sample-apiserver
+kubernetes/node-problem-detector  This is a place for various problem detectors running on the Kubernetes nodes.</description>
     </item>
     
   </channel>

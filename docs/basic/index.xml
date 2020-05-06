@@ -9,5 +9,30 @@
 	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>版本</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/version/</guid>
+      <description>Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
+查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
+kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
+ 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
+版本说明参考 Docker Engine release notes，
+可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
+Docker CE 和 Docker EE（17.</description>
+    </item>
+    
+    <item>
+      <title>client-go</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/client-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/client-go/</guid>
+      <description>kubernetes/client-go  安装 </description>
+    </item>
+    
   </channel>
 </rss>

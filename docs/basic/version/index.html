@@ -4,9 +4,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 版本 "><meta property="og:title" content="版本" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
+<meta name="description" content="Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
+查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
+kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
+ 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
+版本说明参考 Docker Engine release notes，
+可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
+Docker CE 和 Docker EE（17."><meta property="og:title" content="版本" />
+<meta property="og:description" content="Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
+查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
+kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
+ 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
+版本说明参考 Docker Engine release notes，
+可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
+Docker CE 和 Docker EE（17." />
+<meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/version/" />
 
 <title>版本 | Kubernetes 学习笔记</title>
@@ -16,9 +30,8 @@
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.eb333fc602962ae610d91bf8e4a5d30064eed4495835516aba776ef6ed78ba2c.js" integrity="sha256-6zM/xgKWKuYQ2Rv45KXTAGTu1ElYNVFqundu9u14uiw="></script>
+<script defer src="/study-k8s/en.search.min.686f190c0df7936b5e3467afbac36400080fee9716c640424efa43895993a7df.js" integrity="sha256-aG8ZDA33k2teNGevusNkAAgP7pcWxkBCTvpDiVmTp98="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/version/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -92,229 +105,6 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/quick-start/" class="">快速上手</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/quick-start/install/" class="">安装</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/kubectl/" class="">Kubectl</a>
-  
-
-</li>
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/" class="">核心组件</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/api-server/" class="">api-server</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/schedule/" class="">Schedule</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/controller-manager/" class="">Controller Manager</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/component/kubelet/" class="">Kubelet</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
     
       
         
@@ -461,7 +251,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <span>容器运行时</span>
+  <a href="/study-k8s/docs/basic/quick-start/" class="collapsed ">快速上手</a>
   
 
 
@@ -469,89 +259,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/" class="">Docker</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/image/" class="">Docker 镜像</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/image/alpine/" class="">alpine</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/network/" class="">Docker 网络</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
@@ -562,129 +269,12 @@ https://github.com/alex-shpak/hugo-book
     
       
         <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/attention/" class="">关注</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/container/docker/tutorial/" class="">Docker 教程</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/best-practice/" class="">最佳实践</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/best-practice/spec/" class="">编程规范</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
 
   
   <a href="/study-k8s/docs/basic/version/" class="active">版本</a>
   
 
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
+</li>
       
     
       
@@ -723,7 +313,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/tool/" class="">常用工具</a>
+  <a href="/study-k8s/docs/basic/architecture/" class="collapsed ">架构</a>
   
 
 
@@ -731,31 +321,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/helm/" class="">Helm</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
@@ -771,7 +336,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/tool/kubeadm/" class="">Kubeadm</a>
+  <a href="/study-k8s/docs/basic/component/" class="collapsed ">组件</a>
   
 
 
@@ -779,18 +344,22 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-  </ul>
-  
 
 
 
   </li>
 
 
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/client-go/" class="">client-go</a>
+  
+
+</li>
       
     
       
@@ -800,7 +369,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/tool/kustomize/" class="">Kustomize</a>
+  <a href="/study-k8s/docs/basic/others/" class="collapsed ">其他</a>
   
 
 
@@ -808,51 +377,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/tool/minikube/" class="">MiniKube</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
 
 
 
@@ -965,7 +489,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="">面试题</a>
+  <a href="/study-k8s/docs/appendix/snippet/" class="collapsed ">代码片段</a>
   
 
 
@@ -973,42 +497,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/appendix/interview/basic/" class="">基础</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/appendix/interview/advanced/" class="">进阶</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/appendix/interview/expert/" class="">高阶</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
 
 
 
@@ -1025,6 +513,29 @@ https://github.com/alex-shpak/hugo-book
   
 
 </li>
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/appendix/interview/" class="collapsed ">面试题</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
       
     
   </ul>
@@ -1092,7 +603,50 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-版本">Kubernetes 版本</a></li>
+    <li><a href="#kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></a>
+      <ul>
+        <li><a href="#查看版本">查看版本</a>
+          <ul>
+            <li><a href="#kuberctl">kuberctl</a></li>
+            <li><a href="#apiserver">apiserver</a></li>
+            <li><a href="#kubelet">kubelet</a></li>
+          </ul>
+        </li>
+        <li><a href="#版本说明">版本说明</a>
+          <ul>
+            <li><a href="#docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</a></li>
+            <li><a href="#docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</a></li>
+            <li><a href="#docker-合并版本号18090">Docker 合并版本号（18.09.0）</a>
+              <ul>
+                <li><a href="#分拆-client-与-daemon">分拆 client 与 daemon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
+          <ul>
+            <li><a href="#v119">v1.19</a></li>
+            <li><a href="#v118">v1.18</a></li>
+            <li><a href="#v117">v1.17</a></li>
+            <li><a href="#v116">v1.16</a></li>
+            <li><a href="#v115">v1.15</a></li>
+            <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
+            <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
+            <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
+            <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
+            <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
+            <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
+            <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
+            <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考">参考</a>
+          <ul>
+            <li><a href="#kubernetesstatus">kubernetesstatus</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1104,7 +658,72 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kubernetes-版本">Kubernetes 版本</h1>
+  <article class="markdown"><h1 id="kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></h1>
+<p><a href="https://github.com/kubernetes/kubernetes/tree/v1.17.0">https://github.com/kubernetes/kubernetes/tree/v1.17.0</a></p>
+<h2 id="查看版本">查看版本</h2>
+<h3 id="kuberctl">kuberctl</h3>
+<ul>
+<li><code>kuberctl version</code></li>
+</ul>
+<p>这里 <code>Client Version</code> 的 <code>GitVersion</code> 是 kuberctl 的版本：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506151701.png" alt="" /></p>
+<h3 id="apiserver">apiserver</h3>
+<ul>
+<li><code>kuberctl version</code></li>
+</ul>
+<p>这里 <code>Server Version</code> 的 <code>GitVersion</code> 是 apiserver 的版本：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506151717.png" alt="" /></p>
+<h3 id="kubelet">kubelet</h3>
+<ul>
+<li><code>kuberctl get nodes</code></li>
+</ul>
+<p>这里的 <code>VERSION</code>   是 kubelet 的版本：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506152427.png" alt="" /></p>
+<hr>
+<h2 id="版本说明">版本说明</h2>
+<h3 id="docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</h3>
+<p><code>Docker CE</code> 在 17.03 版本之前叫 <code>Docker Engine</code> 。</p>
+<p>版本说明参考 <a href="https://docs.docker.com/release-notes/docker-engine/">Docker Engine release notes</a>，</p>
+<p>可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) <strong>~</strong> 1.13.1 (2017-02-08)</p>
+<h3 id="docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</h3>
+<p>在 2017 年 3 月 2 日，docker 团队宣布企业版 Docker Enterprise Edition (EE) 发布。</p>
+<p>为了一致，免费的 Docker Engine 改名为 Docker Community Edition (CE), 并且采用基于时间的版本号方案。</p>
+<p>就在这一天，Docker EE 和 Docker CE 的 17.03 版本发布，这也是第一个采用新的版本号方案的版本。</p>
+<p>Docker CE/EE 每个季度发布一次 <strong>季度版本</strong> , 也就是说每年会发布 4 个季度版本，17.03, 17.06, 17.09, 17.12 就是 2017 年的 4 个季度版本的版本号。</p>
+<p>同时 Docker CE 每个月还会发布一个 EDGE 版本，比如 17.04, 17.05, 17.07, 17.08, 17.10, 17.11。</p>
+<p>Docker CE 季度版本自发布后会有 <strong>4 个月</strong>的维护期。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506152504.png" alt="" /></p>
+<p>在基于时间的发布方案中，版本号格式为: YY.MM.<patch>，YY.MM 代表年月，patch 代表补丁号，从 0 开始，</p>
+<p>在季度版本 (如 17.03) 的维护期内，bug 修复相关的更新会以 patch 递增的方式发布，</p>
+<p>比如 17.03.0 -&gt; 17.03.1 -&gt; 17.03.2.</p>
+<h3 id="docker-合并版本号18090">Docker 合并版本号（18.09.0）</h3>
+<p>New in 18.09 is an aligned release model for <strong>Docker Engine - Community</strong> and <strong>Docker Engine - Enterprise</strong>. The new versioning scheme is YY.MM.x where x is an incrementing patch version. The enterprise engine is a superset of the community engine. They will ship concurrently with the same x patch version based on the same code base.</p>
+<p>参考：<a href="https://docs.docker.com/engine/release-notes/">https://docs.docker.com/engine/release-notes/</a></p>
+<p>18.09 (2018-11-08)</p>
+<p>19.03 (2019-07-22)</p>
+<h4 id="分拆-client-与-daemon">分拆 client 与 daemon</h4>
+<p><strong>The client</strong> and <strong>container runtime</strong> are now in separate packages from the daemon in Docker Engine 18.09. Users should install and update all three packages at the same time to get the latest patch releases.</p>
+<p>For example, on Ubuntu:</p>
+<p><code>sudo apt install docker-ce docker-ce-cli containerd.io</code></p>
+<hr>
+<h2 id="历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></h2>
+<h3 id="v119">v1.19</h3>
+<h3 id="v118">v1.18</h3>
+<h3 id="v117">v1.17</h3>
+<h3 id="v116">v1.16</h3>
+<h3 id="v115">v1.15</h3>
+<h3 id="v114-2019-03-26">v1.14 (2019-03-26)</h3>
+<h3 id="v113-2018-12-03">v1.13 (2018-12-03)</h3>
+<h3 id="v112-2018-09-27">v1.12 (2018-09-27)</h3>
+<h3 id="v111-2018-06-27">v1.11 (2018-06-27)</h3>
+<h3 id="v110-2018-03-26">v1.10 (2018-03-26)</h3>
+<h3 id="v19-2017-12-15">v1.9 (2017-12-15)</h3>
+<h3 id="v18-2017-09-28">v1.8 (2017-09-28)</h3>
+<h3 id="v17-2017-06-29">v1.7 (2017-06-29)</h3>
+<hr>
+<h2 id="参考">参考</h2>
+<h3 id="kubernetesstatus">kubernetesstatus</h3>
+<p>追踪 Kubernetes 最新特性，请访问互动教学网站提供商  <a href="https://katacoda.com/">Katacoda.com</a>  创建的  <a href="http://kubernetesstatus.com/">kubernetesstatus.com</a>。</p>
 </article>
  
       
@@ -1114,14 +733,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4c4d9d5d293e3ab8791dd3b819bd86deed01ed79" title='Last modified by yewang | 2020-03-02' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-03-02</span>
-    </a>
-  </div>
 
 
 
@@ -1154,7 +765,50 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-版本">Kubernetes 版本</a></li>
+    <li><a href="#kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></a>
+      <ul>
+        <li><a href="#查看版本">查看版本</a>
+          <ul>
+            <li><a href="#kuberctl">kuberctl</a></li>
+            <li><a href="#apiserver">apiserver</a></li>
+            <li><a href="#kubelet">kubelet</a></li>
+          </ul>
+        </li>
+        <li><a href="#版本说明">版本说明</a>
+          <ul>
+            <li><a href="#docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</a></li>
+            <li><a href="#docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</a></li>
+            <li><a href="#docker-合并版本号18090">Docker 合并版本号（18.09.0）</a>
+              <ul>
+                <li><a href="#分拆-client-与-daemon">分拆 client 与 daemon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
+          <ul>
+            <li><a href="#v119">v1.19</a></li>
+            <li><a href="#v118">v1.18</a></li>
+            <li><a href="#v117">v1.17</a></li>
+            <li><a href="#v116">v1.16</a></li>
+            <li><a href="#v115">v1.15</a></li>
+            <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
+            <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
+            <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
+            <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
+            <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
+            <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
+            <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
+            <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考">参考</a>
+          <ul>
+            <li><a href="#kubernetesstatus">kubernetesstatus</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

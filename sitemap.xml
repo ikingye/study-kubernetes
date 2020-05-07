@@ -9,17 +9,17 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/network/port/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/network/kubedns/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -39,17 +39,17 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -84,7 +84,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -114,7 +114,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -134,7 +134,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/network/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -144,7 +144,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -164,11 +164,12 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/version/</loc>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/debug/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -193,11 +194,12 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/client-go/</loc>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/attention/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>
@@ -221,7 +223,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <lastmod>2020-05-06T22:00:21+08:00</lastmod>
   </url>
   
   <url>

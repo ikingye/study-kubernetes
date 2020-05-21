@@ -73,9 +73,12 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/network/coredns/</guid>
-      <description>CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
+      <description>CoreDNS coredns/coredns CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
  kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
-在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。</description>
+在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。
+pod 是 coredns，service 是 kube-dns？ 其实是 CoreDNS
+CoreDNS is default from K8S 1.11. For previous installations it&amp;rsquo;s kube-dns.
+看 image，其他都是 metadata，不重要</description>
     </item>
     
     <item>

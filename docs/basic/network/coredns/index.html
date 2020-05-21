@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
+<meta name="description" content="CoreDNS coredns/coredns CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
  kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
-在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。"><meta property="og:title" content="CoreDNS" />
-<meta property="og:description" content="CoreDNS CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
+在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。
+pod 是 coredns，service 是 kube-dns？ 其实是 CoreDNS
+CoreDNS is default from K8S 1.11. For previous installations it&rsquo;s kube-dns.
+看 image，其他都是 metadata，不重要"><meta property="og:title" content="CoreDNS" />
+<meta property="og:description" content="CoreDNS coredns/coredns CoreDNS vs KubeDNS 在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。
  kubedns 容器监视 Kubernetes API 并基于 Kubernetes DNS 规范提供 DNS 记录， dnsmasq 提供缓存和存根域支持， sidecar 提供指标和健康检查。  此设置会导致一些问题随着时间的推移而出现。首先，dnsmasq 中的安全漏洞导致过去需要发布 Kubernetes 安全补丁。 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。
-在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。" />
+在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。 启用的不同插件来复制（并增强）kube-dns 中的功能。
+pod 是 coredns，service 是 kube-dns？ 其实是 CoreDNS
+CoreDNS is default from K8S 1.11. For previous installations it&rsquo;s kube-dns.
+看 image，其他都是 metadata，不重要" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/network/coredns/" />
 <meta property="article:modified_time" content="2020-05-06T22:00:21+08:00" />
@@ -20,7 +26,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.558e74ba9cbf76e53c34e09bb31fb5f13bf74a6cf2d16c744a6b8005aca5203a.js" integrity="sha256-VY50upy/duU8NOCbsx&#43;18Tv3Smzy0Wx0SmuABaylIDo="></script>
+<script defer src="/study-k8s/en.search.min.43774b38dc445374234884cfb2d10ee9d4f1ecaeea2aa982be0b44c6b6eb3ced.js" integrity="sha256-Q3dLONxEU3QjSITPstEO6dTx7K7qKqmCvgtExrbrPO0="></script>
 
 <!--
 Made with Book Theme
@@ -596,6 +602,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#coredns">CoreDNS</a>
       <ul>
         <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+        <li><a href="#pod-是-corednsservice-是-kube-dns">pod 是 coredns，service 是 kube-dns？</a></li>
       </ul>
     </li>
   </ul>
@@ -610,6 +617,7 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="coredns">CoreDNS</h1>
+<p><a href="https://github.com/coredns/coredns">coredns/coredns</a> <img src="https://img.shields.io/github/stars/coredns/coredns.svg" alt="Github stars" /></p>
 <h2 id="coredns-vs-kubedns">CoreDNS vs KubeDNS</h2>
 <p>在 kube-dns 中，一个 pod 内使用了数个容器：kubedns、dnsmasq 和 sidecar。</p>
 <ul>
@@ -621,6 +629,60 @@ https://github.com/alex-shpak/hugo-book
 此外，由于 dnsmasq 处理存根域，但 kubedns 处理 External Services，因此你无法在外部服务中使用存根域，这非常限制该功能（参阅 dns＃131）。</p>
 <p>在 CoreDNS 中，所有这些功能都在一个容器中完成 —— 该容器运行用 Go 编写的进程。
 启用的不同插件来复制（并增强）kube-dns 中的功能。</p>
+<h2 id="pod-是-corednsservice-是-kube-dns">pod 是 coredns，service 是 kube-dns？</h2>
+<p>其实是 CoreDNS</p>
+<p>CoreDNS is default from K8S 1.11. For previous installations it&rsquo;s kube-dns.</p>
+<p>看 <code>image</code>，其他都是 metadata，不重要</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ k describe pod coredns-6967fb4995-76trs -n kube-system | grep -i <span style="color:#e6db74">&#34;image&#34;</span>
+
+Image:         registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1
+</code></pre></div><p>问题详情</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ k cluster-info
+Kubernetes master is running at https://192.168.99.102:8443
+KubeDNS is running at https://192.168.99.102:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+$ k get po -n kube-system
+NAME                               READY   STATUS    RESTARTS   AGE
+coredns-6967fb4995-76trs           1/1     Running   <span style="color:#ae81ff">6</span>          32d
+coredns-6967fb4995-grnzj           1/1     Running   <span style="color:#ae81ff">6</span>          32d
+etcd-minikube                      1/1     Running   <span style="color:#ae81ff">3</span>          32d
+kube-addon-manager-minikube        1/1     Running   <span style="color:#ae81ff">3</span>          32d
+kube-apiserver-minikube            1/1     Running   <span style="color:#ae81ff">3</span>          32d
+kube-controller-manager-minikube   1/1     Running   <span style="color:#ae81ff">3</span>          32d
+kube-proxy-z765q                   1/1     Running   <span style="color:#ae81ff">3</span>          32d
+kube-scheduler-minikube            1/1     Running   <span style="color:#ae81ff">3</span>          32d
+storage-provisioner                1/1     Running   <span style="color:#ae81ff">5</span>          32d
+
+$ k get svc -n kube-system
+NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>                  AGE
+kube-dns   ClusterIP   10.96.0.10   &lt;none&gt;        53/UDP,53/TCP,9153/TCP   32d
+
+$ k describe svc/kube-dns -n kube-system
+Name:              kube-dns
+Namespace:         kube-system
+Labels:            k8s-app<span style="color:#f92672">=</span>kube-dns
+                   kubernetes.io/cluster-service<span style="color:#f92672">=</span>true
+                   kubernetes.io/name<span style="color:#f92672">=</span>KubeDNS
+Annotations:       prometheus.io/port: <span style="color:#ae81ff">9153</span>
+                   prometheus.io/scrape: true
+Selector:          k8s-app<span style="color:#f92672">=</span>kube-dns
+Type:              ClusterIP
+IP:                10.96.0.10
+Port:              dns  53/UDP
+TargetPort:        53/UDP
+Endpoints:         172.17.0.2:53,172.17.0.3:53
+Port:              dns-tcp  53/TCP
+TargetPort:        53/TCP
+Endpoints:         172.17.0.2:53,172.17.0.3:53
+Port:              metrics  9153/TCP
+TargetPort:        9153/TCP
+Endpoints:         172.17.0.2:9153,172.17.0.3:9153
+Session Affinity:  None
+Events:            &lt;none&gt;
+</code></pre></div><p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/52761135/kubernetes-kube-dns-vs-coredns">Kubernetes: Kube-DNS vs CoreDNS</a></li>
+</ul>
 </article>
  
       
@@ -673,6 +735,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#coredns">CoreDNS</a>
       <ul>
         <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+        <li><a href="#pod-是-corednsservice-是-kube-dns">pod 是 coredns，service 是 kube-dns？</a></li>
       </ul>
     </li>
   </ul>

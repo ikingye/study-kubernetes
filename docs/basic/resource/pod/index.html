@@ -24,7 +24,7 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.43774b38dc445374234884cfb2d10ee9d4f1ecaeea2aa982be0b44c6b6eb3ced.js" integrity="sha256-Q3dLONxEU3QjSITPstEO6dTx7K7qKqmCvgtExrbrPO0="></script>
+<script defer src="/study-k8s/en.search.min.89f95b21235ec1d7108ed8c582aacc59b367a519109535f65db1acf92e8e72b9.js" integrity="sha256-iflbISNewdcQjtjFgqrMWbNnpRkQlTX2XbGs&#43;S6Ocrk="></script>
 
 <!--
 Made with Book Theme
@@ -186,7 +186,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <span>K8s 网络</span>
+  <a href="/study-k8s/docs/basic/network/" class="">K8s 网络</a>
   
 
 
@@ -209,10 +209,29 @@ https://github.com/alex-shpak/hugo-book
       
     
       
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/network/dns/" class="">K8s DNS</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
         <li>
 
   
-  <a href="/study-k8s/docs/basic/network/kubedns/" class="">KubeDNS</a>
+  <a href="/study-k8s/docs/basic/network/dns/coredns/" class="">CoreDNS</a>
   
 
 </li>
@@ -222,7 +241,27 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/network/coredns/" class="">CoreDNS</a>
+  <a href="/study-k8s/docs/basic/network/dns/kubedns/" class="">KubeDNS</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/network/troubleshoot/" class="">故障排查</a>
   
 
 </li>
@@ -278,7 +317,49 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/debug/" class="">除错</a>
+  <a href="/study-k8s/docs/basic/architecture/" class="collapsed ">架构</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/component/" class="">组件</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/component/api-server/" class="">api-server</a>
   
 
 
@@ -307,7 +388,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/architecture/" class="collapsed ">架构</a>
+  <a href="/study-k8s/docs/basic/component/schedule/" class="">Schedule</a>
   
 
 
@@ -315,6 +396,12 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+  </ul>
+  
 
 
 
@@ -330,7 +417,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/component/" class="collapsed ">组件</a>
+  <a href="/study-k8s/docs/basic/component/controller-manager/" class="">Controller Manager</a>
   
 
 
@@ -338,6 +425,80 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/component/kubelet/" class="">Kubelet</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
 
 
 
@@ -354,6 +515,29 @@ https://github.com/alex-shpak/hugo-book
   
 
 </li>
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/practice/" class="collapsed ">实践</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
       
     
       
@@ -607,6 +791,12 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#containercreating">ContainerCreating</a></li>
           </ul>
         </li>
+        <li><a href="#资源限制">资源限制</a>
+          <ul>
+            <li><a href="#request">request</a></li>
+            <li><a href="#limit">limit</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -717,6 +907,34 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 <h3 id="containercreating">ContainerCreating</h3>
+<h2 id="资源限制">资源限制</h2>
+<h3 id="request">request</h3>
+<ul>
+<li>requests 用于 schedule 阶段，在调度 pod 保证所有 pod 的 requests 总和小于 node 能提供的计算能力</li>
+<li>requests.cpu 被转成 docker 的 <code>--cpu-shares</code> 参数，与 cgroup <code>cpu.shares</code> 功能相同
+<ul>
+<li>设置容器的 cpu 的相对权重</li>
+<li>该参数在 CPU 资源不足时生效，根据容器 requests.cpu 的比例来分配 cpu 资源</li>
+<li>CPU 资源充足时，requests.cpu 不会限制 container 占用的最大值，container 可以独占 CPU</li>
+</ul>
+</li>
+<li>requests.memory 没有对应的 docker 参数，作为 k8s 调度依据</li>
+<li>使用 requests 来设置各容器需要的最小资源</li>
+</ul>
+<h3 id="limit">limit</h3>
+<ul>
+<li>limits 限制运行时容器占用的资源</li>
+<li>limits.cpu 会被转换成 docker 的&ndash;cpu-quota 参数。与 cgroup cpu.cfs_quota_us 功能相同
+<ul>
+<li>限制容器的最大 CPU 使用率。</li>
+<li>cpu.cfs_quota_us 参数与 cpu.cfs_period_us 结合使用，后者设置时间周期</li>
+<li>k8s 将 docker 的&ndash;cpu-period 参数设置 100 毫秒。对应着 cgroup 的 cpu.cfs_period_us</li>
+<li>limits.cpu 的单位使用 m，千分之一核</li>
+</ul>
+</li>
+<li>limits.memory 会被转换成 docker 的&ndash;memory 参数。用来限制容器使用的最大内存</li>
+<li>当容器申请内存超过 limits 时会被终止</li>
+</ul>
 </article>
  
       
@@ -774,6 +992,12 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#pod-状态">Pod 状态</a>
           <ul>
             <li><a href="#containercreating">ContainerCreating</a></li>
+          </ul>
+        </li>
+        <li><a href="#资源限制">资源限制</a>
+          <ul>
+            <li><a href="#request">request</a></li>
+            <li><a href="#limit">limit</a></li>
           </ul>
         </li>
       </ul>

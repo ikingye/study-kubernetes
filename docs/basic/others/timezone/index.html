@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 编程规范 "><meta property="og:title" content="编程规范" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/spec/" />
+<meta name="description" content="时区 设置时区 国外时区一把都是 UTC，需要改成国内时区 CST.
+Docker 的时区设置方式 设置容器的时区环境变量 虽然没有改变对应的 localtime，但是容器与主机的时区是一致的了
+docker run -it --rm -e &#34;TZ=Asia/Shanghai&#34; centos 挂载主机的时区文件到容器中 docker run -it --rm -v /etc/localtime:/etc/localtime centos 基于 alpine 构建 docker 镜像修改时区 FROM ej52/alpine-nginx-php:latest RUN echo &#39;http://mirrors.ustc.edu.cn/alpine/v3.5/main&#39; &gt; /etc/apk/repositories \  &amp;&amp; echo &#39;http://mirrors.ustc.edu.cn/alpine/v3.5/community&#39; &gt;&gt;/etc/apk/repositories \ &amp;&amp; apk update &amp;&amp; apk add tzdata \ &amp;&amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ &amp;&amp; echo &#34;Asia/Shanghai&#34; &gt; /etc/timezone 执行构建
+docker build --rm -t ej52/alpine-nginx-php:latest . php 环境下面还需要修改 php."><meta property="og:title" content="时区" />
+<meta property="og:description" content="时区 设置时区 国外时区一把都是 UTC，需要改成国内时区 CST.
+Docker 的时区设置方式 设置容器的时区环境变量 虽然没有改变对应的 localtime，但是容器与主机的时区是一致的了
+docker run -it --rm -e &#34;TZ=Asia/Shanghai&#34; centos 挂载主机的时区文件到容器中 docker run -it --rm -v /etc/localtime:/etc/localtime centos 基于 alpine 构建 docker 镜像修改时区 FROM ej52/alpine-nginx-php:latest RUN echo &#39;http://mirrors.ustc.edu.cn/alpine/v3.5/main&#39; &gt; /etc/apk/repositories \  &amp;&amp; echo &#39;http://mirrors.ustc.edu.cn/alpine/v3.5/community&#39; &gt;&gt;/etc/apk/repositories \ &amp;&amp; apk update &amp;&amp; apk add tzdata \ &amp;&amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ &amp;&amp; echo &#34;Asia/Shanghai&#34; &gt; /etc/timezone 执行构建
+docker build --rm -t ej52/alpine-nginx-php:latest . php 环境下面还需要修改 php." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/others/timezone/" />
 
-<title>编程规范 | Kubernetes 学习笔记</title>
+<title>时区 | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +24,6 @@
 
 <script defer src="/study-k8s/en.search.min.89f95b21235ec1d7108ed8c582aacc59b367a519109535f65db1acf92e8e72b9.js" integrity="sha256-iflbISNewdcQjtjFgqrMWbNnpRkQlTX2XbGs&#43;S6Ocrk="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/spec/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -578,7 +583,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/others/best-practice/spec/" class="active">编程规范</a>
+  <a href="/study-k8s/docs/basic/others/best-practice/spec/" class="">编程规范</a>
   
 
 
@@ -730,7 +735,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/others/timezone/" class="">时区</a>
+  <a href="/study-k8s/docs/basic/others/timezone/" class="active">时区</a>
   
 
 </li>
@@ -950,7 +955,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>编程规范</strong>
+  <strong>时区</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -964,7 +969,28 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-编程规范">Kubernetes 编程规范</a></li>
+    <li><a href="#时区">时区</a>
+      <ul>
+        <li><a href="#设置时区">设置时区</a>
+          <ul>
+            <li><a href="#docker-的时区设置方式">Docker 的时区设置方式</a>
+              <ul>
+                <li><a href="#设置容器的时区环境变量">设置容器的时区环境变量</a></li>
+                <li><a href="#挂载主机的时区文件到容器中">挂载主机的时区文件到容器中</a></li>
+                <li><a href="#基于-alpine-构建-docker-镜像修改时区">基于 alpine 构建 docker 镜像修改时区</a></li>
+              </ul>
+            </li>
+            <li><a href="#kubernetes-的时区设置方式">Kubernetes 的时区设置方式</a>
+              <ul>
+                <li><a href="#通过环境变量设置">通过环境变量设置</a></li>
+                <li><a href="#通过挂载主机时区文件设置">通过挂载主机时区文件设置</a></li>
+                <li><a href="#通过-pod-preset-预设置时区环境变量">通过 Pod Preset 预设置时区环境变量</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -976,7 +1002,44 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kubernetes-编程规范">Kubernetes 编程规范</h1>
+  <article class="markdown"><h1 id="时区">时区</h1>
+<h2 id="设置时区">设置时区</h2>
+<p>国外时区一把都是 UTC，需要改成国内时区 CST.</p>
+<h3 id="docker-的时区设置方式">Docker 的时区设置方式</h3>
+<h4 id="设置容器的时区环境变量">设置容器的时区环境变量</h4>
+<p>虽然没有改变对应的 localtime，但是容器与主机的时区是一致的了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -it --rm -e <span style="color:#e6db74">&#34;TZ=Asia/Shanghai&#34;</span> centos
+</code></pre></div><h4 id="挂载主机的时区文件到容器中">挂载主机的时区文件到容器中</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -it --rm -v /etc/localtime:/etc/localtime centos
+</code></pre></div><h4 id="基于-alpine-构建-docker-镜像修改时区">基于 alpine 构建 docker 镜像修改时区</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">FROM ej52/alpine-nginx-php:latest
+RUN  echo <span style="color:#e6db74">&#39;http://mirrors.ustc.edu.cn/alpine/v3.5/main&#39;</span> &gt; /etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#39;http://mirrors.ustc.edu.cn/alpine/v3.5/community&#39;</span> &gt;&gt;/etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> apk update <span style="color:#f92672">&amp;&amp;</span> apk add tzdata <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Asia/Shanghai&#34;</span> &gt; /etc/timezone
+</code></pre></div><p>执行构建</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker build --rm -t ej52/alpine-nginx-php:latest .
+</code></pre></div><blockquote class="book-hint info">
+  <p>php 环境下面还需要修改 <code>php.ini</code> 配置文件
+把 <code>data.timezone = &quot;UTC&quot;</code> 改成 <code>data.timezone = &quot;Asia/Shanghai&quot;</code> ，</p>
+<p>这样 php 获取时间才是正确的北京时间。</p>
+
+</blockquote>
+
+<p>参考：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/4e7553179a72">基于 alpine 构建 docker 镜像修改时区</a></li>
+</ul>
+<hr>
+<h3 id="kubernetes-的时区设置方式">Kubernetes 的时区设置方式</h3>
+<h4 id="通过环境变量设置">通过环境变量设置</h4>
+<h4 id="通过挂载主机时区文件设置">通过挂载主机时区文件设置</h4>
+<h4 id="通过-pod-preset-预设置时区环境变量">通过 Pod Preset 预设置时区环境变量</h4>
+<p>参考：</p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000016353522">Pod Preset 玩转 K8S 容器时区自动配置</a></li>
+</ul>
 </article>
  
       
@@ -986,14 +1049,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/81d6c88cb75b6eae98fd29aeebc0bfc0ad7a54ad" title='Last modified by yewang | 2020-04-16' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-04-16</span>
-    </a>
-  </div>
 
 
 
@@ -1026,7 +1081,28 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-编程规范">Kubernetes 编程规范</a></li>
+    <li><a href="#时区">时区</a>
+      <ul>
+        <li><a href="#设置时区">设置时区</a>
+          <ul>
+            <li><a href="#docker-的时区设置方式">Docker 的时区设置方式</a>
+              <ul>
+                <li><a href="#设置容器的时区环境变量">设置容器的时区环境变量</a></li>
+                <li><a href="#挂载主机的时区文件到容器中">挂载主机的时区文件到容器中</a></li>
+                <li><a href="#基于-alpine-构建-docker-镜像修改时区">基于 alpine 构建 docker 镜像修改时区</a></li>
+              </ul>
+            </li>
+            <li><a href="#kubernetes-的时区设置方式">Kubernetes 的时区设置方式</a>
+              <ul>
+                <li><a href="#通过环境变量设置">通过环境变量设置</a></li>
+                <li><a href="#通过挂载主机时区文件设置">通过挂载主机时区文件设置</a></li>
+                <li><a href="#通过-pod-preset-预设置时区环境变量">通过 Pod Preset 预设置时区环境变量</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

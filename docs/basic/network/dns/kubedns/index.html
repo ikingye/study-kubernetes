@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 编程规范 "><meta property="og:title" content="编程规范" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/spec/" />
+<meta name="description" content="KubeDNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
+nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
+docker inspect --format &quot;{{.State.Pid}}&quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy ClusterFirst（默认） 优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。"><meta property="og:title" content="KubeDNS" />
+<meta property="og:description" content="KubeDNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
+nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
+docker inspect --format &quot;{{.State.Pid}}&quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy ClusterFirst（默认） 优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/network/dns/kubedns/" />
 
-<title>编程规范 | Kubernetes 学习笔记</title>
+<title>KubeDNS | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +22,6 @@
 
 <script defer src="/study-k8s/en.search.min.89f95b21235ec1d7108ed8c582aacc59b367a519109535f65db1acf92e8e72b9.js" integrity="sha256-iflbISNewdcQjtjFgqrMWbNnpRkQlTX2XbGs&#43;S6Ocrk="></script>
 
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/spec/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -234,7 +237,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/network/dns/kubedns/" class="">KubeDNS</a>
+  <a href="/study-k8s/docs/basic/network/dns/kubedns/" class="active">KubeDNS</a>
   
 
 </li>
@@ -549,196 +552,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/best-practice/" class="">实践</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/best-practice/spec/" class="active">编程规范</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/tool/" class="">常用工具</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/tool/kubeadm/" class="">Kubeadm</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/tool/kustomize/" class="">Kustomize</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-k8s/docs/basic/others/tool/minikube/" class="">MiniKube</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-k8s/docs/basic/others/timezone/" class="">时区</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
 
 
   </li>
@@ -950,7 +763,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>编程规范</strong>
+  <strong>KubeDNS</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -964,7 +777,27 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-编程规范">Kubernetes 编程规范</a></li>
+    <li><a href="#kubedns">KubeDNS</a>
+      <ul>
+        <li><a href="#如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</a></li>
+        <li><a href="#dnspolicy">dnsPolicy</a>
+          <ul>
+            <li><a href="#clusterfirst默认">ClusterFirst（默认）</a></li>
+            <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
+            <li><a href="#default">Default</a></li>
+            <li><a href="#none">None</a></li>
+          </ul>
+        </li>
+        <li><a href="#kube-dns-组成">kube-dns 组成</a>
+          <ul>
+            <li><a href="#kubedns-1">kubedns</a></li>
+            <li><a href="#dnsmasq">dnsmasq</a></li>
+            <li><a href="#sidecar">sidecar</a></li>
+          </ul>
+        </li>
+        <li><a href="#如何调试-dns-解析">如何调试 DNS 解析</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -976,7 +809,43 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kubernetes-编程规范">Kubernetes 编程规范</h1>
+  <article class="markdown"><h1 id="kubedns">KubeDNS</h1>
+<p>在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件，
+普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。</p>
+<pre><code>nameserver 10.99.0.2  # 这里存储的是kube-dns的Service IP
+search default.svc.cluster.local. svc.cluster.local. cluster.local.
+options ndots:5
+</code></pre><h2 id="如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</h2>
+<p>DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。</p>
+<pre><code>docker inspect --format &quot;{{.State.Pid}}&quot; dns_container_id
+# 进入 container 的 network namespace
+nsenter -n -t pid
+# 对 53 端口进行抓包
+tcpdump -i eth0 -N udp dst port 53
+</code></pre><h2 id="dnspolicy">dnsPolicy</h2>
+<h3 id="clusterfirst默认">ClusterFirst（默认）</h3>
+<p>优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</p>
+<h3 id="clusterfirstwithhostnet">ClusterFirstWithHostNet</h3>
+<p>当一个 Pod 以 HOST 模式（和宿主机共享网络，hostNetwork: true）启动时，这个 POD 中的所有容器都会使用宿主机的 /etc/resolv.conf 配置进行 DNS 查询。
+但是如果在 Pod 中仍然还想继续使用 k8s 集群 的 DNS 服务时，就需要将 dnsPolicy 设置为 ClusterFirstWithHostNet。</p>
+<h3 id="default">Default</h3>
+<p>让 kubelet 来决定 Pod 内的 DNS 使用哪种 DNS 策略。
+kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进行解析。
+你可以通过设置 kubelet 的启动参数， &ndash;resolv-conf=/etc/resolv.conf 来决定该 DNS 服务使用的解析文件的地址</p>
+<p>当我们<strong>部署集群 DNS 服务</strong>的时候，一般就需要<strong>将 dnsPolicy 设置成 Default</strong>，
+而并非使用默认值 ClusterFirst，否则该 DNS 服务的上游解析地址会变成它自身的 Service 的 ClusterIP（我解析我自己），导致域名无法解析。</p>
+<h3 id="none">None</h3>
+<p>不会使用集群和宿主机的 DNS 策略，而是和 dnsConfig 配合一起使用，来自定义 DNS 配置，否则在提交修改时报错。</p>
+<h2 id="kube-dns-组成">kube-dns 组成</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200303235621.png" alt="" /></p>
+<h3 id="kubedns-1">kubedns</h3>
+<p>依赖 client-go 中的 informer 机制监视 k8s 中的 Service 和 Endpoint 的变化，并将这些结构维护进内存来服务内部 DNS 解析请求。</p>
+<h3 id="dnsmasq">dnsmasq</h3>
+<p>区分 Domain 是集群内部还是外部，给外部域名提供上游解析，内部域名发往 10053 端口，并将解析结果缓存，提高解析效率。</p>
+<h3 id="sidecar">sidecar</h3>
+<p>对 kubedns 和 dnsmasq 进行健康检查和收集监控指标。</p>
+<h2 id="如何调试-dns-解析">如何调试 DNS 解析</h2>
+<p>参考 k8smeetup：<a href="https://k8smeetup.github.io/docs/tasks/administer-cluster/dns-debugging-resolution/">调试 DNS 解析</a></p>
 </article>
  
       
@@ -986,14 +855,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/81d6c88cb75b6eae98fd29aeebc0bfc0ad7a54ad" title='Last modified by yewang | 2020-04-16' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-04-16</span>
-    </a>
-  </div>
 
 
 
@@ -1026,7 +887,27 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-编程规范">Kubernetes 编程规范</a></li>
+    <li><a href="#kubedns">KubeDNS</a>
+      <ul>
+        <li><a href="#如何进入-kube-dns-容器进行抓包">如何进入 kube-dns 容器进行抓包</a></li>
+        <li><a href="#dnspolicy">dnsPolicy</a>
+          <ul>
+            <li><a href="#clusterfirst默认">ClusterFirst（默认）</a></li>
+            <li><a href="#clusterfirstwithhostnet">ClusterFirstWithHostNet</a></li>
+            <li><a href="#default">Default</a></li>
+            <li><a href="#none">None</a></li>
+          </ul>
+        </li>
+        <li><a href="#kube-dns-组成">kube-dns 组成</a>
+          <ul>
+            <li><a href="#kubedns-1">kubedns</a></li>
+            <li><a href="#dnsmasq">dnsmasq</a></li>
+            <li><a href="#sidecar">sidecar</a></li>
+          </ul>
+        </li>
+        <li><a href="#如何调试-dns-解析">如何调试 DNS 解析</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

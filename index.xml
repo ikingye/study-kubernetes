@@ -97,7 +97,8 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</guid>
-      <description>CRD </description>
+      <description>CRD 如何实现一个 CRD ？  关注 GoogleCloudPlatform/metacontroller  Metacontroller is an add-on for Kubernetes that makes it easy to write and deploy custom controllers in the form of simple scripts.
+This is not an officially supported Google product. Although this open-source project was started by GKE, the add-on works the same in any Kubernetes cluster.</description>
     </item>
     
     <item>
@@ -184,6 +185,19 @@ Docker CE 和 Docker EE（17.</description>
       <description>KubeDNS 在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
 nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
 docker inspect --format &amp;quot;{{.State.Pid}}&amp;quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy ClusterFirst（默认） 优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</description>
+    </item>
+    
+    <item>
+      <title>Operator</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</guid>
+      <description>Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
+所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
+ Operator 开发 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
+ Etcd Operator $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment</description>
     </item>
     
     <item>

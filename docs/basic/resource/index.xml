@@ -52,7 +52,8 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</guid>
-      <description>CRD </description>
+      <description>CRD 如何实现一个 CRD ？  关注 GoogleCloudPlatform/metacontroller  Metacontroller is an add-on for Kubernetes that makes it easy to write and deploy custom controllers in the form of simple scripts.
+This is not an officially supported Google product. Although this open-source project was started by GKE, the add-on works the same in any Kubernetes cluster.</description>
     </item>
     
     <item>
@@ -62,6 +63,19 @@ kubectl create configmap [NAME] [DATA]
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</guid>
       <description>Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &amp;lt;NodeIP&amp;gt;:&amp;lt;NodePort&amp;gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  </description>
+    </item>
+    
+    <item>
+      <title>Operator</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</guid>
+      <description>Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
+所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
+ Operator 开发 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
+ Etcd Operator $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment</description>
     </item>
     
   </channel>

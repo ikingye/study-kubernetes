@@ -10,6 +10,33 @@
     
     
     <item>
+      <title>安装</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/install/</guid>
+      <description>Kubernetes 安装 安装方式对比 MacOS Minikube  Pros:  Mature solution Works on Windows (any version and edition), Mac and Linux Multiple drivers that can match any environment Installs several plugins (such as dashboard) by default Very flexible on installation requirements and upgrades  Cons:  Installation and removal not as streamlined as other solutions Does not integrate into the MacOS UI  Docker Desktop Pros:  Very easy installation for beginners All-in-one Docker and Kubernetes solution Configurable via UI  Cons:  Relatively new, possibly unstable Limited configuration options (i.</description>
+    </item>
+    
+    <item>
+      <title>Kubectl</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</guid>
+      <description>Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  参考 kubectl Cheat Sheet </description>
+    </item>
+    
+    <item>
+      <title>快速上手</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</guid>
+      <description>Kubernetes 快速上手 架构 概念 安装 简单使用 </description>
+    </item>
+    
+    <item>
       <title>版本</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/version/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -23,6 +50,15 @@ kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
 版本说明参考 Docker Engine release notes，
 可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
 Docker CE 和 Docker EE（17.</description>
+    </item>
+    
+    <item>
+      <title>架构</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/architecture/</guid>
+      <description>Kubernetes 架构 </description>
     </item>
     
     <item>

@@ -23,6 +23,15 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
     </item>
     
     <item>
+      <title>replicaset</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/replicaset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/replicaset/</guid>
+      <description>replicaset 问答 为什么要有 replicaset ？ </description>
+    </item>
+    
+    <item>
       <title>ConfigMap</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,7 +52,7 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</guid>
-      <description>Deployment </description>
+      <description>Deployment 问答 为什么要有 Deployment </description>
     </item>
     
     <item>
@@ -73,9 +82,12 @@ This is not an officially supported Google product. Although this open-source pr
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</guid>
       <description>Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
-operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Etcd Operator $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment</description>
+ Operator 开发 kubebuilder kudobuilder/kudo  GoogleCloudPlatform/metacontroller  Lightweight Kubernetes controllers as a service https://metacontroller.app/
+可与 Webhook 结合使用，以实现自己的功能。
+operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+Operator 框架
+operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
+ Etcd Operator $ git clone https://github.</description>
     </item>
     
   </channel>

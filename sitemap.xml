@@ -4,7 +4,6 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/api-server/</loc>
-    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -18,8 +17,11 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/quick-start/install/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/resource/replicaset/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/install/</loc>
   </url>
   
   <url>
@@ -28,8 +30,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/spec/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/best/spec/</loc>
   </url>
   
   <url>
@@ -43,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/quick-start/kubectl/</loc>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</loc>
     <lastmod>2020-04-16T23:25:05+08:00</lastmod>
   </url>
   
@@ -78,13 +79,11 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/tool/kubeadm/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/kubeadm/</loc>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/tool/kustomize/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/kustomize/</loc>
   </url>
   
   <url>
@@ -104,7 +103,6 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/component/kube-proxy/</loc>
-    <lastmod>2020-04-17T00:54:15+08:00</lastmod>
   </url>
   
   <url>
@@ -138,8 +136,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/tool/minikube/</loc>
-    <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/minikube/</loc>
   </url>
   
   <url>
@@ -148,18 +145,17 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/best-practice/</loc>
-    <lastmod>2020-04-26T23:22:33+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/quick-start/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
+    <lastmod>2020-03-06T23:30:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/tutorial/</loc>
     <lastmod>2020-04-28T14:52:43+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/best/</loc>
   </url>
   
   <url>
@@ -183,13 +179,12 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/tool/</loc>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/</loc>
     <lastmod>2020-04-16T23:25:05+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/architecture/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
   </url>
   
   <url>
@@ -214,16 +209,6 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/</loc>
-    <lastmod>2020-05-21T20:05:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/basic/others/timezone/</loc>
     <lastmod>2020-05-21T20:05:20+08:00</lastmod>
   </url>
   

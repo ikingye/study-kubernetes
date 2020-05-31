@@ -87,7 +87,7 @@ This is not an officially supported Google product. Although this open-source pr
 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Etcd Operator $ git clone https://github.</description>
+ Operator 示例 Etcd Operator $ git clone https://github.</description>
     </item>
     
   </channel>

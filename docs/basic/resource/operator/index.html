@@ -11,7 +11,7 @@
 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Etcd Operator $ git clone https://github."><meta property="og:title" content="Operator" />
+ Operator 示例 Etcd Operator $ git clone https://github."><meta property="og:title" content="Operator" />
 <meta property="og:description" content="Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
  Operator 开发 kubebuilder kudobuilder/kudo  GoogleCloudPlatform/metacontroller  Lightweight Kubernetes controllers as a service https://metacontroller.app/
@@ -19,7 +19,7 @@ operator-framework/getting-started   operator-framework/operator-lifecycle-manag
 operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Etcd Operator $ git clone https://github." />
+ Operator 示例 Etcd Operator $ git clone https://github." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/resource/operator/" />
 <meta property="article:modified_time" content="2020-05-30T19:33:24+08:00" />
@@ -30,7 +30,7 @@ operator-framework/getting-started   operator-framework/operator-lifecycle-manag
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.7d3f08d00b485e72e79d21d5da9f2beb116bc3b4369207f47de97da6c600d071.js" integrity="sha256-fT8I0AtIXnLnnSHV2p8r6xFrw7Q2kgf0fel9psYA0HE="></script>
+<script defer src="/study-k8s/en.search.min.3db9aa29378f243d6030d72d47d9342a167d925f7b410db7d576cbd6687c332c.js" integrity="sha256-PbmqKTePJD1gMNctR9k0KhZ9kl97QQ231XbL1mh8Myw="></script>
 
 <!--
 Made with Book Theme
@@ -815,7 +815,12 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg"><a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars"></a></li>
           </ul>
         </li>
-        <li><a href="#etcd-operator">Etcd Operator</a></li>
+        <li><a href="#operator-示例">Operator 示例</a>
+          <ul>
+            <li><a href="#etcd-operator">Etcd Operator</a></li>
+            <li><a href="#zookeeper-operator">zookeeper operator</a></li>
+          </ul>
+        </li>
         <li><a href="#参考">参考</a></li>
       </ul>
     </li>
@@ -852,7 +857,8 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg"><a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars" /></h3>
 <p>A management framework for extending Kubernetes with Operators</p>
 <hr>
-<h2 id="etcd-operator">Etcd Operator</h2>
+<h2 id="operator-示例">Operator 示例</h2>
+<h3 id="etcd-operator">Etcd Operator</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git clone https://github.com/coreos/etcd-operator
 
 <span style="color:#75715e"># 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象</span>
@@ -903,7 +909,11 @@ $ example/rbac/create_role.sh
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">size</span>: <span style="color:#ae81ff">3</span>
   <span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.2.13&#34;</span>
-</code></pre></div><h2 id="参考">参考</h2>
+</code></pre></div><hr>
+<h3 id="zookeeper-operator">zookeeper operator</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200531092614.png" alt="" /></p>
+<hr>
+<h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://coreos.com/blog/introducing-operators.html">Introducing Operators: Putting Operational Knowledge into Software</a></li>
 <li><a href="https://cloud.google.com/blog/products/containers-kubernetes/best-practices-for-building-kubernetes-operators-and-stateful-apps">Best practices for building Kubernetes Operators and stateful apps</a></li>
@@ -973,7 +983,12 @@ $ example/rbac/create_role.sh
             <li><a href="#operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg"><a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars"></a></li>
           </ul>
         </li>
-        <li><a href="#etcd-operator">Etcd Operator</a></li>
+        <li><a href="#operator-示例">Operator 示例</a>
+          <ul>
+            <li><a href="#etcd-operator">Etcd Operator</a></li>
+            <li><a href="#zookeeper-operator">zookeeper operator</a></li>
+          </ul>
+        </li>
         <li><a href="#参考">参考</a></li>
       </ul>
     </li>

@@ -42,14 +42,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/version/</guid>
-      <description>Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
-查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+      <description>Kubernetes 版本 查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
-版本说明参考 Docker Engine release notes，
-可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
-Docker CE 和 Docker EE（17.</description>
+ 历史版本 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  参考 kubernetesstatus 追踪 Kubernetes 最新特性，请访问互动教学网站提供商 Katacoda.com 创建的 kubernetesstatus.</description>
     </item>
     
     <item>

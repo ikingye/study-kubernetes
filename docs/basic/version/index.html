@@ -4,22 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
-查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+<meta name="description" content="Kubernetes 版本 查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
-版本说明参考 Docker Engine release notes，
-可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
-Docker CE 和 Docker EE（17."><meta property="og:title" content="版本" />
-<meta property="og:description" content="Kubernetes 版本 https://github.com/kubernetes/kubernetes/tree/v1.17.0
-查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+ 历史版本 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  参考 kubernetesstatus 追踪 Kubernetes 最新特性，请访问互动教学网站提供商 Katacoda.com 创建的 kubernetesstatus."><meta property="og:title" content="版本" />
+<meta property="og:description" content="Kubernetes 版本 查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 版本说明 Docker Engine（0.1.0 到 1.13.1） Docker CE 在 17.03 版本之前叫 Docker Engine 。
-版本说明参考 Docker Engine release notes，
-可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) ~ 1.13.1 (2017-02-08)
-Docker CE 和 Docker EE（17." />
+ 历史版本 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  参考 kubernetesstatus 追踪 Kubernetes 最新特性，请访问互动教学网站提供商 Katacoda.com 创建的 kubernetesstatus." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/version/" />
 <meta property="article:modified_time" content="2020-05-06T22:00:21+08:00" />
@@ -30,7 +22,7 @@ Docker CE 和 Docker EE（17." />
 <link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-k8s/en.search.min.3db9aa29378f243d6030d72d47d9342a167d925f7b410db7d576cbd6687c332c.js" integrity="sha256-PbmqKTePJD1gMNctR9k0KhZ9kl97QQ231XbL1mh8Myw="></script>
+<script defer src="/study-k8s/en.search.min.c6d0bff0f773dffa7a131e4a0a1295ea83b3ea4078ca27555a0f3dce26fa8389.js" integrity="sha256-xtC/8Pdz3/p6Ex5KChKV6oOz6kB4yidVWg89zib6g4k="></script>
 
 <!--
 Made with Book Theme
@@ -808,17 +800,6 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#kubelet">kubelet</a></li>
           </ul>
         </li>
-        <li><a href="#版本说明">版本说明</a>
-          <ul>
-            <li><a href="#docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</a></li>
-            <li><a href="#docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</a></li>
-            <li><a href="#docker-合并版本号18090">Docker 合并版本号（18.09.0）</a>
-              <ul>
-                <li><a href="#分拆-client-与-daemon">分拆 client 与 daemon</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
         <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
           <ul>
             <li><a href="#v119">v1.19</a></li>
@@ -855,7 +836,6 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></h1>
-<p><a href="https://github.com/kubernetes/kubernetes/tree/v1.17.0">https://github.com/kubernetes/kubernetes/tree/v1.17.0</a></p>
 <h2 id="查看版本">查看版本</h2>
 <h3 id="kuberctl">kuberctl</h3>
 <ul>
@@ -875,32 +855,6 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <p>这里的 <code>VERSION</code>   是 kubelet 的版本：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506152427.png" alt="" /></p>
-<hr>
-<h2 id="版本说明">版本说明</h2>
-<h3 id="docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</h3>
-<p><code>Docker CE</code> 在 17.03 版本之前叫 <code>Docker Engine</code> 。</p>
-<p>版本说明参考 <a href="https://docs.docker.com/release-notes/docker-engine/">Docker Engine release notes</a>，</p>
-<p>可以看到 Docker Engine 的版本号范围: 0.1.0 (2013-03-23) <strong>~</strong> 1.13.1 (2017-02-08)</p>
-<h3 id="docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</h3>
-<p>在 2017 年 3 月 2 日，docker 团队宣布企业版 Docker Enterprise Edition (EE) 发布。</p>
-<p>为了一致，免费的 Docker Engine 改名为 Docker Community Edition (CE), 并且采用基于时间的版本号方案。</p>
-<p>就在这一天，Docker EE 和 Docker CE 的 17.03 版本发布，这也是第一个采用新的版本号方案的版本。</p>
-<p>Docker CE/EE 每个季度发布一次 <strong>季度版本</strong> , 也就是说每年会发布 4 个季度版本，17.03, 17.06, 17.09, 17.12 就是 2017 年的 4 个季度版本的版本号。</p>
-<p>同时 Docker CE 每个月还会发布一个 EDGE 版本，比如 17.04, 17.05, 17.07, 17.08, 17.10, 17.11。</p>
-<p>Docker CE 季度版本自发布后会有 <strong>4 个月</strong>的维护期。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506152504.png" alt="" /></p>
-<p>在基于时间的发布方案中，版本号格式为: YY.MM.<patch>，YY.MM 代表年月，patch 代表补丁号，从 0 开始，</p>
-<p>在季度版本 (如 17.03) 的维护期内，bug 修复相关的更新会以 patch 递增的方式发布，</p>
-<p>比如 17.03.0 -&gt; 17.03.1 -&gt; 17.03.2.</p>
-<h3 id="docker-合并版本号18090">Docker 合并版本号（18.09.0）</h3>
-<p>New in 18.09 is an aligned release model for <strong>Docker Engine - Community</strong> and <strong>Docker Engine - Enterprise</strong>. The new versioning scheme is YY.MM.x where x is an incrementing patch version. The enterprise engine is a superset of the community engine. They will ship concurrently with the same x patch version based on the same code base.</p>
-<p>参考：<a href="https://docs.docker.com/engine/release-notes/">https://docs.docker.com/engine/release-notes/</a></p>
-<p>18.09 (2018-11-08)</p>
-<p>19.03 (2019-07-22)</p>
-<h4 id="分拆-client-与-daemon">分拆 client 与 daemon</h4>
-<p><strong>The client</strong> and <strong>container runtime</strong> are now in separate packages from the daemon in Docker Engine 18.09. Users should install and update all three packages at the same time to get the latest patch releases.</p>
-<p>For example, on Ubuntu:</p>
-<p><code>sudo apt install docker-ce docker-ce-cli containerd.io</code></p>
 <hr>
 <h2 id="历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></h2>
 <h3 id="v119">v1.19</h3>
@@ -976,17 +930,6 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#kuberctl">kuberctl</a></li>
             <li><a href="#apiserver">apiserver</a></li>
             <li><a href="#kubelet">kubelet</a></li>
-          </ul>
-        </li>
-        <li><a href="#版本说明">版本说明</a>
-          <ul>
-            <li><a href="#docker-engine010-到-1131">Docker Engine（0.1.0 到 1.13.1）</a></li>
-            <li><a href="#docker-ce-和-docker-ee1703">Docker CE 和 Docker EE（17.03）</a></li>
-            <li><a href="#docker-合并版本号18090">Docker 合并版本号（18.09.0）</a>
-              <ul>
-                <li><a href="#分拆-client-与-daemon">分拆 client 与 daemon</a></li>
-              </ul>
-            </li>
           </ul>
         </li>
         <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>

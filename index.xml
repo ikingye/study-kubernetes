@@ -135,7 +135,8 @@ This is not an officially supported Google product. Although this open-source pr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/tool/kustomize/</guid>
-      <description>Kustomize  </description>
+      <description>Kustomize Kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</description>
     </item>
     
     <item>

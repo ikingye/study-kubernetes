@@ -79,7 +79,9 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</guid>
-      <description>Deployment 问答 为什么要有 Deployment </description>
+      <description>Deployment 故障排查 下载 pdf 版本
+参考：
+ A visual guide on troubleshooting Kubernetes deployments  Kubernetes Deployment 故障排查常见方法     问答 为什么要有 Deployment </description>
     </item>
     
     <item>

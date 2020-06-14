@@ -90,7 +90,7 @@ kubectl create configmap [NAME] [DATA]
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/basic/kubectl/</guid>
-      <description>Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  参考 kubectl Cheat Sheet </description>
+      <description>Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=.</description>
     </item>
     
     <item>

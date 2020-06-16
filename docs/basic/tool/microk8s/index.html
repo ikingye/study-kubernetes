@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kube-proxy 基础 "><meta property="og:title" content="Kube-proxy" />
-<meta property="og:description" content="Kube-proxy 基础 " />
+<meta name="description" content="MicroK8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+Pros:  Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons:  Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考  Local Kubernetes for Linux – MiniKube vs MicroK8s  "><meta property="og:title" content="MicroK8s" />
+<meta property="og:description" content="MicroK8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+Pros:  Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons:  Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考  Local Kubernetes for Linux – MiniKube vs MicroK8s  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/component/kube-proxy/" />
-<meta property="article:modified_time" content="2020-05-30T19:33:24+08:00" />
-<title>Kube-proxy | Kubernetes 学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/tool/microk8s/" />
+
+<title>MicroK8s | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -372,7 +374,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/tool/microk8s/" class="">MicroK8s</a>
+  <a href="/study-k8s/docs/basic/tool/microk8s/" class="active">MicroK8s</a>
   
 
 </li>
@@ -499,7 +501,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="active">Kube-proxy</a>
+  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
   
 
 </li>
@@ -781,7 +783,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kube-proxy</strong>
+  <strong>MicroK8s</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -795,7 +797,17 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-proxy-基础">Kube-proxy 基础</a></li>
+    <li><a href="#microk8shttpsgithubcomubuntumicrok8s-github-starshttpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">MicroK8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="Github stars"></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#pros">Pros:</a></li>
+            <li><a href="#cons">Cons:</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -807,7 +819,25 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kube-proxy-基础">Kube-proxy 基础</h1>
+  <article class="markdown"><h1 id="microk8shttpsgithubcomubuntumicrok8s-github-starshttpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">MicroK8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="Github stars" /></h1>
+<p>MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.</p>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Very easy to install, upgrade, remove</li>
+<li>Completely isolated from other tools in your machine</li>
+<li>Does not need a VM, all services run locally</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Only available for Snap supported Linux Distributions</li>
+<li>Relatively new, possible unstable</li>
+<li>Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished</li>
+</ul>
+<hr>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-linux-minikube-vs-microk8s/">Local Kubernetes for Linux – MiniKube vs MicroK8s</a></li>
+</ul>
 </article>
  
       
@@ -817,14 +847,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4b8e8858aaed665843698df2a83084be05572767" title='Last modified by yewang | 2020-05-30' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-30</span>
-    </a>
-  </div>
 
 
 
@@ -857,7 +879,17 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-proxy-基础">Kube-proxy 基础</a></li>
+    <li><a href="#microk8shttpsgithubcomubuntumicrok8s-github-starshttpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">MicroK8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="Github stars"></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#pros">Pros:</a></li>
+            <li><a href="#cons">Cons:</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

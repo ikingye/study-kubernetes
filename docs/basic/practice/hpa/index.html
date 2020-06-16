@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kube-proxy 基础 "><meta property="og:title" content="Kube-proxy" />
-<meta property="og:description" content="Kube-proxy 基础 " />
+<meta name="description" content="Horizontal Pod Autoscaler Pod 水平自动伸缩"><meta property="og:title" content="Horizontal Pod Autoscaler" />
+<meta property="og:description" content="Horizontal Pod Autoscaler Pod 水平自动伸缩" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/component/kube-proxy/" />
-<meta property="article:modified_time" content="2020-05-30T19:33:24+08:00" />
-<title>Kube-proxy | Kubernetes 学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/practice/hpa/" />
+
+<title>Horizontal Pod Autoscaler | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -499,7 +499,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="active">Kube-proxy</a>
+  <a href="/study-k8s/docs/basic/component/kube-proxy/" class="">Kube-proxy</a>
   
 
 </li>
@@ -569,6 +569,61 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/basic/practice/spec/" class="">编程规范</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/practice/troubleshoot/" class="">故障排查</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/basic/practice/hpa/" class="active">Horizontal Pod Autoscaler</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
 
 
 
@@ -781,7 +836,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kube-proxy</strong>
+  <strong>Horizontal Pod Autoscaler</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -795,7 +850,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-proxy-基础">Kube-proxy 基础</a></li>
+    <li><a href="#horizontal-pod-autoscaler">Horizontal Pod Autoscaler</a></li>
   </ul>
 </nav>
 
@@ -807,7 +862,8 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kube-proxy-基础">Kube-proxy 基础</h1>
+  <article class="markdown"><h1 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler</h1>
+<p>Pod 水平自动伸缩</p>
 </article>
  
       
@@ -817,14 +873,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/4b8e8858aaed665843698df2a83084be05572767" title='Last modified by yewang | 2020-05-30' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-30</span>
-    </a>
-  </div>
 
 
 
@@ -857,7 +905,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kube-proxy-基础">Kube-proxy 基础</a></li>
+    <li><a href="#horizontal-pod-autoscaler">Horizontal Pod Autoscaler</a></li>
   </ul>
 </nav>
 

@@ -19,5 +19,14 @@
  监控、日志和排错  </description>
     </item>
     
+    <item>
+      <title>Horizontal Pod Autoscaler</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/practice/hpa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/practice/hpa/</guid>
+      <description>Horizontal Pod Autoscaler Pod 水平自动伸缩</description>
+    </item>
+    
   </channel>
 </rss>

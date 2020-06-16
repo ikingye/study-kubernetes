@@ -93,6 +93,10 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/tool/microk8s/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/source/</loc>
     <lastmod>2020-05-21T09:51:29+08:00</lastmod>
   </url>
@@ -210,6 +214,10 @@
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/attention/</loc>
     <lastmod>2020-05-06T22:00:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-k8s/docs/basic/practice/hpa/</loc>
   </url>
   
   <url>

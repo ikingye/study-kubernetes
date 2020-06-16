@@ -30,6 +30,16 @@ kustomize lets you customize raw, template-free YAML files for multiple purposes
     </item>
     
     <item>
+      <title>MicroK8s</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/tool/microk8s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/tool/microk8s/</guid>
+      <description>MicroK8s  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+Pros:  Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons:  Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考  Local Kubernetes for Linux – MiniKube vs MicroK8s  </description>
+    </item>
+    
+    <item>
       <title>MiniKube</title>
       <link>https://ikingye.github.io/study-k8s/docs/basic/tool/minikube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

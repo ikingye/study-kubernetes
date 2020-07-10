@@ -19,7 +19,7 @@ kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
+<link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
 <script defer src="/study-k8s/en.search.min.bf7981a2ab038af7afdd20d224bfb95b468c6ba24bde5723c19f81879ebcf5ea.js" integrity="sha256-v3mBoqsDivev3SDSJL&#43;5W0aMa6JL3lcjwZ&#43;Bh5689eo="></script>
@@ -801,35 +801,31 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></a>
+    <li><a href="#查看版本">查看版本</a>
       <ul>
-        <li><a href="#查看版本">查看版本</a>
-          <ul>
-            <li><a href="#kuberctl">kuberctl</a></li>
-            <li><a href="#apiserver">apiserver</a></li>
-            <li><a href="#kubelet">kubelet</a></li>
-          </ul>
-        </li>
-        <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
-          <ul>
-            <li><a href="#v119">v1.19</a></li>
-            <li><a href="#v118">v1.18</a></li>
-            <li><a href="#v117">v1.17</a></li>
-            <li><a href="#v116">v1.16</a></li>
-            <li><a href="#v115">v1.15</a></li>
-            <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
-            <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
-            <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
-            <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
-            <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
-            <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
-            <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
-            <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#kuberctl">kuberctl</a></li>
+        <li><a href="#apiserver">apiserver</a></li>
+        <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
+      <ul>
+        <li><a href="#v119">v1.19</a></li>
+        <li><a href="#v118">v1.18</a></li>
+        <li><a href="#v117">v1.17</a></li>
+        <li><a href="#v116">v1.16</a></li>
+        <li><a href="#v115">v1.15</a></li>
+        <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
+        <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
+        <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
+        <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
+        <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
+        <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
+        <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
+        <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 
@@ -927,35 +923,31 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#kubernetes-版本httpskubernetesiodocssetupreleasenotes"><a href="https://kubernetes.io/docs/setup/release/notes/">Kubernetes 版本</a></a>
+    <li><a href="#查看版本">查看版本</a>
       <ul>
-        <li><a href="#查看版本">查看版本</a>
-          <ul>
-            <li><a href="#kuberctl">kuberctl</a></li>
-            <li><a href="#apiserver">apiserver</a></li>
-            <li><a href="#kubelet">kubelet</a></li>
-          </ul>
-        </li>
-        <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
-          <ul>
-            <li><a href="#v119">v1.19</a></li>
-            <li><a href="#v118">v1.18</a></li>
-            <li><a href="#v117">v1.17</a></li>
-            <li><a href="#v116">v1.16</a></li>
-            <li><a href="#v115">v1.15</a></li>
-            <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
-            <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
-            <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
-            <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
-            <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
-            <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
-            <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
-            <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#kuberctl">kuberctl</a></li>
+        <li><a href="#apiserver">apiserver</a></li>
+        <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
+      <ul>
+        <li><a href="#v119">v1.19</a></li>
+        <li><a href="#v118">v1.18</a></li>
+        <li><a href="#v117">v1.17</a></li>
+        <li><a href="#v116">v1.16</a></li>
+        <li><a href="#v115">v1.15</a></li>
+        <li><a href="#v114-2019-03-26">v1.14 (2019-03-26)</a></li>
+        <li><a href="#v113-2018-12-03">v1.13 (2018-12-03)</a></li>
+        <li><a href="#v112-2018-09-27">v1.12 (2018-09-27)</a></li>
+        <li><a href="#v111-2018-06-27">v1.11 (2018-06-27)</a></li>
+        <li><a href="#v110-2018-03-26">v1.10 (2018-03-26)</a></li>
+        <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
+        <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
+        <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 

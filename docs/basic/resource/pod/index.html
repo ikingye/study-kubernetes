@@ -21,7 +21,7 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
+<link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
 <script defer src="/study-k8s/en.search.min.bf7981a2ab038af7afdd20d224bfb95b468c6ba24bde5723c19f81879ebcf5ea.js" integrity="sha256-v3mBoqsDivev3SDSJL&#43;5W0aMa6JL3lcjwZ&#43;Bh5689eo="></script>
@@ -803,31 +803,27 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#pod">Pod</a>
+    <li><a href="#infra-容器">Infra 容器</a></li>
+    <li><a href="#init-容器">Init 容器</a></li>
+    <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
+    <li><a href="#pod-状态">Pod 状态</a>
       <ul>
-        <li><a href="#infra-容器">Infra 容器</a></li>
-        <li><a href="#init-容器">Init 容器</a></li>
-        <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
-        <li><a href="#pod-状态">Pod 状态</a>
-          <ul>
-            <li><a href="#terminating">Terminating</a></li>
-            <li><a href="#containercreating">ContainerCreating</a></li>
-          </ul>
-        </li>
-        <li><a href="#资源限制">资源限制</a>
-          <ul>
-            <li><a href="#request">request</a></li>
-            <li><a href="#limit">limit</a></li>
-          </ul>
-        </li>
-        <li><a href="#问答">问答</a>
-          <ul>
-            <li><a href="#为什么要有-pod">为什么要有 pod</a></li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#terminating">Terminating</a></li>
+        <li><a href="#containercreating">ContainerCreating</a></li>
       </ul>
     </li>
+    <li><a href="#资源限制">资源限制</a>
+      <ul>
+        <li><a href="#request">request</a></li>
+        <li><a href="#limit">limit</a></li>
+      </ul>
+    </li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#为什么要有-pod">为什么要有 pod</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 
@@ -1020,31 +1016,27 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#pod">Pod</a>
+    <li><a href="#infra-容器">Infra 容器</a></li>
+    <li><a href="#init-容器">Init 容器</a></li>
+    <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
+    <li><a href="#pod-状态">Pod 状态</a>
       <ul>
-        <li><a href="#infra-容器">Infra 容器</a></li>
-        <li><a href="#init-容器">Init 容器</a></li>
-        <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
-        <li><a href="#pod-状态">Pod 状态</a>
-          <ul>
-            <li><a href="#terminating">Terminating</a></li>
-            <li><a href="#containercreating">ContainerCreating</a></li>
-          </ul>
-        </li>
-        <li><a href="#资源限制">资源限制</a>
-          <ul>
-            <li><a href="#request">request</a></li>
-            <li><a href="#limit">limit</a></li>
-          </ul>
-        </li>
-        <li><a href="#问答">问答</a>
-          <ul>
-            <li><a href="#为什么要有-pod">为什么要有 pod</a></li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#terminating">Terminating</a></li>
+        <li><a href="#containercreating">ContainerCreating</a></li>
       </ul>
     </li>
+    <li><a href="#资源限制">资源限制</a>
+      <ul>
+        <li><a href="#request">request</a></li>
+        <li><a href="#limit">limit</a></li>
+      </ul>
+    </li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#为什么要有-pod">为什么要有 pod</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 

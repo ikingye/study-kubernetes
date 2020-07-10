@@ -13,7 +13,7 @@
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
+<link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
 <script defer src="/study-k8s/en.search.min.bf7981a2ab038af7afdd20d224bfb95b468c6ba24bde5723c19f81879ebcf5ea.js" integrity="sha256-v3mBoqsDivev3SDSJL&#43;5W0aMa6JL3lcjwZ&#43;Bh5689eo="></script>
@@ -796,31 +796,27 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#k8s-dns">K8s DNS</a>
+    <li><a href="#dns-策略">DNS 策略</a></li>
+    <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
       <ul>
-        <li><a href="#dns-策略">DNS 策略</a></li>
-        <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
+        <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
+        <li><a href="#nameserver">nameserver</a></li>
+        <li><a href="#search-域">search 域</a></li>
+        <li><a href="#options">options</a>
           <ul>
-            <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
-            <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-域">search 域</a></li>
-            <li><a href="#options">options</a>
+            <li><a href="#ndots">ndots</a></li>
+            <li><a href="#优化外网域名解析">优化外网域名解析</a>
               <ul>
-                <li><a href="#ndots">ndots</a></li>
-                <li><a href="#优化外网域名解析">优化外网域名解析</a>
-                  <ul>
-                    <li><a href="#直接使用绝对域名">直接使用绝对域名</a></li>
-                    <li><a href="#配置-ndots">配置 ndots</a></li>
-                  </ul>
-                </li>
+                <li><a href="#直接使用绝对域名">直接使用绝对域名</a></li>
+                <li><a href="#配置-ndots">配置 ndots</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
-        <li><a href="#为什么-pod-是-corednsservice-是-kube-dns">为什么 pod 是 coredns，service 是 kube-dns？</a></li>
       </ul>
     </li>
+    <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+    <li><a href="#为什么-pod-是-corednsservice-是-kube-dns">为什么 pod 是 coredns，service 是 kube-dns？</a></li>
   </ul>
 </nav>
 
@@ -1051,31 +1047,27 @@ Events:            &lt;none&gt;
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#k8s-dns">K8s DNS</a>
+    <li><a href="#dns-策略">DNS 策略</a></li>
+    <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
       <ul>
-        <li><a href="#dns-策略">DNS 策略</a></li>
-        <li><a href="#k8s-中域名是如何被解析的">k8s 中域名是如何被解析的</a>
+        <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
+        <li><a href="#nameserver">nameserver</a></li>
+        <li><a href="#search-域">search 域</a></li>
+        <li><a href="#options">options</a>
           <ul>
-            <li><a href="#etcresolvconf">/etc/resolv.conf</a></li>
-            <li><a href="#nameserver">nameserver</a></li>
-            <li><a href="#search-域">search 域</a></li>
-            <li><a href="#options">options</a>
+            <li><a href="#ndots">ndots</a></li>
+            <li><a href="#优化外网域名解析">优化外网域名解析</a>
               <ul>
-                <li><a href="#ndots">ndots</a></li>
-                <li><a href="#优化外网域名解析">优化外网域名解析</a>
-                  <ul>
-                    <li><a href="#直接使用绝对域名">直接使用绝对域名</a></li>
-                    <li><a href="#配置-ndots">配置 ndots</a></li>
-                  </ul>
-                </li>
+                <li><a href="#直接使用绝对域名">直接使用绝对域名</a></li>
+                <li><a href="#配置-ndots">配置 ndots</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
-        <li><a href="#为什么-pod-是-corednsservice-是-kube-dns">为什么 pod 是 coredns，service 是 kube-dns？</a></li>
       </ul>
     </li>
+    <li><a href="#coredns-vs-kubedns">CoreDNS vs KubeDNS</a></li>
+    <li><a href="#为什么-pod-是-corednsservice-是-kube-dns">为什么 pod 是 coredns，service 是 kube-dns？</a></li>
   </ul>
 </nav>
 

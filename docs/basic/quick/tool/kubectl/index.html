@@ -8,7 +8,7 @@
 <meta property="og:description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/quick/tool/kubectl/" />
-
+<meta property="article:modified_time" content="2020-07-14T22:15:07+08:00" />
 <title>Kubectl | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -755,6 +755,14 @@ kubectl --sort-by<span style="color:#f92672">=</span>.spec.ports<span style="col
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/595b80b7d71fd28b664c7a1b4046cb9f8b1a8c2c" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-07-14</span>
+    </a>
+  </div>
 
 
 

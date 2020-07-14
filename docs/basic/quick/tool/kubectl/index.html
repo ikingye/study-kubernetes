@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kustomize Kustomize Customization of kubernetes YAML configurations
-kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is."><meta property="og:title" content="Kustomize" />
-<meta property="og:description" content="Kustomize Kustomize Customization of kubernetes YAML configurations
-kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is." />
+<meta name="description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=."><meta property="og:title" content="Kubectl" />
+<meta property="og:description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/quick/tool/kustomize/" />
-<meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
-<title>Kustomize | Kubernetes 学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/quick/tool/kubectl/" />
+
+<title>Kubectl | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
 
@@ -207,7 +205,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/tool/kubectl/" class="">Kubectl</a>
+  <a href="/study-k8s/docs/basic/quick/tool/kubectl/" class="active">Kubectl</a>
   
 
 </li>
@@ -217,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/tool/kustomize/" class="active">Kustomize</a>
+  <a href="/study-k8s/docs/basic/quick/tool/kustomize/" class="">Kustomize</a>
   
 
 </li>
@@ -637,7 +635,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kustomize</strong>
+  <strong>Kubectl</strong>
 
   <label for="toc-control">
     <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -649,7 +647,28 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#集群信息查询">集群信息查询</a></li>
+    <li><a href="#node">node</a></li>
+    <li><a href="#常用操作">常用操作</a>
+      <ul>
+        <li><a href="#获取-service-ip-port">获取 service ip, port</a></li>
+        <li><a href="#kubectl-get-结果排序">kubectl get 结果排序</a>
+          <ul>
+            <li><a href="#aathithkubesorthttpsgithubcomaathithkubesort-github-starshttpsimgshieldsiogithubstarsaathithkubesortsvg"><a href="https://github.com/AATHITH/kubesort">AATHITH/kubesort</a> <img src="https://img.shields.io/github/stars/AATHITH/kubesort.svg" alt="Github stars"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#命令">命令</a>
+      <ul>
+        <li><a href="#autoscale">autoscale</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -659,10 +678,74 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kustomize">Kustomize</h1>
-<p><a href="https://github.com/kubernetes-sigs/kustomize">Kustomize</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt="Github stars" /></p>
-<p>Customization of kubernetes YAML configurations</p>
-<p><code>kustomize</code> lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</p>
+  <article class="markdown"><h1 id="kubectl">Kubectl</h1>
+<h2 id="集群信息查询">集群信息查询</h2>
+<ul>
+<li><code>kubectl cluster-info</code></li>
+</ul>
+<h2 id="node">node</h2>
+<ul>
+<li><code>kubectl get nodes</code></li>
+<li><code>kubectl describe node</code></li>
+</ul>
+<hr>
+<h2 id="常用操作">常用操作</h2>
+<h3 id="获取-service-ip-port">获取 service ip, port</h3>
+<pre><code>kubectl get service/servicename -o jsonpath='{.spec.clusterIP}:{.spec.ports[*].port}'
+</code></pre><hr>
+<h3 id="kubectl-get-结果排序">kubectl get 结果排序</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">--sort-by<span style="color:#f92672">=</span>
+
+<span style="color:#75715e">##### pod</span>
+<span style="color:#75715e"># name</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.name get pod
+<span style="color:#75715e"># status</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.status.phase get pod
+<span style="color:#75715e"># restarts</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.status.containerStatuses<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.restartCount get pod
+<span style="color:#75715e"># age</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.status.startTime get pod
+<span style="color:#75715e"># ip</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.status.podIP get pod
+<span style="color:#75715e"># node</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.nodeName get pod
+
+<span style="color:#75715e">##### deployment</span>
+<span style="color:#75715e"># name</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.name get deployment
+<span style="color:#75715e"># age</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.creationTimestamp get deployment
+<span style="color:#75715e"># uptodate</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.status.updatedReplicas get deployment
+<span style="color:#75715e"># available</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.availableReplicas get deployment
+<span style="color:#75715e"># containers</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.template.spec.containers<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>.name get deployment
+<span style="color:#75715e"># images</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.template.spec.containers<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>.image get deployment
+
+<span style="color:#75715e">##### service</span>
+<span style="color:#75715e"># name</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.name get service
+<span style="color:#75715e"># age</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.metadata.creationTimestamp get service
+<span style="color:#75715e"># type</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.type get service
+<span style="color:#75715e"># clusterip</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.clusterIP get service
+<span style="color:#75715e"># port</span>
+kubectl --sort-by<span style="color:#f92672">=</span>.spec.ports<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>.port get service
+</code></pre></div><h4 id="aathithkubesorthttpsgithubcomaathithkubesort-github-starshttpsimgshieldsiogithubstarsaathithkubesortsvg"><a href="https://github.com/AATHITH/kubesort">AATHITH/kubesort</a> <img src="https://img.shields.io/github/stars/AATHITH/kubesort.svg" alt="Github stars" /></h4>
+<p>This a Bash Script that will help you forget the kubectl&rsquo;s default, difficult to remember, sorting feature by making it simpler.</p>
+<hr>
+<h2 id="命令">命令</h2>
+<h3 id="autoscale">autoscale</h3>
+<hr>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet</a></li>
+<li><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">kubectl commands</a></li>
+</ul>
 </article>
  
       
@@ -672,14 +755,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
-    </a>
-  </div>
 
 
 
@@ -710,7 +785,28 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#集群信息查询">集群信息查询</a></li>
+    <li><a href="#node">node</a></li>
+    <li><a href="#常用操作">常用操作</a>
+      <ul>
+        <li><a href="#获取-service-ip-port">获取 service ip, port</a></li>
+        <li><a href="#kubectl-get-结果排序">kubectl get 结果排序</a>
+          <ul>
+            <li><a href="#aathithkubesorthttpsgithubcomaathithkubesort-github-starshttpsimgshieldsiogithubstarsaathithkubesortsvg"><a href="https://github.com/AATHITH/kubesort">AATHITH/kubesort</a> <img src="https://img.shields.io/github/stars/AATHITH/kubesort.svg" alt="Github stars"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#命令">命令</a>
+      <ul>
+        <li><a href="#autoscale">autoscale</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
  
     </aside>

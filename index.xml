@@ -281,21 +281,12 @@ operator-framework/getting-started   operator-framework/operator-lifecycle-manag
     </item>
     
     <item>
-      <title>client-go</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/other/client-go/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/other/client-go/</guid>
-      <description>kubernetes/client-go  安装 </description>
-    </item>
-    
-    <item>
-      <title>关注</title>
+      <title>4.3 关注项目</title>
       <link>https://ikingye.github.io/study-k8s/docs/appendix/attention/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-k8s/docs/appendix/attention/</guid>
-      <description>关注 kubernetes 官方 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
+      <description>关注项目 kubernetes 官方 kubernetes/kubernetes  Production-Grade Container Scheduling and Management https://kubernetes.io
 kubernetes/client-go  Go client for Kubernetes.
 kubernetes/kops  kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.
 kubernetes/dashboard  General-purpose web UI for Kubernetes clusters
@@ -303,6 +294,24 @@ kubernetes/kube-state-metrics  Add-on agent to generate and expose cluster-level
 kubernetes/examples  Kubernetes application example tutorials
 kubernetes/sample-controller  Repository for sample controller. Complements sample-apiserver
 kubernetes/node-problem-detector  This is a place for various problem detectors running on the Kubernetes nodes.</description>
+    </item>
+    
+    <item>
+      <title>OperatorHub</title>
+      <link>https://ikingye.github.io/study-k8s/docs/code/crd/operator/operatorhub/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/code/crd/operator/operatorhub/</guid>
+      <description>OperatorHub https://operatorhub.io/</description>
+    </item>
+    
+    <item>
+      <title>client-go</title>
+      <link>https://ikingye.github.io/study-k8s/docs/basic/other/client-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-k8s/docs/basic/other/client-go/</guid>
+      <description>kubernetes/client-go  安装 </description>
     </item>
     
     <item>

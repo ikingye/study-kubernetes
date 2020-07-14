@@ -16,7 +16,7 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
    状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/concept/resource/pod/" />
-
+<meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
 <title>Pod | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -24,7 +24,7 @@ Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状�
 <link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.ec5b5b6285c9938b7e1ac4973bcb3e5c1f4ade18e910b901e2abcb5640b20272.js" integrity="sha256-7FtbYoXJk4t&#43;GsSXO8s&#43;XB9K3hjpELkB4qvLVkCyAnI="></script>
+<script defer src="/study-k8s/en.search.min.9599a75592419f643149e43863c241633540089310aad511672974b10d00147e.js" integrity="sha256-lZmnVZJBn2QxSeQ4Y8JBYzVACJMQqtURZyl0sQ0AFH4="></script>
 
 <!--
 Made with Book Theme
@@ -345,7 +345,76 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/snippet/" class="collapsed ">代码片段</a>
+  <a href="/study-k8s/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
   
 
 
@@ -390,6 +459,52 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/code/main/" class="collapsed ">3.1 主架构</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-k8s/docs/code/crd/" class="collapsed ">3.2 CRD</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
   </ul>
   
 
@@ -430,16 +545,6 @@ https://github.com/alex-shpak/hugo-book
       
     
       
-        <li>
-
-  
-  <a href="/study-k8s/docs/appendix/attention/" class="">关注</a>
-  
-
-</li>
-      
-    
-      
         
 
   <li>
@@ -460,6 +565,16 @@ https://github.com/alex-shpak/hugo-book
   </li>
 
 
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-k8s/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+</li>
       
     
   </ul>
@@ -706,6 +821,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-07-14</span>
+    </a>
+  </div>
 
 
 

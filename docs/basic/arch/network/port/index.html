@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port   nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0."><meta property="og:title" content="K8s 端口" />
-<meta property="og:description" content="K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port   nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0." />
+<meta name="description" content="K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0."><meta property="og:title" content="K8s 端口" />
+<meta property="og:description" content="K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/arch/network/port/" />
-<meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
+<meta property="article:modified_time" content="2020-07-17T15:06:11+08:00" />
 <title>K8s 端口 | Kubernetes 学习笔记</title>
 <link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.4b099bcdb0d12f20d9be0dfeaea327155dcc525685e35369680eaea425011776.js" integrity="sha256-SwmbzbDRLyDZvg3&#43;rqMnFV3MUlaF41NpaA6upCUBF3Y="></script>
+<script defer src="/study-k8s/en.search.min.7d29b623450fbaf92a37913815aa20a7ae9f735845e341a5fcedec1bd8f57d1b.js" integrity="sha256-fSm2I0UPuvkqN5E4Faogp66fc1hF40Gl/O3sG9j1fRs="></script>
 
 <!--
 Made with Book Theme
@@ -810,7 +810,11 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><code>port</code>：负责处理<strong>对内</strong>的通信，
 <ul>
-<li>访问方式：<code>clusterIP:port</code></li>
+<li>访问方式：<code>clusterIP:port</code> 或者 <code>externalIP:port</code>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#external-ips">externalIP</a> 不归 kubernetes 管，cluster administrator 自己负责</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><code>nodePort</code>：在 node 上，负责<strong>对外</strong>通信
@@ -857,8 +861,8 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="service-指定端口"><code>service</code> 指定端口</h2>
 <h3 id="service-clusterip">service (ClusterIP)</h3>
 <ul>
-<li><code>port</code>: service 中 clusterIP 对应的端口</li>
-<li><code>targetPort</code>: clusterIP 作为负载均衡，后端目标实例 (容器) 的端口</li>
+<li><code>port</code>: service 中 <code>clusterIP</code> 对应的端口</li>
+<li><code>targetPort</code>: <code>clusterIP</code> 作为负载均衡，后端目标实例 (容器) 的端口</li>
 </ul>
 <h3 id="service-nodeport">service (NodePort)</h3>
 <ul>
@@ -872,7 +876,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><code>nodePort</code> 会在每个 kubelet 节点的宿主机开启一个端口，用于应用集群外部访问</li>
-<li><code>nodePort</code> 到 clusterIP 的映射，是 <code>kube-proxy</code> 实现的。</li>
+<li><code>nodePort</code> 到 <code>clusterIP</code> 的映射，是 <code>kube-proxy</code> 实现的。</li>
 </ul>
 </li>
 </ul>
@@ -898,9 +902,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/652ad7bfa3de41840a1d676448d66a72418992b5" title='Last modified by yewang | 2020-07-17' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
+      <span>2020-07-17</span>
     </a>
   </div>
 

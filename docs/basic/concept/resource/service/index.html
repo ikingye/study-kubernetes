@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  "><meta property="og:title" content="Service" />
-<meta property="og:description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  " />
+<meta name="description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式  内部：ClusterIP:port (10.110.126.136:80) 外部：  节点 IP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.110.126.136 &lt;pending&gt; 15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP 13h app=istio-ingressgateway,istio=ingressgateway ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo."><meta property="og:title" content="Service" />
+<meta property="og:description" content="Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式  内部：ClusterIP:port (10.110.126.136:80) 外部：  节点 IP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.110.126.136 &lt;pending&gt; 15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP 13h app=istio-ingressgateway,istio=ingressgateway ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/concept/resource/service/" />
 <meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.a804ed042ad0e74043124d7ff4352c9b188f2eef0497dc312232794b5ac6c726.js" integrity="sha256-qATtBCrQ50BDEk1/9DUsmxiPLu8El9wxIjJ5S1rGxyY="></script>
+<script defer src="/study-k8s/en.search.min.4b099bcdb0d12f20d9be0dfeaea327155dcc525685e35369680eaea425011776.js" integrity="sha256-SwmbzbDRLyDZvg3&#43;rqMnFV3MUlaF41NpaA6upCUBF3Y="></script>
 
 <!--
 Made with Book Theme
@@ -644,7 +644,11 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#clusterip">ClusterIP</a></li>
         <li><a href="#nodeport">NodePort</a></li>
-        <li><a href="#loadbalancer">LoadBalancer</a></li>
+        <li><a href="#loadbalancer">LoadBalancer</a>
+          <ul>
+            <li><a href="#访问方式">访问方式</a></li>
+          </ul>
+        </li>
         <li><a href="#externalname">ExternalName</a></li>
       </ul>
     </li>
@@ -677,7 +681,20 @@ https://github.com/alex-shpak/hugo-book
 <li>使用云提供商的负载局衡器，可以向外部暴露服务</li>
 <li>外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务</li>
 </ul>
-<h3 id="externalname">ExternalName</h3>
+<h4 id="访问方式">访问方式</h4>
+<ul>
+<li>内部：ClusterIP:port (10.110.126.136:80)</li>
+<li>外部：
+<ul>
+<li>节点 IP:nodePort (机器 IP:30032)</li>
+<li>EXTERNAL-IP:port (xxxx:80)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 没有 EXTERNAL-IP</span>
+NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>                                                                      AGE   SELECTOR
+istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP   13h   app<span style="color:#f92672">=</span>istio-ingressgateway,istio<span style="color:#f92672">=</span>ingressgateway
+</code></pre></div><h3 id="externalname">ExternalName</h3>
 <ul>
 <li>通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com）</li>
 <li>没有任何类型代理被创建</li>
@@ -736,7 +753,11 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#clusterip">ClusterIP</a></li>
         <li><a href="#nodeport">NodePort</a></li>
-        <li><a href="#loadbalancer">LoadBalancer</a></li>
+        <li><a href="#loadbalancer">LoadBalancer</a>
+          <ul>
+            <li><a href="#访问方式">访问方式</a></li>
+          </ul>
+        </li>
         <li><a href="#externalname">ExternalName</a></li>
       </ul>
     </li>

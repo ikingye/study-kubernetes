@@ -7,11 +7,11 @@
 <meta name="description" content="Kubernetes 版本 查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 历史版本 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  参考 "><meta property="og:title" content="版本" />
+ 历史版本 v1.20 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  CRD (Custom Resource Definition)  v1."><meta property="og:title" content="版本" />
 <meta property="og:description" content="Kubernetes 版本 查看版本 kuberctl  kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver  kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 历史版本 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  参考 " />
+ 历史版本 v1.20 v1.19 v1.18 v1.17 v1.16 v1.15 v1.14 (2019-03-26) v1.13 (2018-12-03) v1.12 (2018-09-27) v1.11 (2018-06-27) v1.10 (2018-03-26) v1.9 (2017-12-15) v1.8 (2017-09-28) v1.7 (2017-06-29)  CRD (Custom Resource Definition)  v1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/other/version/" />
 <meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
@@ -22,7 +22,7 @@ kubelet  kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
 <link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.8f26e1a071ea2502dc023221768f6766a73860fbd66b3010b3db9e027461198d.js" integrity="sha256-jybhoHHqJQLcAjIhdo9nZqc4YPvWazAQs9ueAnRhGY0="></script>
+<script defer src="/study-k8s/en.search.min.bb3d3bd1f7ef233419913dee43dbd4c55e00954ae470e12d0b9894e5ef53cd13.js" integrity="sha256-uz070ffvIzQZkT3uQ9vUxV4AlUrkcOEtC5iU5e9TzRM="></script>
 
 <!--
 Made with Book Theme
@@ -487,26 +487,13 @@ https://github.com/alex-shpak/hugo-book
       
     
       
-        
-
-  <li>
-    
+        <li>
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="collapsed ">4.2 面试题</a>
+  <a href="/study-k8s/docs/appendix/interview/" class="">4.2 面试题</a>
   
 
-
-    
-
-
-
-
-
-
-  </li>
-
-
+</li>
       
     
       
@@ -599,6 +586,7 @@ https://github.com/alex-shpak/hugo-book
     </li>
     <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
       <ul>
+        <li><a href="#v120">v1.20</a></li>
         <li><a href="#v119">v1.19</a></li>
         <li><a href="#v118">v1.18</a></li>
         <li><a href="#v117">v1.17</a></li>
@@ -612,6 +600,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
         <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
         <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+        <li><a href="#v16">v1.6</a></li>
+        <li><a href="#v10">v1.0</a></li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>
@@ -648,6 +638,7 @@ https://github.com/alex-shpak/hugo-book
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506152427.png" alt="" /></p>
 <hr>
 <h2 id="历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></h2>
+<h3 id="v120">v1.20</h3>
 <h3 id="v119">v1.19</h3>
 <h3 id="v118">v1.18</h3>
 <h3 id="v117">v1.17</h3>
@@ -661,6 +652,11 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="v19-2017-12-15">v1.9 (2017-12-15)</h3>
 <h3 id="v18-2017-09-28">v1.8 (2017-09-28)</h3>
 <h3 id="v17-2017-06-29">v1.7 (2017-06-29)</h3>
+<ul>
+<li>CRD (<code>Custom Resource Definition</code>)</li>
+</ul>
+<h3 id="v16">v1.6</h3>
+<h3 id="v10">v1.0</h3>
 <hr>
 <h2 id="参考">参考</h2>
 </article>
@@ -721,6 +717,7 @@ https://github.com/alex-shpak/hugo-book
     </li>
     <li><a href="#历史版本httpsgithubcomkuberneteskubernetestreemasterchangelog"><a href="https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG">历史版本</a></a>
       <ul>
+        <li><a href="#v120">v1.20</a></li>
         <li><a href="#v119">v1.19</a></li>
         <li><a href="#v118">v1.18</a></li>
         <li><a href="#v117">v1.17</a></li>
@@ -734,6 +731,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#v19-2017-12-15">v1.9 (2017-12-15)</a></li>
         <li><a href="#v18-2017-09-28">v1.8 (2017-09-28)</a></li>
         <li><a href="#v17-2017-06-29">v1.7 (2017-06-29)</a></li>
+        <li><a href="#v16">v1.6</a></li>
+        <li><a href="#v10">v1.0</a></li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>

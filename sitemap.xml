@@ -58,18 +58,8 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/appendix/interview/basic/</loc>
-    <lastmod>2020-03-30T18:15:14+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/advanced/</loc>
     <lastmod>2020-07-16T20:43:57+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/appendix/interview/advanced/</loc>
-    <lastmod>2020-03-30T18:15:14+08:00</lastmod>
   </url>
   
   <url>
@@ -103,13 +93,8 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/appendix/interview/expert/</loc>
-    <lastmod>2020-03-30T18:15:14+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-k8s/docs/basic/concept/resource/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+    <lastmod>2020-07-21T15:26:29+08:00</lastmod>
   </url>
   
   <url>
@@ -204,7 +189,6 @@
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/appendix/interview/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
   </url>
   
   <url>
@@ -283,17 +267,12 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-k8s/docs/appendix/interview/draft/</loc>
-    <lastmod>2020-04-16T23:25:05+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-k8s/categories/</loc>
   </url>
   
   <url>
     <loc>https://ikingye.github.io/study-k8s/docs/</loc>
-    <lastmod>2020-07-20T19:56:02+08:00</lastmod>
+    <lastmod>2020-07-21T15:26:29+08:00</lastmod>
   </url>
   
   <url>

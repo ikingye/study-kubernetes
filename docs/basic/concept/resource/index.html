@@ -7,7 +7,7 @@
 <meta name="description" content="API 对象 声明式 API  提交一个定义好的 API 对象来 “声明” 启动一个对应的控制器进行调谐 / 编排  控制器 一个 Kubernetes 的控制器，实际上就是一个死循环：
  不断地获取 “实际状态”， 然后与 “期望状态” 作对比， 并以此为依据决定下一步的操作  workload Kubernetes divides workloads into different types. The most popular types supported by Kubernetes are:
  Deployments StatefulSets DaemonSets Jobs CronJobs  参考：
- Kubernetes Workloads and Pods   API Resource Deployment  metadata  name   spec  replicas selector  matchLabels  app version     template  metadata  annotations labels  app version     spec  serviceAccountName containers  name image imagePullPolicy ports  name containerPort            Service  metadata  name labels  app     spec  ports  name port targetPort   selector  app      "><meta property="og:title" content="API 对象" />
+ Kubernetes Workloads and Pods   API Resource Deployment  metadata  name   spec  replicas selector  matchLabels  app version     template  metadata  annotations labels  app version     spec  serviceAccountName containers  name image imagePullPolicy ports  name containerPort            Service  metadata  name labels  app     spec  ports  name port targetPort   selector  app      CustomResourceDefinition  metadata  name   spec  group version names  kind plural   scope    "><meta property="og:title" content="API 对象" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/concept/resource/" />
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.8f26e1a071ea2502dc023221768f6766a73860fbd66b3010b3db9e027461198d.js" integrity="sha256-jybhoHHqJQLcAjIhdo9nZqc4YPvWazAQs9ueAnRhGY0="></script>
+<script defer src="/study-k8s/en.search.min.bb3d3bd1f7ef233419913dee43dbd4c55e00954ae470e12d0b9894e5ef53cd13.js" integrity="sha256-uz070ffvIzQZkT3uQ9vUxV4AlUrkcOEtC5iU5e9TzRM="></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-k8s/docs/basic/concept/resource/index.xml" title="Kubernetes 学习笔记" />
 <!--
@@ -541,26 +541,13 @@ https://github.com/alex-shpak/hugo-book
       
     
       
-        
-
-  <li>
-    
+        <li>
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="collapsed ">4.2 面试题</a>
+  <a href="/study-k8s/docs/appendix/interview/" class="">4.2 面试题</a>
   
 
-
-    
-
-
-
-
-
-
-  </li>
-
-
+</li>
       
     
       
@@ -651,6 +638,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#deployment">Deployment</a></li>
         <li><a href="#service">Service</a></li>
+        <li><a href="#customresourcedefinition">CustomResourceDefinition</a></li>
       </ul>
     </li>
   </ul>
@@ -779,6 +767,27 @@ The most popular types supported by Kubernetes are:</p>
 </ul>
 </li>
 </ul>
+<h3 id="customresourcedefinition">CustomResourceDefinition</h3>
+<ul>
+<li>metadata
+<ul>
+<li>name</li>
+</ul>
+</li>
+<li>spec
+<ul>
+<li>group</li>
+<li>version</li>
+<li>names
+<ul>
+<li>kind</li>
+<li>plural</li>
+</ul>
+</li>
+<li>scope</li>
+</ul>
+</li>
+</ul>
 </article>
  
       
@@ -791,9 +800,9 @@ The most popular types supported by Kubernetes are:</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/183e7a8985262d9f1a2b6c8f424978bf5156f5e7" title='Last modified by yewang | 2020-07-21' target="_blank" rel="noopener">
       <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
+      <span>2020-07-21</span>
     </a>
   </div>
 
@@ -835,6 +844,7 @@ The most popular types supported by Kubernetes are:</p>
       <ul>
         <li><a href="#deployment">Deployment</a></li>
         <li><a href="#service">Service</a></li>
+        <li><a href="#customresourcedefinition">CustomResourceDefinition</a></li>
       </ul>
     </li>
   </ul>

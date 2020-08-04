@@ -7,16 +7,16 @@
 <meta name="description" content="面试题 基础 进阶  其他 头条面试题 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5."><meta property="og:title" content="4.2 面试题" />
 <meta property="og:description" content="面试题 基础 进阶  其他 头条面试题 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/appendix/interview/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/appendix/interview/" />
 <meta property="article:modified_time" content="2020-07-22T15:04:58+08:00" />
 <title>4.2 面试题 | Kubernetes 学习笔记</title>
-<link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
+<link rel="stylesheet" href="/study-kubernetes/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.bb3d3bd1f7ef233419913dee43dbd4c55e00954ae470e12d0b9894e5ef53cd13.js" integrity="sha256-uz070ffvIzQZkT3uQ9vUxV4AlUrkcOEtC5iU5e9TzRM="></script>
+<script defer src="/study-kubernetes/en.search.min.387a3e20d601be32fc4213420bb799b27f5fcb5ca1d3d75fe9d31f8e05d4407d.js" integrity="sha256-OHo&#43;INYBvjL8QhNCC7eZsn9fy1yh09df6dMfjgXUQH0="></script>
 
 <!--
 Made with Book Theme
@@ -33,7 +33,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav>
 <h2 class="book-brand">
-  <a href="/study-k8s"><span>Kubernetes 学习笔记</span>
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
   </a>
 </h2>
 
@@ -111,7 +111,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
+  <a href="/study-kubernetes/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
   
 
 
@@ -134,7 +134,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/concept/" class="collapsed ">1.2 概念</a>
+  <a href="/study-kubernetes/docs/basic/concept/" class="collapsed ">1.2 概念</a>
   
 
 
@@ -157,7 +157,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/arch/" class="collapsed ">1.3 架构</a>
+  <a href="/study-kubernetes/docs/basic/arch/" class="collapsed ">1.3 架构</a>
   
 
 
@@ -180,7 +180,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/other/" class="collapsed ">1.4 其他</a>
+  <a href="/study-kubernetes/docs/basic/other/" class="collapsed ">1.4 其他</a>
   
 
 
@@ -232,7 +232,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+  <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
   
 
 
@@ -255,7 +255,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+  <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
   
 
 
@@ -278,7 +278,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
+  <a href="/study-kubernetes/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
   
 
 
@@ -301,7 +301,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
+  <a href="/study-kubernetes/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
   
 
 
@@ -334,7 +334,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/" class="">第三部分 设计与实现</a>
+  <a href="/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
   
 
 
@@ -353,7 +353,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
+  <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
   
 
 
@@ -376,7 +376,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/crd/" class="collapsed ">3.2 CRD</a>
+  <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
   
 
 
@@ -425,7 +425,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/tutorial/" class="">4.1 教程</a>
+  <a href="/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
   
 
 </li>
@@ -435,7 +435,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="active">4.2 面试题</a>
+  <a href="/study-kubernetes/docs/appendix/interview/" class="active">4.2 面试题</a>
   
 
 </li>
@@ -445,7 +445,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/attention/" class="">4.3 关注项目</a>
+  <a href="/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
   
 
 </li>
@@ -505,13 +505,13 @@ https://github.com/alex-shpak/hugo-book
         
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
   <strong>4.2 面试题</strong>
 
   <label for="toc-control">
-    <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
   </label>
 </div>
 
@@ -618,8 +618,8 @@ docker 会调用 iptables 的哪些链
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/62ac6499c65f3fd9d3a39425612ba108ecad4587" title='Last modified by yewang | 2020-07-22' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
+    <a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/62ac6499c65f3fd9d3a39425612ba108ecad4587" title='Last modified by yewang | 2020-07-22' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-22</span>
     </a>
   </div>

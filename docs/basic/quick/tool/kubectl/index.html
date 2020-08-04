@@ -7,16 +7,16 @@
 <meta name="description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=."><meta property="og:title" content="Kubectl" />
 <meta property="og:description" content="Kubectl 集群信息查询  kubectl cluster-info  node  kubectl get nodes kubectl describe node   常用操作 获取 service ip, port kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.status.podIP get pod # node kubectl --sort-by=.spec.nodeName get pod ##### deployment # name kubectl --sort-by=." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-k8s/docs/basic/quick/tool/kubectl/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kubectl/" />
 <meta property="article:modified_time" content="2020-07-14T22:15:07+08:00" />
 <title>Kubectl | Kubernetes 学习笔记</title>
-<link rel="icon" href="/study-k8s/favicon.png" type="image/x-icon">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-k8s/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
+<link rel="stylesheet" href="/study-kubernetes/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
-<script defer src="/study-k8s/en.search.min.bb3d3bd1f7ef233419913dee43dbd4c55e00954ae470e12d0b9894e5ef53cd13.js" integrity="sha256-uz070ffvIzQZkT3uQ9vUxV4AlUrkcOEtC5iU5e9TzRM="></script>
+<script defer src="/study-kubernetes/en.search.min.387a3e20d601be32fc4213420bb799b27f5fcb5ca1d3d75fe9d31f8e05d4407d.js" integrity="sha256-OHo&#43;INYBvjL8QhNCC7eZsn9fy1yh09df6dMfjgXUQH0="></script>
 
 <!--
 Made with Book Theme
@@ -33,7 +33,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav>
 <h2 class="book-brand">
-  <a href="/study-k8s"><span>Kubernetes 学习笔记</span>
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
   </a>
 </h2>
 
@@ -111,7 +111,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
+  <a href="/study-kubernetes/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
   
 
 
@@ -130,7 +130,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/quick/install/" class="">安装</a>
+  <a href="/study-kubernetes/docs/basic/quick/install/" class="">安装</a>
   
 
 
@@ -146,7 +146,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/install/kubeadm/" class="">Kubeadm</a>
+  <a href="/study-kubernetes/docs/basic/quick/install/kubeadm/" class="">Kubeadm</a>
   
 
 </li>
@@ -156,7 +156,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/install/microk8s/" class="">MicroK8s</a>
+  <a href="/study-kubernetes/docs/basic/quick/install/microk8s/" class="">MicroK8s</a>
   
 
 </li>
@@ -166,7 +166,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/install/minikube/" class="">MiniKube</a>
+  <a href="/study-kubernetes/docs/basic/quick/install/minikube/" class="">MiniKube</a>
   
 
 </li>
@@ -189,7 +189,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/quick/tool/" class="">常用工具</a>
+  <a href="/study-kubernetes/docs/basic/quick/tool/" class="">常用工具</a>
   
 
 
@@ -205,7 +205,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/tool/kubectl/" class="active">Kubectl</a>
+  <a href="/study-kubernetes/docs/basic/quick/tool/kubectl/" class="active">Kubectl</a>
   
 
 </li>
@@ -215,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/basic/quick/tool/kustomize/" class="">Kustomize</a>
+  <a href="/study-kubernetes/docs/basic/quick/tool/kustomize/" class="">Kustomize</a>
   
 
 </li>
@@ -248,7 +248,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/concept/" class="collapsed ">1.2 概念</a>
+  <a href="/study-kubernetes/docs/basic/concept/" class="collapsed ">1.2 概念</a>
   
 
 
@@ -271,7 +271,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/arch/" class="collapsed ">1.3 架构</a>
+  <a href="/study-kubernetes/docs/basic/arch/" class="collapsed ">1.3 架构</a>
   
 
 
@@ -294,7 +294,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/basic/other/" class="collapsed ">1.4 其他</a>
+  <a href="/study-kubernetes/docs/basic/other/" class="collapsed ">1.4 其他</a>
   
 
 
@@ -346,7 +346,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+  <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
   
 
 
@@ -369,7 +369,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+  <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
   
 
 
@@ -392,7 +392,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
+  <a href="/study-kubernetes/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
   
 
 
@@ -415,7 +415,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
+  <a href="/study-kubernetes/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
   
 
 
@@ -448,7 +448,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/" class="">第三部分 设计与实现</a>
+  <a href="/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
   
 
 
@@ -467,7 +467,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
+  <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
   
 
 
@@ -490,7 +490,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/study-k8s/docs/code/crd/" class="collapsed ">3.2 CRD</a>
+  <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
   
 
 
@@ -539,7 +539,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/tutorial/" class="">4.1 教程</a>
+  <a href="/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
   
 
 </li>
@@ -549,7 +549,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/interview/" class="">4.2 面试题</a>
+  <a href="/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
   
 
 </li>
@@ -559,7 +559,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-k8s/docs/appendix/attention/" class="">4.3 关注项目</a>
+  <a href="/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
   
 
 </li>
@@ -619,13 +619,13 @@ https://github.com/alex-shpak/hugo-book
         
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/study-k8s/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
   <strong>Kubectl</strong>
 
   <label for="toc-control">
-    <img src="/study-k8s/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
   </label>
 </div>
 
@@ -745,8 +745,8 @@ kubectl --sort-by<span style="color:#f92672">=</span>.spec.ports<span style="col
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/ikingye/study-k8s/commit/595b80b7d71fd28b664c7a1b4046cb9f8b1a8c2c" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-k8s/svg/calendar.svg" class="book-icon" alt="Calendar" />
+    <a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/595b80b7d71fd28b664c7a1b4046cb9f8b1a8c2c" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-14</span>
     </a>
   </div>

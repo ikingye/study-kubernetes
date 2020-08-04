@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>API 对象 on Kubernetes 学习笔记</title>
-    <link>https://ikingye.github.io/study-k8s/docs/basic/resource/</link>
+    <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/</link>
     <description>Recent content in API 对象 on Kubernetes 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/resource/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+
+	<atom:link href="https://ikingye.github.io/study-kubernetes/docs/basic/resource/index.xml" rel="self" type="application/rss+xml" />
+
+
     <item>
       <title>Pod</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/pod/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/pod/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/pod/</guid>
       <description>Pod Infra 容器 使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
    状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。</description>
     </item>
-    
+
     <item>
       <title>replicaset</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/replicaset/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/replicaset/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/replicaset/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/replicaset/</guid>
       <description>replicaset 问答 为什么要有 replicaset ？ </description>
     </item>
-    
+
     <item>
       <title>ConfigMap</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/configmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/configmap/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/configmap/</guid>
       <description>ConfigMap 基础 ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
 ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。
 创建 ConfigMap 使用以下命令创建 ConfigMap：
@@ -45,43 +45,43 @@ kubectl create configmap [NAME] [DATA]
 您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
 使用 ConfigMap apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [ &amp;#34;/bin/sh&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&amp;#34; ] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never </description>
     </item>
-    
+
     <item>
       <title>Deployment</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/deployment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/deployment/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/deployment/</guid>
       <description>Deployment 故障排查 下载 pdf 版本
 参考：
  A visual guide on troubleshooting Kubernetes deployments  Kubernetes Deployment 故障排查常见方法     问答 为什么要有 Deployment </description>
     </item>
-    
+
     <item>
       <title>CRD</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/crd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/crd/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/crd/</guid>
       <description>CRD 如何实现一个 CRD ？  关注 GoogleCloudPlatform/metacontroller  Metacontroller is an add-on for Kubernetes that makes it easy to write and deploy custom controllers in the form of simple scripts.
 This is not an officially supported Google product. Although this open-source project was started by GKE, the add-on works the same in any Kubernetes cluster.</description>
     </item>
-    
+
     <item>
       <title>Service</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/service/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/service/</guid>
       <description>Service type ClusterIP  通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort  通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &amp;lt;NodeIP&amp;gt;:&amp;lt;NodePort&amp;gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer  使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  ExternalName  通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com） 没有任何类型代理被创建 CoreDNS 1.7 或更高版本才能使用 ExternalName 类型  </description>
     </item>
-    
+
     <item>
       <title>Operator</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/resource/operator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/resource/operator/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/resource/operator/</guid>
       <description>Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
  Operator 开发 kubebuilder kudobuilder/kudo  GoogleCloudPlatform/metacontroller  Lightweight Kubernetes controllers as a service https://metacontroller.app/
@@ -91,6 +91,6 @@ Operator 框架
 operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
  Operator 示例 Etcd Operator $ git clone https://github.</description>
     </item>
-    
+
   </channel>
 </rss>

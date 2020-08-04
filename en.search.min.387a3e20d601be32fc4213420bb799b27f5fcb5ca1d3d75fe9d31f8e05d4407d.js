@@ -2,7 +2,7 @@
 const characterPressed=String.fromCharCode(e.charCode);if(!isHotkey(characterPressed)){return;}
 input.focus();e.preventDefault();}
 function isHotkey(character){const dataHotkeys=input.getAttribute('data-hotkeys')||'';return dataHotkeys.indexOf(character)>=0;}
-function init(){input.removeEventListener('focus',init);input.required=true;loadScript('/study-kubernetes/flexsearch.min.js');loadScript('/study-kubernetes/en.search-data.min.c70692cea2dbcaa380eb5ff54cff0ea08d4f4804a5c095ce79ff98ec22474275.js',function(){input.required=false;search();});}
+function init(){input.removeEventListener('focus',init);input.required=true;loadScript('/study-kubernetes/flexsearch.min.js');loadScript('/study-kubernetes/en.search-data.min.f9b866d8ae8e49a4e7d9f5c4d2e7ed46ecdf32019052d3f5b3efdf3f8ca7a416.js',function(){input.required=false;search();});}
 function search(){while(results.firstChild){results.removeChild(results.firstChild);}
 if(!input.value){return;}
 const searchHits=window.bookSearchIndex.search(input.value,10);searchHits.forEach(function(page){const li=document.createElement('li'),a=li.appendChild(document.createElement('a'));a.href=page.href;a.textContent=page.title;results.appendChild(li);});}

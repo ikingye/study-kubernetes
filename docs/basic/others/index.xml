@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>其他 on Kubernetes 学习笔记</title>
-    <link>https://ikingye.github.io/study-k8s/docs/basic/others/</link>
+    <link>https://ikingye.github.io/study-kubernetes/docs/basic/others/</link>
     <description>Recent content in 其他 on Kubernetes 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/others/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+
+	<atom:link href="https://ikingye.github.io/study-kubernetes/docs/basic/others/index.xml" rel="self" type="application/rss+xml" />
+
+
     <item>
       <title>时区</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/others/timezone/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/others/timezone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/others/timezone/</guid>
+
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/others/timezone/</guid>
       <description>时区 设置时区 国外时区一把都是 UTC，需要改成国内时区 CST.
 Docker 的时区设置方式 设置容器的时区环境变量 虽然没有改变对应的 localtime，但是容器与主机的时区是一致的了
 docker run -it --rm -e &amp;#34;TZ=Asia/Shanghai&amp;#34; centos 挂载主机的时区文件到容器中 docker run -it --rm -v /etc/localtime:/etc/localtime centos 基于 alpine 构建 docker 镜像修改时区 FROM ej52/alpine-nginx-php:latest RUN echo &amp;#39;http://mirrors.ustc.edu.cn/alpine/v3.5/main&amp;#39; &amp;gt; /etc/apk/repositories \  &amp;amp;&amp;amp; echo &amp;#39;http://mirrors.ustc.edu.cn/alpine/v3.5/community&amp;#39; &amp;gt;&amp;gt;/etc/apk/repositories \ &amp;amp;&amp;amp; apk update &amp;amp;&amp;amp; apk add tzdata \ &amp;amp;&amp;amp; ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ &amp;amp;&amp;amp; echo &amp;#34;Asia/Shanghai&amp;#34; &amp;gt; /etc/timezone 执行构建
 docker build --rm -t ej52/alpine-nginx-php:latest . php 环境下面还需要修改 php.</description>
     </item>
-    
+
   </channel>
 </rss>

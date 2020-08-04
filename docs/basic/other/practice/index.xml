@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>实践 on Kubernetes 学习笔记</title>
-    <link>https://ikingye.github.io/study-k8s/docs/basic/other/practice/</link>
+    <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/</link>
     <description>Recent content in 实践 on Kubernetes 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="https://ikingye.github.io/study-k8s/docs/basic/other/practice/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>故障排查</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/other/practice/troubleshoot/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/troubleshoot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/other/practice/troubleshoot/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/troubleshoot/</guid>
       <description>Kubernetes 故障排查 参考：
  监控、日志和排错  </description>
     </item>
     
     <item>
       <title>Horizontal Pod Autoscaler</title>
-      <link>https://ikingye.github.io/study-k8s/docs/basic/other/practice/hpa/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-k8s/docs/basic/other/practice/hpa/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</guid>
       <description>Horizontal Pod Autoscaler Pod 水平自动伸缩</description>
     </item>
     

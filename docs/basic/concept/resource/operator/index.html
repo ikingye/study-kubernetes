@@ -1,37 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
+<meta name="description" content="Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 kubebuilder kudobuilder/kudo  GoogleCloudPlatform/metacontroller  Lightweight Kubernetes controllers as a service https://metacontroller.app/
+ Operator 开发 #  kubebuilder #  kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
 可与 Webhook 结合使用，以实现自己的功能。
-operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
-operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Operator 示例 Etcd Operator $ git clone https://github."><meta property="og:title" content="Operator" />
-<meta property="og:description" content="Operator Operator 的工作原理 利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
+operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Operator" />
+<meta property="og:description" content="Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 kubebuilder kudobuilder/kudo  GoogleCloudPlatform/metacontroller  Lightweight Kubernetes controllers as a service https://metacontroller.app/
+ Operator 开发 #  kubebuilder #  kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
 可与 Webhook 结合使用，以实现自己的功能。
-operator-framework/operator-sdk  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
-operator-framework/getting-started   operator-framework/operator-lifecycle-manager  A management framework for extending Kubernetes with Operators
- Operator 示例 Etcd Operator $ git clone https://github." />
+operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/operator/" />
 <meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
 <title>Operator | Kubernetes 学习笔记</title>
+<link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
-
-
-<link rel="stylesheet" href="/study-kubernetes/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
-
-
-<script defer src="/study-kubernetes/en.search.min.387a3e20d601be32fc4213420bb799b27f5fcb5ca1d3d75fe9d31f8e05d4407d.js" integrity="sha256-OHo&#43;INYBvjL8QhNCC7eZsn9fy1yh09df6dMfjgXUQH0="></script>
-
+<link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-kubernetes/en.search.min.e7bc662c85cec8a9ede74968ac29d98c0b21434d698506543de640f27008c440.js" integrity="sha256-57xmLIXOyKnt50lorCnZjAshQ01phQZUPeZA8nAIxEA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -40,8 +35,9 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     <aside class="book-menu">
       
@@ -54,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -82,511 +78,397 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
 
 
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
   
-  <span>第一部分 基础入门</span>
   
-
-
-    
-
-
-
-
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/" class="collapsed ">1.2 概念</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
-
+          
   
-  <a href="/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
+    <span>第一部分 基础入门</span>
   
 
-</li>
-      
-    
-      
-        <li>
-
+          
   
-  <a href="/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
   
-
-</li>
-      
-    
-      
-        <li>
-
   
-  <a href="/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-kubernetes/docs/basic/concept/resource/operator/" class="active">Operator</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/basic/arch/" class="collapsed ">1.3 架构</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/basic/other/" class="collapsed ">1.4 其他</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第二部分 进阶实战</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第四部分 附录</span>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
-  
 
-</li>
+        </li>
       
     
       
         <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/" class="collapsed ">1.2 概念</a>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
+  
+
+        </li>
       
     
       
         <li>
-
+          
   
-  <a href="/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+    <a href="/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
   
 
-</li>
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/resource/operator/" class="active">Operator</a>
+  
+
+        </li>
       
     
   </ul>
   
 
-
-
-  </li>
-
-
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/arch/" class="collapsed ">1.3 架构</a>
+  
 
+          
+  
+  
+  
 
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/" class="collapsed ">1.4 其他</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
 
 
@@ -630,15 +512,16 @@ https://github.com/alex-shpak/hugo-book
   <strong>Operator</strong>
 
   <label for="toc-control">
+    
     <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
   </label>
 </div>
 
 
   
-    <input type="checkbox" class="hidden" id="toc-control" />
-    <aside class="hidden clearfix">
-      
+  <aside class="hidden clearfix">
+    
   <nav id="TableOfContents">
   <ul>
     <li><a href="#operator-的工作原理">Operator 的工作原理</a></li>
@@ -666,37 +549,70 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-    </aside>
+  </aside>
   
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="operator">Operator</h1>
-<h2 id="operator-的工作原理">Operator 的工作原理</h2>
+  <article class="markdown"><h1 id="operator">
+  Operator
+  <a class="anchor" href="#operator">#</a>
+</h1>
+<h2 id="operator-的工作原理">
+  Operator 的工作原理
+  <a class="anchor" href="#operator-%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86">#</a>
+</h2>
 <p>利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”；
 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。</p>
 <p>所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。</p>
 <hr>
-<h2 id="operator-开发">Operator 开发</h2>
-<h3 id="kubebuilderhttpskubebuilderio"><a href="https://kubebuilder.io/">kubebuilder</a></h3>
-<h3 id="kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg"><a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars" /></h3>
-<h3 id="googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg"><a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars" /></h3>
+<h2 id="operator-开发">
+  Operator 开发
+  <a class="anchor" href="#operator-%e5%bc%80%e5%8f%91">#</a>
+</h2>
+<h3 id="kubebuilderhttpskubebuilderio">
+  <a href="https://kubebuilder.io/">kubebuilder</a>
+  <a class="anchor" href="#kubebuilderhttpskubebuilderio">#</a>
+</h3>
+<a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <h3 id="kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">
+  <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars" />
+  <a class="anchor" href="#kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">#</a>
+</h3>
+<a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <h3 id="googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg">
+  <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars" />
+  <a class="anchor" href="#googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg">#</a>
+</h3>
 <p>Lightweight Kubernetes controllers as a service
 <a href="https://metacontroller.app/">https://metacontroller.app/</a></p>
 <p>可与 Webhook 结合使用，以实现自己的功能。</p>
-<h3 id="operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg"><a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars" /></h3>
+<a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <h3 id="operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg">
+  <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars" />
+  <a class="anchor" href="#operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg">#</a>
+</h3>
 <p>SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.
 <a href="https://sdk.operatorframework.io">https://sdk.operatorframework.io</a></p>
 <p>Operator 框架</p>
-<h4 id="operator-frameworkgetting-startedhttpsgithubcomoperator-frameworkgetting-started-github-starshttpsimgshieldsiogithubstarsoperator-frameworkgetting-startedsvg"><a href="https://github.com/operator-framework/getting-started">operator-framework/getting-started</a> <img src="https://img.shields.io/github/stars/operator-framework/getting-started.svg" alt="Github stars" /></h4>
+<a href="https://github.com/operator-framework/getting-started">operator-framework/getting-started</a> <h4 id="operator-frameworkgetting-startedhttpsgithubcomoperator-frameworkgetting-started-github-starshttpsimgshieldsiogithubstarsoperator-frameworkgetting-startedsvg">
+  <img src="https://img.shields.io/github/stars/operator-framework/getting-started.svg" alt="Github stars" />
+  <a class="anchor" href="#operator-frameworkgetting-startedhttpsgithubcomoperator-frameworkgetting-started-github-starshttpsimgshieldsiogithubstarsoperator-frameworkgetting-startedsvg">#</a>
+</h4>
 <hr>
-<h3 id="operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg"><a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars" /></h3>
+<a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <h3 id="operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg">
+  <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars" />
+  <a class="anchor" href="#operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg">#</a>
+</h3>
 <p>A management framework for extending Kubernetes with Operators</p>
 <hr>
-<h2 id="operator-示例">Operator 示例</h2>
-<h3 id="etcd-operator">Etcd Operator</h3>
+<h2 id="operator-示例">
+  Operator 示例
+  <a class="anchor" href="#operator-%e7%a4%ba%e4%be%8b">#</a>
+</h2>
+<h3 id="etcd-operator">
+  Etcd Operator
+  <a class="anchor" href="#etcd-operator">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git clone https://github.com/coreos/etcd-operator
 
 <span style="color:#75715e"># 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象</span>
@@ -748,10 +664,16 @@ $ example/rbac/create_role.sh
   <span style="color:#66d9ef">size</span>: <span style="color:#ae81ff">3</span>
   <span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.2.13&#34;</span>
 </code></pre></div><hr>
-<h3 id="zookeeper-operator">zookeeper operator</h3>
+<h3 id="zookeeper-operator">
+  zookeeper operator
+  <a class="anchor" href="#zookeeper-operator">#</a>
+</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200531092614.png" alt="" /></p>
 <hr>
-<h2 id="参考">参考</h2>
+<h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h2>
 <ul>
 <li><a href="https://coreos.com/blog/introducing-operators.html">Introducing Operators: Putting Operational Knowledge into Software</a></li>
 <li><a href="https://cloud.google.com/blog/products/containers-kubernetes/best-practices-for-building-kubernetes-operators-and-stateful-apps">Best practices for building Kubernetes Operators and stateful apps</a></li>
@@ -762,13 +684,11 @@ $ example/rbac/create_role.sh
 
       <footer class="book-footer">
         
-  <div class="flex justify-between">
+  <div class="flex flex-wrap justify-between">
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
       <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-14</span>
     </a>

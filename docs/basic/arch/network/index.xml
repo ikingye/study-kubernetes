@@ -15,7 +15,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/port/</guid>
-      <description>K8s 端口  service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &amp;lt;hostIP, hostPort, protocol&amp;gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.</description>
+      <description>K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &amp;lt;hostIP, hostPort, protocol&amp;gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.</description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/troubleshoot/</guid>
-      <description>Kubernetes 网络故障排查 </description>
+      <description>Kubernetes 网络故障排查 #  </description>
     </item>
     
   </channel>

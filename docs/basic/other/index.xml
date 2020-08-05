@@ -18,7 +18,7 @@
       <description>Kubernetes 版本 #  查看版本 #  kuberctl #   kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver #   kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
- 历史版本 #  v1.20 #  v1.19 #  v1.18 #  v1.17 #  v1.16 #  v1.15 #  v1.</description>
+ 历史版本 #  v1.20 #  v1.19 #   v1.18 #  v1.18.6 #   v1.17 #   v1.</description>
     </item>
     
     <item>

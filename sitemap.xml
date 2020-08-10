@@ -253,6 +253,10 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/test/test/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>

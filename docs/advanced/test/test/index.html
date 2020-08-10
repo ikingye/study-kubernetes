@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Service" />
-<meta property="og:description" content="Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10." />
+<meta name="description" content="测试 #  open-policy-agent/conftest #  Write tests against structured configuration data using the Open Policy Agent Rego query language">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.6 测试" />
+<meta property="og:description" content="测试 #  open-policy-agent/conftest #  Write tests against structured configuration data using the Open Policy Agent Rego query language" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/service/" />
-<meta property="article:modified_time" content="2020-07-20T19:56:02+08:00" />
-<title>Service | Kubernetes 学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/test/test/" />
+
+<title>2.6 测试 | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
@@ -120,101 +120,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/service/" class="active">Service</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/operator/" class="">Operator</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -347,7 +252,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/test/test/" class="">2.6 测试</a>
+    <a href="/study-kubernetes/docs/advanced/test/test/" class="active">2.6 测试</a>
   
 
         </li>
@@ -507,7 +412,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Service</strong>
+  <strong>2.6 测试</strong>
 
   <label for="toc-control">
     
@@ -522,18 +427,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#type">type</a>
-      <ul>
-        <li><a href="#clusterip">ClusterIP</a></li>
-        <li><a href="#nodeport">NodePort</a></li>
-        <li><a href="#loadbalancer">LoadBalancer</a>
-          <ul>
-            <li><a href="#访问方式">访问方式</a></li>
-          </ul>
-        </li>
-        <li><a href="#externalname">ExternalName</a></li>
-      </ul>
-    </li>
+    <li><a href="#open-policy-agentconftesthttpsgithubcomopen-policy-agentconftest-github-starshttpsimgshieldsiogithubstarsopen-policy-agentconftestsvg"><a href="https://github.com/open-policy-agent/conftest">open-policy-agent/conftest</a> <img src="https://img.shields.io/github/stars/open-policy-agent/conftest.svg" alt="Github stars"></a></li>
   </ul>
 </nav>
 
@@ -545,64 +439,15 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="service">
-  Service
-  <a class="anchor" href="#service">#</a>
+  <article class="markdown"><h1 id="测试">
+  测试
+  <a class="anchor" href="#%e6%b5%8b%e8%af%95">#</a>
 </h1>
-<h2 id="type">
-  type
-  <a class="anchor" href="#type">#</a>
+<a href="https://github.com/open-policy-agent/conftest">open-policy-agent/conftest</a> <h2 id="open-policy-agentconftesthttpsgithubcomopen-policy-agentconftest-github-starshttpsimgshieldsiogithubstarsopen-policy-agentconftestsvg">
+  <img src="https://img.shields.io/github/stars/open-policy-agent/conftest.svg" alt="Github stars" />
+  <a class="anchor" href="#open-policy-agentconftesthttpsgithubcomopen-policy-agentconftest-github-starshttpsimgshieldsiogithubstarsopen-policy-agentconftestsvg">#</a>
 </h2>
-<h3 id="clusterip">
-  ClusterIP
-  <a class="anchor" href="#clusterip">#</a>
-</h3>
-<ul>
-<li>通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问</li>
-<li>这也是<strong>默认</strong>的 ServiceType</li>
-</ul>
-<h3 id="nodeport">
-  NodePort
-  <a class="anchor" href="#nodeport">#</a>
-</h3>
-<ul>
-<li>通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务</li>
-<li>NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建</li>
-<li>通过请求 <code>&lt;NodeIP&gt;:&lt;NodePort&gt;</code>，可以从集群的外部访问一个 NodePort 服务</li>
-</ul>
-<h3 id="loadbalancer">
-  LoadBalancer
-  <a class="anchor" href="#loadbalancer">#</a>
-</h3>
-<ul>
-<li>使用<strong>云提供商</strong>的负载局衡器，可以向外部暴露服务</li>
-<li>外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务</li>
-</ul>
-<h4 id="访问方式">
-  访问方式
-  <a class="anchor" href="#%e8%ae%bf%e9%97%ae%e6%96%b9%e5%bc%8f">#</a>
-</h4>
-<ul>
-<li>内部：<code>ClusterIP:port</code> (10.110.126.136:80)</li>
-<li>外部：
-<ul>
-<li><code>hostIP:nodePort</code> (机器 IP:30032)</li>
-<li><code>EXTERNAL-IP:port</code> (xxxx:80)</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 没有 EXTERNAL-IP</span>
-NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>                                                                      AGE   SELECTOR
-istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP   13h   app<span style="color:#f92672">=</span>istio-ingressgateway,istio<span style="color:#f92672">=</span>ingressgateway
-</code></pre></div><h3 id="externalname">
-  ExternalName
-  <a class="anchor" href="#externalname">#</a>
-</h3>
-<ul>
-<li>通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.bar.example.com）</li>
-<li>没有任何类型代理被创建</li>
-<li>CoreDNS 1.7 或更高版本才能使用 ExternalName 类型</li>
-</ul>
+<p>Write tests against structured configuration data using the Open Policy Agent Rego query language</p>
 </article>
  
       
@@ -612,12 +457,6 @@ istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/93722d95820279dfa726afdbc22c6e17383d7d12" title='Last modified by yewang | 2020-07-20' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-20</span>
-    </a>
-  </div>
 
 
 
@@ -650,18 +489,7 @@ istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#type">type</a>
-      <ul>
-        <li><a href="#clusterip">ClusterIP</a></li>
-        <li><a href="#nodeport">NodePort</a></li>
-        <li><a href="#loadbalancer">LoadBalancer</a>
-          <ul>
-            <li><a href="#访问方式">访问方式</a></li>
-          </ul>
-        </li>
-        <li><a href="#externalname">ExternalName</a></li>
-      </ul>
-    </li>
+    <li><a href="#open-policy-agentconftesthttpsgithubcomopen-policy-agentconftest-github-starshttpsimgshieldsiogithubstarsopen-policy-agentconftestsvg"><a href="https://github.com/open-policy-agent/conftest">open-policy-agent/conftest</a> <img src="https://img.shields.io/github/stars/open-policy-agent/conftest.svg" alt="Github stars"></a></li>
   </ul>
 </nav>
 

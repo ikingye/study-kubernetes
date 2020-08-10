@@ -276,6 +276,15 @@ kubernetes/examples #  Kubernetes application example tutorials</description>
     </item>
     
     <item>
+      <title>2.6 测试</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/test/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/test/test/</guid>
+      <description>测试 #  open-policy-agent/conftest #  Write tests against structured configuration data using the Open Policy Agent Rego query language</description>
+    </item>
+    
+    <item>
       <title>client-go</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

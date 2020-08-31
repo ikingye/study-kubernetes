@@ -15,7 +15,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/pod/</guid>
-      <description>Pod #  Infra 容器 #  使用镜像：k8s.gcr.io/pause
+      <description>Pod #  操作 #  删除被驱逐的 pod
+kubectl get pods | grep Evicted | awk &amp;#39;{print $1}&amp;#39; | xargs kubectl delete pod Infra 容器 #  使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。

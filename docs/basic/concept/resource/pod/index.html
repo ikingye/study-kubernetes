@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pod #  Infra 容器 #  使用镜像：k8s.gcr.io/pause
+<meta name="description" content="Pod #  操作 #  删除被驱逐的 pod
+kubectl get pods | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delete pod Infra 容器 #  使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
    状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） #  Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Pod" />
-<meta property="og:description" content="Pod #  Infra 容器 #  使用镜像：k8s.gcr.io/pause
+<meta property="og:description" content="Pod #  操作 #  删除被驱逐的 pod
+kubectl get pods | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delete pod Infra 容器 #  使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
@@ -22,7 +24,7 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.bbd091157ad2c47184eb602e2d9a90580299329927e64fa8c17226828691652c.js" integrity="sha256-u9CRFXrSxHGE62AuLZqQWAKZMpkn5k&#43;owXImgoaRZSw="></script>
+<script defer src="/study-kubernetes/en.search.min.2162d3d5242f9f2e1f49addf0456ec5cf641f488e5737f7b5be1fbaddfca8253.js" integrity="sha256-IWLT1SQvny4fSa3fBFbsXPZB9Ijlc397W&#43;H7rd/KglM="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -530,6 +532,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#操作">操作</a></li>
     <li><a href="#infra-容器">Infra 容器</a></li>
     <li><a href="#init-容器">Init 容器</a></li>
     <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>
@@ -566,7 +569,13 @@ https://github.com/alex-shpak/hugo-book
   Pod
   <a class="anchor" href="#pod">#</a>
 </h1>
-<h2 id="infra-容器">
+<h2 id="操作">
+  操作
+  <a class="anchor" href="#%e6%93%8d%e4%bd%9c">#</a>
+</h2>
+<p>删除被驱逐的 pod</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get pods | grep Evicted | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span> | xargs kubectl delete pod
+</code></pre></div><h2 id="infra-容器">
   Infra 容器
   <a class="anchor" href="#infra-%e5%ae%b9%e5%99%a8">#</a>
 </h2>
@@ -780,6 +789,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#操作">操作</a></li>
     <li><a href="#infra-容器">Infra 容器</a></li>
     <li><a href="#init-容器">Init 容器</a></li>
     <li><a href="#pod-phase运行阶段">Pod phase（运行阶段）</a></li>

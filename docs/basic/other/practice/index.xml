@@ -20,6 +20,18 @@
     </item>
     
     <item>
+      <title>部署</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/</guid>
+      <description>Kubernetes 部署 #  kubesphere/kubesphere #  KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。
+KubeOperator/KubeOperator #  KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。
+rancher/rke #  Rancher Kubernetes Engine
+ 参考 #   Kubesphere 与 Rancher 有什么区别？ 部署生产级别的 Kubernetes 集群要注意哪些问题？ 如何在 CentOS7 上部署 Kubernetes 集群？  </description>
+    </item>
+    
+    <item>
       <title>Horizontal Pod Autoscaler</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

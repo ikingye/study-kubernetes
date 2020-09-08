@@ -4,18 +4,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CRD #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.2 CRD" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/code/crd/" />
+<meta name="description" content="Kubernetes 部署 #  kubesphere/kubesphere #  KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。
+KubeOperator/KubeOperator #  KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。
+rancher/rke #  Rancher Kubernetes Engine
+ 参考 #   Kubesphere 与 Rancher 有什么区别？ 部署生产级别的 Kubernetes 集群要注意哪些问题？ 如何在 CentOS7 上部署 Kubernetes 集群？  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="部署" />
+<meta property="og:description" content="Kubernetes 部署 #  kubesphere/kubesphere #  KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。
+KubeOperator/KubeOperator #  KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。
+rancher/rke #  Rancher Kubernetes Engine
+ 参考 #   Kubesphere 与 Rancher 有什么区别？ 部署生产级别的 Kubernetes 集群要注意哪些问题？ 如何在 CentOS7 上部署 Kubernetes 集群？  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/" />
 
-<title>3.2 CRD | Kubernetes 学习笔记</title>
+<title>部署 | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
 <script defer src="/study-kubernetes/en.search.min.3ac69d1053f70247af560a79f07766d05e3a038d27a680d1daa5ce0143949186.js" integrity="sha256-OsadEFP3AkevVgp58Hdm0F46A40npoDR2qXOAUOUkYY="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/code/crd/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -155,6 +160,102 @@ https://github.com/alex-shpak/hugo-book
   
   
 
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/version/" class="">版本</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/client-go/" class="">client-go</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/practice/" class="collapsed ">实践</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/practice/spec/" class="">编程规范</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/practice/troubleshoot/" class="">故障排查</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/practice/deploy/" class="active">部署</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/practice/hpa/" class="">Horizontal Pod Autoscaler</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
   
 
         </li>
@@ -301,7 +402,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/code/crd/" class="collapsed active">3.2 CRD</a>
+    <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
   
 
           
@@ -309,27 +410,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/code/crd/operator/" class="collapsed ">3.2.2 Operator</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -434,7 +514,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>3.2 CRD</strong>
+  <strong>部署</strong>
 
   <label for="toc-control">
     
@@ -447,7 +527,14 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kubespherekubespherehttpsgithubcomkubespherekubesphere-github-starshttpsimgshieldsiogithubstarskubespherekubespheresvg"><a href="https://github.com/kubesphere/kubesphere">kubesphere/kubesphere</a> <img src="https://img.shields.io/github/stars/kubesphere/kubesphere.svg" alt="Github stars"></a></li>
+    <li><a href="#kubeoperatorkubeoperatorhttpsgithubcomkubeoperatorkubeoperator-github-starshttpsimgshieldsiogithubstarskubeoperatorkubeoperatorsvg"><a href="https://github.com/KubeOperator/KubeOperator">KubeOperator/KubeOperator</a> <img src="https://img.shields.io/github/stars/KubeOperator/KubeOperator.svg" alt="Github stars"></a></li>
+    <li><a href="#rancherrkehttpsgithubcomrancherrke-github-starshttpsimgshieldsiogithubstarsrancherrkesvg"><a href="https://github.com/rancher/rke">rancher/rke</a> <img src="https://img.shields.io/github/stars/rancher/rke.svg" alt="Github stars"></a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -457,10 +544,35 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="crd">
-  CRD
-  <a class="anchor" href="#crd">#</a>
+  <article class="markdown"><h1 id="kubernetes-部署">
+  Kubernetes 部署
+  <a class="anchor" href="#kubernetes-%e9%83%a8%e7%bd%b2">#</a>
 </h1>
+<a href="https://github.com/kubesphere/kubesphere">kubesphere/kubesphere</a> <h2 id="kubespherekubespherehttpsgithubcomkubespherekubesphere-github-starshttpsimgshieldsiogithubstarskubespherekubespheresvg">
+  <img src="https://img.shields.io/github/stars/kubesphere/kubesphere.svg" alt="Github stars" />
+  <a class="anchor" href="#kubespherekubespherehttpsgithubcomkubespherekubesphere-github-starshttpsimgshieldsiogithubstarskubespherekubespheresvg">#</a>
+</h2>
+<p>KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。</p>
+<a href="https://github.com/KubeOperator/KubeOperator">KubeOperator/KubeOperator</a> <h2 id="kubeoperatorkubeoperatorhttpsgithubcomkubeoperatorkubeoperator-github-starshttpsimgshieldsiogithubstarskubeoperatorkubeoperatorsvg">
+  <img src="https://img.shields.io/github/stars/KubeOperator/KubeOperator.svg" alt="Github stars" />
+  <a class="anchor" href="#kubeoperatorkubeoperatorhttpsgithubcomkubeoperatorkubeoperator-github-starshttpsimgshieldsiogithubstarskubeoperatorkubeoperatorsvg">#</a>
+</h2>
+<p>KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。</p>
+<a href="https://github.com/rancher/rke">rancher/rke</a> <h2 id="rancherrkehttpsgithubcomrancherrke-github-starshttpsimgshieldsiogithubstarsrancherrkesvg">
+  <img src="https://img.shields.io/github/stars/rancher/rke.svg" alt="Github stars" />
+  <a class="anchor" href="#rancherrkehttpsgithubcomrancherrke-github-starshttpsimgshieldsiogithubstarsrancherrkesvg">#</a>
+</h2>
+<p><code>Rancher Kubernetes Engine</code></p>
+<hr>
+<h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h2>
+<ul>
+<li><a href="https://www.zhihu.com/question/348609092">Kubesphere 与 Rancher 有什么区别？</a></li>
+<li><a href="https://www.zhihu.com/question/366253035">部署生产级别的 Kubernetes 集群要注意哪些问题？</a></li>
+<li><a href="https://www.zhihu.com/question/59367963">如何在 CentOS7 上部署 Kubernetes 集群？</a></li>
+</ul>
 </article>
  
       
@@ -470,12 +582,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/62fe508e5f50dffa6483504305f0c48f5d3fdd64" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
-    </a>
-  </div>
 
 
 
@@ -506,7 +612,14 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kubespherekubespherehttpsgithubcomkubespherekubesphere-github-starshttpsimgshieldsiogithubstarskubespherekubespheresvg"><a href="https://github.com/kubesphere/kubesphere">kubesphere/kubesphere</a> <img src="https://img.shields.io/github/stars/kubesphere/kubesphere.svg" alt="Github stars"></a></li>
+    <li><a href="#kubeoperatorkubeoperatorhttpsgithubcomkubeoperatorkubeoperator-github-starshttpsimgshieldsiogithubstarskubeoperatorkubeoperatorsvg"><a href="https://github.com/KubeOperator/KubeOperator">KubeOperator/KubeOperator</a> <img src="https://img.shields.io/github/stars/KubeOperator/KubeOperator.svg" alt="Github stars"></a></li>
+    <li><a href="#rancherrkehttpsgithubcomrancherrke-github-starshttpsimgshieldsiogithubstarsrancherrkesvg"><a href="https://github.com/rancher/rke">rancher/rke</a> <img src="https://img.shields.io/github/stars/rancher/rke.svg" alt="Github stars"></a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
  
     </aside>

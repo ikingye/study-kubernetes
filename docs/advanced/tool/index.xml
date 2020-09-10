@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2.2 工具 on Kubernetes 学习笔记</title>
+    <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/</link>
+    <description>Recent content in 2.2 工具 on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ikingye.github.io/study-kubernetes/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubectl</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
+      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 #  --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.</description>
+    </item>
+    
+    <item>
+      <title>Kustomize</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</guid>
+      <description>Kustomize #  Kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</description>
+    </item>
+    
+  </channel>
+</rss>

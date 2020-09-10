@@ -23,8 +23,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/</loc>
-    <lastmod>2020-09-09T16:21:02+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/</loc>
   </url>
   
   <url>
@@ -48,8 +47,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kubectl/</loc>
-    <lastmod>2020-07-14T22:15:07+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</loc>
   </url>
   
   <url>
@@ -73,18 +71,15 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/kubeadm/</loc>
-    <lastmod>2020-07-14T22:15:07+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</loc>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kustomize/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</loc>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/microk8s/</loc>
-    <lastmod>2020-07-14T22:15:07+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</loc>
   </url>
   
   <url>
@@ -133,8 +128,11 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/k8s/</loc>
-    <lastmod>2020-07-14T22:15:07+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/code/component/</loc>
   </url>
   
   <url>
@@ -148,8 +146,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/minikube/</loc>
-    <lastmod>2020-07-14T22:15:07+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</loc>
   </url>
   
   <url>
@@ -173,8 +170,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/task/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/</loc>
   </url>
   
   <url>
@@ -203,11 +199,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/arch/architecture/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -215,6 +206,10 @@
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/arch/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/</loc>
   </url>
   
   <url>
@@ -243,11 +238,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/snippet/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/</loc>
     <lastmod>2020-07-14T20:39:42+08:00</lastmod>
   </url>
@@ -265,6 +255,10 @@
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/</loc>
   </url>
   
   <url>

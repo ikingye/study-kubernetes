@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 快速上手 #  架构 #  概念 #  安装 #  简单使用 #  ">
+<meta name="description" content="Kubernetes 快速上手 #  ketacoda #  Kubernetes basics (by lizrice) #  In this scenario you&rsquo;ll run your Go application in a Kubernetes cluster.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.1 快速上手" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.d37420b2d6f4dcbb453b2f566a891df3f520c27721f3f12ec6d7317f1bdf104b.js" integrity="sha256-03Qgstb03LtFOy9Waokd8/Ugwnch8/EuxtcxfxvfEEs="></script>
+<script defer src="/study-kubernetes/en.search.min.02de4aca8915164a14a808250808a262d684c7e1c082170d2c52fc61c37137fc.js" integrity="sha256-At5KyokVFkoUqAglCAiiYtaEx&#43;HAghcNLFL8YcNxN/w="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/quick/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -107,64 +107,6 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/quick/install/" class="collapsed ">安装</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/quick/tool/" class="">常用工具</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/quick/tool/kubectl/" class="">Kubectl</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/quick/tool/kustomize/" class="">Kustomize</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
   </ul>
   
 
@@ -247,7 +189,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+    <a href="/study-kubernetes/docs/advanced/deploy/" class="collapsed ">2.1 部署</a>
   
 
           
@@ -264,7 +206,48 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+    <a href="/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/" class="collapsed ">2.3 功能</a>
   
 
           
@@ -321,6 +304,23 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/" class="collapsed ">2.8 生态</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -346,7 +346,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
+    <a href="/study-kubernetes/docs/code/component/" class="collapsed ">3.1 Kubernetes 组件</a>
   
 
           
@@ -490,10 +490,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#架构">架构</a></li>
-    <li><a href="#概念">概念</a></li>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#简单使用">简单使用</a></li>
+    <li><a href="#ketacoda">ketacoda</a>
+      <ul>
+        <li><a href="#kubernetes-basics-by-lizricehttpskatacodacomlizricescenarioskubernetes"><a href="https://katacoda.com/lizrice/scenarios/kubernetes">Kubernetes basics (by lizrice)</a></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -509,22 +510,15 @@ https://github.com/alex-shpak/hugo-book
   Kubernetes 快速上手
   <a class="anchor" href="#kubernetes-%e5%bf%ab%e9%80%9f%e4%b8%8a%e6%89%8b">#</a>
 </h1>
-<h2 id="架构">
-  架构
-  <a class="anchor" href="#%e6%9e%b6%e6%9e%84">#</a>
+<h2 id="ketacoda">
+  ketacoda
+  <a class="anchor" href="#ketacoda">#</a>
 </h2>
-<h2 id="概念">
-  概念
-  <a class="anchor" href="#%e6%a6%82%e5%bf%b5">#</a>
-</h2>
-<h2 id="安装">
-  安装
-  <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
-</h2>
-<h2 id="简单使用">
-  简单使用
-  <a class="anchor" href="#%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8">#</a>
-</h2>
+<h3 id="kubernetes-basics-by-lizricehttpskatacodacomlizricescenarioskubernetes">
+  <a href="https://katacoda.com/lizrice/scenarios/kubernetes">Kubernetes basics (by lizrice)</a>
+  <a class="anchor" href="#kubernetes-basics-by-lizricehttpskatacodacomlizricescenarioskubernetes">#</a>
+</h3>
+<p>In this scenario you&rsquo;ll run your Go application in a Kubernetes cluster.</p>
 </article>
  
       
@@ -572,10 +566,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#架构">架构</a></li>
-    <li><a href="#概念">概念</a></li>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#简单使用">简单使用</a></li>
+    <li><a href="#ketacoda">ketacoda</a>
+      <ul>
+        <li><a href="#kubernetes-basics-by-lizricehttpskatacodacomlizricescenarioskubernetes"><a href="https://katacoda.com/lizrice/scenarios/kubernetes">Kubernetes basics (by lizrice)</a></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

@@ -78,10 +78,10 @@ kubectl create configmap [NAME] [DATA]
     
     <item>
       <title>Kubectl</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kubectl/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kubectl/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
       <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 #  --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.</description>
     </item>
     
@@ -97,30 +97,30 @@ This is not an officially supported Google product. Although this open-source pr
     
     <item>
       <title>Kubeadm</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/kubeadm/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/kubeadm/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</guid>
       <description>Kubeadm #  教程 #  Getting Started With Kubeadm #  from katacoda
 参考 #  https://www.katacoda.com #  Katacoda - Interactive Learning Platform for Software Engineers</description>
     </item>
     
     <item>
       <title>Kustomize</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kustomize/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/quick/tool/kustomize/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</guid>
       <description>Kustomize #  Kustomize Customization of kubernetes YAML configurations
 kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</description>
     </item>
     
     <item>
       <title>MicroK8s</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/microk8s/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/microk8s/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</guid>
       <description>MicroK8s #  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
 Pros: #   Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons: #   Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考 #   Local Kubernetes for Linux – MiniKube vs MicroK8s  </description>
     </item>
@@ -167,10 +167,10 @@ play-with-docker/play-with-docker #  Play With Docker gives you the experience o
     
     <item>
       <title>MiniKube</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/minikube/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/quick/install/minikube/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</guid>
       <description>MiniKube #  安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
 curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \ &amp;amp;&amp;amp; chmod +x minikube sudo mv minikube /usr/local/bin Linux Windows  参考：https://kubernetes.io/docs/tasks/tools/install-minikube/
 启动 #    minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="故障排查 #  ">
+<meta name="description" content="故障排查 #  server localhost:8080 was refused #  $ k get node The connection to the server localhost:8080 was refused - did you specify the right host or port? ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.5 故障排查" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.d37420b2d6f4dcbb453b2f566a891df3f520c27721f3f12ec6d7317f1bdf104b.js" integrity="sha256-03Qgstb03LtFOy9Waokd8/Ugwnch8/EuxtcxfxvfEEs="></script>
+<script defer src="/study-kubernetes/en.search.min.02de4aca8915164a14a808250808a262d684c7e1c082170d2c52fc61c37137fc.js" integrity="sha256-At5KyokVFkoUqAglCAiiYtaEx&#43;HAghcNLFL8YcNxN/w="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/debug/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -185,7 +185,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/task/" class="collapsed ">2.2 任务</a>
+    <a href="/study-kubernetes/docs/advanced/deploy/" class="collapsed ">2.1 部署</a>
   
 
           
@@ -202,7 +202,48 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/snippet/" class="collapsed ">2.4 代码片段</a>
+    <a href="/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/" class="collapsed ">2.3 功能</a>
   
 
           
@@ -263,6 +304,23 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/" class="collapsed ">2.8 生态</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -288,7 +346,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/code/k8s/" class="collapsed ">3.1 Kubernetes</a>
+    <a href="/study-kubernetes/docs/code/component/" class="collapsed ">3.1 Kubernetes 组件</a>
   
 
           
@@ -430,7 +488,11 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#server-localhost8080-was-refused">server localhost:8080 was refused</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -444,7 +506,13 @@ https://github.com/alex-shpak/hugo-book
   故障排查
   <a class="anchor" href="#%e6%95%85%e9%9a%9c%e6%8e%92%e6%9f%a5">#</a>
 </h1>
-</article>
+<h2 id="server-localhost8080-was-refused">
+  server localhost:8080 was refused
+  <a class="anchor" href="#server-localhost8080-was-refused">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ k get node
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+</code></pre></div></article>
  
       
 
@@ -489,7 +557,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#server-localhost8080-was-refused">server localhost:8080 was refused</a></li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -4,10 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="API 对象 #  声明式 API #   提交一个定义好的 API 对象来 “声明” 启动一个对应的控制器进行调谐 / 编排  控制器 #  一个 Kubernetes 的控制器，实际上就是一个死循环：
- 不断地获取 “实际状态”， 然后与 “期望状态” 作对比， 并以此为依据决定下一步的操作  workload #  Kubernetes divides workloads into different types. The most popular types supported by Kubernetes are:
- Deployments StatefulSets DaemonSets Jobs CronJobs  参考：
- Kubernetes Workloads and Pods   API Resource #  Deployment #   metadata  name   spec  replicas selector  matchLabels  app version     template  metadata  annotations labels  app version     spec  serviceAccountName containers  name image imagePullPolicy ports  name containerPort            Service #   metadata  name labels  app     spec  ports  name port targetPort   selector  app      CustomResourceDefinition #   metadata  name   spec  group version names  kind plural   scope    ">
+<meta name="description" content="API 对象 #  NAME SHORTNAMES APIGROUP NAMESPACED KIND bindings true Binding componentstatuses cs false ComponentStatus configmaps cm true ConfigMap endpoints ep true Endpoints events ev true Event limitranges limits true LimitRange namespaces ns false Namespace nodes no false Node persistentvolumeclaims pvc true PersistentVolumeClaim persistentvolumes pv false PersistentVolume pods po true Pod podtemplates true PodTemplate replicationcontrollers rc true ReplicationController resourcequotas quota true ResourceQuota secrets true Secret serviceaccounts sa true ServiceAccount services svc true Service initializerconfigurations admissionregistration.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="API 对象" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -17,7 +14,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.02de4aca8915164a14a808250808a262d684c7e1c082170d2c52fc61c37137fc.js" integrity="sha256-At5KyokVFkoUqAglCAiiYtaEx&#43;HAghcNLFL8YcNxN/w="></script>
+<script defer src="/study-kubernetes/en.search.min.e4c987281fc426187a3b699ecd2258920217d3f9374fc19324d734a60ddacd52.js" integrity="sha256-5MmHKB/EJhh6O2mezSJYkgIX0/k3T8GTJNc0pg3azVI="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -607,7 +604,91 @@ https://github.com/alex-shpak/hugo-book
   API 对象
   <a class="anchor" href="#api-%e5%af%b9%e8%b1%a1">#</a>
 </h1>
-<h2 id="声明式-api">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
+bindings                                                                      true         Binding
+componentstatuses                 cs                                          false        ComponentStatus
+configmaps                        cm                                          true         ConfigMap
+endpoints                         ep                                          true         Endpoints
+events                            ev                                          true         Event
+limitranges                       limits                                      true         LimitRange
+namespaces                        ns                                          false        Namespace
+nodes                             no                                          false        Node
+persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
+persistentvolumes                 pv                                          false        PersistentVolume
+pods                              po                                          true         Pod
+podtemplates                                                                  true         PodTemplate
+replicationcontrollers            rc                                          true         ReplicationController
+resourcequotas                    quota                                       true         ResourceQuota
+secrets                                                                       true         Secret
+serviceaccounts                   sa                                          true         ServiceAccount
+services                          svc                                         true         Service
+initializerconfigurations                      admissionregistration.k8s.io   false        InitializerConfiguration
+mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration
+validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
+customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition
+apiservices                                    apiregistration.k8s.io         false        APIService
+controllerrevisions                            apps                           true         ControllerRevision
+daemonsets                        ds           apps                           true         DaemonSet
+deployments                       deploy       apps                           true         Deployment
+replicasets                       rs           apps                           true         ReplicaSet
+statefulsets                      sts          apps                           true         StatefulSet
+auditsinks                                     auditregistration.k8s.io       false        AuditSink
+tokenreviews                                   authentication.k8s.io          false        TokenReview
+localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview
+selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview
+selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview
+subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview
+horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler
+cronjobs                          cj           batch                          true         CronJob
+jobs                                           batch                          true         Job
+certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest
+adapters                                       config.istio.io                true         adapter
+attributemanifests                             config.istio.io                true         attributemanifest
+handlers                                       config.istio.io                true         handler
+httpapispecbindings                            config.istio.io                true         HTTPAPISpecBinding
+httpapispecs                                   config.istio.io                true         HTTPAPISpec
+instances                                      config.istio.io                true         instance
+quotaspecbindings                              config.istio.io                true         QuotaSpecBinding
+quotaspecs                                     config.istio.io                true         QuotaSpec
+rules                                          config.istio.io                true         rule
+templates                                      config.istio.io                true         template
+leases                                         coordination.k8s.io            true         Lease
+events                            ev           events.k8s.io                  true         Event
+daemonsets                        ds           extensions                     true         DaemonSet
+deployments                       deploy       extensions                     true         Deployment
+ingresses                         ing          extensions                     true         Ingress
+networkpolicies                   netpol       extensions                     true         NetworkPolicy
+podsecuritypolicies               psp          extensions                     false        PodSecurityPolicy
+replicasets                       rs           extensions                     true         ReplicaSet
+istiooperators                    iop          install.istio.io               true         IstioOperator
+destinationrules                  dr           networking.istio.io            true         DestinationRule
+envoyfilters                                   networking.istio.io            true         EnvoyFilter
+gateways                          gw           networking.istio.io            true         Gateway
+serviceentries                    se           networking.istio.io            true         ServiceEntry
+sidecars                                       networking.istio.io            true         Sidecar
+virtualservices                   vs           networking.istio.io            true         VirtualService
+workloadentries                   we           networking.istio.io            true         WorkloadEntry
+networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy
+clustercontrollers                ccs          ote.baidu.com                  true         ClusterController
+clusters                          cs           ote.baidu.com                  true         Cluster
+poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget
+podsecuritypolicies               psp          policy                         false        PodSecurityPolicy
+clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding
+clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole
+rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding
+roles                                          rbac.authorization.k8s.io      true         Role
+clusterrbacconfigs                             rbac.istio.io                  false        ClusterRbacConfig
+rbacconfigs                                    rbac.istio.io                  true         RbacConfig
+servicerolebindings                            rbac.istio.io                  true         ServiceRoleBinding
+serviceroles                                   rbac.istio.io                  true         ServiceRole
+priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass
+authorizationpolicies                          security.istio.io              true         AuthorizationPolicy
+peerauthentications               pa           security.istio.io              true         PeerAuthentication
+requestauthentications            ra           security.istio.io              true         RequestAuthentication
+podpresets                                     settings.k8s.io                true         PodPreset
+storageclasses                    sc           storage.k8s.io                 false        StorageClass
+volumeattachments                              storage.k8s.io                 false        VolumeAttachment
+</code></pre></div><h2 id="声明式-api">
   声明式 API
   <a class="anchor" href="#%e5%a3%b0%e6%98%8e%e5%bc%8f-api">#</a>
 </h2>

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.">
+<meta name="description" content="K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定  是可选的，仅仅是提示信息 容器中任何监听 0.0.0.0 的端口，都会暴露出来 无法被更新 主机的端口   hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="K8s 端口" />
-<meta property="og:description" content="K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定   主机的端口  hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0." />
+<meta property="og:description" content="K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定  是可选的，仅仅是提示信息 容器中任何监听 0.0.0.0 的端口，都会暴露出来 无法被更新 主机的端口   hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;hostIP, hostPort, protocol&gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/port/" />
 <meta property="article:modified_time" content="2020-07-17T15:22:58+08:00" />
@@ -14,7 +14,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.f2cc46a6a6a9127656fa5501bf9d03f6dc941e4d4de2e3df74ccd7dc4a9869ac.js" integrity="sha256-8sxGpqapEnZW&#43;lUBv50D9tyUHk1N4uPfdMzX3EqYaaw="></script>
+<script defer src="/study-kubernetes/en.search.min.425f152fb9952d1d267e2a53031843457154b3987dc74d35bf7b8a618f1a48a7.js" integrity="sha256-Ql8VL7mVLR0mfipTAxhDRXFUs5h9x001v3uKYY8aSKc="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -736,11 +736,14 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li>容器的端口
 <ul>
-<li><code>containerPort</code>：在容器上，用于被 pod 绑定</li>
+<li><code>containerPort</code>：在容器上，用于被 pod 绑定
+<ul>
+<li>是可选的，仅仅是提示信息</li>
+<li>容器中任何监听 <code>0.0.0.0</code> 的端口，都会暴露出来</li>
+<li>无法被更新</li>
+<li>主机的端口</li>
 </ul>
 </li>
-<li>主机的端口
-<ul>
 <li><code>hostPort</code>：容器暴露的端口映射到的主机端口
 <ul>
 <li>尽量不要为 Pod 指定 hostPort</li>

@@ -268,6 +268,15 @@ kubernetes/examples #  Kubernetes application example tutorials</description>
     </item>
     
     <item>
+      <title>kubebuilder</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid>
+      <description>kubebuilder #  kubebuilder https://kubebuilder.io</description>
+    </item>
+    
+    <item>
       <title>OperatorHub</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/operatorhub/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

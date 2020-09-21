@@ -6,27 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 #  kubebuilder #  kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
+ Operator 开发 #  kubebuilder #  https://kubebuilder.io
+kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
 可与 Webhook 结合使用，以实现自己的功能。
-operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
+operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.
+https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Operator" />
-<meta property="og:description" content="Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
-所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 #  kubebuilder #  kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
-可与 Webhook 结合使用，以实现自己的功能。
-operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
-Operator 框架
-operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/operator/" />
-<meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/" />
+
 <title>Operator | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
 <script defer src="/study-kubernetes/en.search.min.bb7c82260441c0a44faefa60db530950a5b94e092365975d13d92324e74cddc0.js" integrity="sha256-u3yCJgRBwKRPrvpg21MJUKW5TgkjZZddE9kjJOdM3cA="></script>
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -130,101 +127,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/concept/resource/operator/" class="active">Operator</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -362,7 +264,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/feature/operator/" class="">Operator</a>
+    <a href="/study-kubernetes/docs/advanced/feature/operator/" class="active">Operator</a>
   
 
           
@@ -628,7 +530,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#operator-的工作原理">Operator 的工作原理</a></li>
     <li><a href="#operator-开发">Operator 开发</a>
       <ul>
-        <li><a href="#kubebuilderhttpskubebuilderio"><a href="https://kubebuilder.io/">kubebuilder</a></a></li>
+        <li><a href="#kubebuilderhttpsgithubcomkubebuilder-github-starshttpsimgshieldsiogithubstarskubebuildersvg"><a href="https://github.com/kubebuilder">kubebuilder</a> <img src="https://img.shields.io/github/stars/kubebuilder.svg" alt="Github stars"></a></li>
         <li><a href="#kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg"><a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars"></a></li>
         <li><a href="#googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg"><a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars"></a></li>
         <li><a href="#operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg"><a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars"></a>
@@ -641,6 +543,7 @@ https://github.com/alex-shpak/hugo-book
     </li>
     <li><a href="#operator-示例">Operator 示例</a>
       <ul>
+        <li><a href="#operator-frameworkawesome-operatorshttpsgithubcomoperator-frameworkawesome-operators-github-starshttpsimgshieldsiogithubstarsoperator-frameworkawesome-operatorssvg"><a href="https://github.com/operator-framework/awesome-operators">operator-framework/awesome-operators</a> <img src="https://img.shields.io/github/stars/operator-framework/awesome-operators.svg" alt="Github stars"></a></li>
         <li><a href="#etcd-operator">Etcd Operator</a></li>
         <li><a href="#zookeeper-operator">zookeeper operator</a></li>
       </ul>
@@ -673,10 +576,11 @@ https://github.com/alex-shpak/hugo-book
   Operator 开发
   <a class="anchor" href="#operator-%e5%bc%80%e5%8f%91">#</a>
 </h2>
-<h3 id="kubebuilderhttpskubebuilderio">
-  <a href="https://kubebuilder.io/">kubebuilder</a>
-  <a class="anchor" href="#kubebuilderhttpskubebuilderio">#</a>
+<a href="https://github.com/kubebuilder">kubebuilder</a> <h3 id="kubebuilderhttpsgithubcomkubebuilder-github-starshttpsimgshieldsiogithubstarskubebuildersvg">
+  <img src="https://img.shields.io/github/stars/kubebuilder.svg" alt="Github stars" />
+  <a class="anchor" href="#kubebuilderhttpsgithubcomkubebuilder-github-starshttpsimgshieldsiogithubstarskubebuildersvg">#</a>
 </h3>
+<p><a href="https://kubebuilder.io">https://kubebuilder.io</a></p>
 <a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <h3 id="kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">
   <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars" />
   <a class="anchor" href="#kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">#</a>
@@ -692,8 +596,8 @@ https://github.com/alex-shpak/hugo-book
   <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars" />
   <a class="anchor" href="#operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg">#</a>
 </h3>
-<p>SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.
-<a href="https://sdk.operatorframework.io">https://sdk.operatorframework.io</a></p>
+<p>SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.</p>
+<p><a href="https://sdk.operatorframework.io">https://sdk.operatorframework.io</a></p>
 <p>Operator 框架</p>
 <a href="https://github.com/operator-framework/getting-started">operator-framework/getting-started</a> <h4 id="operator-frameworkgetting-startedhttpsgithubcomoperator-frameworkgetting-started-github-starshttpsimgshieldsiogithubstarsoperator-frameworkgetting-startedsvg">
   <img src="https://img.shields.io/github/stars/operator-framework/getting-started.svg" alt="Github stars" />
@@ -706,10 +610,15 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>A management framework for extending Kubernetes with Operators</p>
 <hr>
+<hr>
 <h2 id="operator-示例">
   Operator 示例
   <a class="anchor" href="#operator-%e7%a4%ba%e4%be%8b">#</a>
 </h2>
+<a href="https://github.com/operator-framework/awesome-operators">operator-framework/awesome-operators</a> <h3 id="operator-frameworkawesome-operatorshttpsgithubcomoperator-frameworkawesome-operators-github-starshttpsimgshieldsiogithubstarsoperator-frameworkawesome-operatorssvg">
+  <img src="https://img.shields.io/github/stars/operator-framework/awesome-operators.svg" alt="Github stars" />
+  <a class="anchor" href="#operator-frameworkawesome-operatorshttpsgithubcomoperator-frameworkawesome-operators-github-starshttpsimgshieldsiogithubstarsoperator-frameworkawesome-operatorssvg">#</a>
+</h3>
 <h3 id="etcd-operator">
   Etcd Operator
   <a class="anchor" href="#etcd-operator">#</a>
@@ -776,8 +685,18 @@ $ example/rbac/create_role.sh
   <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
 </h2>
 <ul>
-<li><a href="https://coreos.com/blog/introducing-operators.html">Introducing Operators: Putting Operational Knowledge into Software</a></li>
-<li><a href="https://cloud.google.com/blog/products/containers-kubernetes/best-practices-for-building-kubernetes-operators-and-stateful-apps">Best practices for building Kubernetes Operators and stateful apps</a></li>
+<li>
+<p><a href="https://coreos.com/blog/introducing-operators.html">Introducing Operators: Putting Operational Knowledge into Software</a></p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/blog/products/containers-kubernetes/best-practices-for-building-kubernetes-operators-and-stateful-apps">Best practices for building Kubernetes Operators and stateful apps</a></p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/question/290497164">如何看待 kubebuilder 与 Operator Framework (Operator SDK) ？</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kubernetes-sigs/kubebuilder/blob/master/designs/integrating-kubebuilder-and-osdk.md">Integrating Kubebuilder and Operator SDK</a></p>
+</li>
 </ul>
 </article>
  
@@ -788,12 +707,6 @@ $ example/rbac/create_role.sh
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
-    </a>
-  </div>
 
 
 
@@ -829,7 +742,7 @@ $ example/rbac/create_role.sh
     <li><a href="#operator-的工作原理">Operator 的工作原理</a></li>
     <li><a href="#operator-开发">Operator 开发</a>
       <ul>
-        <li><a href="#kubebuilderhttpskubebuilderio"><a href="https://kubebuilder.io/">kubebuilder</a></a></li>
+        <li><a href="#kubebuilderhttpsgithubcomkubebuilder-github-starshttpsimgshieldsiogithubstarskubebuildersvg"><a href="https://github.com/kubebuilder">kubebuilder</a> <img src="https://img.shields.io/github/stars/kubebuilder.svg" alt="Github stars"></a></li>
         <li><a href="#kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg"><a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars"></a></li>
         <li><a href="#googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg"><a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars"></a></li>
         <li><a href="#operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg"><a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars"></a>
@@ -842,6 +755,7 @@ $ example/rbac/create_role.sh
     </li>
     <li><a href="#operator-示例">Operator 示例</a>
       <ul>
+        <li><a href="#operator-frameworkawesome-operatorshttpsgithubcomoperator-frameworkawesome-operators-github-starshttpsimgshieldsiogithubstarsoperator-frameworkawesome-operatorssvg"><a href="https://github.com/operator-framework/awesome-operators">operator-framework/awesome-operators</a> <img src="https://img.shields.io/github/stars/operator-framework/awesome-operators.svg" alt="Github stars"></a></li>
         <li><a href="#etcd-operator">Etcd Operator</a></li>
         <li><a href="#zookeeper-operator">zookeeper operator</a></li>
       </ul>

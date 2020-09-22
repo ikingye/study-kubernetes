@@ -48,11 +48,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/spec/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/configmap/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -223,11 +218,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/troubleshoot/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -328,11 +318,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/</loc>
-    <lastmod>2020-09-08T17:27:39+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -358,8 +343,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/client-go/</loc>
   </url>
   
   <url>
@@ -368,13 +352,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/hpa/</loc>
   </url>
   
   <url>

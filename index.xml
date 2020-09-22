@@ -233,7 +233,7 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/version/</guid>
-      <description>Kubernetes 版本 #  查看版本 #  kuberctl #   kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
+      <description>Kubernetes 版本 #  kubernetes/kubernetes 查看版本 #  kuberctl #   kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本：
 apiserver #   kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
  历史版本 #  v1.20 #  v1.19 #   v1.18 #  v1.18.6 #   v1.17 #   v1.</description>
@@ -282,16 +282,6 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeless/</guid>
       <description>Kubeless #  kubeless/kubeless Kubernetes Native Serverless Framework</description>
-    </item>
-    
-    <item>
-      <title>故障排查</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/troubleshoot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/troubleshoot/</guid>
-      <description>Kubernetes 故障排查 #  参考：
- 监控、日志和排错  </description>
     </item>
     
     <item>
@@ -405,18 +395,6 @@ apiVersion: extensions/v1beta1 kind: Deployment metadata: name: etcd-operator sp
     </item>
     
     <item>
-      <title>部署</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/deploy/</guid>
-      <description>Kubernetes 部署 #  kubesphere/kubesphere #  KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。
-KubeOperator/KubeOperator #  KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。
-rancher/rke #  Rancher Kubernetes Engine
- 参考 #   Kubesphere 与 Rancher 有什么区别？ 部署生产级别的 Kubernetes 集群要注意哪些问题？ 如何在 CentOS7 上部署 Kubernetes 集群？  </description>
-    </item>
-    
-    <item>
       <title>2.7 测试</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/advanced/test/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -427,19 +405,19 @@ rancher/rke #  Rancher Kubernetes Engine
     
     <item>
       <title>client-go</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/client-go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/client-go/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/client-go/</guid>
       <description>kubernetes/client-go #  安装 #  </description>
     </item>
     
     <item>
       <title>Horizontal Pod Autoscaler</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/hpa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/hpa/</guid>
       <description>Horizontal Pod Autoscaler #  Pod 水平自动伸缩</description>
     </item>
     

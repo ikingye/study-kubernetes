@@ -9,7 +9,7 @@
 <meta property="og:description" content="Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/port/" />
-
+<meta property="article:modified_time" content="2020-09-22T14:18:24+08:00" />
 <title>端口 | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
@@ -937,6 +937,12 @@ systemctl restart network
   <div class="flex flex-wrap justify-between">
 
 
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/1ef8c2f94b0a8d16cfa74e49e89fd16472f59798" title='Last modified by yewang | 2020-09-22' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-09-22</span>
+    </a>
+  </div>
 
 
 

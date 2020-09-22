@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&#34;executable&#34;,&#34;param1&#34;,&#34;param2&#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&#34;param1&#34;,&#34;param2&#34;]# 下面两者是等价的CMD echo &#34;hello cmd!&#34;CMD [&#34;/bin/bash&#34;, &#34;-c&#34;, &#34;echo &#39;hello cmd!&#39;&#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
+Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&#34;/start.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dockerfile" />
+<meta property="og:description" content="Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&#34;executable&#34;,&#34;param1&#34;,&#34;param2&#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&#34;param1&#34;,&#34;param2&#34;]# 下面两者是等价的CMD echo &#34;hello cmd!&#34;CMD [&#34;/bin/bash&#34;, &#34;-c&#34;, &#34;echo &#39;hello cmd!&#39;&#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
+Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&#34;/start." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/" />
+
+<title>Dockerfile | Kubernetes 学习笔记</title>
+<link rel="manifest" href="/study-kubernetes/manifest.json">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-kubernetes/en.search.min.a9275eac0dcadeaf14e69efbf47252d6b7abad0ab348d37f3f4c5ae27d61791d.js" integrity="sha256-qSderA3K3q8U5p779HJS1rerrQqzSNN/P0xa4n1heR0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="https://kingye.me" target="_blank" rel="noopener noreferrer">博客</a></li>
+    <li><a href="https://github.com/ikingye" target="_blank" rel="noopener noreferrer">Github</a></li>
+    <li><a href="https://weibo.com/kingyip15215" target="_blank" rel="noopener noreferrer">
+      微博  <img src="http://www.sinaimg.cn/blog/developer/wiki/LOGO_16x16.png">
+    </a></li>
+    <li><a href="https://www.zhihu.com/people/wutongyip" target="_blank" rel="noopener noreferrer">知乎</a></li>
+  <li><a href="//shang.qq.com/wpa/qunwpa?idkey=eee4a9761dda243c3be4e14f4d0b9af3a7bb878571a53398548cc0771880ee6c&source_id=1_40001" target="_blank" rel="noopener noreferrer">Q 群</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/quick/" class="collapsed ">1.1 快速上手</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/concept/" class="collapsed ">1.2 概念</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/arch/" class="collapsed ">1.3 架构</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/basic/other/" class="collapsed ">1.4 其他</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/deploy/" class="collapsed ">2.1 部署</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/helm/" class="">Helm</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/" class="">2.3 功能</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/operator/" class="">Operator</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/operator/kubebuilder/" class="">kubebuilder</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/operator/etcd/" class="">etcd Operator</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/debug/" class="collapsed ">2.5 故障排查</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/prof/" class="collapsed ">2.6 性能</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/test/test/" class="">2.7 测试</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/" class="">2.8 生态</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/" class="collapsed ">Docker</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/quick/" class="">Docker 快速上手</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/command/" class="">命令</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/version/" class="">版本</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/port/" class="">端口</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/image/" class="collapsed ">镜像</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/containerd/" class="">containerd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/container/" class="">容器</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/repository/" class="">仓库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/volume/" class="">数据卷</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="active">Dockerfile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/network/" class="collapsed ">Docker 网络</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/tutorial/" class="">教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/build/" class="">build</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/kubeless/" class="">Kubeless</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/knative/" class="collapsed ">Knative</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/component/" class="collapsed ">3.1 Kubernetes 组件</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/code/crd/" class="collapsed ">3.2 CRD</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+<ul>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png" target="_blank" rel="noopener noreferrer">加我微信</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png" target="_blank" rel="noopener noreferrer">请我喝饮料</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png" target="_blank" rel="noopener noreferrer">关注微信公众号</a></li>
+</ul>
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Dockerfile</strong>
+
+  <label for="toc-control">
+    
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a>
+      <ul>
+        <li><a href="#cmd">CMD</a></li>
+        <li><a href="#entrypoint">ENTRYPOINT</a></li>
+        <li><a href="#expose">EXPOSE</a></li>
+        <li><a href="#add">ADD</a></li>
+        <li><a href="#copy优先使用-copy不使用-add">COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）</a></li>
+        <li><a href="#user">USER</a></li>
+        <li><a href="#arghttpsdocsdockercomenginereferencebuilderarg"><a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a></a></li>
+        <li><a href="#maintainer">MAINTAINER</a></li>
+        <li><a href="#env">ENV</a></li>
+        <li><a href="#workdir">WORKDIR</a></li>
+        <li><a href="#volume">VOLUME</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices"><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a></a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="dockerfile">
+  Dockerfile
+  <a class="anchor" href="#dockerfile">#</a>
+</h1>
+<h2 id="教程">
+  教程
+  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
+</h2>
+<h3 id="cmd">
+  CMD
+  <a class="anchor" href="#cmd">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># exec form, preferred</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;executable&#34;</span>,<span style="color:#e6db74">&#34;param1&#34;</span>,<span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># shell form</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> command param1 param2<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># as default parameters to ENTRYPOINT</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;param1&#34;</span>,<span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 下面两者是等价的</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> echo <span style="color:#e6db74">&#34;hello cmd!&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;/bin/bash&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo &#39;hello cmd!&#39;&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>docker run 时指定了命令或者有 <code>ENTRYPOINT</code>，那么 <code>CMD</code> 就会被覆盖</p>
+<blockquote class="book-hint warning">
+  Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。
+</blockquote>
+
+<h3 id="entrypoint">
+  ENTRYPOINT
+  <a class="anchor" href="#entrypoint">#</a>
+</h3>
+<ol>
+<li><code>docker run</code> 使用 <code>--entrypoint</code>，则覆盖 Dockerfile 的 ENTRYPOINT</li>
+<li>如何 ENTRYPOINT 使用中括号形式
+<ol>
+<li><code>docker run</code> 带了<code>参数</code>，则参数会加给 ENTRYPOINT</li>
+<li>定义了 <code>CMD</code>，则 <code>CMD</code> 的参数会加给 ENTRYPOINT</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># exec form, preferred</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;executable&#34;</span>, <span style="color:#e6db74">&#34;param1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># shell form</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> command param1 param2<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># ENTRYPOINT 使用中括号时，也可以直接指定命令</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 而 CMD 不行，必须带上 shell 命令做前缀</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;/start.sh&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;/bin/bash&#34;</span>, <span style="color:#e6db74">&#34;-C&#34;</span>, <span style="color:#e6db74">&#34;/start.sh&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> /bin/bash -C <span style="color:#e6db74">&#39;/start.sh&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><blockquote class="book-hint warning">
+  <ol>
+<li>ENTRYPOINT 使用 shell 模式（非中括号），则 docker run 或者 CMD 的参数都无法传入。</li>
+<li>Dockerfile 文件中可以存在多个 ENTRYPOINT 指令，但仅有最后一个会生效。</li>
+</ol>
+
+</blockquote>
+
+<h3 id="expose">
+  EXPOSE
+  <a class="anchor" href="#expose">#</a>
+</h3>
+<p>EXPOSE 只是声明容器应该打开的端口，并没有实际去打开</p>
+<p>当使用 <code>-P</code> 时，会使用 EXPOSE 指定的端口。</p>
+<p>&ndash;expose 可以接受端口范围作为参数，比如 <code>--expose=2000-3000</code></p>
+<h3 id="add">
+  ADD
+  <a class="anchor" href="#add">#</a>
+</h3>
+<p>如果是 URL 或压缩包，会自动下载或自动解压。</p>
+<h3 id="copy优先使用-copy不使用-add">
+  COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）
+  <a class="anchor" href="#copy%e4%bc%98%e5%85%88%e4%bd%bf%e7%94%a8-copy%e4%b8%8d%e4%bd%bf%e7%94%a8-add">#</a>
+</h3>
+<h3 id="user">
+  USER
+  <a class="anchor" href="#user">#</a>
+</h3>
+<p>为 RUN、CMD 和 ENTRYPOINT 执行 Shell 命令指定运行用户</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> &lt;user&gt;[:&lt;usergroup&gt;]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> &lt;UID&gt;[:&lt;UID&gt;]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> edisonzhou</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><h3 id="arghttpsdocsdockercomenginereferencebuilderarg">
+  <a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a>
+  <a class="anchor" href="#arghttpsdocsdockercomenginereferencebuilderarg">#</a>
+</h3>
+<p>The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command using the &ndash;build-arg <varname>=<value> flag.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> centos:6</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># ARG &lt;name&gt;[=&lt;default value&gt;]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> user <span style="color:#75715e"># ARG user=root</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> $user</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># docker build --build-arg user=edisonzhou Dockerfile .</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><h3 id="maintainer">
+  MAINTAINER
+  <a class="anchor" href="#maintainer">#</a>
+</h3>
+<p>指明镜像维护着及其联系方式（一般是邮箱地址）</p>
+<p>MAINTAINER Edison Zhou <a href="mailto:edisonchou@hotmail.com">edisonchou@hotmail.com</a></p>
+<blockquote class="book-hint warning">
+  <p>MAINTAINER 并不推荐使用，更推荐使用 LABEL 来指定镜像作者</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">LABEL</span> maintainer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;edisonzhou.cn&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div>
+</blockquote>
+
+<h3 id="env">
+  ENV
+  <a class="anchor" href="#env">#</a>
+</h3>
+<h3 id="workdir">
+  WORKDIR
+  <a class="anchor" href="#workdir">#</a>
+</h3>
+<p>类似 <code>cd</code></p>
+<h3 id="volume">
+  VOLUME
+  <a class="anchor" href="#volume">#</a>
+</h3>
+<p>指定容器挂载点到宿主机自动生成的目录或其他容器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">VOLUME</span> [<span style="color:#e6db74">&#34;/var/lib/mysql&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><blockquote class="book-hint warning">
+  一般<strong>不会</strong>在 Dockerfile 中用到，更常见的还是在 docker run 的时候指定 -v 数据卷。
+</blockquote>
+
+<hr>
+<h2 id="最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices">
+  <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a>
+  <a class="anchor" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices">#</a>
+</h2>
+<p>目标:</p>
+<ul>
+<li>更快的构建速度</li>
+<li>更小的 Docker 镜像大小</li>
+<li>更少的 Docker 镜像层</li>
+<li>充分利用镜像缓存</li>
+<li>增加 Dockerfile 可读性</li>
+<li>让 Docker 容器使用起来更简单</li>
+</ul>
+<p>做法：</p>
+<ul>
+<li>
+<p>编写.dockerignore 文件</p>
+</li>
+<li>
+<p>容器只运行单个应用</p>
+</li>
+<li>
+<p>将多个 RUN 指令合并为一个</p>
+</li>
+<li>
+<p>基础镜像的标签不要用 latest</p>
+<ul>
+<li>如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签</li>
+</ul>
+</li>
+<li>
+<p>每个 RUN 指令后删除多余文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中</span>
+RUN apt-get update <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apt-get install -y nodejs <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># added lines</span>
+    <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
+</code></pre></div></li>
+<li>
+<p>选择合适的基础镜像 (alpine 版本最好)</p>
+<ul>
+<li>alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像</li>
+</ul>
+</li>
+<li>
+<p>设置 WORKDIR 和 CMD</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">FROM node:7-alpine
+
+<span style="color:#75715e"># WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。</span>
+WORKDIR /app
+ADD . /app
+RUN npm install
+
+<span style="color:#75715e"># CMD 指令可以设置容器创建是执行的默认命令。另外，你应该讲命令写在一个数组中，数组中每个元素为命令的每个单词。</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;npm&#34;</span>, <span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div></li>
+</ul>
+<ul>
+<li>
+<p>使用 ENTRYPOINT (可选)</p>
+</li>
+<li>
+<p>在 entrypoint 脚本中使用 exec</p>
+<p>在前文的 entrypoint 脚本中，我使用了 exec 命令运行 node 应用。
+不使用 exec 的话，我们则不能顺利地关闭容器，因为 <code>SIGTERM</code> 信号会被 bash 脚本进程吞没。exec 命令启动的进程可以取代脚本进程，因此所有的信号都会正常工作。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>优先使用 COPY，不使用 ADD</p>
+</li>
+<li>
+<p>合理调整 COPY 与 RUN 的顺序</p>
+<ul>
+<li>把变化最少的部分放在 Dockerfile 的前面，这样可以充分利用镜像缓存</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 源代码会经常变化，则每次构建镜像时都需要重新安装 NPM 模块，这显然不是我们希望看到的。</span>
+<span style="color:#75715e"># 因此我们可以先拷贝 package.json，然后安装 NPM 模块，最后才拷贝其余的源代码。</span>
+<span style="color:#75715e"># 这样的话，即使源代码变化，也不需要重新安装 NPM 模块</span>
+FROM node:7-alpine
+
+WORKDIR /app
+
+COPY package.json /app
+RUN npm install
+COPY . /app
+
+ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./entrypoint.sh&#34;</span><span style="color:#f92672">]</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div></li>
+</ul>
+<ul>
+<li>设置默认的环境变量，映射端口和数据卷</li>
+<li>使用 LABEL 设置镜像元数据</li>
+<li>添加 HEALTHCHECK</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/edisonchou/p/dockerfile_inside_introduction.html">你必须知道的 Dockerfile</a></li>
+<li><a href="https://blog.fundebug.com/2017/05/15/write-excellent-dockerfile/">如何编写最佳的 Dockerfile</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-k8s"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a>
+      <ul>
+        <li><a href="#cmd">CMD</a></li>
+        <li><a href="#entrypoint">ENTRYPOINT</a></li>
+        <li><a href="#expose">EXPOSE</a></li>
+        <li><a href="#add">ADD</a></li>
+        <li><a href="#copy优先使用-copy不使用-add">COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）</a></li>
+        <li><a href="#user">USER</a></li>
+        <li><a href="#arghttpsdocsdockercomenginereferencebuilderarg"><a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a></a></li>
+        <li><a href="#maintainer">MAINTAINER</a></li>
+        <li><a href="#env">ENV</a></li>
+        <li><a href="#workdir">WORKDIR</a></li>
+        <li><a href="#volume">VOLUME</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices"><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a></a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+<a href="https://github.com/ikingye/study-k8s" 
+class="github-corner" aria-label="View source on GitHub">
+<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+  <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+  <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+  <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+</svg></a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

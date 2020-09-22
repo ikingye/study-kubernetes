@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="功能 #  ">
+<meta name="description" content="功能 #  存储 #  rook/rook #  Storage Orchestration for Kubernetes
+   Name Details API Group Status     Rook Framework The framework for common storage specs and logic used to support other storage providers. rook.io/v1alpha2 Alpha   Ceph Ceph is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters. ceph.rook.io/v1 Stable   CockroachDB CockroachDB is a cloud-native SQL database for building global, scalable cloud services that survive disasters.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.3 功能" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +15,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.bb7c82260441c0a44faefa60db530950a5b94e092365975d13d92324e74cddc0.js" integrity="sha256-u3yCJgRBwKRPrvpg21MJUKW5TgkjZZddE9kjJOdM3cA="></script>
+<script defer src="/study-kubernetes/en.search.min.a9275eac0dcadeaf14e69efbf47252d6b7abad0ab348d37f3f4c5ae27d61791d.js" integrity="sha256-qSderA3K3q8U5p779HJS1rerrQqzSNN/P0xa4n1heR0="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/feature/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -231,6 +232,27 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/tool/helm/" class="">Helm</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -272,6 +294,16 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/study-kubernetes/docs/advanced/feature/operator/kubebuilder/" class="">kubebuilder</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/feature/operator/etcd/" class="">etcd Operator</a>
   
 
         </li>
@@ -337,7 +369,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/" class="collapsed ">2.8 生态</a>
+    <a href="/study-kubernetes/docs/advanced/eco/" class="">2.8 生态</a>
   
 
           
@@ -345,6 +377,54 @@ https://github.com/alex-shpak/hugo-book
   
   
 
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/docker/" class="collapsed ">Docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/kubeless/" class="">Kubeless</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/knative/" class="collapsed ">Knative</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
   
 
         </li>
@@ -517,7 +597,15 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#存储">存储</a>
+      <ul>
+        <li><a href="#rookrookhttpsgithubcomrookrook-github-starshttpsimgshieldsiogithubstarsrookrooksvg"><a href="https://github.com/rook/rook">rook/rook</a> <img src="https://img.shields.io/github/stars/rook/rook.svg" alt="Github stars"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -531,6 +619,69 @@ https://github.com/alex-shpak/hugo-book
   功能
   <a class="anchor" href="#%e5%8a%9f%e8%83%bd">#</a>
 </h1>
+<h2 id="存储">
+  存储
+  <a class="anchor" href="#%e5%ad%98%e5%82%a8">#</a>
+</h2>
+<a href="https://github.com/rook/rook">rook/rook</a> <h3 id="rookrookhttpsgithubcomrookrook-github-starshttpsimgshieldsiogithubstarsrookrooksvg">
+  <img src="https://img.shields.io/github/stars/rook/rook.svg" alt="Github stars" />
+  <a class="anchor" href="#rookrookhttpsgithubcomrookrook-github-starshttpsimgshieldsiogithubstarsrookrooksvg">#</a>
+</h3>
+<p>Storage Orchestration for Kubernetes</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Details</th>
+<th>API Group</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rook Framework</td>
+<td>The framework for common storage specs and logic used to support other storage providers.</td>
+<td>rook.io/v1alpha2</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Ceph</td>
+<td><a href="https://ceph.com/">Ceph</a> is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters.</td>
+<td>ceph.rook.io/v1</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>CockroachDB</td>
+<td><a href="https://www.cockroachlabs.com/product/cockroachdb/">CockroachDB</a> is a cloud-native SQL database for building global, scalable cloud services that survive disasters.</td>
+<td>cockroachdb.rook.io/v1alpha1</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td><a href="http://cassandra.apache.org/">Cassandra</a> is a highly available NoSQL database featuring lightning fast performance, tunable consistency and massive scalability. <a href="https://www.scylladb.com/">Scylla</a> is a close-to-the-hardware rewrite of Cassandra in C++, which enables much lower latencies and higher throughput.</td>
+<td>cassandra.rook.io/v1alpha1</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>EdgeFS</td>
+<td><a href="http://edgefs.io/">EdgeFS</a> is high-performance and fault-tolerant decentralized data fabric with access to object, file, NoSQL and block.</td>
+<td>edgefs.rook.io/v1</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>NFS</td>
+<td><a href="https://github.com/nfs-ganesha/nfs-ganesha/wiki">Network File System (NFS)</a> allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally.</td>
+<td>nfs.rook.io/v1alpha1</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>YugabyteDB</td>
+<td><a href="https://docs.yugabyte.com/latest/introduction/">YugabyteDB</a> is a high-performance, cloud-native distributed SQL database which can tolerate disk, node, zone and region failures automatically.</td>
+<td>yugabytedb.rook.io/v1alpha1</td>
+<td>Alpha</td>
+</tr>
+</tbody>
+</table>
 </article>
  
       
@@ -541,9 +692,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/61e28b3607633ae6d28e07d2d3239a3ff695a655" title='Last modified by yewang | 2020-09-10' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/2550d9adc7b890b8032be67ef41f8b9a0b7ee326" title='Last modified by yewang | 2020-09-21' target="_blank" rel="noopener">
       <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-09-10</span>
+      <span>2020-09-21</span>
     </a>
   </div>
 
@@ -576,7 +727,15 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#存储">存储</a>
+      <ul>
+        <li><a href="#rookrookhttpsgithubcomrookrook-github-starshttpsimgshieldsiogithubstarsrookrooksvg"><a href="https://github.com/rook/rook">rook/rook</a> <img src="https://img.shields.io/github/stars/rook/rook.svg" alt="Github stars"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

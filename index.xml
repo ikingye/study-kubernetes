@@ -10,12 +10,31 @@
     
     
     <item>
+      <title>alpine</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/image/alpine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/image/alpine/</guid>
+      <description>alpine #  安装 telnet #  apk add busybox-extras</description>
+    </item>
+    
+    <item>
       <title>api-server</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/api-server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/api-server/</guid>
       <description>api-server 基础 #  </description>
+    </item>
+    
+    <item>
+      <title>Docker 快速上手</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/quick/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/quick/</guid>
+      <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/undefined/instances/mirrors
+针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &amp;ldquo;registry-mirrors&amp;rdquo; 的数组里，点击 Apply &amp;amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。</description>
     </item>
     
     <item>
@@ -77,15 +96,6 @@ kubectl create configmap [NAME] [DATA]
     </item>
     
     <item>
-      <title>Kubectl</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
-      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 #  --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.</description>
-    </item>
-    
-    <item>
       <title>CRD</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/crd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -103,16 +113,6 @@ This is not an officially supported Google product. Although this open-source pr
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</guid>
       <description>Kubeadm #  教程 #  Getting Started With Kubeadm #  from katacoda
 参考 #  https://www.katacoda.com #  Katacoda - Interactive Learning Platform for Software Engineers</description>
-    </item>
-    
-    <item>
-      <title>Kustomize</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</guid>
-      <description>Kustomize #  Kustomize Customization of kubernetes YAML configurations
-kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</description>
     </item>
     
     <item>
@@ -166,6 +166,24 @@ play-with-docker/play-with-docker #  Play With Docker gives you the experience o
     </item>
     
     <item>
+      <title>kubebuilder</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid>
+      <description>kubebuilder #  kubebuilder https://kubebuilder.io</description>
+    </item>
+    
+    <item>
+      <title>Kubectl</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
+      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 #  --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.</description>
+    </item>
+    
+    <item>
       <title>MiniKube</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -188,6 +206,28 @@ curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/m
     </item>
     
     <item>
+      <title>命令</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/command/</guid>
+      <description>Docker 命令 #  docker ps #  docker ps vs docker container ls #  Management Commands vs Commands
+Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.
+For example docker container ls is the new way to do docker ps.
+Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run docker image ls, docker network ls or docker volume ls.</description>
+    </item>
+    
+    <item>
+      <title>版本</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/version/</guid>
+      <description>Docker 版本 #  查看版本 #  docker -v docker --version #查看版本 docker-compose --version #查看版本 docker-machine --version #查看版本 docker version #查看client和server端版本，并可以查看是否开启体验功能  历史版本 #  最新版本
+19.03 (2019-07-22) #  19.03.12 (2020-06-18) #   18.09 (2018-11-08) #  Docker 合并版本号 #  New in 18.09 is an aligned release model for Docker Engine - Community and Docker Engine - Enterprise. The new versioning scheme is YY.MM.x where x is an incrementing patch version.</description>
+    </item>
+    
+    <item>
       <title>版本</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/version/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -197,6 +237,51 @@ curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/m
 apiserver #   kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本：
 kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
  历史版本 #  v1.20 #  v1.19 #   v1.18 #  v1.18.6 #   v1.17 #   v1.</description>
+    </item>
+    
+    <item>
+      <title>端口</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/port/</guid>
+      <description>Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
+    </item>
+    
+    <item>
+      <title>containerd</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/containerd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/containerd/</guid>
+      <description>containerd #  </description>
+    </item>
+    
+    <item>
+      <title>容器</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</guid>
+      <description>Docker 容器 #  </description>
+    </item>
+    
+    <item>
+      <title>仓库</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</guid>
+      <description>Docker 仓库 #  </description>
+    </item>
+    
+    <item>
+      <title>Kubeless</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeless/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeless/</guid>
+      <description>Kubeless #  kubeless/kubeless Kubernetes Native Serverless Framework</description>
     </item>
     
     <item>
@@ -230,6 +315,16 @@ docker inspect --format &amp;quot;{{.State.Pid}}&amp;quot; dns_container_id # �
     </item>
     
     <item>
+      <title>Kustomize</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</guid>
+      <description>Kustomize #  Kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</description>
+    </item>
+    
+    <item>
       <title>Operator</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/operator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -242,6 +337,15 @@ docker inspect --format &amp;quot;{{.State.Pid}}&amp;quot; dns_container_id # �
 operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators</description>
+    </item>
+    
+    <item>
+      <title>数据卷</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/volume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/volume/</guid>
+      <description>Docker 数据卷 #  </description>
     </item>
     
     <item>
@@ -259,7 +363,7 @@ operator-framework/getting-started #   operator-framework/operator-lifecycle-man
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/appendix/attention/</guid>
-      <description>Kubernetes 关注项目 #  kubernetes 官方 #  kubernetes/kubernetes #  Production-Grade Container Scheduling and Management https://kubernetes.io
+      <description>Kubernetes 关注项目 #  ramitsurana/awesome-kubernetes kubernetes 官方 #  kubernetes/kubernetes #  Production-Grade Container Scheduling and Management https://kubernetes.io
 kubernetes/client-go #  Go client for Kubernetes.
 kubernetes/kops #  kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.
 kubernetes/dashboard #  General-purpose web UI for Kubernetes clusters
@@ -268,12 +372,27 @@ kubernetes/examples #  Kubernetes application example tutorials</description>
     </item>
     
     <item>
-      <title>kubebuilder</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link>
+      <title>Dockerfile</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid>
-      <description>kubebuilder #  kubebuilder https://kubebuilder.io</description>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
+      <description>Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&amp;#34;executable&amp;#34;,&amp;#34;param1&amp;#34;,&amp;#34;param2&amp;#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&amp;#34;param1&amp;#34;,&amp;#34;param2&amp;#34;]# 下面两者是等价的CMD echo &amp;#34;hello cmd!&amp;#34;CMD [&amp;#34;/bin/bash&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo &amp;#39;hello cmd!&amp;#39;&amp;#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
+Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&amp;#34;executable&amp;#34;, &amp;#34;param1&amp;#34;, &amp;#34;param2&amp;#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&amp;#34;/start.</description>
+    </item>
+    
+    <item>
+      <title>etcd Operator</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</guid>
+      <description>etcd Operator #  $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment
+而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来
+这个 CRD 名叫 etcdclusters.etcd.database.coreos.com
+实际上是在 Kubernetes 里添加了一个名叫 EtcdCluster 的自定义资源类型（CRD）。
+而 Etcd Operator 本身，就是这个 CRD 对应的自定义控制器。
+apiVersion: extensions/v1beta1 kind: Deployment metadata: name: etcd-operator spec: replicas: 1 template: metadata: labels: name: etcd-operator spec: containers: - name: etcd-operator image: quay.</description>
     </item>
     
     <item>
@@ -322,6 +441,38 @@ rancher/rke #  Rancher Kubernetes Engine
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/practice/hpa/</guid>
       <description>Horizontal Pod Autoscaler #  Pod 水平自动伸缩</description>
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid>
+      <description>Docker 教程 #  play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.
+A live version is available at: http://play-with-docker.com/</description>
+    </item>
+    
+    <item>
+      <title>4.3 关注项目</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/attention/</guid>
+      <description>关注 #  moby/moby #  Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
+docker/docker-ce #  Docker CE https://www.docker.com/community-edition
+play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+    
+    <item>
+      <title>build</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</guid>
+      <description>build #  </description>
     </item>
     
   </channel>

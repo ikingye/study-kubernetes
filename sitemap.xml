@@ -313,6 +313,10 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/volume/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/</loc>
     <lastmod>2020-08-18T17:10:05+08:00</lastmod>
   </url>

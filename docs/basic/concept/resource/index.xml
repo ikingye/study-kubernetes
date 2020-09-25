@@ -20,7 +20,7 @@ kubectl get pods | grep Evicted | awk &amp;#39;{print $1}&amp;#39; | xargs kubec
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
-   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    Pod phase（运行阶段） #  Pod 的 status 定义在 PodStatus 对象中，其中有一个 Phase（运行阶段） 字段。</description>
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    PodStatus #  type PodStatus struct { // The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在�
 kubectl create configmap [NAME] [DATA]
 [DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &amp;ndash;from-file 标志指示 键值对，每个键值对都使用 &amp;ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
 您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
-使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [ &amp;#34;/bin/sh&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&amp;#34; ] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never </description>
+使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [&amp;#34;/bin/sh&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&amp;#34;] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never </description>
     </item>
     
     <item>
@@ -90,6 +90,17 @@ This is not an officially supported Google product. Although this open-source pr
 operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架
 operator-framework/getting-started #   operator-framework/operator-lifecycle-manager #  A management framework for extending Kubernetes with Operators</description>
+    </item>
+    
+    <item>
+      <title>Volume</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/volume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/volume/</guid>
+      <description>Volume #  Volume 必须和 pod 在同一个 namespace #  All sources are required to be in the same namespace as the Pod.
+参考：
+ kubernetes.io: volumes all-in-one volume design document  </description>
     </item>
     
   </channel>

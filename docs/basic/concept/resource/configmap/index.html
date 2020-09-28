@@ -21,7 +21,7 @@ kubectl create configmap [NAME] [DATA]
 使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [&#34;/bin/sh&#34;, &#34;-c&#34;, &#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/configmap/" />
-<meta property="article:modified_time" content="2020-07-14T20:20:48+08:00" />
+<meta property="article:modified_time" content="2020-09-25T11:26:27+08:00" />
 <title>ConfigMap | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
@@ -691,9 +691,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/618187004c85c052e8e31d7605de3de97d3fb1bd" title='Last modified by yewang | 2020-09-25' target="_blank" rel="noopener">
       <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
+      <span>2020-09-25</span>
     </a>
   </div>
 

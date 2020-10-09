@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker 镜像 #  dangling 镜像 #  未被任何镜像引用的镜像
- docker push #  上传到 私有仓库 #  docker build -t human-attribute:20200415_1585818439123 . docker tag human-attribute:20200415_1585818439123 ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123 docker push ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123 ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="镜像" />
+<meta name="description" content="Kubernetes 1.0.0 源码分析 #  https://github.com/kubernetes/kubernetes/tree/v1.0.0
+ 代码行数 #  AlDanial/cloc $ cloc . 6328 text files. 6109 unique files. Complex regular subexpression recursion limit (32766) exceeded at /usr/local/Cellar/cloc/1.86/libexec/bin/cloc line 10343. 647 files ignored. github.com/AlDanial/cloc v 1.86 T=16.19 s (353.3 files/s, 71298.3 lines/s) -------------------------------------------------------------------------------- Language files blank comment code -------------------------------------------------------------------------------- Go 3745 95221 103222 612420 JavaScript 443 17244 54396 95216 JSON 174 4 0 44954 Markdown 393 10130 0 30592 CSS 170 3226 1088 22298 Bourne Shell 211 3315 5908 14438 SVG 36 6 37 12614 HTML 84 1556 60 6340 YAML 222 492 1140 5434 Protocol Buffers 13 575 1178 1828 Bourne Again Shell 24 309 249 1613 Python 22 301 482 1087 SaltStack 36 124 117 983 LESS 7 166 54 912 make 53 267 285 602 Dockerfile 68 196 369 508 XML 9 0 0 213 C 2 27 13 175 Java 1 18 10 126 Sass 2 29 0 124 CoffeeScript 1 12 3 108 Assembly 1 11 10 36 PHP 1 6 0 27 INI 2 1 0 9 TOML 1 0 0 3 -------------------------------------------------------------------------------- SUM: 5721 133236 168621 852660 -------------------------------------------------------------------------------- ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.0.0" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/image/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/code/source/1.0.0/" />
 
-<title>镜像 | Kubernetes 学习笔记</title>
+<title>1.0.0 | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
 <script defer src="/study-kubernetes/en.search.min.5cd172c8708a6d328765eb2c65e3e684e077aa10df3b9d49e9b6f784e1a04ddb.js" integrity="sha256-XNFyyHCKbTKHZessZePmhOB3qhDfO51J6bb3hOGgTds="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/image/index.xml" title="Kubernetes 学习笔记" />
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/code/source/1.0.0/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -303,178 +303,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/quick/" class="">Docker 快速上手</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/command/" class="">命令</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/version/" class="">版本</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/port/" class="">端口</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/image/" class="collapsed active">镜像</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/image/alpine/" class="">alpine</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/containerd/" class="">containerd</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/container/" class="">容器</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/repository/" class="">仓库</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/volume/" class="">数据卷</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="">Dockerfile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/network/" class="collapsed ">Docker 网络</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/tutorial/" class="">教程</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/attention/" class="">4.3 关注项目</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/docker/build/" class="">build</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
 
         </li>
       
@@ -586,7 +414,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/code/source/1.0.0/" class="collapsed ">1.0.0</a>
+    <a href="/study-kubernetes/docs/code/source/1.0.0/" class="collapsed active">1.0.0</a>
   
 
           
@@ -594,6 +422,10 @@ https://github.com/alex-shpak/hugo-book
   
   
 
+  
+  <ul>
+    
+  </ul>
   
 
         </li>
@@ -704,7 +536,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>镜像</strong>
+  <strong>1.0.0</strong>
 
   <label for="toc-control">
     
@@ -719,12 +551,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dangling-镜像">dangling 镜像</a></li>
-    <li><a href="#docker-push">docker push</a>
-      <ul>
-        <li><a href="#上传到-私有仓库">上传到 私有仓库</a></li>
-      </ul>
-    </li>
+    <li><a href="#代码行数">代码行数</a></li>
   </ul>
 </nav>
 
@@ -736,29 +563,55 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="docker-镜像">
-  Docker 镜像
-  <a class="anchor" href="#docker-%e9%95%9c%e5%83%8f">#</a>
+  <article class="markdown"><h1 id="kubernetes-100-源码分析">
+  Kubernetes 1.0.0 源码分析
+  <a class="anchor" href="#kubernetes-100-%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90">#</a>
 </h1>
-<h2 id="dangling-镜像">
-  dangling 镜像
-  <a class="anchor" href="#dangling-%e9%95%9c%e5%83%8f">#</a>
-</h2>
-<p>未被任何镜像引用的镜像</p>
+<p><a href="https://github.com/kubernetes/kubernetes/tree/v1.0.0">https://github.com/kubernetes/kubernetes/tree/v1.0.0</a></p>
 <hr>
-<h2 id="docker-push">
-  docker push
-  <a class="anchor" href="#docker-push">#</a>
+<h2 id="代码行数">
+  代码行数
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e8%a1%8c%e6%95%b0">#</a>
 </h2>
-<h3 id="上传到-私有仓库">
-  上传到 私有仓库
-  <a class="anchor" href="#%e4%b8%8a%e4%bc%a0%e5%88%b0-%e7%a7%81%e6%9c%89%e4%bb%93%e5%ba%93">#</a>
-</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker build -t human-attribute:20200415_1585818439123 .
+<p><a href="https://github.com/AlDanial/cloc">AlDanial/cloc</a> <img src="https://img.shields.io/github/stars/AlDanial/cloc.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/AlDanial/cloc.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/AlDanial/cloc.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/AlDanial/cloc.svg" alt="Last commit" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cloc .
+    <span style="color:#ae81ff">6328</span> text files.
+    <span style="color:#ae81ff">6109</span> unique files.
+Complex regular subexpression recursion limit <span style="color:#f92672">(</span>32766<span style="color:#f92672">)</span> exceeded at /usr/local/Cellar/cloc/1.86/libexec/bin/cloc line 10343.
+     <span style="color:#ae81ff">647</span> files ignored.
 
-docker tag human-attribute:20200415_1585818439123 ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123
-
-docker push ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123
+github.com/AlDanial/cloc v 1.86  T<span style="color:#f92672">=</span>16.19 s <span style="color:#f92672">(</span>353.3 files/s, 71298.3 lines/s<span style="color:#f92672">)</span>
+--------------------------------------------------------------------------------
+Language                      files          blank        comment           code
+--------------------------------------------------------------------------------
+Go                             <span style="color:#ae81ff">3745</span>          <span style="color:#ae81ff">95221</span>         <span style="color:#ae81ff">103222</span>         <span style="color:#ae81ff">612420</span>
+JavaScript                      <span style="color:#ae81ff">443</span>          <span style="color:#ae81ff">17244</span>          <span style="color:#ae81ff">54396</span>          <span style="color:#ae81ff">95216</span>
+JSON                            <span style="color:#ae81ff">174</span>              <span style="color:#ae81ff">4</span>              <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">44954</span>
+Markdown                        <span style="color:#ae81ff">393</span>          <span style="color:#ae81ff">10130</span>              <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">30592</span>
+CSS                             <span style="color:#ae81ff">170</span>           <span style="color:#ae81ff">3226</span>           <span style="color:#ae81ff">1088</span>          <span style="color:#ae81ff">22298</span>
+Bourne Shell                    <span style="color:#ae81ff">211</span>           <span style="color:#ae81ff">3315</span>           <span style="color:#ae81ff">5908</span>          <span style="color:#ae81ff">14438</span>
+SVG                              <span style="color:#ae81ff">36</span>              <span style="color:#ae81ff">6</span>             <span style="color:#ae81ff">37</span>          <span style="color:#ae81ff">12614</span>
+HTML                             <span style="color:#ae81ff">84</span>           <span style="color:#ae81ff">1556</span>             <span style="color:#ae81ff">60</span>           <span style="color:#ae81ff">6340</span>
+YAML                            <span style="color:#ae81ff">222</span>            <span style="color:#ae81ff">492</span>           <span style="color:#ae81ff">1140</span>           <span style="color:#ae81ff">5434</span>
+Protocol Buffers                 <span style="color:#ae81ff">13</span>            <span style="color:#ae81ff">575</span>           <span style="color:#ae81ff">1178</span>           <span style="color:#ae81ff">1828</span>
+Bourne Again Shell               <span style="color:#ae81ff">24</span>            <span style="color:#ae81ff">309</span>            <span style="color:#ae81ff">249</span>           <span style="color:#ae81ff">1613</span>
+Python                           <span style="color:#ae81ff">22</span>            <span style="color:#ae81ff">301</span>            <span style="color:#ae81ff">482</span>           <span style="color:#ae81ff">1087</span>
+SaltStack                        <span style="color:#ae81ff">36</span>            <span style="color:#ae81ff">124</span>            <span style="color:#ae81ff">117</span>            <span style="color:#ae81ff">983</span>
+LESS                              <span style="color:#ae81ff">7</span>            <span style="color:#ae81ff">166</span>             <span style="color:#ae81ff">54</span>            <span style="color:#ae81ff">912</span>
+make                             <span style="color:#ae81ff">53</span>            <span style="color:#ae81ff">267</span>            <span style="color:#ae81ff">285</span>            <span style="color:#ae81ff">602</span>
+Dockerfile                       <span style="color:#ae81ff">68</span>            <span style="color:#ae81ff">196</span>            <span style="color:#ae81ff">369</span>            <span style="color:#ae81ff">508</span>
+XML                               <span style="color:#ae81ff">9</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">213</span>
+C                                 <span style="color:#ae81ff">2</span>             <span style="color:#ae81ff">27</span>             <span style="color:#ae81ff">13</span>            <span style="color:#ae81ff">175</span>
+Java                              <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">18</span>             <span style="color:#ae81ff">10</span>            <span style="color:#ae81ff">126</span>
+Sass                              <span style="color:#ae81ff">2</span>             <span style="color:#ae81ff">29</span>              <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">124</span>
+CoffeeScript                      <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">12</span>              <span style="color:#ae81ff">3</span>            <span style="color:#ae81ff">108</span>
+Assembly                          <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">11</span>             <span style="color:#ae81ff">10</span>             <span style="color:#ae81ff">36</span>
+PHP                               <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">6</span>              <span style="color:#ae81ff">0</span>             <span style="color:#ae81ff">27</span>
+INI                               <span style="color:#ae81ff">2</span>              <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">9</span>
+TOML                              <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">3</span>
+--------------------------------------------------------------------------------
+SUM:                           <span style="color:#ae81ff">5721</span>         <span style="color:#ae81ff">133236</span>         <span style="color:#ae81ff">168621</span>         <span style="color:#ae81ff">852660</span>
+--------------------------------------------------------------------------------
 </code></pre></div></article>
  
       
@@ -768,12 +621,6 @@ docker push ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/1ef8c2f94b0a8d16cfa74e49e89fd16472f59798" title='Last modified by yewang | 2020-09-22' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-09-22</span>
-    </a>
-  </div>
 
 
 
@@ -806,12 +653,7 @@ docker push ote-harbor.baidu.com/aiedge/human-attribute:20200415_1585818439123
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dangling-镜像">dangling 镜像</a></li>
-    <li><a href="#docker-push">docker push</a>
-      <ul>
-        <li><a href="#上传到-私有仓库">上传到 私有仓库</a></li>
-      </ul>
-    </li>
+    <li><a href="#代码行数">代码行数</a></li>
   </ul>
 </nav>
 

@@ -14,7 +14,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-kubernetes/en.search.min.5e3f332a9fd40d351f5071371be752c0f62523dcba285fd5106f4c39de93c7be.js" integrity="sha256-Xj8zKp/UDTUfUHE3G&#43;dSwPYlI9y6KF/VEG9MOd6Tx74="></script>
+<script defer src="/study-kubernetes/en.search.min.b0daaa89557c197cfc4ee851e27e0d4af99c939553a1cd5bb7c76a89e768248b.js" integrity="sha256-sNqqiVV8GXz8TuhR4n4NSvmck5VToc1bt8dqiedoJIs="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/dns/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -933,7 +933,7 @@ b.default.svc.cluster.local # Found
   <a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88-pod-%e6%98%af-corednsservice-%e6%98%af-kube-dns">#</a>
 </h2>
 <p>其实是 CoreDNS</p>
-<p>CoreDNS is default from K8S 1.11. For previous installations it&rsquo;s kube-dns.</p>
+<p>CoreDNS is default from <strong>K8S 1.11</strong>. For previous installations it&rsquo;s kube-dns.</p>
 <p>看 <code>image</code>，其他都是 metadata，不重要</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ k describe pod coredns-6967fb4995-76trs -n kube-system | grep -i <span style="color:#e6db74">&#34;image&#34;</span>
 

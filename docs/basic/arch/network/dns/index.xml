@@ -25,7 +25,7 @@
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/dns/kubedns/</guid>
       <description>KubeDNS #  在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
-nameserver 10.99.0.2 # 这里存储的是kube-dns的Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 #  DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
+nameserver 10.99.0.2 # 这里存储的是 kube-dns 的 Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 #  DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
 docker inspect --format &amp;quot;{{.State.Pid}}&amp;quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy #  ClusterFirst（默认） #  优先使用 kubedns 或者 coredns 进行域名解析。如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</description>
     </item>
     

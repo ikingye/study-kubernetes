@@ -4,22 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Knative #  knative/serving Kubernetes-based, scale-to-zero, request-driven compute
-https://knative.dev/docs/serving
- Kubernetes 是容器平台，负责运行和管理容器 Knative 是代码平台，负责容器的构建、运行、扩展和路由   教程 #  Getting Started with Knative - Building Modern Serverless Workloads on Kubernetes #  Getting Started with Knative 是一本由 Pivotal 公司赞助 O’Reilly 出品的免费电子书
-社区翻译版本：Knative 入门 —— 构建基于 Kubernetes 的现代化 Serverless 应用
- ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Knative" />
+<meta name="description" content="KubeEdge #  kubeedge/kubeedge 教程 #  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="KubeEdge" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/knative/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeedge/" />
 
-<title>Knative | Kubernetes 学习笔记</title>
+<title>KubeEdge | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
 <script defer src="/study-kubernetes/en.search.min.bd9e3a82deffb42094809e5d9a7fead0adae75d3ea7bf6d7d4eb6f3872136456.js" integrity="sha256-vZ46gt7/tCCUgJ5dmn/q0K2uddPqe/bX1OtvOHITZFY="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/knative/index.xml" title="Kubernetes 学习笔记" />
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeedge/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -329,24 +325,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/kubeedge/" class="collapsed ">KubeEdge</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/advanced/eco/knative/" class="collapsed active">Knative</a>
+    <a href="/study-kubernetes/docs/advanced/eco/kubeedge/" class="collapsed active">KubeEdge</a>
   
 
           
@@ -358,6 +337,23 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
   </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-kubernetes/docs/advanced/eco/knative/" class="collapsed ">Knative</a>
+  
+
+          
+  
+  
+  
+
   
 
         </li>
@@ -588,7 +584,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Knative</strong>
+  <strong>KubeEdge</strong>
 
   <label for="toc-control">
     
@@ -603,11 +599,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#getting-started-with-knative---building-modern-serverless-workloads-on-kuberneteshttpstanzuvmwarecomcontentebooksgetting-started-with-knative"><a href="https://tanzu.vmware.com/content/ebooks/getting-started-with-knative">Getting Started with Knative - Building Modern Serverless Workloads on Kubernetes</a></a></li>
-      </ul>
-    </li>
+    <li><a href="#教程">教程</a></li>
   </ul>
 </nav>
 
@@ -619,29 +611,15 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="knative">
-  Knative
-  <a class="anchor" href="#knative">#</a>
+  <article class="markdown"><h1 id="kubeedge">
+  KubeEdge
+  <a class="anchor" href="#kubeedge">#</a>
 </h1>
-<p><a href="https://github.com/knative/serving">knative/serving</a> <img src="https://img.shields.io/github/stars/knative/serving.svg" alt="Github stars" /></p>
-<p>Kubernetes-based, scale-to-zero, request-driven compute</p>
-<p><a href="https://knative.dev/docs/serving">https://knative.dev/docs/serving</a></p>
-<ul>
-<li>Kubernetes 是容器平台，负责<strong>运行和管理容器</strong></li>
-<li>Knative 是代码平台，负责<strong>容器的构建、运行、扩展和路由</strong></li>
-</ul>
-<hr>
+<p><a href="https://github.com/kubeedge/kubeedge">kubeedge/kubeedge</a> <img src="https://img.shields.io/github/stars/kubeedge/kubeedge.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubeedge/kubeedge.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubeedge/kubeedge.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubeedge/kubeedge.svg" alt="Last commit" /></p>
 <h2 id="教程">
   教程
   <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
 </h2>
-<h3 id="getting-started-with-knative---building-modern-serverless-workloads-on-kuberneteshttpstanzuvmwarecomcontentebooksgetting-started-with-knative">
-  <a href="https://tanzu.vmware.com/content/ebooks/getting-started-with-knative">Getting Started with Knative - Building Modern Serverless Workloads on Kubernetes</a>
-  <a class="anchor" href="#getting-started-with-knative---building-modern-serverless-workloads-on-kuberneteshttpstanzuvmwarecomcontentebooksgetting-started-with-knative">#</a>
-</h3>
-<p>Getting Started with Knative 是一本由 Pivotal 公司赞助 O’Reilly 出品的免费电子书</p>
-<p>社区翻译版本：<a href="https://www.servicemesher.com/getting-started-with-knative/">Knative 入门 —— 构建基于 Kubernetes 的现代化 Serverless 应用</a></p>
-<hr>
 </article>
  
       
@@ -651,12 +629,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/1ef8c2f94b0a8d16cfa74e49e89fd16472f59798" title='Last modified by yewang | 2020-09-22' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-09-22</span>
-    </a>
-  </div>
 
 
 
@@ -702,11 +674,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#getting-started-with-knative---building-modern-serverless-workloads-on-kuberneteshttpstanzuvmwarecomcontentebooksgetting-started-with-knative"><a href="https://tanzu.vmware.com/content/ebooks/getting-started-with-knative">Getting Started with Knative - Building Modern Serverless Workloads on Kubernetes</a></a></li>
-      </ul>
-    </li>
+    <li><a href="#教程">教程</a></li>
   </ul>
 </nav>
 

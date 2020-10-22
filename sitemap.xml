@@ -213,11 +213,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeless/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -240,11 +235,6 @@
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/appendix/interview/</loc>
     <lastmod>2020-07-22T15:04:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/knative/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url>
   
   <url>
@@ -303,6 +293,10 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/k3s/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/</loc>
     <lastmod>2020-09-23T11:20:47+08:00</lastmod>
   </url>
@@ -333,13 +327,27 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeedge/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/</loc>
     <lastmod>2020-09-23T01:27:00+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/knative/</loc>
+    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/prof/</loc>
     <lastmod>2020-07-14T20:39:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeless/</loc>
+    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url>
   
   <url>

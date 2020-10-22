@@ -126,6 +126,15 @@ Pros: #   Very easy to install, upgrade, remove Completely isolated from other t
     </item>
     
     <item>
+      <title>发行版</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/distro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/distro/</guid>
+      <description>Kubernetes 发行版 #  </description>
+    </item>
+    
+    <item>
       <title>Kube-proxy</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/kube-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

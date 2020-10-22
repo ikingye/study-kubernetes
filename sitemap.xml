@@ -88,10 +88,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/distro/</loc>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/code/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url>
@@ -138,7 +134,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/</loc>
-    <lastmod>2020-09-23T01:27:00+08:00</lastmod>
+    <lastmod>2020-10-22T20:46:25+08:00</lastmod>
   </url>
   
   <url>
@@ -317,6 +313,11 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/distro/</loc>
+    <lastmod>2020-10-22T20:46:25+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/</loc>
     <lastmod>2020-08-18T17:10:05+08:00</lastmod>
   </url>
@@ -412,7 +413,7 @@
   
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/</loc>
-    <lastmod>2020-10-22T17:15:24+08:00</lastmod>
+    <lastmod>2020-10-22T20:46:25+08:00</lastmod>
   </url>
   
   <url>

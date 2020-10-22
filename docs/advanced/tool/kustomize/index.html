@@ -4,11 +4,17 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kustomize #  Kustomize Customization of kubernetes YAML configurations
-kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.">
+<meta name="description" content="Kustomize #  kubernetes-sigs/kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+一般应用都会存在多套部署环境：开发环境、测试环境、生产环境，多套环境意味着存在多套 K8S 应用资源 YAML。而这么多套 YAML 之间只存在微小配置差异，比如镜像版本不同、Label 不同等，而这些不同环境下的 YAML 经常会因为人为疏忽导致配置错误。再者，多套环境的 YAML 维护通常是通过把一个环境下的 YAML 拷贝出来然后对差异的地方进行修改。一些类似 Helm 等应用管理工具需要额外学习 DSL 语法。总结以上，在 k8s 环境下存在多套环境的应用，经常遇到以下几个问题：
+ 如何管理不同环境或不同团队的应用的 Kubernetes YAML 资源 如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量 如何简化维护应用的流程，不需要额外学习模板语法  Kustomize 通过以下几种方式解决了上述问题：
+ kustomize 通过 Base &amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置 kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用 kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法  ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Kustomize" />
-<meta property="og:description" content="Kustomize #  Kustomize Customization of kubernetes YAML configurations
-kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is." />
+<meta property="og:description" content="Kustomize #  kubernetes-sigs/kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+一般应用都会存在多套部署环境：开发环境、测试环境、生产环境，多套环境意味着存在多套 K8S 应用资源 YAML。而这么多套 YAML 之间只存在微小配置差异，比如镜像版本不同、Label 不同等，而这些不同环境下的 YAML 经常会因为人为疏忽导致配置错误。再者，多套环境的 YAML 维护通常是通过把一个环境下的 YAML 拷贝出来然后对差异的地方进行修改。一些类似 Helm 等应用管理工具需要额外学习 DSL 语法。总结以上，在 k8s 环境下存在多套环境的应用，经常遇到以下几个问题：
+ 如何管理不同环境或不同团队的应用的 Kubernetes YAML 资源 如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量 如何简化维护应用的流程，不需要额外学习模板语法  Kustomize 通过以下几种方式解决了上述问题：
+ kustomize 通过 Base &amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置 kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用 kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/" />
 <meta property="article:modified_time" content="2020-09-22T14:18:24+08:00" />
@@ -16,7 +22,7 @@ kustomize lets you customize raw, template-free YAML files for multiple purposes
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
-<script defer src="/study-kubernetes/en.search.min.b0daaa89557c197cfc4ee851e27e0d4af99c939553a1cd5bb7c76a89e768248b.js" integrity="sha256-sNqqiVV8GXz8TuhR4n4NSvmck5VToc1bt8dqiedoJIs="></script>
+<script defer src="/study-kubernetes/en.search.min.eb92e4a3de81c0319ef8bb1dda3611b0ad05e0597415446437442db7d5b50450.js" integrity="sha256-65Lko96BwDGe&#43;Lsd2jYRsK0F4Fl0FURkN0Qtt9W1BFA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -467,6 +473,23 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
+    <a href="/study-kubernetes/docs/code/source/1.19.3/" class="collapsed ">1.19.3</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
     <a href="/study-kubernetes/docs/code/source/1.0.0/" class="collapsed ">1.0.0</a>
   
 
@@ -612,9 +635,21 @@ https://github.com/alex-shpak/hugo-book
   Kustomize
   <a class="anchor" href="#kustomize">#</a>
 </h1>
-<p><a href="https://github.com/kubernetes-sigs/kustomize">Kustomize</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt="Github stars" /></p>
+<p><a href="https://github.com/kubernetes-sigs/kustomize">kubernetes-sigs/kustomize</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kustomize.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kustomize.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kustomize.svg" alt="Last commit" /></p>
 <p>Customization of kubernetes YAML configurations</p>
 <p><code>kustomize</code> lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.</p>
+<p>一般应用都会存在多套部署环境：开发环境、测试环境、生产环境，多套环境意味着存在多套 K8S 应用资源 YAML。而这么多套 YAML 之间只存在微小配置差异，比如镜像版本不同、Label 不同等，而这些不同环境下的 YAML 经常会因为人为疏忽导致配置错误。再者，多套环境的 YAML 维护通常是通过把一个环境下的 YAML 拷贝出来然后对差异的地方进行修改。一些类似 Helm 等应用管理工具需要额外学习 DSL 语法。总结以上，在 k8s 环境下存在多套环境的应用，经常遇到以下几个问题：</p>
+<ul>
+<li>如何管理不同环境或不同团队的应用的 Kubernetes YAML 资源</li>
+<li>如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量</li>
+<li>如何简化维护应用的流程，不需要额外学习模板语法</li>
+</ul>
+<p>Kustomize 通过以下几种方式解决了上述问题：</p>
+<ul>
+<li>kustomize 通过 Base &amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置</li>
+<li>kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用</li>
+<li>kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法</li>
+</ul>
 </article>
  
       

@@ -9,14 +9,14 @@ kubectl get pods | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delet
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
-   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    PodStatus #  type PodStatus struct { // The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.">
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &hellip; 命令的输出，其中应该显示了为什么没被调度的原因。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Pod" />
 <meta property="og:description" content="Pod #  操作 #  删除被驱逐的 pod
 kubectl get pods | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delete pod Infra 容器 #  使用镜像：k8s.gcr.io/pause
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
-   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    PodStatus #  type PodStatus struct { // The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle." />
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &hellip; 命令的输出，其中应该显示了为什么没被调度的原因。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/pod/" />
 <meta property="article:modified_time" content="2020-09-25T11:26:27+08:00" />
@@ -24,7 +24,7 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
-<script defer src="/study-kubernetes/en.search.min.0e25476b03747498b69cf0a7277a35833f5ac1f2a718c64328cd16c79e6bd8c4.js" integrity="sha256-DiVHawN0dJi2nPCnJ3o1gz9awfKnGMZDKM0Wx55r2MQ="></script>
+<script defer src="/study-kubernetes/en.search.min.b2c8ba22c98ae4e368c56cc77706c08bf52c8d09ec3a498c22511bff37994680.js" integrity="sha256-ssi6IsmK5ONoxWzHdwbAi/UsjQnsOkmMIlEb/zeZRoA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -798,6 +798,16 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
+<p>如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &hellip; 命令的输出，其中应该显示了为什么没被调度的原因。</p>
+<p>常见原因:</p>
+<ul>
+<li>资源不足</li>
+<li>使用了 hostPort</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://kubernetes.io/zh/docs/tasks/debug-application-cluster/debug-application/">应用故障排查</a></li>
+</ul>
 <h2 id="podstatus">
   PodStatus
   <a class="anchor" href="#podstatus">#</a>

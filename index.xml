@@ -57,7 +57,7 @@ kubectl get pods | grep Evicted | awk &amp;#39;{print $1}&amp;#39; | xargs kubec
 这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
 Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
 下表展示了在调试 Init 容器时可能见到的状态值。
-   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    PodStatus #  type PodStatus struct { // The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.</description>
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &amp;hellip; 命令的输出，其中应该显示了为什么没被调度的原因。</description>
     </item>
     
     <item>

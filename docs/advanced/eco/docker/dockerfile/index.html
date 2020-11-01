@@ -4,11 +4,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&#34;executable&#34;,&#34;param1&#34;,&#34;param2&#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&#34;param1&#34;,&#34;param2&#34;]# 下面两者是等价的CMD echo &#34;hello cmd!&#34;CMD [&#34;/bin/bash&#34;, &#34;-c&#34;, &#34;echo &#39;hello cmd!&#39;&#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
-Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&#34;/start.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dockerfile" />
-<meta property="og:description" content="Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&#34;executable&#34;,&#34;param1&#34;,&#34;param2&#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&#34;param1&#34;,&#34;param2&#34;]# 下面两者是等价的CMD echo &#34;hello cmd!&#34;CMD [&#34;/bin/bash&#34;, &#34;-c&#34;, &#34;echo &#39;hello cmd!&#39;&#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
-Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&#34;/start." />
+<meta name="description" content="">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/" />
 <meta property="article:modified_time" content="2020-09-22T14:18:24+08:00" />
@@ -16,7 +14,7 @@ Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生�
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
-<script defer src="/study-kubernetes/en.search.min.b2c8ba22c98ae4e368c56cc77706c08bf52c8d09ec3a498c22511bff37994680.js" integrity="sha256-ssi6IsmK5ONoxWzHdwbAi/UsjQnsOkmMIlEb/zeZRoA="></script>
+<script defer src="/study-kubernetes/en.search.min.0454ac8015047045027151ef3fd3adecf5012707a90e80fa7363aac67a1cf7a8.js" integrity="sha256-BFSsgBUEcEUCcVHvP9Ot7PUBJwepDoD6c2Oqxnoc96g="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -404,16 +402,6 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="active">Dockerfile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
     <a href="/study-kubernetes/docs/advanced/eco/docker/network/" class="collapsed ">Docker 网络</a>
   
 
@@ -455,6 +443,8 @@ https://github.com/alex-shpak/hugo-book
   
 
         </li>
+      
+    
       
     
   </ul>
@@ -752,26 +742,7 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#cmd">CMD</a></li>
-        <li><a href="#entrypoint">ENTRYPOINT</a></li>
-        <li><a href="#expose">EXPOSE</a></li>
-        <li><a href="#add">ADD</a></li>
-        <li><a href="#copy优先使用-copy不使用-add">COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）</a></li>
-        <li><a href="#user">USER</a></li>
-        <li><a href="#arghttpsdocsdockercomenginereferencebuilderarg"><a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a></a></li>
-        <li><a href="#maintainer">MAINTAINER</a></li>
-        <li><a href="#env">ENV</a></li>
-        <li><a href="#workdir">WORKDIR</a></li>
-        <li><a href="#volume">VOLUME</a></li>
-      </ul>
-    </li>
-    <li><a href="#最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices"><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a></a></li>
-  </ul>
-</nav>
+  <nav id="TableOfContents"></nav>
 
 
   </aside>
@@ -781,235 +752,7 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="dockerfile">
-  Dockerfile
-  <a class="anchor" href="#dockerfile">#</a>
-</h1>
-<h2 id="教程">
-  教程
-  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
-</h2>
-<h3 id="cmd">
-  CMD
-  <a class="anchor" href="#cmd">#</a>
-</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># exec form, preferred</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;executable&#34;</span>,<span style="color:#e6db74">&#34;param1&#34;</span>,<span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># shell form</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> command param1 param2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># as default parameters to ENTRYPOINT</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;param1&#34;</span>,<span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 下面两者是等价的</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> echo <span style="color:#e6db74">&#34;hello cmd!&#34;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;/bin/bash&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo &#39;hello cmd!&#39;&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>docker run 时指定了命令或者有 <code>ENTRYPOINT</code>，那么 <code>CMD</code> 就会被覆盖</p>
-<blockquote class="book-hint warning">
-  Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。
-</blockquote>
-
-<h3 id="entrypoint">
-  ENTRYPOINT
-  <a class="anchor" href="#entrypoint">#</a>
-</h3>
-<ol>
-<li><code>docker run</code> 使用 <code>--entrypoint</code>，则覆盖 Dockerfile 的 ENTRYPOINT</li>
-<li>如何 ENTRYPOINT 使用中括号形式
-<ol>
-<li><code>docker run</code> 带了<code>参数</code>，则参数会加给 ENTRYPOINT</li>
-<li>定义了 <code>CMD</code>，则 <code>CMD</code> 的参数会加给 ENTRYPOINT</li>
-</ol>
-</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># exec form, preferred</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;executable&#34;</span>, <span style="color:#e6db74">&#34;param1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># shell form</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> command param1 param2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># ENTRYPOINT 使用中括号时，也可以直接指定命令</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 而 CMD 不行，必须带上 shell 命令做前缀</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;/start.sh&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;/bin/bash&#34;</span>, <span style="color:#e6db74">&#34;-C&#34;</span>, <span style="color:#e6db74">&#34;/start.sh&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> /bin/bash -C <span style="color:#e6db74">&#39;/start.sh&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><blockquote class="book-hint warning">
-  <ol>
-<li>ENTRYPOINT 使用 shell 模式（非中括号），则 docker run 或者 CMD 的参数都无法传入。</li>
-<li>Dockerfile 文件中可以存在多个 ENTRYPOINT 指令，但仅有最后一个会生效。</li>
-</ol>
-
-</blockquote>
-
-<h3 id="expose">
-  EXPOSE
-  <a class="anchor" href="#expose">#</a>
-</h3>
-<p>EXPOSE 只是声明容器应该打开的端口，并没有实际去打开</p>
-<p>当使用 <code>-P</code> 时，会使用 EXPOSE 指定的端口。</p>
-<p>&ndash;expose 可以接受端口范围作为参数，比如 <code>--expose=2000-3000</code></p>
-<h3 id="add">
-  ADD
-  <a class="anchor" href="#add">#</a>
-</h3>
-<p>如果是 URL 或压缩包，会自动下载或自动解压。</p>
-<h3 id="copy优先使用-copy不使用-add">
-  COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）
-  <a class="anchor" href="#copy%e4%bc%98%e5%85%88%e4%bd%bf%e7%94%a8-copy%e4%b8%8d%e4%bd%bf%e7%94%a8-add">#</a>
-</h3>
-<h3 id="user">
-  USER
-  <a class="anchor" href="#user">#</a>
-</h3>
-<p>为 RUN、CMD 和 ENTRYPOINT 执行 Shell 命令指定运行用户</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> &lt;user&gt;[:&lt;usergroup&gt;]</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> &lt;UID&gt;[:&lt;UID&gt;]</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> edisonzhou</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="arghttpsdocsdockercomenginereferencebuilderarg">
-  <a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a>
-  <a class="anchor" href="#arghttpsdocsdockercomenginereferencebuilderarg">#</a>
-</h3>
-<p>The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command using the &ndash;build-arg <varname>=<value> flag.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> centos:6</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># ARG &lt;name&gt;[=&lt;default value&gt;]</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> user <span style="color:#75715e"># ARG user=root</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span><span style="color:#e6db74"> $user</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># docker build --build-arg user=edisonzhou Dockerfile .</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="maintainer">
-  MAINTAINER
-  <a class="anchor" href="#maintainer">#</a>
-</h3>
-<p>指明镜像维护着及其联系方式（一般是邮箱地址）</p>
-<p>MAINTAINER Edison Zhou <a href="mailto:edisonchou@hotmail.com">edisonchou@hotmail.com</a></p>
-<blockquote class="book-hint warning">
-  <p>MAINTAINER 并不推荐使用，更推荐使用 LABEL 来指定镜像作者</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">LABEL</span> maintainer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;edisonzhou.cn&#34;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div>
-</blockquote>
-
-<h3 id="env">
-  ENV
-  <a class="anchor" href="#env">#</a>
-</h3>
-<h3 id="workdir">
-  WORKDIR
-  <a class="anchor" href="#workdir">#</a>
-</h3>
-<p>类似 <code>cd</code></p>
-<h3 id="volume">
-  VOLUME
-  <a class="anchor" href="#volume">#</a>
-</h3>
-<p>指定容器挂载点到宿主机自动生成的目录或其他容器</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">VOLUME</span> [<span style="color:#e6db74">&#34;/var/lib/mysql&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><blockquote class="book-hint warning">
-  一般<strong>不会</strong>在 Dockerfile 中用到，更常见的还是在 docker run 的时候指定 -v 数据卷。
-</blockquote>
-
-<hr>
-<h2 id="最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices">
-  <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a>
-  <a class="anchor" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices">#</a>
-</h2>
-<p>目标:</p>
-<ul>
-<li>更快的构建速度</li>
-<li>更小的 Docker 镜像大小</li>
-<li>更少的 Docker 镜像层</li>
-<li>充分利用镜像缓存</li>
-<li>增加 Dockerfile 可读性</li>
-<li>让 Docker 容器使用起来更简单</li>
-</ul>
-<p>做法：</p>
-<ul>
-<li>
-<p>编写.dockerignore 文件</p>
-</li>
-<li>
-<p>容器只运行单个应用</p>
-</li>
-<li>
-<p>将多个 RUN 指令合并为一个</p>
-</li>
-<li>
-<p>基础镜像的标签不要用 latest</p>
-<ul>
-<li>如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签</li>
-</ul>
-</li>
-<li>
-<p>每个 RUN 指令后删除多余文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中</span>
-RUN apt-get update <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apt-get install -y nodejs <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># added lines</span>
-    <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
-</code></pre></div></li>
-<li>
-<p>选择合适的基础镜像 (alpine 版本最好)</p>
-<ul>
-<li>alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像</li>
-</ul>
-</li>
-<li>
-<p>设置 WORKDIR 和 CMD</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">FROM node:7-alpine
-
-<span style="color:#75715e"># WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。</span>
-WORKDIR /app
-ADD . /app
-RUN npm install
-
-<span style="color:#75715e"># CMD 指令可以设置容器创建是执行的默认命令。另外，你应该讲命令写在一个数组中，数组中每个元素为命令的每个单词。</span>
-CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;npm&#34;</span>, <span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">]</span>
-</code></pre></div></li>
-</ul>
-<ul>
-<li>
-<p>使用 ENTRYPOINT (可选)</p>
-</li>
-<li>
-<p>在 entrypoint 脚本中使用 exec</p>
-<p>在前文的 entrypoint 脚本中，我使用了 exec 命令运行 node 应用。
-不使用 exec 的话，我们则不能顺利地关闭容器，因为 <code>SIGTERM</code> 信号会被 bash 脚本进程吞没。exec 命令启动的进程可以取代脚本进程，因此所有的信号都会正常工作。</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>优先使用 COPY，不使用 ADD</p>
-</li>
-<li>
-<p>合理调整 COPY 与 RUN 的顺序</p>
-<ul>
-<li>把变化最少的部分放在 Dockerfile 的前面，这样可以充分利用镜像缓存</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 源代码会经常变化，则每次构建镜像时都需要重新安装 NPM 模块，这显然不是我们希望看到的。</span>
-<span style="color:#75715e"># 因此我们可以先拷贝 package.json，然后安装 NPM 模块，最后才拷贝其余的源代码。</span>
-<span style="color:#75715e"># 这样的话，即使源代码变化，也不需要重新安装 NPM 模块</span>
-FROM node:7-alpine
-
-WORKDIR /app
-
-COPY package.json /app
-RUN npm install
-COPY . /app
-
-ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./entrypoint.sh&#34;</span><span style="color:#f92672">]</span>
-CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">]</span>
-</code></pre></div></li>
-</ul>
-<ul>
-<li>设置默认的环境变量，映射端口和数据卷</li>
-<li>使用 LABEL 设置镜像元数据</li>
-<li>添加 HEALTHCHECK</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.cnblogs.com/edisonchou/p/dockerfile_inside_introduction.html">你必须知道的 Dockerfile</a></li>
-<li><a href="https://blog.fundebug.com/2017/05/15/write-excellent-dockerfile/">如何编写最佳的 Dockerfile</a></li>
-</ul>
-</article>
+  <article class="markdown"></article>
  
       
 
@@ -1036,29 +779,6 @@ CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;start&#
 
       
   
-  <div class="book-comments">
-<script src="https://utteranc.es/client.js"
-  repo="ikingye/study-kubernetes"
-  issue-term="pathname"
-  theme="github-light"
-  crossorigin="anonymous"
-  async
-></script>
-
-<div id="footer">
-  <p>
-    <a href="https://kingye.me">叶王</a> &copy; 2013-2020
-    版权所有。如果本文档对你有所帮助，可以<a
-      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
-      target="_blank"
-      rel="noopener noreferrer"
-      >请作者喝饮料</a
-    >。
-  </p>
-</div>
-
-</div>
-  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -1067,26 +787,7 @@ CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;start&#
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#cmd">CMD</a></li>
-        <li><a href="#entrypoint">ENTRYPOINT</a></li>
-        <li><a href="#expose">EXPOSE</a></li>
-        <li><a href="#add">ADD</a></li>
-        <li><a href="#copy优先使用-copy不使用-add">COPY（优先使用 <code>COPY</code>，不使用 <code>ADD</code>）</a></li>
-        <li><a href="#user">USER</a></li>
-        <li><a href="#arghttpsdocsdockercomenginereferencebuilderarg"><a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a></a></li>
-        <li><a href="#maintainer">MAINTAINER</a></li>
-        <li><a href="#env">ENV</a></li>
-        <li><a href="#workdir">WORKDIR</a></li>
-        <li><a href="#volume">VOLUME</a></li>
-      </ul>
-    </li>
-    <li><a href="#最佳实践httpsdocsdockercomdevelopdevelop-imagesdockerfile_best-practices"><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">最佳实践</a></a></li>
-  </ul>
-</nav>
+  <nav id="TableOfContents"></nav>
 
  
     </aside>

@@ -356,16 +356,6 @@ kubernetes/examples #  Kubernetes application example tutorials</description>
     </item>
     
     <item>
-      <title>Dockerfile</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
-      <description>Dockerfile #  教程 #  CMD #  # exec form, preferredCMD [&amp;#34;executable&amp;#34;,&amp;#34;param1&amp;#34;,&amp;#34;param2&amp;#34;]# shell formCMD command param1 param2# as default parameters to ENTRYPOINTCMD [&amp;#34;param1&amp;#34;,&amp;#34;param2&amp;#34;]# 下面两者是等价的CMD echo &amp;#34;hello cmd!&amp;#34;CMD [&amp;#34;/bin/bash&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo &amp;#39;hello cmd!&amp;#39;&amp;#34;]docker run 时指定了命令或者有 ENTRYPOINT，那么 CMD 就会被覆盖
-Dockerfile 文件中可以存在多个 CMD 指令，但仅有最后一个会生效。  ENTRYPOINT #   docker run 使用 --entrypoint，则覆盖 Dockerfile 的 ENTRYPOINT 如何 ENTRYPOINT 使用中括号形式  docker run 带了参数，则参数会加给 ENTRYPOINT 定义了 CMD，则 CMD 的参数会加给 ENTRYPOINT    # exec form, preferredENTRYPOINT [&amp;#34;executable&amp;#34;, &amp;#34;param1&amp;#34;, &amp;#34;param2&amp;#34;]# shell formENTRYPOINT command param1 param2# ENTRYPOINT 使用中括号时，也可以直接指定命令# 而 CMD 不行，必须带上 shell 命令做前缀ENTRYPOINT [&amp;#34;/start.</description>
-    </item>
-    
-    <item>
       <title>etcd Operator</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -474,6 +464,15 @@ Under the hood DIND or Docker-in-Docker is used to give the effect of multiple V
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</guid>
       <description>build #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
+      <description></description>
     </item>
     
   </channel>

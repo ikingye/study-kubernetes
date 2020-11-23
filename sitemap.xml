@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/quick/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url>
@@ -153,6 +148,11 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/</loc>
+    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</loc>
     <lastmod>2020-10-22T17:15:24+08:00</lastmod>
   </url>
@@ -210,6 +210,14 @@
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kata/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubevirt/</loc>
   </url>
   
   <url>

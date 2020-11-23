@@ -4,18 +4,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Schedule 基础 #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Schedule" />
+<meta name="description" content="Kata #  Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs.
+https://katacontainers.io/
+v1 #  kata-containers/runtime v2 #  kata-containers/kata-containers  教程 #  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Kata" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/schedule/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kata/" />
 
-<title>Schedule | Kubernetes 学习笔记</title>
+<title>Kata | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
 <script defer src="/study-kubernetes/en.search.min.afcb15d85f30d7a47637daee74376cb096517a53166396d63551ab22a2f0406d.js" integrity="sha256-r8sV2F8w16R2N9rudDdssJZRelMWY5bWNVGrIqLwQG0="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/schedule/index.xml" title="Kubernetes 学习笔记" />
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kata/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -134,206 +136,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/" class="">K8s 网络</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/port/" class="">K8s 端口</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/" class="">K8s DNS</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/coredns/" class="">CoreDNS</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/kubedns/" class="">KubeDNS</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/troubleshoot/" class="">故障排查</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/architecture/" class="">架构</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/" class="">组件</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/api-server/" class="">api-server</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/schedule/" class="active">Schedule</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/controller-manager/" class="">Controller Manager</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/kube-proxy/" class="">Kube-proxy</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/kubelet/" class="">Kubelet</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -508,7 +310,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/kata/" class="collapsed ">Kata</a>
+    <a href="/study-kubernetes/docs/advanced/eco/kata/" class="collapsed active">Kata</a>
   
 
           
@@ -516,6 +318,10 @@ https://github.com/alex-shpak/hugo-book
   
   
 
+  
+  <ul>
+    
+  </ul>
   
 
         </li>
@@ -814,7 +620,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Schedule</strong>
+  <strong>Kata</strong>
 
   <label for="toc-control">
     
@@ -827,7 +633,13 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#v1">v1</a></li>
+    <li><a href="#v2">v2</a></li>
+    <li><a href="#教程">教程</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -837,10 +649,27 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="schedule-基础">
-  Schedule 基础
-  <a class="anchor" href="#schedule-%e5%9f%ba%e7%a1%80">#</a>
+  <article class="markdown"><h1 id="kata">
+  Kata
+  <a class="anchor" href="#kata">#</a>
 </h1>
+<p>Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs.</p>
+<p><a href="https://katacontainers.io/">https://katacontainers.io/</a></p>
+<h2 id="v1">
+  v1
+  <a class="anchor" href="#v1">#</a>
+</h2>
+<p><a href="https://github.com/kata-containers/runtime">kata-containers/runtime</a> <img src="https://img.shields.io/github/stars/kata-containers/runtime.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kata-containers/runtime.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kata-containers/runtime.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kata-containers/runtime.svg" alt="Last commit" /></p>
+<h2 id="v2">
+  v2
+  <a class="anchor" href="#v2">#</a>
+</h2>
+<p><a href="https://github.com/kata-containers/kata-containers">kata-containers/kata-containers</a> <img src="https://img.shields.io/github/stars/kata-containers/kata-containers.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kata-containers/kata-containers.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kata-containers/kata-containers.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kata-containers/kata-containers.svg" alt="Last commit" /></p>
+<hr>
+<h2 id="教程">
+  教程
+  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
+</h2>
 </article>
  
       
@@ -850,12 +679,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/9eade35ef2560e74d9167bdb3f78fb6788727af6" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
-    </a>
-  </div>
 
 
 
@@ -899,7 +722,13 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#v1">v1</a></li>
+    <li><a href="#v2">v2</a></li>
+    <li><a href="#教程">教程</a></li>
+  </ul>
+</nav>
 
  
     </aside>

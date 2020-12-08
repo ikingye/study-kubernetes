@@ -4,17 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CoreDNS #  coredns/coredns ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="CoreDNS" />
-<meta property="og:description" content="CoreDNS #  coredns/coredns " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/dns/coredns/" />
-<meta property="article:modified_time" content="2020-10-20T11:39:56+08:00" />
-<title>CoreDNS | Kubernetes 学习笔记</title>
+<meta name="description" content="Kubeflow #  kubeflow/kubeflow Machine Learning Toolkit for Kubernetes
+教程 #  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Kubeflow" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeflow/" />
+
+<title>Kubeflow | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
 <script defer src="/study-kubernetes/en.search.min.417a1657cd7e33703c326f72490c9841b627063f4871f402926f0507968c07ff.js" integrity="sha256-QXoWV81&#43;M3A8Mm9ySQyYQbYnBj9IcfQCkm8FB5aMB/8="></script>
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kubeflow/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -133,206 +135,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/" class="">K8s 网络</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/port/" class="">K8s 端口</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/" class="">K8s DNS</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/coredns/" class="active">CoreDNS</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/dns/kubedns/" class="">KubeDNS</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/network/troubleshoot/" class="">故障排查</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/architecture/" class="">架构</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/" class="">组件</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/api-server/" class="">api-server</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/schedule/" class="">Schedule</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/controller-manager/" class="">Controller Manager</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/kube-proxy/" class="">Kube-proxy</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/basic/arch/component/kubelet/" class="">Kubelet</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -592,7 +394,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/kubeflow/" class="collapsed ">Kubeflow</a>
+    <a href="/study-kubernetes/docs/advanced/eco/kubeflow/" class="collapsed active">Kubeflow</a>
   
 
           
@@ -600,6 +402,10 @@ https://github.com/alex-shpak/hugo-book
   
   
 
+  
+  <ul>
+    
+  </ul>
   
 
         </li>
@@ -830,7 +636,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>CoreDNS</strong>
+  <strong>Kubeflow</strong>
 
   <label for="toc-control">
     
@@ -843,7 +649,11 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -853,11 +663,16 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="coredns">
-  CoreDNS
-  <a class="anchor" href="#coredns">#</a>
+  <article class="markdown"><h1 id="kubeflow">
+  Kubeflow
+  <a class="anchor" href="#kubeflow">#</a>
 </h1>
-<p><a href="https://github.com/coredns/coredns">coredns/coredns</a> <img src="https://img.shields.io/github/stars/coredns/coredns.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/coredns/coredns.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/coredns/coredns.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/coredns/coredns.svg" alt="Last commit" /></p>
+<p><a href="https://github.com/kubeflow/kubeflow">kubeflow/kubeflow</a> <img src="https://img.shields.io/github/stars/kubeflow/kubeflow.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubeflow/kubeflow.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubeflow/kubeflow.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubeflow/kubeflow.svg" alt="Last commit" /></p>
+<p>Machine Learning Toolkit for Kubernetes</p>
+<h2 id="教程">
+  教程
+  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
+</h2>
 </article>
  
       
@@ -867,12 +682,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/3ac07f8fd5f21571f3fd7a95a14d6018cf6ed3f7" title='Last modified by yewang | 2020-10-20' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-10-20</span>
-    </a>
-  </div>
 
 
 
@@ -916,7 +725,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a></li>
+  </ul>
+</nav>
 
  
     </aside>

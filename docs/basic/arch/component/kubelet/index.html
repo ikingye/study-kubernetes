@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kubelet #  Kubelet 创建容器进程 #   CRI: Container Runtime Interface CNI: Container Network Interface CSI: Container Storage Interface OCI: Open Container Initiative  Docker #  kubelet -&gt; dockershim -&gt; docker daemon -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container
 参考：
- 白话 Kubernetes Runtime containerd, containerd-shim 和 runc 的依存关系  containerd/cri #  kubelet -&gt; cri plugin -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container">
+ 白话 Kubernetes Runtime containerd, containerd-shim 和 runc 的依存关系  containerd/cri #  kubelet -&gt; cri plugin -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container
+Kubernetes v1.20 弃用 docker-shim #  ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Kubelet" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,7 +17,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
-<script defer src="/study-kubernetes/en.search.min.66b893376bdddda38dd965ee594c496f7bf0ef45495ee9c59dc5fe962cbfc96f.js" integrity="sha256-ZriTN2vd3aON2WXuWUxJb3vw70VJXunFncX&#43;liy/yW8="></script>
+<script defer src="/study-kubernetes/en.search.min.e7287cb97b7760d4ef359ec5095bfed1cd6d1b09c9675b15e46608fd660bbf63.js" integrity="sha256-5yh8uXt3YNTvNZ7FCVv&#43;0c1tGwnJZ1sV5GYI/WYLv2M="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/kubelet/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -852,6 +853,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#docker">Docker</a></li>
         <li><a href="#containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg"><a href="https://github.com/containerd/cri">containerd/cri</a> <img src="https://img.shields.io/github/stars/containerd/cri.svg" alt="Github stars"></a></li>
+        <li><a href="#kubernetes-v120-弃用-docker-shim">Kubernetes v1.20 弃用 docker-shim</a></li>
       </ul>
     </li>
   </ul>
@@ -884,7 +886,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#docker">#</a>
 </h3>
 <p><code>kubelet -&gt; dockershim -&gt; docker daemon -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container</code></p>
-<img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200306180530.png" width="50%" height="50%">
+<img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20201209161241.png" width="50%" height="50%">
 <p>参考：</p>
 <ul>
 <li><a href="https://aleiwu.com/post/cncf-runtime-landscape/">白话 Kubernetes Runtime</a></li>
@@ -896,6 +898,11 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><code>kubelet -&gt; cri plugin -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200806175210.png" alt="" /></p>
+<h3 id="kubernetes-v120-弃用-docker-shim">
+  Kubernetes v1.20 弃用 docker-shim
+  <a class="anchor" href="#kubernetes-v120-%e5%bc%83%e7%94%a8-docker-shim">#</a>
+</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20201209161140.png" alt="" /></p>
 </article>
  
       
@@ -921,10 +928,11 @@ https://github.com/alex-shpak/hugo-book
     <br>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <p><span id="busuanzi_container_page_pv">本文阅读量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_page_pv">本文访问量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
     <p><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
     <p><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人次</span></p>
 </div>
+
 
       </footer>
 
@@ -967,6 +975,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#docker">Docker</a></li>
         <li><a href="#containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg"><a href="https://github.com/containerd/cri">containerd/cri</a> <img src="https://img.shields.io/github/stars/containerd/cri.svg" alt="Github stars"></a></li>
+        <li><a href="#kubernetes-v120-弃用-docker-shim">Kubernetes v1.20 弃用 docker-shim</a></li>
       </ul>
     </li>
   </ul>

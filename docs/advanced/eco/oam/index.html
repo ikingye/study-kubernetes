@@ -4,18 +4,28 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Operator #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.2.2 Operator" />
+<meta name="description" content="OAM (Open Application Model) #  OAM 是阿里巴巴和微软共同开源的云原生应用规范模型
+Rudr 的应用程序有三个元素：Components（组件）、Configuration（配置）、Traits（特征）：
+组件定义一个或多个面向操作系统的容器镜像以及硬件需求，如 CPU、内存和存储等 配置处理运行时的参数，比如环境变量 特征声明运行时的属性，比如 Volume、Ingress、伸缩等等。
+2019 年 10 月宣布开源，同时开源了基于 OAM 的实现 Rudr。
+oam-dev/spec #  The Open Application Model specification
+oam-dev/rudr #  A Kubernetes implementation of the Open Application Model specification https://oam.dev
+Rudr 已经被废弃，转为 KubeVela
+oam-dev/kubevela #  Make shipping applications more enjoyable. https://kubevela.io/
+OpenTelemetry #  Specifications for OpenTelemetry https://opentelemetry.io
+参考：
+ OAM（开放应用模型）—— 定义云原生应用标准的野望  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="OAM" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/oam/" />
 
-<title>3.2.2 Operator | Kubernetes 学习笔记</title>
+<title>OAM | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
 <script defer src="/study-kubernetes/en.search.min.c08adc3f67eaccdaeaddb4a820c0994fa5a23f5219423960ea15fccee48ff75b.js" integrity="sha256-wIrcP2fqzNrq3bSoIMCZT6WiP1IZQjlg6hX8zuSP91s="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/index.xml" title="Kubernetes 学习笔记" />
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/eco/oam/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -359,7 +369,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-kubernetes/docs/advanced/eco/oam/" class="">OAM</a>
+    <a href="/study-kubernetes/docs/advanced/eco/oam/" class="active">OAM</a>
   
 
           
@@ -503,41 +513,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/code/crd/operator/" class="collapsed active">3.2.2 Operator</a>
-  
-
-          
-  
-  
-  
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-kubernetes/docs/code/crd/operator/operatorhub/" class="">OperatorHub</a>
-  
-
-        </li>
-      
-    
-  </ul>
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -697,7 +672,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>3.2.2 Operator</strong>
+  <strong>OAM</strong>
 
   <label for="toc-control">
     
@@ -710,7 +685,14 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#oam-devspechttpsgithubcomoam-devspec-github-starshttpsimgshieldsiogithubstarsoam-devspecsvg-languagehttpsimgshieldsiogithublanguagestopoam-devspecsvg-last-taghttpsimgshieldsiogithubvtagoam-devspecsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devspecsvg"><a href="https://github.com/oam-dev/spec">oam-dev/spec</a> <img src="https://img.shields.io/github/stars/oam-dev/spec.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/spec.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/spec.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/spec.svg" alt="Last commit"></a></li>
+    <li><a href="#oam-devrudrhttpsgithubcomoam-devrudr-github-starshttpsimgshieldsiogithubstarsoam-devrudrsvg-languagehttpsimgshieldsiogithublanguagestopoam-devrudrsvg-last-taghttpsimgshieldsiogithubvtagoam-devrudrsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devrudrsvg"><a href="https://github.com/oam-dev/rudr">oam-dev/rudr</a> <img src="https://img.shields.io/github/stars/oam-dev/rudr.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/rudr.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/rudr.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/rudr.svg" alt="Last commit"></a></li>
+    <li><a href="#oam-devkubevelahttpsgithubcomoam-devkubevela-github-starshttpsimgshieldsiogithubstarsoam-devkubevelasvg-languagehttpsimgshieldsiogithublanguagestopoam-devkubevelasvg-last-taghttpsimgshieldsiogithubvtagoam-devkubevelasvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devkubevelasvg"><a href="https://github.com/oam-dev/kubevela">oam-dev/kubevela</a> <img src="https://img.shields.io/github/stars/oam-dev/kubevela.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/kubevela.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/kubevela.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/kubevela.svg" alt="Last commit"></a></li>
+    <li><a href="#opentelemetryhttpsgithubcomopen-telemetryopentelemetry-specification-github-starshttpsimgshieldsiogithubstarsopen-telemetryopentelemetry-specificationsvg"><a href="https://github.com/open-telemetry/opentelemetry-specification">OpenTelemetry</a> <img src="https://img.shields.io/github/stars/open-telemetry/opentelemetry-specification.svg" alt="Github stars"></a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -720,10 +702,43 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="operator">
-  Operator
-  <a class="anchor" href="#operator">#</a>
+  <article class="markdown"><h1 id="oam-open-application-model">
+  OAM (Open Application Model)
+  <a class="anchor" href="#oam-open-application-model">#</a>
 </h1>
+<p>OAM 是阿里巴巴和微软共同开源的云原生应用规范模型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200424143527.png" alt="" /></p>
+<p>Rudr 的应用程序有三个元素：Components（组件）、Configuration（配置）、Traits（特征）：</p>
+<p>组件定义一个或多个面向操作系统的容器镜像以及硬件需求，如 CPU、内存和存储等
+配置处理运行时的参数，比如环境变量
+特征声明运行时的属性，比如 Volume、Ingress、伸缩等等。</p>
+<p>2019 年 10 月宣布开源，同时开源了基于 OAM 的实现 <code>Rudr</code>。</p>
+<a href="https://github.com/oam-dev/spec">oam-dev/spec</a> <img src="https://img.shields.io/github/stars/oam-dev/spec.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/oam-dev/spec.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/oam-dev/spec.svg?sort=semver" alt="Last Tag" /> <h2 id="oam-devspechttpsgithubcomoam-devspec-github-starshttpsimgshieldsiogithubstarsoam-devspecsvg-languagehttpsimgshieldsiogithublanguagestopoam-devspecsvg-last-taghttpsimgshieldsiogithubvtagoam-devspecsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devspecsvg">
+  <img src="https://img.shields.io/github/last-commit/oam-dev/spec.svg" alt="Last commit" />
+  <a class="anchor" href="#oam-devspechttpsgithubcomoam-devspec-github-starshttpsimgshieldsiogithubstarsoam-devspecsvg-languagehttpsimgshieldsiogithublanguagestopoam-devspecsvg-last-taghttpsimgshieldsiogithubvtagoam-devspecsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devspecsvg">#</a>
+</h2>
+<p>The Open Application Model specification</p>
+<a href="https://github.com/oam-dev/rudr">oam-dev/rudr</a> <img src="https://img.shields.io/github/stars/oam-dev/rudr.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/oam-dev/rudr.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/oam-dev/rudr.svg?sort=semver" alt="Last Tag" /> <h2 id="oam-devrudrhttpsgithubcomoam-devrudr-github-starshttpsimgshieldsiogithubstarsoam-devrudrsvg-languagehttpsimgshieldsiogithublanguagestopoam-devrudrsvg-last-taghttpsimgshieldsiogithubvtagoam-devrudrsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devrudrsvg">
+  <img src="https://img.shields.io/github/last-commit/oam-dev/rudr.svg" alt="Last commit" />
+  <a class="anchor" href="#oam-devrudrhttpsgithubcomoam-devrudr-github-starshttpsimgshieldsiogithubstarsoam-devrudrsvg-languagehttpsimgshieldsiogithublanguagestopoam-devrudrsvg-last-taghttpsimgshieldsiogithubvtagoam-devrudrsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devrudrsvg">#</a>
+</h2>
+<p>A Kubernetes implementation of the Open Application Model specification <a href="https://oam.dev">https://oam.dev</a></p>
+<p>Rudr 已经被废弃，转为 KubeVela</p>
+<a href="https://github.com/oam-dev/kubevela">oam-dev/kubevela</a> <img src="https://img.shields.io/github/stars/oam-dev/kubevela.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/oam-dev/kubevela.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/oam-dev/kubevela.svg?sort=semver" alt="Last Tag" /> <h2 id="oam-devkubevelahttpsgithubcomoam-devkubevela-github-starshttpsimgshieldsiogithubstarsoam-devkubevelasvg-languagehttpsimgshieldsiogithublanguagestopoam-devkubevelasvg-last-taghttpsimgshieldsiogithubvtagoam-devkubevelasvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devkubevelasvg">
+  <img src="https://img.shields.io/github/last-commit/oam-dev/kubevela.svg" alt="Last commit" />
+  <a class="anchor" href="#oam-devkubevelahttpsgithubcomoam-devkubevela-github-starshttpsimgshieldsiogithubstarsoam-devkubevelasvg-languagehttpsimgshieldsiogithublanguagestopoam-devkubevelasvg-last-taghttpsimgshieldsiogithubvtagoam-devkubevelasvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devkubevelasvg">#</a>
+</h2>
+<p>Make shipping applications more enjoyable.
+<a href="https://kubevela.io/">https://kubevela.io/</a></p>
+<a href="https://github.com/open-telemetry/opentelemetry-specification">OpenTelemetry</a> <h2 id="opentelemetryhttpsgithubcomopen-telemetryopentelemetry-specification-github-starshttpsimgshieldsiogithubstarsopen-telemetryopentelemetry-specificationsvg">
+  <img src="https://img.shields.io/github/stars/open-telemetry/opentelemetry-specification.svg" alt="Github stars" />
+  <a class="anchor" href="#opentelemetryhttpsgithubcomopen-telemetryopentelemetry-specification-github-starshttpsimgshieldsiogithubstarsopen-telemetryopentelemetry-specificationsvg">#</a>
+</h2>
+<p>Specifications for OpenTelemetry <a href="https://opentelemetry.io">https://opentelemetry.io</a></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/134608559">OAM（开放应用模型）—— 定义云原生应用标准的野望</a></li>
+</ul>
 </article>
  
       
@@ -733,12 +748,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/62fe508e5f50dffa6483504305f0c48f5d3fdd64" title='Last modified by yewang | 2020-07-14' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-14</span>
-    </a>
-  </div>
 
 
 
@@ -790,7 +799,14 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#oam-devspechttpsgithubcomoam-devspec-github-starshttpsimgshieldsiogithubstarsoam-devspecsvg-languagehttpsimgshieldsiogithublanguagestopoam-devspecsvg-last-taghttpsimgshieldsiogithubvtagoam-devspecsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devspecsvg"><a href="https://github.com/oam-dev/spec">oam-dev/spec</a> <img src="https://img.shields.io/github/stars/oam-dev/spec.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/spec.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/spec.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/spec.svg" alt="Last commit"></a></li>
+    <li><a href="#oam-devrudrhttpsgithubcomoam-devrudr-github-starshttpsimgshieldsiogithubstarsoam-devrudrsvg-languagehttpsimgshieldsiogithublanguagestopoam-devrudrsvg-last-taghttpsimgshieldsiogithubvtagoam-devrudrsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devrudrsvg"><a href="https://github.com/oam-dev/rudr">oam-dev/rudr</a> <img src="https://img.shields.io/github/stars/oam-dev/rudr.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/rudr.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/rudr.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/rudr.svg" alt="Last commit"></a></li>
+    <li><a href="#oam-devkubevelahttpsgithubcomoam-devkubevela-github-starshttpsimgshieldsiogithubstarsoam-devkubevelasvg-languagehttpsimgshieldsiogithublanguagestopoam-devkubevelasvg-last-taghttpsimgshieldsiogithubvtagoam-devkubevelasvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoam-devkubevelasvg"><a href="https://github.com/oam-dev/kubevela">oam-dev/kubevela</a> <img src="https://img.shields.io/github/stars/oam-dev/kubevela.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/oam-dev/kubevela.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/oam-dev/kubevela.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/oam-dev/kubevela.svg" alt="Last commit"></a></li>
+    <li><a href="#opentelemetryhttpsgithubcomopen-telemetryopentelemetry-specification-github-starshttpsimgshieldsiogithubstarsopen-telemetryopentelemetry-specificationsvg"><a href="https://github.com/open-telemetry/opentelemetry-specification">OpenTelemetry</a> <img src="https://img.shields.io/github/stars/open-telemetry/opentelemetry-specification.svg" alt="Github stars"></a></li>
+  </ul>
+</nav>
 
  
     </aside>

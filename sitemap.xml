@@ -303,6 +303,14 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/oam/kubevela/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/oam/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/</loc>
     <lastmod>2020-09-23T11:20:47+08:00</lastmod>
   </url>

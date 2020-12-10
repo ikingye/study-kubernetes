@@ -85,7 +85,8 @@ This is not an officially supported Google product. Although this open-source pr
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/operator/</guid>
       <description>Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
 所以，编写一个 Etcd Operator，与我们前面编写一个自定义控制器的过程，没什么不同。
- Operator 开发 #  kubebuilder #  kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
+ Operator 开发 #  kubernetes-sigs/kubebuilder #  kudobuilder/kudo #  helm 做安装，kudo 做 day2 运维
+GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes controllers as a service https://metacontroller.app/
 可与 Webhook 结合使用，以实现自己的功能。
 operator-framework/operator-sdk #  SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding. https://sdk.operatorframework.io
 Operator 框架

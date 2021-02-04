@@ -8,7 +8,7 @@
  官网：https://helm.sh
 Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
 Use Helm to:
- Find and use popular software packaged as Helm Charts to run in Kubernetes Share your own applications as Helm Charts Create reproducible builds of your Kubernetes applications Intelligently manage your Kubernetes manifest files Manage releases of Helm packages   命令 #  completion generate autocompletions script for the specified shell create create a new chart with the given name dependency manage a chart&#39;s dependencies env helm client environment information get download extended information of a named release help Help about any command history fetch release history install install a chart lint examine a chart for possible issues list list releases package package a chart directory into a chart archive plugin install, list, or uninstall Helm plugins pull download a chart from a repository and (optionally) unpack it in local directory repo add, list, remove, update, and index chart repositories rollback roll back a release to a previous revision search search for a keyword in charts show show information of a chart status display the status of the named release template locally render templates test run tests for a release uninstall uninstall a release upgrade upgrade a release verify verify that a chart at the given path has been signed and is valid version print the client version information  开源镜像 #  BurdenBear/kube-charts-mirror #  # 删除默认的源 helm repo remove stable helm repo remove incubator # 增加新的国内镜像源 helm repo add stable http://mirror.">
+ Find and use popular software packaged as Helm Charts to run in Kubernetes Share your own applications as Helm Charts Create reproducible builds of your Kubernetes applications Intelligently manage your Kubernetes manifest files Manage releases of Helm packages   基本概念 #   Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，  Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合 类似  Homebrew 中的 formula apt 的 dpkg yum/dnf 的 rpm     Repository：用于发布和存储 Chart 的存储库。 Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。 Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。  HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Helm" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -18,7 +18,7 @@ Use Helm to:
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.ce0f902f11a0f7675f61f65c2edd624054c6ccc1465f48c5761565b68b9daa75.css" integrity="sha256-zg&#43;QLxGg92dfYfZcLt1iQFTGzMFGX0jFdhVltoudqnU=">
-<script defer src="/study-kubernetes/en.search.min.c08adc3f67eaccdaeaddb4a820c0994fa5a23f5219423960ea15fccee48ff75b.js" integrity="sha256-wIrcP2fqzNrq3bSoIMCZT6WiP1IZQjlg6hX8zuSP91s="></script>
+<script defer src="/study-kubernetes/en.search.min.26f11b36b5bec5469c8ed83be3a76487f851d3b2291f71162cd6dce95a736e57.js" integrity="sha256-JvEbNrW&#43;xUacjtg746dkh/hR07IpH3EWLNbc6Vpzblc="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/advanced/tool/helm/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -736,12 +736,14 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#基本概念">基本概念</a></li>
     <li><a href="#命令">命令</a></li>
     <li><a href="#开源镜像">开源镜像</a>
       <ul>
         <li><a href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg"><a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars"></a></li>
       </ul>
     </li>
+    <li><a href="#todo">TODO</a></li>
   </ul>
 </nav>
 
@@ -772,6 +774,31 @@ https://github.com/alex-shpak/hugo-book
 <li>Manage releases of Helm packages</li>
 </ul>
 <hr>
+<h2 id="基本概念">
+  基本概念
+  <a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#</a>
+</h2>
+<ul>
+<li>Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，
+<ul>
+<li>Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合</li>
+<li>类似
+<ul>
+<li>Homebrew 中的 formula</li>
+<li>apt 的 dpkg</li>
+<li>yum/dnf 的 rpm</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Repository：用于发布和存储 Chart 的存储库。</li>
+<li>Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li>
+<li>Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。
+<ul>
+<li>HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.kube/config 来访问 api server 进行创建</li>
+</ul>
+</li>
+</ul>
 <h2 id="命令">
   命令
   <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
@@ -821,6 +848,54 @@ helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/
 helm repo list
 
 helm search repo mysql
+</code></pre></div><hr>
+<h2 id="todo">
+  TODO
+  <a class="anchor" href="#todo">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Initialize a Helm Chart Repository</span>
+$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+<span style="color:#75715e"># list the charts you can install</span>
+$ helm search repo stable
+
+<span style="color:#75715e"># Install an Example Chart</span>
+$ helm repo update
+$ helm install stable/mysql --generate-name
+NAME: mysql-1596179301
+LAST DEPLOYED: Fri Jul <span style="color:#ae81ff">31</span> 15:08:27 <span style="color:#ae81ff">2020</span>
+NAMESPACE: default
+STATUS: deployed
+REVISION: <span style="color:#ae81ff">1</span>
+NOTES:
+MySQL can be accessed via port <span style="color:#ae81ff">3306</span> on the following DNS name from within your cluster:
+mysql-1596179301.default.svc.cluster.local
+
+To get your root password run:
+
+    MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get secret --namespace default mysql-1596179301 -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.mysql-root-password}&#34;</span> | base64 --decode; echo<span style="color:#66d9ef">)</span>
+
+To connect to your database:
+
+1. Run an Ubuntu pod that you can use as a client:
+
+    kubectl run -i --tty ubuntu --image<span style="color:#f92672">=</span>ubuntu:16.04 --restart<span style="color:#f92672">=</span>Never -- bash -il
+
+2. Install the mysql client:
+
+    $ apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install mysql-client -y
+
+3. Connect using the mysql cli, <span style="color:#66d9ef">then</span> provide your password:
+    $ mysql -h mysql-1596179301 -p
+
+To connect to your database directly from outside the K8s cluster:
+    MYSQL_HOST<span style="color:#f92672">=</span>127.0.0.1
+    MYSQL_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
+
+    <span style="color:#75715e"># Execute the following command to route the connection:</span>
+    kubectl port-forward svc/mysql-1596179301 <span style="color:#ae81ff">3306</span>
+
+    mysql -h <span style="color:#e6db74">${</span>MYSQL_HOST<span style="color:#e6db74">}</span> -P<span style="color:#e6db74">${</span>MYSQL_PORT<span style="color:#e6db74">}</span> -u root -p<span style="color:#e6db74">${</span>MYSQL_ROOT_PASSWORD<span style="color:#e6db74">}</span>
 </code></pre></div></article>
  
       
@@ -889,12 +964,14 @@ helm search repo mysql
       
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#基本概念">基本概念</a></li>
     <li><a href="#命令">命令</a></li>
     <li><a href="#开源镜像">开源镜像</a>
       <ul>
         <li><a href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg"><a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars"></a></li>
       </ul>
     </li>
+    <li><a href="#todo">TODO</a></li>
   </ul>
 </nav>
 

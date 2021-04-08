@@ -180,7 +180,7 @@ play-with-docker/play-with-docker #  Play With Docker gives you the experience o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
-      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.spec.clusterIP}:{.spec.ports[*].port}&#39;  kubectl get 结果排序 #  --sort-by= ##### pod # name kubectl --sort-by=.metadata.name get pod # status kubectl --sort-by=.status.phase get pod # restarts kubectl --sort-by=.status.containerStatuses[0].restartCount get pod # age kubectl --sort-by=.status.startTime get pod # ip kubectl --sort-by=.</description>
+      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  设置 #  设置 role #  # 添加 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=master kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 删除 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 重置 role kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role=&amp;lt;your_new_label&amp;gt; 获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.</description>
     </item>
     
     <item>

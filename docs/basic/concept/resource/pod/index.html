@@ -19,7 +19,7 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
    状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &hellip; 命令的输出，其中应该显示了为什么没被调度的原因。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/pod/" />
-<meta property="article:modified_time" content="2020-10-30T11:04:21+08:00" />
+<meta property="article:modified_time" content="2021-04-15T16:56:52+08:00" />
 <title>Pod | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
@@ -1103,9 +1103,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/acd56fa5d54dd3418e883670472848690c20fc88" title='Last modified by yewang | 2020-10-30' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/c9c7d2b56b901a6594fa0761cc424aec0c6d388c" title='Last modified by yewang | 2021-04-15' target="_blank" rel="noopener">
       <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-10-30</span>
+      <span>2021-04-15</span>
     </a>
   </div>
 

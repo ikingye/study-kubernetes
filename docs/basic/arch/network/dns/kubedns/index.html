@@ -14,7 +14,7 @@ nameserver 10.99.0.2 # 这里存储的是 kube-dns 的 Service IP search default
 docker inspect --format &quot;{{.State.Pid}}&quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy #  ClusterFirst（默认） #  优先使用 kubedns 或者 coredns 进行域名解析。 如果解析不成功，才会使用宿主机的 DNS 配置进行解析。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/arch/network/dns/kubedns/" />
-<meta property="article:modified_time" content="2020-10-20T10:46:18+08:00" />
+<meta property="article:modified_time" content="2021-05-07T15:03:29+08:00" />
 <title>KubeDNS | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
@@ -1681,9 +1681,9 @@ kubelet 的默认方式，其实就是使用宿主机的 /etc/resolv.conf 来进
 
 
 
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/f869136790aa7b3b4febdc5865f9631e91e82cf6" title='Last modified by yewang | 2020-10-20' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/ac7f4392c7544ebaa2bf61240b75c73cc107bf57" title='Last modified by yewang | 2021-05-07' target="_blank" rel="noopener">
       <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-10-20</span>
+      <span>2021-05-07</span>
     </a>
   </div>
 

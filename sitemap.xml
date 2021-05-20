@@ -288,6 +288,10 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/network/calico/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url>
@@ -410,6 +414,10 @@
   <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/code/source/</loc>
     <lastmod>2021-02-08T11:40:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/network/</loc>
   </url>
   
   <url>

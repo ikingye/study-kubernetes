@@ -9,5 +9,18 @@
 	<atom:link href="https://ikingye.github.io/study-kubernetes/docs/advanced/debug/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>pod 排错</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</guid>
+      <description>pod 排错 #  排查 Pod 异常的常用命令如下：
+ 查看 Pod 状态：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide 查看 Pod 的 yaml 配置：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o yaml 查看 Pod 的事件：kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 查看 Pod 容器日志：kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]  Pending 状态 #  Pending 状态说明 Pod 还没有调度到某个 Node 上面
+可以通过 kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 命令查看到 Pod 的事件
+参考：
+ Kubernetes 指南 - Pod 排错 排错指南 - Pod Kubernetes Docs - Troubleshoot Applications  </description>
+    </item>
+    
   </channel>
 </rss>

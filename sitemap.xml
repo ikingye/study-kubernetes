@@ -33,8 +33,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/</loc>
-    <lastmod>2020-09-10T16:53:25+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/</loc>
   </url>
   
   <url>
@@ -73,13 +72,11 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</loc>
-    <lastmod>2020-09-10T16:53:25+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</loc>
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</loc>
-    <lastmod>2020-09-10T16:53:25+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</loc>
   </url>
   
   <url>
@@ -128,11 +125,6 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/</loc>
-    <lastmod>2020-10-22T20:46:25+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/code/component/</loc>
     <lastmod>2020-09-10T16:53:25+08:00</lastmod>
   </url>
@@ -163,8 +155,11 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</loc>
-    <lastmod>2020-09-10T16:53:25+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</loc>
   </url>
   
   <url>
@@ -333,8 +328,7 @@
   </url>
   
   <url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/</loc>
-    <lastmod>2020-10-23T10:43:39+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/other/distro/</loc>
   </url>
   
   <url>

@@ -5,25 +5,29 @@
   <meta name="generator" content="Hugo 0.71.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MiniKube #  安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
+<meta name="description" content="MiniKube #  kubernetes/minikube Run Kubernetes locally
+https://minikube.sigs.k8s.io
+安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
 curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \ &amp;&amp; chmod &#43;x minikube sudo mv minikube /usr/local/bin Linux Windows  参考：https://kubernetes.io/docs/tasks/tools/install-minikube/
 启动 #    minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
   minikube start --cpus=2 --disk-size=&#39;10g&#39; --image-mirror-country=&#39;cn&#39; --image-repository=&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;
-  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.docker-cn.com   ">
+  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="MiniKube" />
-<meta property="og:description" content="MiniKube #  安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
+<meta property="og:description" content="MiniKube #  kubernetes/minikube Run Kubernetes locally
+https://minikube.sigs.k8s.io
+安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
 curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \ &amp;&amp; chmod &#43;x minikube sudo mv minikube /usr/local/bin Linux Windows  参考：https://kubernetes.io/docs/tasks/tools/install-minikube/
 启动 #    minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
   minikube start --cpus=2 --disk-size=&#39;10g&#39; --image-mirror-country=&#39;cn&#39; --image-repository=&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;
-  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.docker-cn.com   " />
+  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/" />
-<meta property="article:modified_time" content="2020-09-10T16:53:25+08:00" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/" />
+
 <title>MiniKube | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.26a6a1da4e42a220331949b9698d1ff3bce6dde3dcb70ead9b3f675f3054b860.css" integrity="sha256-Jqah2k5CoiAzGUm5aY0f87zm3ePctw6tmz9nXzBUuGA=">
-<script defer src="/study-kubernetes/en.search.min.b49f8414d3b4b764180d8ff36e702c1905a21d369dcdfe3b2ccf7e6087e70763.js" integrity="sha256-tJ&#43;EFNO0t2QYDY/zbnAsGQWiHTadzf47LM9&#43;YIfnB2M="></script>
+<script defer src="/study-kubernetes/en.search.min.79e817dee70457f6b2f5ca2c4142adcdeedb8cfa1a2f0f2780990ededdb5f06f.js" integrity="sha256-eegX3ucEV/ay9cosQUKtze7bjPoaLw8ngJkO3t218G8="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -89,6 +93,66 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-909df55e38d833be79a983c659f46da6" class="toggle" checked />
+    <label for="section-909df55e38d833be79a983c659f46da6" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/" class="">安装</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/" class="">Kubeadm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/" class="">MicroK8s</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/" class=" active">MiniKube</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -512,6 +576,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/other/distro/" class="">发行版</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -534,100 +611,6 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-754f4dbbb2cb51435d41b68ebe355bf5" class="toggle" checked />
-    <label for="section-754f4dbbb2cb51435d41b68ebe355bf5" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/" class="">2.1 部署</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-230815b1032af859d8cf5eccdb0d6dec" class="toggle" checked />
-    <label for="section-230815b1032af859d8cf5eccdb0d6dec" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/" class="">安装</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/" class="">Kubeadm</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/" class="">MicroK8s</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/" class=" active">MiniKube</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/" class="">发行版</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
     
       
         <li>
@@ -806,6 +789,22 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8e430d7be8b50287692911bee152a82b" class="toggle"  />
+    <label for="section-8e430d7be8b50287692911bee152a82b" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/" class="">pod 排错</a>
+    </label>
+  
+
+        </li>
+      
     
   </ul>
 
@@ -1622,10 +1621,13 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><a href="https://github.com/kubernetes/minikube">MiniKube</a> <h1 id="minikubehttpsgithubcomkubernetesminikube-github-starshttpsimgshieldsiogithubstarskubernetesminikubesvg">
-  <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="Github stars" />
-  <a class="anchor" href="#minikubehttpsgithubcomkubernetesminikube-github-starshttpsimgshieldsiogithubstarskubernetesminikubesvg">#</a>
+  <article class="markdown"><h1 id="minikube">
+  MiniKube
+  <a class="anchor" href="#minikube">#</a>
 </h1>
+<p><a href="https://github.com/kubernetes/minikube">kubernetes/minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubernetes/minikube.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubernetes/minikube.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubernetes/minikube.svg" alt="Last commit" /></p>
+<p>Run Kubernetes locally</p>
+<p><a href="https://minikube.sigs.k8s.io/">https://minikube.sigs.k8s.io</a></p>
 <h2 id="安装">
   安装
   <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
@@ -1685,12 +1687,6 @@ sudo mv minikube /usr/local/bin
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/61e28b3607633ae6d28e07d2d3239a3ff695a655" title='Last modified by yewang | 2020-09-10' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-09-10</span>
-    </a>
-  </div>
 
 
 

@@ -5,17 +5,21 @@
   <meta name="generator" content="Hugo 0.71.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 发行版 #   Rancher 偏运维  RKE Rancher Kubernetes Engine rancher/rke    OpenShift 偏开发 AWS EKS Elastic Kubernetes Service Google GKE Google Kubernetes Engine Microsoft AKS Azure Kubernetes Service CDK Canonical Distribution of Kubernetes （Canonical 是 Ubuntu Linux 的制造商） CoreOS Tectonic/Red Hat CoreOS Docker 社区版 / Docker 企业版 Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 Craig McLuckie 和 Joe Beda，创办了 Heptio） 2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划 Kontena Pharos PKS Pivotal Container Service SUSE 容器服务平台 Telekube kubesphere/kubesphere KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。 KubeOperator/KubeOperator KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。  参考：">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="发行版" />
-<meta property="og:description" content="Kubernetes 发行版 #   Rancher 偏运维  RKE Rancher Kubernetes Engine rancher/rke    OpenShift 偏开发 AWS EKS Elastic Kubernetes Service Google GKE Google Kubernetes Engine Microsoft AKS Azure Kubernetes Service CDK Canonical Distribution of Kubernetes （Canonical 是 Ubuntu Linux 的制造商） CoreOS Tectonic/Red Hat CoreOS Docker 社区版 / Docker 企业版 Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 Craig McLuckie 和 Joe Beda，创办了 Heptio） 2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划 Kontena Pharos PKS Pivotal Container Service SUSE 容器服务平台 Telekube kubesphere/kubesphere KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。 KubeOperator/KubeOperator KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。  参考：" />
+<meta name="description" content="MicroK8s #  ubuntu/microk8s MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+https://microk8s.io
+Pros: #   Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons: #   Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考 #   Local Kubernetes for Linux – MiniKube vs MicroK8s  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="MicroK8s" />
+<meta property="og:description" content="MicroK8s #  ubuntu/microk8s MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+https://microk8s.io
+Pros: #   Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons: #   Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考 #   Local Kubernetes for Linux – MiniKube vs MicroK8s  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/" />
-<meta property="article:modified_time" content="2020-10-23T10:43:39+08:00" />
-<title>发行版 | Kubernetes 学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/" />
+
+<title>MicroK8s | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.26a6a1da4e42a220331949b9698d1ff3bce6dde3dcb70ead9b3f675f3054b860.css" integrity="sha256-Jqah2k5CoiAzGUm5aY0f87zm3ePctw6tmz9nXzBUuGA=">
-<script defer src="/study-kubernetes/en.search.min.b49f8414d3b4b764180d8ff36e702c1905a21d369dcdfe3b2ccf7e6087e70763.js" integrity="sha256-tJ&#43;EFNO0t2QYDY/zbnAsGQWiHTadzf47LM9&#43;YIfnB2M="></script>
+<script defer src="/study-kubernetes/en.search.min.79e817dee70457f6b2f5ca2c4142adcdeedb8cfa1a2f0f2780990ededdb5f06f.js" integrity="sha256-eegX3ucEV/ay9cosQUKtze7bjPoaLw8ngJkO3t218G8="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -81,6 +85,66 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-909df55e38d833be79a983c659f46da6" class="toggle" checked />
+    <label for="section-909df55e38d833be79a983c659f46da6" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/" class="">安装</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/" class="">Kubeadm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/" class=" active">MicroK8s</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/" class="">MiniKube</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -504,6 +568,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://ikingye.github.io/study-kubernetes/docs/basic/other/distro/" class="">发行版</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -526,100 +603,6 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-754f4dbbb2cb51435d41b68ebe355bf5" class="toggle" checked />
-    <label for="section-754f4dbbb2cb51435d41b68ebe355bf5" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/" class="">2.1 部署</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-230815b1032af859d8cf5eccdb0d6dec" class="toggle"  />
-    <label for="section-230815b1032af859d8cf5eccdb0d6dec" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/" class="">安装</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/" class="">Kubeadm</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/" class="">MicroK8s</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/" class="">MiniKube</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/" class=" active">发行版</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
     
       
         <li>
@@ -798,6 +781,22 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8e430d7be8b50287692911bee152a82b" class="toggle"  />
+    <label for="section-8e430d7be8b50287692911bee152a82b" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/" class="">pod 排错</a>
+    </label>
+  
+
+        </li>
+      
     
   </ul>
 
@@ -1584,7 +1583,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>发行版</strong>
+  <strong>MicroK8s</strong>
 
   <label for="toc-control">
     
@@ -1598,7 +1597,17 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pros">Pros:</a></li>
+        <li><a href="#cons">Cons:</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
 
 
@@ -1609,42 +1618,38 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="kubernetes-发行版">
-  Kubernetes 发行版
-  <a class="anchor" href="#kubernetes-%e5%8f%91%e8%a1%8c%e7%89%88">#</a>
+  <article class="markdown"><h1 id="microk8s">
+  MicroK8s
+  <a class="anchor" href="#microk8s">#</a>
 </h1>
+<p><a href="https://github.com/ubuntu/microk8s">ubuntu/microk8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/ubuntu/microk8s.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/ubuntu/microk8s.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/ubuntu/microk8s.svg" alt="Last commit" /></p>
+<p>MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.</p>
+<p><a href="https://microk8s.io">https://microk8s.io</a></p>
+<h3 id="pros">
+  Pros:
+  <a class="anchor" href="#pros">#</a>
+</h3>
 <ul>
-<li>Rancher 偏运维
-<ul>
-<li>RKE <a href="https://github.com/rancher/rke">Rancher Kubernetes Engine</a></li>
-<li><a href="https://github.com/rancher/rke">rancher/rke</a> <img src="https://img.shields.io/github/stars/rancher/rke.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/rancher/rke.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/rancher/rke.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/rancher/rke.svg" alt="Last commit" /></li>
+<li>Very easy to install, upgrade, remove</li>
+<li>Completely isolated from other tools in your machine</li>
+<li>Does not need a VM, all services run locally</li>
 </ul>
-</li>
-<li>OpenShift 偏开发</li>
-<li>AWS EKS <code>Elastic Kubernetes Service</code></li>
-<li>Google GKE <code>Google Kubernetes Engine</code></li>
-<li>Microsoft AKS <code>Azure Kubernetes Service</code></li>
-<li>CDK <code>Canonical Distribution of Kubernetes</code> （<code>Canonical</code> 是 Ubuntu Linux 的制造商）</li>
-<li><code>CoreOS Tectonic</code>/<code>Red Hat CoreOS</code></li>
-<li>Docker 社区版 / Docker 企业版</li>
-<li>Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 <code>Craig McLuckie</code> 和 <code>Joe Beda</code>，创办了 <code>Heptio</code>）
-2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划</li>
-<li>Kontena Pharos</li>
-<li>PKS <code>Pivotal Container Service</code></li>
-<li>SUSE 容器服务平台</li>
-<li>Telekube</li>
-<li><a href="https://github.com/kubesphere/kubesphere">kubesphere/kubesphere</a> <img src="https://img.shields.io/github/stars/kubesphere/kubesphere.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubesphere/kubesphere.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubesphere/kubesphere.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubesphere/kubesphere.svg" alt="Last commit" />
-KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。</li>
-<li><a href="https://github.com/KubeOperator/KubeOperator">KubeOperator/KubeOperator</a> <img src="https://img.shields.io/github/stars/KubeOperator/KubeOperator.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/KubeOperator/KubeOperator.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/KubeOperator/KubeOperator.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/KubeOperator/KubeOperator.svg" alt="Last commit" />
-KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。</li>
-</ul>
-<p>参考：</p>
+<h3 id="cons">
+  Cons:
+  <a class="anchor" href="#cons">#</a>
+</h3>
 <ul>
-<li><a href="https://www.infoworld.com/article/3265059/10-kubernetes-distributions-leading-the-container-revolution.html">10 Kubernetes distributions leading the container revolution</a></li>
-<li><a href="https://www.datacenterknowledge.com/open-source/5-reasons-not-use-kubernetes-distributions">5 Reasons Not to Use Kubernetes Distributions</a></li>
-<li><a href="https://www.zhihu.com/question/348609092">Kubesphere 与 Rancher 有什么区别？</a></li>
-<li><a href="https://www.zhihu.com/question/366253035">部署生产级别的 Kubernetes 集群要注意哪些问题？</a></li>
-<li><a href="https://www.zhihu.com/question/59367963">如何在 CentOS7 上部署 Kubernetes 集群？</a></li>
+<li>Only available for Snap supported Linux Distributions</li>
+<li>Relatively new, possible unstable</li>
+<li>Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished</li>
+</ul>
+<hr>
+<h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h2>
+<ul>
+<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-linux-minikube-vs-microk8s/">Local Kubernetes for Linux – MiniKube vs MicroK8s</a></li>
 </ul>
 </article>
  
@@ -1655,12 +1660,6 @@ KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助�
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/a2e795c2e59d6480b7ffdee997dc9373c31ad16c" title='Last modified by yewang | 2020-10-23' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-10-23</span>
-    </a>
-  </div>
 
 
 
@@ -1714,7 +1713,17 @@ KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助�
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pros">Pros:</a></li>
+        <li><a href="#cons">Cons:</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
 
  

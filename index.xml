@@ -109,21 +109,22 @@ This is not an officially supported Google product. Although this open-source pr
     
     <item>
       <title>Kubeadm</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/kubeadm/</guid>
-      <description>Kubeadm #  教程 #  Getting Started With Kubeadm #  from katacoda
-参考 #  https://www.katacoda.com #  Katacoda - Interactive Learning Platform for Software Engineers</description>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</guid>
+      <description>Kubeadm #  kubernetes/kubeadm Kubeadm is a tool built to provide best-practice &amp;ldquo;fast paths&amp;rdquo; for creating Kubernetes clusters. It performs the actions necessary to get a minimum viable, secure cluster up and running in a user friendly way. Kubeadm&amp;rsquo;s scope is limited to the local node filesystem and the Kubernetes API, and it is intended to be a composable building block of higher level tools.
+教程 #  Getting Started With Kubeadm #  from katacoda</description>
     </item>
     
     <item>
       <title>MicroK8s</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/microk8s/</guid>
-      <description>MicroK8s #  MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</guid>
+      <description>MicroK8s #  ubuntu/microk8s MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
+https://microk8s.io
 Pros: #   Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons: #   Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考 #   Local Kubernetes for Linux – MiniKube vs MicroK8s  </description>
     </item>
     
@@ -188,15 +189,30 @@ play-with-docker/play-with-docker #  Play With Docker gives you the experience o
     
     <item>
       <title>MiniKube</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/install/minikube/</guid>
-      <description>MiniKube #  安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</guid>
+      <description>MiniKube #  kubernetes/minikube Run Kubernetes locally
+https://minikube.sigs.k8s.io
+安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
 curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \ &amp;amp;&amp;amp; chmod +x minikube sudo mv minikube /usr/local/bin Linux Windows  参考：https://kubernetes.io/docs/tasks/tools/install-minikube/
 启动 #    minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
   minikube start --cpus=2 --disk-size=&#39;10g&#39; --image-mirror-country=&#39;cn&#39; --image-repository=&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;
-  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.docker-cn.com   </description>
+  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.</description>
+    </item>
+    
+    <item>
+      <title>pod 排错</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</guid>
+      <description>pod 排错 #  排查 Pod 异常的常用命令如下：
+ 查看 Pod 状态：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide 查看 Pod 的 yaml 配置：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o yaml 查看 Pod 的事件：kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 查看 Pod 容器日志：kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]  Pending 状态 #  Pending 状态说明 Pod 还没有调度到某个 Node 上面
+可以通过 kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 命令查看到 Pod 的事件
+参考：
+ Kubernetes 指南 - Pod 排错 排错指南 - Pod Kubernetes Docs - Troubleshoot Applications  </description>
     </item>
     
     <item>
@@ -415,10 +431,10 @@ ps: oam-dev/rudr 已经被废弃，转为 KubeVela</description>
     
     <item>
       <title>发行版</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/other/distro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/deploy/distro/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/other/distro/</guid>
       <description>Kubernetes 发行版 #   Rancher 偏运维  RKE Rancher Kubernetes Engine rancher/rke    OpenShift 偏开发 AWS EKS Elastic Kubernetes Service Google GKE Google Kubernetes Engine Microsoft AKS Azure Kubernetes Service CDK Canonical Distribution of Kubernetes （Canonical 是 Ubuntu Linux 的制造商） CoreOS Tectonic/Red Hat CoreOS Docker 社区版 / Docker 企业版 Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 Craig McLuckie 和 Joe Beda，创办了 Heptio） 2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划 Kontena Pharos PKS Pivotal Container Service SUSE 容器服务平台 Telekube kubesphere/kubesphere KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。 KubeOperator/KubeOperator KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。  参考：</description>
     </item>
     

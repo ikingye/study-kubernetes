@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.71.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Pod #  操作 #  删除被驱逐的 pod
@@ -19,13 +19,15 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
 下表展示了在调试 Init 容器时可能见到的状态值。
    状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &hellip; 命令的输出，其中应该显示了为什么没被调度的原因。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/pod/" />
-<meta property="article:modified_time" content="2021-04-15T16:56:52+08:00" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/pod/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2021-04-15T16:56:52&#43;08:00" />
+
 <title>Pod | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/study-kubernetes/book.min.26a6a1da4e42a220331949b9698d1ff3bce6dde3dcb70ead9b3f675f3054b860.css" integrity="sha256-Jqah2k5CoiAzGUm5aY0f87zm3ePctw6tmz9nXzBUuGA=">
-<script defer src="/study-kubernetes/en.search.min.1e9fdd4c4ea2e12ec925cc84f37eccf57ae5896e23100e8c6a2af6d0cb3a80ad.js" integrity="sha256-Hp/dTE6i4S7JJcyE837M9XrliW4jEA6Mair20Ms6gK0="></script>
+<link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-kubernetes/en.search.min.68896c962842650d7b53e7b5069750035e3a1ab46660064074a47909b4f12ef9.js" integrity="sha256-aIlslihCZQ17U&#43;e1BpdQA146GrRmYAZAdKR5CbTxLvk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1574,7 +1576,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  

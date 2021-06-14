@@ -2,20 +2,22 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.71.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="4.2 面试题" />
 <meta property="og:description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/appendix/interview/" />
-<meta property="article:modified_time" content="2020-07-22T15:04:58+08:00" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/appendix/interview/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-07-22T15:04:58&#43;08:00" />
+
 <title>4.2 面试题 | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/study-kubernetes/book.min.26a6a1da4e42a220331949b9698d1ff3bce6dde3dcb70ead9b3f675f3054b860.css" integrity="sha256-Jqah2k5CoiAzGUm5aY0f87zm3ePctw6tmz9nXzBUuGA=">
-<script defer src="/study-kubernetes/en.search.min.1e9fdd4c4ea2e12ec925cc84f37eccf57ae5896e23100e8c6a2af6d0cb3a80ad.js" integrity="sha256-Hp/dTE6i4S7JJcyE837M9XrliW4jEA6Mair20Ms6gK0="></script>
+<link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-kubernetes/en.search.min.68896c962842650d7b53e7b5069750035e3a1ab46660064074a47909b4f12ef9.js" integrity="sha256-aIlslihCZQ17U&#43;e1BpdQA146GrRmYAZAdKR5CbTxLvk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1564,7 +1566,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  

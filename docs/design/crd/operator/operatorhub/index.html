@@ -5,18 +5,19 @@
   <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="源码分析 #  Kubernetes 要求的 Go 版本 #     Kubernetes requires Go     1.0 - 1.2 1.4.2   1.3, 1.4 1.6   1.5, 1.6 1.7 - 1.7.5   1.7 1.8.1   1.8 1.8.3   1.9 1.9.1   1.10 1.9.1   1.11 1.10.2   1.12 1.10.4   1.13 1.11.13   1.14 - 1.16 1.12.9   1.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.7 源码分析" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/code/source/" />
+<meta name="description" content="OperatorHub #  https://operatorhub.io/">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="OperatorHub" />
+<meta property="og:description" content="OperatorHub #  https://operatorhub.io/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/" /><meta property="article:section" content="docs" />
 
-<title>3.7 源码分析 | Kubernetes 学习笔记</title>
+
+
+<title>OperatorHub | Kubernetes 学习笔记</title>
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.48f567db8201104dba2b81c01c8efe103b1c77e3cd2a2e00c8d87209e04e2f93.js" integrity="sha256-SPVn24IBEE26K4HAHI7&#43;EDscd&#43;PNKi4AyNhyCeBOL5M="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/code/source/index.xml" title="Kubernetes 学习笔记" />
+<script defer src="/study-kubernetes/en.search.min.562480a006914a76f2cbbe7e5b4d93d924c2c0effc5fa1c09548e70ef715a91e.js" integrity="sha256-ViSAoAaRSnbyy75&#43;W02T2STCwO/8X6HAlUjnDvcVqR4="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -98,6 +99,22 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="toggle"  />
+    <label for="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/basic/install/config/" class="">配置</a>
+    </label>
+  
+
+        </li>
+      
     
       
         <li>
@@ -1322,7 +1339,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://ikingye.github.io/study-kubernetes/docs/code/" class="">第三部分 设计与实现</a>
+    <a href="https://ikingye.github.io/study-kubernetes/docs/design/" class="">第三部分 设计与实现</a>
   
 
           
@@ -1335,9 +1352,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-d3b99885832e4bed8e214945d793e1bf" class="toggle"  />
-    <label for="section-d3b99885832e4bed8e214945d793e1bf" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/component/" class="">3.1 Kubernetes 组件</a>
+    <input type="checkbox" id="section-ffe7615f1d32247b6c49a7564f69acab" class="toggle"  />
+    <label for="section-ffe7615f1d32247b6c49a7564f69acab" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/component/" class="">3.1 Kubernetes 组件</a>
     </label>
   
 
@@ -1356,9 +1373,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-bafb1dd5bfc9872f328ccccc6782f665" class="toggle"  />
-    <label for="section-bafb1dd5bfc9872f328ccccc6782f665" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/crd/" class="">3.2 CRD</a>
+    <input type="checkbox" id="section-f2b4598cad31089864f9c91b6b888358" class="toggle" checked />
+    <label for="section-f2b4598cad31089864f9c91b6b888358" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/crd/" class="">3.2 CRD</a>
     </label>
   
 
@@ -1372,9 +1389,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-595ccc9f004089156e41fa04d88effd9" class="toggle"  />
-    <label for="section-595ccc9f004089156e41fa04d88effd9" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/" class="">3.2.2 Operator</a>
+    <input type="checkbox" id="section-49af78edf56cb8997ceca2964ae1f83d" class="toggle" checked />
+    <label for="section-49af78edf56cb8997ceca2964ae1f83d" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/" class="">3.2.2 Operator</a>
     </label>
   
 
@@ -1388,9 +1405,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-df310f90ac213b92913637bd787cdacf" class="toggle"  />
-    <label for="section-df310f90ac213b92913637bd787cdacf" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/operatorhub/" class="">OperatorHub</a>
+    <input type="checkbox" id="section-03eb74028d00c9a16dc6a9b4072bd5da" class="toggle" checked />
+    <label for="section-03eb74028d00c9a16dc6a9b4072bd5da" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/" class="active">OperatorHub</a>
     </label>
   
 
@@ -1414,7 +1431,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://ikingye.github.io/study-kubernetes/docs/code/source/" class=" active">3.7 源码分析</a>
+    <a href="https://ikingye.github.io/study-kubernetes/docs/design/code/" class="">3.7 源码分析</a>
   
 
           
@@ -1427,9 +1444,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a9bf2966c98ade2e6520e58592c7b94a" class="toggle"  />
-    <label for="section-a9bf2966c98ade2e6520e58592c7b94a" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/source/1.19.3/" class="">1.19.3</a>
+    <input type="checkbox" id="section-28506a73de82b6ea4d44c59476be627d" class="toggle"  />
+    <label for="section-28506a73de82b6ea4d44c59476be627d" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/code/1.19.12/" class="">1.19.12</a>
     </label>
   
 
@@ -1448,9 +1465,30 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-4aeff338166676ded19a4a370f0680de" class="toggle"  />
-    <label for="section-4aeff338166676ded19a4a370f0680de" class="flex justify-between">
-      <a href="https://ikingye.github.io/study-kubernetes/docs/code/source/1.0.0/" class="">1.0.0</a>
+    <input type="checkbox" id="section-ba6424c7fd6f4c4e3e8e52f9c6286ebd" class="toggle"  />
+    <label for="section-ba6424c7fd6f4c4e3e8e52f9c6286ebd" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/code/1.20.8/" class="">1.20.8</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-881c8687619ddb10c86f8f927fb23166" class="toggle"  />
+    <label for="section-881c8687619ddb10c86f8f927fb23166" class="flex justify-between">
+      <a href="https://ikingye.github.io/study-kubernetes/docs/design/code/1.0.0/" class="">1.0.0</a>
     </label>
   
 
@@ -1580,7 +1618,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>3.7 源码分析</strong>
+  <strong>OperatorHub</strong>
 
   <label for="toc-control">
     
@@ -1594,11 +1632,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#kubernetes-要求的-go-版本">Kubernetes 要求的 Go 版本</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -1609,80 +1643,11 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="源码分析">
-  源码分析
-  <a class="anchor" href="#%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90">#</a>
+  <article class="markdown"><h1 id="operatorhub">
+  OperatorHub
+  <a class="anchor" href="#operatorhub">#</a>
 </h1>
-<h2 id="kubernetes-要求的-go-版本">
-  Kubernetes 要求的 Go 版本
-  <a class="anchor" href="#kubernetes-%e8%a6%81%e6%b1%82%e7%9a%84-go-%e7%89%88%e6%9c%ac">#</a>
-</h2>
-<table>
-<thead>
-<tr>
-<th>Kubernetes</th>
-<th>requires Go</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.0 - 1.2</td>
-<td>1.4.2</td>
-</tr>
-<tr>
-<td>1.3, 1.4</td>
-<td>1.6</td>
-</tr>
-<tr>
-<td>1.5, 1.6</td>
-<td>1.7 - 1.7.5</td>
-</tr>
-<tr>
-<td>1.7</td>
-<td>1.8.1</td>
-</tr>
-<tr>
-<td>1.8</td>
-<td>1.8.3</td>
-</tr>
-<tr>
-<td>1.9</td>
-<td>1.9.1</td>
-</tr>
-<tr>
-<td>1.10</td>
-<td>1.9.1</td>
-</tr>
-<tr>
-<td>1.11</td>
-<td>1.10.2</td>
-</tr>
-<tr>
-<td>1.12</td>
-<td>1.10.4</td>
-</tr>
-<tr>
-<td>1.13</td>
-<td>1.11.13</td>
-</tr>
-<tr>
-<td>1.14 - 1.16</td>
-<td>1.12.9</td>
-</tr>
-<tr>
-<td>1.17 - 1.18</td>
-<td>1.13.15</td>
-</tr>
-<tr>
-<td>1.18+</td>
-<td>1.15</td>
-</tr>
-</tbody>
-</table>
-<p>参考：</p>
-<ul>
-<li><a href="https://github.com/kubernetes/community/blob/master/contributors/devel/development.md#go">Kubernetes Development Guide</a></li>
-</ul>
+<p><a href="https://operatorhub.io/">https://operatorhub.io/</a></p>
 </article>
  
       
@@ -1692,12 +1657,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/17f4a05074b66922bcf1c6c6699925b5ec444a16" title='Last modified by yewang | 2021-02-08' target="_blank" rel="noopener">
-      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2021-02-08</span>
-    </a>
-  </div>
 
 
 
@@ -1751,11 +1710,7 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#kubernetes-要求的-go-版本">Kubernetes 要求的 Go 版本</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
  

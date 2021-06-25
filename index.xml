@@ -68,6 +68,18 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
     </item>
     
     <item>
+      <title>配置</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/config/</guid>
+      <description>Kubernetes 配置 #  apiserver #  修改 Kubernetes apiserver 启动参数 #  如果您使用 kubeadm 安装 Kubernetes 集群，Kubernetes apiserver 通过 static pod 启动，
+其 yaml 文件的位置在 /etc/kubernetes/manifests/kube-apiserver.yaml
+ Static Pod 的配置文件被修改后，立即生效。 Kubelet 会监听该文件的变化，当您修改了 /etc/kubenetes/manifest/kube-apiserver.yaml 文件之后，kubelet 将自动终止原有的 kube-apiserver-{nodename} 的 Pod，并自动创建一个使用了新配置参数的 Pod 作为替代。 如果您有多个 Kubernetes Master 节点，您需要在每一个 Master 节点上都修改该文件，并使各节点上的参数保持一致。  参考：
+ 修改 Kubernetes apiserver 启动参数  </description>
+    </item>
+    
+    <item>
       <title>ConfigMap</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/configmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -407,10 +419,10 @@ ps: oam-dev/rudr 已经被废弃，转为 KubeVela</description>
     
     <item>
       <title>OperatorHub</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/operatorhub/</link>
+      <link>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/operatorhub/</guid>
+      <guid>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/</guid>
       <description>OperatorHub #  https://operatorhub.io/</description>
     </item>
     

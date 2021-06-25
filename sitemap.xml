@@ -26,6 +26,8 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/</loc>
     <lastmod>2020-07-16T20:43:57+08:00</lastmod>
   </url><url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/config/</loc>
+  </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/configmap/</loc>
     <lastmod>2020-09-25T11:26:27+08:00</lastmod>
   </url><url>
@@ -50,7 +52,7 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</loc>
     <lastmod>2021-06-03T15:45:30+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/</loc>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/</loc>
@@ -77,8 +79,7 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/quick/</loc>
     <lastmod>2020-09-10T16:53:25+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/component/</loc>
-    <lastmod>2020-09-10T16:53:25+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/component/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/appendix/tutorial/</loc>
     <lastmod>2021-05-07T15:03:29+08:00</lastmod>
@@ -140,11 +141,9 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/</loc>
     <lastmod>2020-09-23T01:30:25+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/crd/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/</loc>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/appendix/interview/</loc>
     <lastmod>2020-07-22T15:04:58+08:00</lastmod>
@@ -194,8 +193,7 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/</loc>
     <lastmod>2020-09-23T11:20:47+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/crd/operator/operatorhub/</loc>
-    <lastmod>2020-07-14T20:39:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/volume/</loc>
     <lastmod>2020-09-25T11:26:27+08:00</lastmod>
@@ -236,8 +234,9 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/client-go/</loc>
     <lastmod>2021-03-17T15:48:31+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/source/1.19.3/</loc>
-    <lastmod>2020-10-22T15:05:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.19.12/</loc>
+  </url><url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.20.8/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
@@ -245,11 +244,9 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/hpa/</loc>
     <lastmod>2020-09-23T01:27:00+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/source/1.0.0/</loc>
-    <lastmod>2020-10-22T15:05:42+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.0.0/</loc>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/code/source/</loc>
-    <lastmod>2021-02-08T11:40:19+08:00</lastmod>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/network/</loc>
     <lastmod>2021-05-20T22:06:39+08:00</lastmod>

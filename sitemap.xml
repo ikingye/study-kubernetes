@@ -27,6 +27,7 @@
     <lastmod>2020-07-16T20:43:57+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/config/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/configmap/</loc>
     <lastmod>2020-09-25T11:26:27+08:00</lastmod>
@@ -53,7 +54,7 @@
     <lastmod>2021-06-03T15:45:30+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/</loc>
-    <lastmod>2020-07-14T20:20:48+08:00</lastmod>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/</loc>
     <lastmod>2020-11-01T16:36:10+08:00</lastmod>
@@ -80,6 +81,7 @@
     <lastmod>2020-09-10T16:53:25+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/component/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/appendix/tutorial/</loc>
     <lastmod>2021-05-07T15:03:29+08:00</lastmod>
@@ -142,8 +144,10 @@
     <lastmod>2020-09-23T01:30:25+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/appendix/interview/</loc>
     <lastmod>2020-07-22T15:04:58+08:00</lastmod>
@@ -194,6 +198,7 @@
     <lastmod>2020-09-23T11:20:47+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/crd/operator/operatorhub/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/volume/</loc>
     <lastmod>2020-09-25T11:26:27+08:00</lastmod>
@@ -235,8 +240,10 @@
     <lastmod>2021-03-17T15:48:31+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.19.12/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.20.8/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
@@ -245,8 +252,10 @@
     <lastmod>2020-09-23T01:27:00+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/1.0.0/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/code/</loc>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/network/</loc>
     <lastmod>2021-05-20T22:06:39+08:00</lastmod>
@@ -266,7 +275,7 @@
     <loc>https://ikingye.github.io/study-kubernetes/categories/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/</loc>
-    <lastmod>2021-06-16T13:19:17+08:00</lastmod>
+    <lastmod>2021-06-25T16:29:29+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/tags/</loc>
   </url><url>

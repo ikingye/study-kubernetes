@@ -5,7 +5,8 @@
   <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 安装 #  安装方式对比 #  MacOS Minikube  Pros:  Mature solution Works on Windows (any version and edition), Mac and Linux Multiple drivers that can match any environment Installs several plugins (such as dashboard) by default Very flexible on installation requirements and upgrades  Cons:  Installation and removal not as streamlined as other solutions Does not integrate into the MacOS UI  Docker Desktop Pros:  Very easy installation for beginners All-in-one Docker and Kubernetes solution Configurable via UI  Cons:  Relatively new, possibly unstable Limited configuration options (i.">
+<meta name="description" content="Kubernetes 安装 #  Kubernetes 各组件配置文件 #  kubelet #  kubelet 是通过 systemctl 来管理的，因此配置文件在 /etc/systemd/system/ 或 /usr/lib/systemd/system/
+# 修改配置文件 vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf # kubeadm init 生成的 # 使用 systemd vi /var/lib/kubelet/config.yaml # 配置 6443 vi /etc/kubernetes/kubelet.conf # 重启 systemctl daemon-reload &amp;&amp; systemctl restart kubelet # 查看 kubelet 错误日志 journalctl -xef | egrep &#34;: [F][0-9]&#34; -B 1  kind #  kubernetes-sigs/kind Kubernetes IN Docker - local clusters for testing Kubernetes">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="安装" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -15,7 +16,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.562480a006914a76f2cbbe7e5b4d93d924c2c0effc5fa1c09548e70ef715a91e.js" integrity="sha256-ViSAoAaRSnbyy75&#43;W02T2STCwO/8X6HAlUjnDvcVqR4="></script>
+<script defer src="/study-kubernetes/en.search.min.dffbc49a0783f6c2709ecab7cb1d4b7aac87440a1f93e7ba6d5a86fe81bb4ef4.js" integrity="sha256-3/vEmgeD9sJwnsq3yx1LeqyHRAofk&#43;e6bVqG/oG7TvQ="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/install/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1633,11 +1634,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装方式对比">安装方式对比</a>
+    <li><a href="#kubernetes-各组件配置文件">Kubernetes 各组件配置文件</a>
       <ul>
-        <li><a href="#kind">kind</a></li>
+        <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#kind">kind</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#和我一步步部署-kubernetes-集群">和我一步步部署 kubernetes 集群</a></li>
@@ -1659,121 +1661,34 @@ https://github.com/alex-shpak/hugo-book
   Kubernetes 安装
   <a class="anchor" href="#kubernetes-%e5%ae%89%e8%a3%85">#</a>
 </h1>
-<h2 id="安装方式对比">
-  安装方式对比
-  <a class="anchor" href="#%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94">#</a>
+<h2 id="kubernetes-各组件配置文件">
+  Kubernetes 各组件配置文件
+  <a class="anchor" href="#kubernetes-%e5%90%84%e7%bb%84%e4%bb%b6%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6">#</a>
 </h2>
+<h3 id="kubelet">
+  kubelet
+  <a class="anchor" href="#kubelet">#</a>
+</h3>
+<p>kubelet 是通过 systemctl 来管理的，因此配置文件在 <code>/etc/systemd/system/</code> 或 <code>/usr/lib/systemd/system/</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 修改配置文件</span>
+vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 
+<span style="color:#75715e"># kubeadm init 生成的</span>
+<span style="color:#75715e"># 使用 systemd</span>
+vi /var/lib/kubelet/config.yaml
+<span style="color:#75715e"># 配置 6443</span>
+vi /etc/kubernetes/kubelet.conf
 
+<span style="color:#75715e"># 重启</span>
+systemctl daemon-reload <span style="color:#f92672">&amp;&amp;</span> systemctl restart kubelet
 
-
-<div class="book-tabs"><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
-  <label for="tabs-uniqueid-0">MacOS</label>
-  <div class="book-tabs-content markdown-inner"><h2 id="minikubehttpsgithubcomkubernetesminikube-github-starshttpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="Github stars"></h2>
-<h3 id="pros">Pros:</h3>
-<ul>
-<li>Mature solution</li>
-<li>Works on Windows (any version and edition), Mac and Linux</li>
-<li>Multiple drivers that can match any environment</li>
-<li>Installs several plugins (such as dashboard) by default</li>
-<li>Very flexible on installation requirements and upgrades</li>
-</ul>
-<h3 id="cons">Cons:</h3>
-<ul>
-<li>Installation and removal not as streamlined as other solutions</li>
-<li>Does not integrate into the MacOS UI</li>
-</ul>
-<h2 id="docker-desktop">Docker Desktop</h2>
-<h3 id="pros-1">Pros:</h3>
-<ul>
-<li>Very easy installation for beginners</li>
-<li>All-in-one Docker and Kubernetes solution</li>
-<li>Configurable via UI</li>
-</ul>
-<h3 id="cons-1">Cons:</h3>
-<ul>
-<li>Relatively new, possibly unstable</li>
-<li>Limited configuration options (i.e. driver support)</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-mac-minikube-vs-docker-desktop/">Local Kubernetes for Mac– MiniKube vs Docker Desktop</a></li>
-</ul>
-</div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
-  <label for="tabs-uniqueid-1">Linux</label>
-  <div class="book-tabs-content markdown-inner"><h2 id="minikubehttpsgithubcomkubernetesminikube-github-starshttpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="Github stars"></h2>
-<h3 id="pros">Pros:</h3>
-<ul>
-<li>Mature solution</li>
-<li>Works on Windows (any version and edition), Mac and Linux</li>
-<li>Multiple drivers that can match any environment</li>
-<li>Can work with or without an intermediate VM on Linux (vmdriver=none)</li>
-<li>Installs several plugins (such as dashboard) by default</li>
-<li>Very flexible on installation requirements and upgrades</li>
-</ul>
-<h3 id="cons">Cons:</h3>
-<ul>
-<li>Installation and removal not as streamlined as other solutions</li>
-<li>Can conflict with local installation of other tools (such as Virtualbox)</li>
-</ul>
-<h2 id="microk8shttpsgithubcomubuntumicrok8s-github-starshttpsimgshieldsiogithubstarsubuntumicrok8ssvg"><a href="https://github.com/ubuntu/microk8s">MicroK8s</a> <img src="https://img.shields.io/github/stars/ubuntu/microk8s.svg" alt="Github stars"></h2>
-<h3 id="pros-1">Pros:</h3>
-<ul>
-<li>Very easy to install, upgrade, remove</li>
-<li>Completely isolated from other tools in your machine</li>
-<li>Does not need a VM, all services run locally</li>
-</ul>
-<h3 id="cons-1">Cons:</h3>
-<ul>
-<li>Only available for Snap supported Linux Distributions</li>
-<li>Relatively new, possible unstable</li>
-<li>Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-linux-minikube-vs-microk8s/">Local Kubernetes for Linux – MiniKube vs MicroK8s</a></li>
-</ul>
-</div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2"  />
-  <label for="tabs-uniqueid-2">Windows</label>
-  <div class="book-tabs-content markdown-inner"><h2 id="minikubehttpsgithubcomkubernetesminikube-github-starshttpsimgshieldsiogithubstarskubernetesminikubesvg"><a href="https://github.com/kubernetes/minikube">Minikube</a> <img src="https://img.shields.io/github/stars/kubernetes/minikube.svg" alt="Github stars"></h2>
-<h3 id="pros">Pros:</h3>
-<ul>
-<li>Mature solution</li>
-<li>Works on Windows (any version and edition), Mac and Linux</li>
-<li>Multiple drivers that can match any environment</li>
-<li>Can work with or without an intermediate VM on Linux (vmdriver=none)</li>
-<li>Installs several plugins (such as dashboard) by default</li>
-<li>Very flexible on installation requirements and upgrades</li>
-</ul>
-<h3 id="cons">Cons:</h3>
-<ul>
-<li>Installation and removal not as streamlined as other solutions</li>
-<li>Can conflict with local installation of other tools (such as Virtualbox)</li>
-</ul>
-<h2 id="docker-desktop">Docker Desktop</h2>
-<h3 id="pros-1">Pros:</h3>
-<ul>
-<li>Very easy installation for beginners</li>
-<li>The best solution for running Windows containers</li>
-<li>Integrated Docker and Kubernetes solution</li>
-</ul>
-<h3 id="cons-1">Cons:</h3>
-<ul>
-<li>Requires Windows 10 Pro edition and Hyper V</li>
-<li>Cannot use simultaneously with Virtualbox, Vagrant etc</li>
-<li>Relatively new, possibly unstable</li>
-<li>The sole solution for running Windows containers</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://codefresh.io/kubernetes-tutorial/local-kubernetes-windows-minikube-vs-docker-desktop/">Local Kubernetes for Windows – MiniKube vs Docker Desktop</a></li>
-</ul>
-</div></div>
-
-<h3 id="kind">
+<span style="color:#75715e"># 查看 kubelet 错误日志</span>
+journalctl -xef | egrep <span style="color:#e6db74">&#34;: [F][0-9]&#34;</span> -B <span style="color:#ae81ff">1</span>
+</code></pre></div><hr>
+<h2 id="kind">
   kind
   <a class="anchor" href="#kind">#</a>
-</h3>
+</h2>
 <p><a href="https://github.com/kubernetes-sigs/kind">kubernetes-sigs/kind</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kind.svg" alt="Github stars" /></p>
 <p>Kubernetes IN Docker - local clusters for testing Kubernetes</p>
 <hr>
@@ -1859,11 +1774,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装方式对比">安装方式对比</a>
+    <li><a href="#kubernetes-各组件配置文件">Kubernetes 各组件配置文件</a>
       <ul>
-        <li><a href="#kind">kind</a></li>
+        <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#kind">kind</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#和我一步步部署-kubernetes-集群">和我一步步部署 kubernetes 集群</a></li>

@@ -64,7 +64,7 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/replicaset/</guid>
-      <description>replicaset #  问答 #  为什么要有 replicaset ？ #  </description>
+      <description>replicaset #  问答 #  replicaset vs deployment？ #   ReplicaSet 是下一代 ReplicationController， 支持新的基于集合的标签选择算符。 ReplicaSet 并不直接支持滚动更新，参考 ReplicationController 的设计目的是通过逐个替换 Pod 以方便滚动更新服务，参考  </description>
     </item>
     
     <item>

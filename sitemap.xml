@@ -125,6 +125,9 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/containerd/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url><url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</loc>
+    <lastmod>2020-11-01T16:36:10+08:00</lastmod>
+  </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url><url>
@@ -268,9 +271,6 @@
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</loc>
     <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</loc>
-    <lastmod>2020-11-01T16:36:10+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/categories/</loc>
   </url><url>

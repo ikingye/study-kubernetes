@@ -285,6 +285,22 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
     </item>
     
     <item>
+      <title>dockerfile</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
+      <description>dockerfile #  目标:
+ 更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单  做法：
+  编写 .dockerignore 文件
+  容器只运行单个应用
+  将多个 RUN 指令合并为一个
+  基础镜像的标签不要用 latest
+ 如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y nodejs \  # added lines &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)</description>
+    </item>
+    
+    <item>
       <title>容器</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -515,15 +531,6 @@ Under the hood DIND or Docker-in-Docker is used to give the effect of multiple V
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</guid>
       <description>build #  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
-      <description></description>
     </item>
     
   </channel>

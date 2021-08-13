@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.3 架构 on Kubernetes 学习笔记</title>
+    <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/</link>
+    <description>Recent content in 1.3 架构 on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>架构</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/architecture/</guid>
+      <description>Kubernetes 架构 #  </description>
+    </item>
+    
+  </channel>
+</rss>

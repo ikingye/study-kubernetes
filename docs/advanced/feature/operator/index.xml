@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operator on Kubernetes 学习笔记</title>
+    <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/</link>
+    <description>Recent content in Operator on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubebuilder</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid>
+      <description>kubebuilder #  kubernetes-sigs/kubebuilder #  Kubebuilder - SDK for building Kubernetes APIs using CRDs http://book.kubebuilder.io/</description>
+    </item>
+    
+    <item>
+      <title>etcd Operator</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/feature/operator/etcd/</guid>
+      <description>etcd Operator #  $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment
+而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来
+这个 CRD 名叫 etcdclusters.etcd.database.coreos.com
+实际上是在 Kubernetes 里添加了一个名叫 EtcdCluster 的自定义资源类型（CRD）。
+而 Etcd Operator 本身，就是这个 CRD 对应的自定义控制器。
+apiVersion: extensions/v1beta1 kind: Deployment metadata: name: etcd-operator spec: replicas: 1 template: metadata: labels: name: etcd-operator spec: containers: - name: etcd-operator image: quay.</description>
+    </item>
+    
+  </channel>
+</rss>

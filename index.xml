@@ -160,12 +160,11 @@ Pros: #   Very easy to install, upgrade, remove Completely isolated from other t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/appendix/tutorial/</guid>
-      <description>Kubernetes 教程 #  基础 #  collabnix/dockerlabs #  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
+      <description>Kubernetes 教程 #  基础 #  The Kubernetes Learning Resources List #  collabnix/dockerlabs #  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
 To get started with Kubernetes, follow the below steps:
 Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster
 kelseyhightower/kubernetes-the-hard-way #  Bootstrap Kubernetes the hard way on Google Cloud Platform. No scripts.
-feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.feisky.xyz
-play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.</description>
+feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.</description>
     </item>
     
     <item>

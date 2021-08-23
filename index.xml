@@ -29,10 +29,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/quick/</guid>
-      <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/undefined/instances/mirrors
+      <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &amp;ldquo;registry-mirrors&amp;rdquo; 的数组里，点击 Apply &amp;amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
 vi ~/.docker/deamon.json
-{ &amp;#34;experimental&amp;#34;: false, &amp;#34;debug&amp;#34;: true, &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;, &amp;#34;https://mirror.baidubce.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } </description>
+{ &amp;#34;experimental&amp;#34;: false, &amp;#34;debug&amp;#34;: true, &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;, &amp;#34;https://mirror.baidubce.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码  拉取 k8s.</description>
     </item>
     
     <item>

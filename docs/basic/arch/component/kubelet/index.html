@@ -16,7 +16,7 @@ $ kubectl describe node xxxx | grep -A 7 &#39;Capacity&#39; Capacity: cpu: 4 eph
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.271de94cdc710226573f652b21d4e45f93d4b6c63f767f9af114b87efb34c714.js" integrity="sha256-Jx3pTNxxAiZXP2UrIdTkX5PUtsY/dn&#43;a8RS4fvs0xxQ="></script>
+<script defer src="/study-kubernetes/en.search.min.9f3474552a7ded1e2655a8bdca0ea186769a2ce3a7ec41de226c005ae30652a8.js" integrity="sha256-nzR0VSp97R4mVai9yg6hhnaaLOOn7EHeImwAWuMGUqg="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/kubelet/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1635,7 +1635,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#kubelet-创建容器进程">Kubelet 创建容器进程</a>
       <ul>
         <li><a href="#docker">Docker</a></li>
-        <li><a href="#containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg"><a href="https://github.com/containerd/cri">containerd/cri</a> <img src="https://img.shields.io/github/stars/containerd/cri.svg" alt="Github stars"></a></li>
+        <li><a href="#containerd">containerd</a></li>
         <li><a href="#kubernetes-v120-弃用-docker-shim">Kubernetes v1.20 弃用 docker-shim</a></li>
       </ul>
     </li>
@@ -1693,10 +1693,11 @@ pods:               110
 <li><a href="https://aleiwu.com/post/cncf-runtime-landscape/">白话 Kubernetes Runtime</a></li>
 <li><a href="https://fankangbest.github.io/2017/11/24/containerd-containerd-shim%E5%92%8Crunc%E7%9A%84%E4%BE%9D%E5%AD%98%E5%85%B3%E7%B3%BB/">containerd, containerd-shim 和 runc 的依存关系</a></li>
 </ul>
-<a href="https://github.com/containerd/cri">containerd/cri</a> <h3 id="containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg">
-  <img src="https://img.shields.io/github/stars/containerd/cri.svg" alt="Github stars" />
-  <a class="anchor" href="#containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg">#</a>
+<h3 id="containerd">
+  containerd
+  <a class="anchor" href="#containerd">#</a>
 </h3>
+<p><a href="https://github.com/containerd/containerd">containerd/containerd</a> <img src="https://img.shields.io/github/stars/containerd/containerd.svg" alt="Github stars" /> <img src="https://img.shields.io/github/forks/containerd/containerd.svg" alt="Github forks" /> <img src="https://img.shields.io/github/languages/top/containerd/containerd.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/containerd/containerd.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/containerd/containerd.svg" alt="Last commit" /></p>
 <p><code>kubelet -&gt; cri plugin -&gt; containerd -&gt; containerd-shim -&gt; runc -&gt; container</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200806175210.png" alt="" /></p>
 <h3 id="kubernetes-v120-弃用-docker-shim">
@@ -1777,7 +1778,7 @@ pods:               110
     <li><a href="#kubelet-创建容器进程">Kubelet 创建容器进程</a>
       <ul>
         <li><a href="#docker">Docker</a></li>
-        <li><a href="#containerdcrihttpsgithubcomcontainerdcri-github-starshttpsimgshieldsiogithubstarscontainerdcrisvg"><a href="https://github.com/containerd/cri">containerd/cri</a> <img src="https://img.shields.io/github/stars/containerd/cri.svg" alt="Github stars"></a></li>
+        <li><a href="#containerd">containerd</a></li>
         <li><a href="#kubernetes-v120-弃用-docker-shim">Kubernetes v1.20 弃用 docker-shim</a></li>
       </ul>
     </li>

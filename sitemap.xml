@@ -20,6 +20,8 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/replicaset/</loc>
     <lastmod>2021-07-07T20:20:44+08:00</lastmod>
   </url><url>
+    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/distro/</loc>
+  </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/</loc>
     <lastmod>2021-08-18T14:29:54+08:00</lastmod>
   </url><url>
@@ -46,12 +48,6 @@
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/crd/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</loc>
-    <lastmod>2021-06-03T15:45:30+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</loc>
-    <lastmod>2021-06-03T15:45:30+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/design/</loc>
     <lastmod>2021-06-25T16:29:29+08:00</lastmod>
@@ -97,9 +93,6 @@
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</loc>
     <lastmod>2021-04-08T11:44:04+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</loc>
-    <lastmod>2021-06-03T15:45:30+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/debug/pod/</loc>
     <lastmod>2021-06-03T15:45:30+08:00</lastmod>

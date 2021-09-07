@@ -68,6 +68,16 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
     </item>
     
     <item>
+      <title>发行版</title>
+      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/distro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/distro/</guid>
+      <description>Kubernetes 发行版 #  Kubeadm #  kubernetes/kubeadm Kubeadm is a tool built to provide best-practice &amp;ldquo;fast paths&amp;rdquo; for creating Kubernetes clusters. It performs the actions necessary to get a minimum viable, secure cluster up and running in a user friendly way. Kubeadm&amp;rsquo;s scope is limited to the local node filesystem and the Kubernetes API, and it is intended to be a composable building block of higher level tools.
+ 用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.</description>
+    </item>
+    
+    <item>
       <title>配置</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -113,27 +123,6 @@ kubectl create configmap [NAME] [DATA]
       <guid>https://ikingye.github.io/study-kubernetes/docs/basic/concept/resource/crd/</guid>
       <description>CRD #  如何实现一个 CRD ？ #   关注 #  GoogleCloudPlatform/metacontroller #  Metacontroller is an add-on for Kubernetes that makes it easy to write and deploy custom controllers in the form of simple scripts.
 This is not an officially supported Google product. Although this open-source project was started by GKE, the add-on works the same in any Kubernetes cluster.</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/kubeadm/</guid>
-      <description>Kubeadm #  kubernetes/kubeadm Kubeadm is a tool built to provide best-practice &amp;ldquo;fast paths&amp;rdquo; for creating Kubernetes clusters. It performs the actions necessary to get a minimum viable, secure cluster up and running in a user friendly way. Kubeadm&amp;rsquo;s scope is limited to the local node filesystem and the Kubernetes API, and it is intended to be a composable building block of higher level tools.
-教程 #  Getting Started With Kubeadm #  from katacoda</description>
-    </item>
-    
-    <item>
-      <title>MicroK8s</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/microk8s/</guid>
-      <description>MicroK8s #  ubuntu/microk8s MicroK8s is a small, fast, single-package Kubernetes for developers, IoT and edge.
-https://microk8s.io
-Pros: #   Very easy to install, upgrade, remove Completely isolated from other tools in your machine Does not need a VM, all services run locally  Cons: #   Only available for Snap supported Linux Distributions Relatively new, possible unstable Minikube can also run directly on Linux (vmdriver=none), so MicroK8s value proposition is diminished   参考 #   Local Kubernetes for Linux – MiniKube vs MicroK8s  </description>
     </item>
     
     <item>
@@ -192,21 +181,6 @@ feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） http
       
       <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kubectl/</guid>
       <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  设置 #  设置 role #  # 添加 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=master kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 删除 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 重置 role kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role=&amp;lt;your_new_label&amp;gt; 获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.</description>
-    </item>
-    
-    <item>
-      <title>MiniKube</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/install/minikube/</guid>
-      <description>MiniKube #  kubernetes/minikube Run Kubernetes locally
-https://minikube.sigs.k8s.io
-安装 #  MacOS 1. Install kubectl  2. Install a Hypervisor  HyperKit VirtualBox VMware Fusion   3. Install Minikube Homebrew brew install minikube
-curl curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \ &amp;amp;&amp;amp; chmod +x minikube sudo mv minikube /usr/local/bin Linux Windows  参考：https://kubernetes.io/docs/tasks/tools/install-minikube/
-启动 #    minikube start --registry-mirror=https://registry.docker-cn.com --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
-  minikube start --cpus=2 --disk-size=&#39;10g&#39; --image-mirror-country=&#39;cn&#39; --image-repository=&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;
-  minikube start --image-mirror-country=&#39;cn&#39; --registry-mirror=https://registry.</description>
     </item>
     
     <item>

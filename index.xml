@@ -274,24 +274,6 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本：
     </item>
     
     <item>
-      <title>容器</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</guid>
-      <description>Docker 容器 #  </description>
-    </item>
-    
-    <item>
-      <title>仓库</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</guid>
-      <description>Docker 仓库 #  </description>
-    </item>
-    
-    <item>
       <title>4.2 面试题</title>
       <link>https://ikingye.github.io/study-kubernetes/docs/appendix/interview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -323,15 +305,6 @@ kustomize lets you customize raw, template-free YAML files for multiple purposes
 总结以上，在 k8s 环境下存在多套环境的应用，经常遇到以下几个问题：
  如何管理不同环境或不同团队的应用的 Kubernetes YAML 资源 如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量 如何简化维护应用的流程，不需要额外学习模板语法  Kustomize 通过以下几种方式解决了上述问题：
  kustomize 通过 Base &amp;amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置 kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用 kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法  </description>
-    </item>
-    
-    <item>
-      <title>数据卷</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/volume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/volume/</guid>
-      <description>Docker 数据卷 #  </description>
     </item>
     
     <item>
@@ -468,15 +441,6 @@ yeasy/docker_practice #  Learn and understand Docker technologies, with real Dev
 Docker 从入门到实践
 play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
 Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
-    </item>
-    
-    <item>
-      <title>build</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</guid>
-      <description>build #  </description>
     </item>
     
     <item>

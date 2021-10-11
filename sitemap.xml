@@ -122,12 +122,6 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/dockerfile/</loc>
     <lastmod>2021-07-28T13:00:34+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/container/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/repository/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/kata/</loc>
     <lastmod>2020-11-23T15:12:10+08:00</lastmod>
   </url><url>
@@ -154,9 +148,6 @@
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/tool/kustomize/</loc>
     <lastmod>2021-08-05T10:25:49+08:00</lastmod>
-  </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/volume/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/basic/arch/architecture/</loc>
     <lastmod>2020-07-14T20:20:48+08:00</lastmod>
@@ -257,16 +248,13 @@
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/tutorial/</loc>
     <lastmod>2021-04-05T22:55:02+08:00</lastmod>
   </url><url>
-    <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/build/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
-  </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/advanced/eco/docker/attention/</loc>
-    <lastmod>2020-09-22T14:18:24+08:00</lastmod>
+    <lastmod>2021-10-11T20:17:30+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/categories/</loc>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/docs/</loc>
-    <lastmod>2021-09-07T16:01:15+08:00</lastmod>
+    <lastmod>2021-10-11T20:17:30+08:00</lastmod>
   </url><url>
     <loc>https://ikingye.github.io/study-kubernetes/tags/</loc>
   </url><url>

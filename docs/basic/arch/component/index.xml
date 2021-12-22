@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>组件 on Kubernetes 学习笔记</title>
-    <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/</link>
+    <link>https://kingye.me/study-kubernetes/docs/basic/arch/component/</link>
     <description>Recent content in 组件 on Kubernetes 学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/component/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>api-server</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/api-server/</link>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/api-server/</guid>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</guid>
       <description>api-server 基础 #  </description>
     </item>
     
     <item>
       <title>Kube-proxy</title>
-      <link>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/kube-proxy/</link>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-kubernetes/docs/basic/arch/component/kube-proxy/</guid>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</guid>
       <description>Kube-proxy #  </description>
     </item>
     

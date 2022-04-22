@@ -15,7 +15,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.78cc22c81bb3d5fb2395f9a8dcff6e41da83ebcbe6f02dc5c0dad1317aae0249.js" integrity="sha256-eMwiyBuz1fsjlfmo3P9uQdqD68vm8C3FwNrRMXquAkk="></script>
+<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1634,7 +1634,7 @@ is forwarded to the upstream nameserver inherited from the node.</li>
   k8s 中域名是如何被解析的
   <a class="anchor" href="#k8s-%e4%b8%ad%e5%9f%9f%e5%90%8d%e6%98%af%e5%a6%82%e4%bd%95%e8%a2%ab%e8%a7%a3%e6%9e%90%e7%9a%84">#</a>
 </h2>
-<p>在 k8s 中，一个 Pod 如果要访问相同同 Namespace 下的 Service（比如 user-svc），那么只需要 <code>curl user-svc</code>。
+<p>在 k8s 中，一个 Pod 如果要访问相同 Namespace 下的 Service（比如 user-svc），那么只需要 <code>curl user-svc</code>。
 如果 Pod 和 Service 不在同一域名下，那么就需要在 Service Name 之后添加上 Service 所在的 Namespace（比如 beta），<code>curl user-svc.beta</code>。
 那么 k8s 是如何知道这些域名是内部域名并为他们做解析的呢？</p>
 <p>无论是在 宿主机 或者是在 k8s 集群中，DNS 解析会依赖这个三个文件</p>

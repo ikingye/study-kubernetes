@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="API 对象 #  NAME SHORTNAMES APIGROUP NAMESPACED KIND bindings true Binding componentstatuses cs false ComponentStatus configmaps cm true ConfigMap endpoints ep true Endpoints events ev true Event limitranges limits true LimitRange namespaces ns false Namespace nodes no false Node persistentvolumeclaims pvc true PersistentVolumeClaim persistentvolumes pv false PersistentVolume pods po true Pod podtemplates true PodTemplate replicationcontrollers rc true ReplicationController resourcequotas quota true ResourceQuota secrets true Secret serviceaccounts sa true ServiceAccount services svc true Service initializerconfigurations admissionregistration.">
@@ -15,7 +15,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1522,7 +1522,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1579,89 +1579,89 @@ https://github.com/alex-shpak/hugo-book
   API 对象
   <a class="anchor" href="#api-%e5%af%b9%e8%b1%a1">#</a>
 </h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
-bindings                                                                      true         Binding
-componentstatuses                 cs                                          false        ComponentStatus
-configmaps                        cm                                          true         ConfigMap
-endpoints                         ep                                          true         Endpoints
-events                            ev                                          true         Event
-limitranges                       limits                                      true         LimitRange
-namespaces                        ns                                          false        Namespace
-nodes                             no                                          false        Node
-persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
-persistentvolumes                 pv                                          false        PersistentVolume
-pods                              po                                          true         Pod
-podtemplates                                                                  true         PodTemplate
-replicationcontrollers            rc                                          true         ReplicationController
-resourcequotas                    quota                                       true         ResourceQuota
-secrets                                                                       true         Secret
-serviceaccounts                   sa                                          true         ServiceAccount
-services                          svc                                         true         Service
-initializerconfigurations                      admissionregistration.k8s.io   false        InitializerConfiguration
-mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration
-validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
-customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition
-apiservices                                    apiregistration.k8s.io         false        APIService
-controllerrevisions                            apps                           true         ControllerRevision
-daemonsets                        ds           apps                           true         DaemonSet
-deployments                       deploy       apps                           true         Deployment
-replicasets                       rs           apps                           true         ReplicaSet
-statefulsets                      sts          apps                           true         StatefulSet
-auditsinks                                     auditregistration.k8s.io       false        AuditSink
-tokenreviews                                   authentication.k8s.io          false        TokenReview
-localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview
-selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview
-selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview
-subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview
-horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler
-cronjobs                          cj           batch                          true         CronJob
-jobs                                           batch                          true         Job
-certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest
-adapters                                       config.istio.io                true         adapter
-attributemanifests                             config.istio.io                true         attributemanifest
-handlers                                       config.istio.io                true         handler
-httpapispecbindings                            config.istio.io                true         HTTPAPISpecBinding
-httpapispecs                                   config.istio.io                true         HTTPAPISpec
-instances                                      config.istio.io                true         instance
-quotaspecbindings                              config.istio.io                true         QuotaSpecBinding
-quotaspecs                                     config.istio.io                true         QuotaSpec
-rules                                          config.istio.io                true         rule
-templates                                      config.istio.io                true         template
-leases                                         coordination.k8s.io            true         Lease
-events                            ev           events.k8s.io                  true         Event
-daemonsets                        ds           extensions                     true         DaemonSet
-deployments                       deploy       extensions                     true         Deployment
-ingresses                         ing          extensions                     true         Ingress
-networkpolicies                   netpol       extensions                     true         NetworkPolicy
-podsecuritypolicies               psp          extensions                     false        PodSecurityPolicy
-replicasets                       rs           extensions                     true         ReplicaSet
-istiooperators                    iop          install.istio.io               true         IstioOperator
-destinationrules                  dr           networking.istio.io            true         DestinationRule
-envoyfilters                                   networking.istio.io            true         EnvoyFilter
-gateways                          gw           networking.istio.io            true         Gateway
-serviceentries                    se           networking.istio.io            true         ServiceEntry
-sidecars                                       networking.istio.io            true         Sidecar
-virtualservices                   vs           networking.istio.io            true         VirtualService
-workloadentries                   we           networking.istio.io            true         WorkloadEntry
-networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy
-poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget
-podsecuritypolicies               psp          policy                         false        PodSecurityPolicy
-clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding
-clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole
-rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding
-roles                                          rbac.authorization.k8s.io      true         Role
-clusterrbacconfigs                             rbac.istio.io                  false        ClusterRbacConfig
-rbacconfigs                                    rbac.istio.io                  true         RbacConfig
-servicerolebindings                            rbac.istio.io                  true         ServiceRoleBinding
-serviceroles                                   rbac.istio.io                  true         ServiceRole
-priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass
-authorizationpolicies                          security.istio.io              true         AuthorizationPolicy
-peerauthentications               pa           security.istio.io              true         PeerAuthentication
-requestauthentications            ra           security.istio.io              true         RequestAuthentication
-podpresets                                     settings.k8s.io                true         PodPreset
-storageclasses                    sc           storage.k8s.io                 false        StorageClass
-volumeattachments                              storage.k8s.io                 false        VolumeAttachment
-</code></pre></div><h2 id="声明式-api">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
+</span></span><span style="display:flex;"><span>bindings                                                                      true         Binding
+</span></span><span style="display:flex;"><span>componentstatuses                 cs                                          false        ComponentStatus
+</span></span><span style="display:flex;"><span>configmaps                        cm                                          true         ConfigMap
+</span></span><span style="display:flex;"><span>endpoints                         ep                                          true         Endpoints
+</span></span><span style="display:flex;"><span>events                            ev                                          true         Event
+</span></span><span style="display:flex;"><span>limitranges                       limits                                      true         LimitRange
+</span></span><span style="display:flex;"><span>namespaces                        ns                                          false        Namespace
+</span></span><span style="display:flex;"><span>nodes                             no                                          false        Node
+</span></span><span style="display:flex;"><span>persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
+</span></span><span style="display:flex;"><span>persistentvolumes                 pv                                          false        PersistentVolume
+</span></span><span style="display:flex;"><span>pods                              po                                          true         Pod
+</span></span><span style="display:flex;"><span>podtemplates                                                                  true         PodTemplate
+</span></span><span style="display:flex;"><span>replicationcontrollers            rc                                          true         ReplicationController
+</span></span><span style="display:flex;"><span>resourcequotas                    quota                                       true         ResourceQuota
+</span></span><span style="display:flex;"><span>secrets                                                                       true         Secret
+</span></span><span style="display:flex;"><span>serviceaccounts                   sa                                          true         ServiceAccount
+</span></span><span style="display:flex;"><span>services                          svc                                         true         Service
+</span></span><span style="display:flex;"><span>initializerconfigurations                      admissionregistration.k8s.io   false        InitializerConfiguration
+</span></span><span style="display:flex;"><span>mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration
+</span></span><span style="display:flex;"><span>validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
+</span></span><span style="display:flex;"><span>customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition
+</span></span><span style="display:flex;"><span>apiservices                                    apiregistration.k8s.io         false        APIService
+</span></span><span style="display:flex;"><span>controllerrevisions                            apps                           true         ControllerRevision
+</span></span><span style="display:flex;"><span>daemonsets                        ds           apps                           true         DaemonSet
+</span></span><span style="display:flex;"><span>deployments                       deploy       apps                           true         Deployment
+</span></span><span style="display:flex;"><span>replicasets                       rs           apps                           true         ReplicaSet
+</span></span><span style="display:flex;"><span>statefulsets                      sts          apps                           true         StatefulSet
+</span></span><span style="display:flex;"><span>auditsinks                                     auditregistration.k8s.io       false        AuditSink
+</span></span><span style="display:flex;"><span>tokenreviews                                   authentication.k8s.io          false        TokenReview
+</span></span><span style="display:flex;"><span>localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview
+</span></span><span style="display:flex;"><span>selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview
+</span></span><span style="display:flex;"><span>selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview
+</span></span><span style="display:flex;"><span>subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview
+</span></span><span style="display:flex;"><span>horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler
+</span></span><span style="display:flex;"><span>cronjobs                          cj           batch                          true         CronJob
+</span></span><span style="display:flex;"><span>jobs                                           batch                          true         Job
+</span></span><span style="display:flex;"><span>certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest
+</span></span><span style="display:flex;"><span>adapters                                       config.istio.io                true         adapter
+</span></span><span style="display:flex;"><span>attributemanifests                             config.istio.io                true         attributemanifest
+</span></span><span style="display:flex;"><span>handlers                                       config.istio.io                true         handler
+</span></span><span style="display:flex;"><span>httpapispecbindings                            config.istio.io                true         HTTPAPISpecBinding
+</span></span><span style="display:flex;"><span>httpapispecs                                   config.istio.io                true         HTTPAPISpec
+</span></span><span style="display:flex;"><span>instances                                      config.istio.io                true         instance
+</span></span><span style="display:flex;"><span>quotaspecbindings                              config.istio.io                true         QuotaSpecBinding
+</span></span><span style="display:flex;"><span>quotaspecs                                     config.istio.io                true         QuotaSpec
+</span></span><span style="display:flex;"><span>rules                                          config.istio.io                true         rule
+</span></span><span style="display:flex;"><span>templates                                      config.istio.io                true         template
+</span></span><span style="display:flex;"><span>leases                                         coordination.k8s.io            true         Lease
+</span></span><span style="display:flex;"><span>events                            ev           events.k8s.io                  true         Event
+</span></span><span style="display:flex;"><span>daemonsets                        ds           extensions                     true         DaemonSet
+</span></span><span style="display:flex;"><span>deployments                       deploy       extensions                     true         Deployment
+</span></span><span style="display:flex;"><span>ingresses                         ing          extensions                     true         Ingress
+</span></span><span style="display:flex;"><span>networkpolicies                   netpol       extensions                     true         NetworkPolicy
+</span></span><span style="display:flex;"><span>podsecuritypolicies               psp          extensions                     false        PodSecurityPolicy
+</span></span><span style="display:flex;"><span>replicasets                       rs           extensions                     true         ReplicaSet
+</span></span><span style="display:flex;"><span>istiooperators                    iop          install.istio.io               true         IstioOperator
+</span></span><span style="display:flex;"><span>destinationrules                  dr           networking.istio.io            true         DestinationRule
+</span></span><span style="display:flex;"><span>envoyfilters                                   networking.istio.io            true         EnvoyFilter
+</span></span><span style="display:flex;"><span>gateways                          gw           networking.istio.io            true         Gateway
+</span></span><span style="display:flex;"><span>serviceentries                    se           networking.istio.io            true         ServiceEntry
+</span></span><span style="display:flex;"><span>sidecars                                       networking.istio.io            true         Sidecar
+</span></span><span style="display:flex;"><span>virtualservices                   vs           networking.istio.io            true         VirtualService
+</span></span><span style="display:flex;"><span>workloadentries                   we           networking.istio.io            true         WorkloadEntry
+</span></span><span style="display:flex;"><span>networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy
+</span></span><span style="display:flex;"><span>poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget
+</span></span><span style="display:flex;"><span>podsecuritypolicies               psp          policy                         false        PodSecurityPolicy
+</span></span><span style="display:flex;"><span>clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding
+</span></span><span style="display:flex;"><span>clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole
+</span></span><span style="display:flex;"><span>rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding
+</span></span><span style="display:flex;"><span>roles                                          rbac.authorization.k8s.io      true         Role
+</span></span><span style="display:flex;"><span>clusterrbacconfigs                             rbac.istio.io                  false        ClusterRbacConfig
+</span></span><span style="display:flex;"><span>rbacconfigs                                    rbac.istio.io                  true         RbacConfig
+</span></span><span style="display:flex;"><span>servicerolebindings                            rbac.istio.io                  true         ServiceRoleBinding
+</span></span><span style="display:flex;"><span>serviceroles                                   rbac.istio.io                  true         ServiceRole
+</span></span><span style="display:flex;"><span>priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass
+</span></span><span style="display:flex;"><span>authorizationpolicies                          security.istio.io              true         AuthorizationPolicy
+</span></span><span style="display:flex;"><span>peerauthentications               pa           security.istio.io              true         PeerAuthentication
+</span></span><span style="display:flex;"><span>requestauthentications            ra           security.istio.io              true         RequestAuthentication
+</span></span><span style="display:flex;"><span>podpresets                                     settings.k8s.io                true         PodPreset
+</span></span><span style="display:flex;"><span>storageclasses                    sc           storage.k8s.io                 false        StorageClass
+</span></span><span style="display:flex;"><span>volumeattachments                              storage.k8s.io                 false        VolumeAttachment
+</span></span></code></pre></div><h2 id="声明式-api">
   声明式 API
   <a class="anchor" href="#%e5%a3%b0%e6%98%8e%e5%bc%8f-api">#</a>
 </h2>

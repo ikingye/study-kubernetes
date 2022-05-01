@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Docker 基础 #  docker 资源 #   docker container ls：默认只列出正在运行的容器，-a 选项会列出包括停止的所有容器。 docker image ls：列出镜像信息，-a 选项会列出 intermediate 镜像 (就是其它镜像依赖的层)。 docker volume ls：列出数据卷。 docker network ls：列出 network。 docker info：显示系统级别的信息，比如容器和镜像的数量等。  清理 docker 资源 #  删除那些已停止的容器、dangling 镜像、未被容器引用的 network 和构建过程中的 cache
-docker system prune # 默认不会删除那些未被任何容器引用的数据卷，需要使用 --volumes 进行删除 docker system prune --volumes # 直接删除，没有确认过程 docker system prune --all --force --volumes docker container prune # 删除所有退出状态的容器 docker volume prune # 删除未被使用的数据卷 docker image prune # 删除 dangling 或所有未被使用的镜像 docker container rm $(docker container ls -a -q) # 删除容器 docker image rm $(docker image ls -a -q) # 删除镜像 docker volume rm $(docker volume ls -q) # 删除数据卷 docker network rm $(docker network ls -q) # 删除 network # 列出所有容器 docker container ls -a -q # 停止所有容器 docker container stop $(docker container ls -a -q) # 删除所有资源 docker container stop $(docker container ls -a -q) &amp;&amp; docker system prune --all --force --volumns 参考：">
+docker system prune  # 默认不会删除那些未被任何容器引用的数据卷，需要使用 --volumes 进行删除 docker system prune --volumes  # 直接删除，没有确认过程 docker system prune --all --force --volumes  docker container prune # 删除所有退出状态的容器 docker volume prune # 删除未被使用的数据卷 docker image prune # 删除 dangling 或所有未被使用的镜像  docker container rm $(docker container ls -a -q) # 删除容器 docker image rm $(docker image ls -a -q) # 删除镜像 docker volume rm $(docker volume ls -q) # 删除数据卷 docker network rm $(docker network ls -q) # 删除 network  # 列出所有容器 docker container ls -a -q # 停止所有容器 docker container stop $(docker container ls -a -q) # 删除所有资源 docker container stop $(docker container ls -a -q) &amp;&amp; docker system prune --all --force --volumns 参考：">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@ docker system prune # 默认不会删除那些未被任何容器引用的数据�
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1523,7 +1523,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1592,30 +1592,30 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e6%b8%85%e7%90%86-docker-%e8%b5%84%e6%ba%90">#</a>
 </h3>
 <p>删除那些已停止的容器、dangling 镜像、未被容器引用的 network 和构建过程中的 cache</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker system prune
-
-<span style="color:#75715e"># 默认不会删除那些未被任何容器引用的数据卷，需要使用 --volumes 进行删除</span>
-docker system prune --volumes
-
-<span style="color:#75715e"># 直接删除，没有确认过程</span>
-docker system prune --all --force --volumes
-
-docker container prune <span style="color:#75715e"># 删除所有退出状态的容器</span>
-docker volume prune <span style="color:#75715e"># 删除未被使用的数据卷</span>
-docker image prune <span style="color:#75715e"># 删除 dangling 或所有未被使用的镜像</span>
-
-docker container rm <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除容器</span>
-docker image rm <span style="color:#66d9ef">$(</span>docker image ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除镜像</span>
-docker volume rm <span style="color:#66d9ef">$(</span>docker volume ls -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除数据卷</span>
-docker network rm <span style="color:#66d9ef">$(</span>docker network ls -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除 network</span>
-
-<span style="color:#75715e"># 列出所有容器</span>
-docker container ls -a -q
-<span style="color:#75715e"># 停止所有容器</span>
-docker container stop <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span>
-<span style="color:#75715e"># 删除所有资源</span>
-docker container stop <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#f92672">&amp;&amp;</span> docker system prune --all --force --volumns
-</code></pre></div><p>参考：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker system prune
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 默认不会删除那些未被任何容器引用的数据卷，需要使用 --volumes 进行删除</span>
+</span></span><span style="display:flex;"><span>docker system prune --volumes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 直接删除，没有确认过程</span>
+</span></span><span style="display:flex;"><span>docker system prune --all --force --volumes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker container prune <span style="color:#75715e"># 删除所有退出状态的容器</span>
+</span></span><span style="display:flex;"><span>docker volume prune <span style="color:#75715e"># 删除未被使用的数据卷</span>
+</span></span><span style="display:flex;"><span>docker image prune <span style="color:#75715e"># 删除 dangling 或所有未被使用的镜像</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker container rm <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除容器</span>
+</span></span><span style="display:flex;"><span>docker image rm <span style="color:#66d9ef">$(</span>docker image ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除镜像</span>
+</span></span><span style="display:flex;"><span>docker volume rm <span style="color:#66d9ef">$(</span>docker volume ls -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除数据卷</span>
+</span></span><span style="display:flex;"><span>docker network rm <span style="color:#66d9ef">$(</span>docker network ls -q<span style="color:#66d9ef">)</span> <span style="color:#75715e"># 删除 network</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 列出所有容器</span>
+</span></span><span style="display:flex;"><span>docker container ls -a -q
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 停止所有容器</span>
+</span></span><span style="display:flex;"><span>docker container stop <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除所有资源</span>
+</span></span><span style="display:flex;"><span>docker container stop <span style="color:#66d9ef">$(</span>docker container ls -a -q<span style="color:#66d9ef">)</span> <span style="color:#f92672">&amp;&amp;</span> docker system prune --all --force --volumns
+</span></span></code></pre></div><p>参考：</p>
 <ul>
 <li><a href="https://www.cnblogs.com/sparkdev/p/9177283.html">如何快速清理 docker 资源</a></li>
 </ul>
@@ -1627,20 +1627,20 @@ docker container stop <span style="color:#66d9ef">$(</span>docker container ls -
 <p><code>docker info</code> 检测是否生效</p>
 <p>MacOS</p>
 <p><code>vi ~/.docker/deamon.json</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;registry-mirrors&#34;</span>: [
-        <span style="color:#e6db74">&#34;https://pjuig8sx.mirror.aliyuncs.com&#34;</span>,
-        <span style="color:#e6db74">&#34;https://mirror.baidubce.com&#34;</span>,
-        <span style="color:#e6db74">&#34;https://hub-mirror.c.163.com&#34;</span>
-    ]
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
-https://hub-mirror.c.163.com/
-
-<span style="color:#75715e"># ustc 直接重定向到 163 了</span>
-<span style="color:#75715e"># http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker</span>
-https://docker.mirrors.ustc.edu.cn/
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;registry-mirrors&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://pjuig8sx.mirror.aliyuncs.com&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://mirror.baidubce.com&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://hub-mirror.c.163.com&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>https://hub-mirror.c.163.com/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ustc 直接重定向到 163 了</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker</span>
+</span></span><span style="display:flex;"><span>https://docker.mirrors.ustc.edu.cn/
+</span></span></code></pre></div></article>
  
       
 

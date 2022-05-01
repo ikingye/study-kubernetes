@@ -32,7 +32,7 @@
       <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &amp;ldquo;registry-mirrors&amp;rdquo; 的数组里，点击 Apply &amp;amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
 vi ~/.docker/deamon.json
-{ &amp;#34;experimental&amp;#34;: false, &amp;#34;debug&amp;#34;: true, &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;, &amp;#34;https://mirror.baidubce.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码  拉取 k8s.</description>
+{  &amp;#34;experimental&amp;#34;: false,  &amp;#34;debug&amp;#34;: true,  &amp;#34;registry-mirrors&amp;#34;: [  &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;,  &amp;#34;https://mirror.baidubce.com&amp;#34;,  &amp;#34;https://hub-mirror.c.163.com&amp;#34;  ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.</description>
     </item>
     
     <item>
@@ -101,7 +101,7 @@ ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在�
 kubectl create configmap [NAME] [DATA]
 [DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &amp;ndash;from-file 标志指示 键值对，每个键值对都使用 &amp;ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
 您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
-使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [&amp;#34;/bin/sh&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&amp;#34;] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never </description>
+使用 ConfigMap #  apiVersion: v1 kind: Pod metadata:  name: dapi-test-pod spec:  containers:  - name: test-container  image: k8s.</description>
     </item>
     
     <item>
@@ -180,7 +180,7 @@ feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） http
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</guid>
-      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  设置 #  设置 role #  # 添加 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=master kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 删除 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker # 重置 role kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role=&amp;lt;your_new_label&amp;gt; 获取 service ip, port #  kubectl get service/servicename -o jsonpath=&#39;{.</description>
+      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  设置 #  设置 role #  # 添加 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=master kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker  # 删除 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker  # 重置 role kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role=&amp;lt;your_new_label&amp;gt; 获取 service ip, port #  kubectl get service/servicename -o jsonpath=&amp;#39;{.</description>
     </item>
     
     <item>
@@ -245,7 +245,7 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid>
-      <description>Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
+      <description>Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash  # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash  # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
     </item>
     
     <item>
@@ -270,7 +270,7 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本
   将多个 RUN 指令合并为一个
   基础镜像的标签不要用 latest
  如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
-# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y nodejs \  # added lines &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)</description>
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y nodejs \  # added lines  &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)</description>
     </item>
     
     <item>
@@ -279,7 +279,7 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/appendix/interview/</guid>
-      <description>面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.</description>
+      <description>面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3.</description>
     </item>
     
     <item>
@@ -290,7 +290,7 @@ kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本
       <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</guid>
       <description>KubeDNS #  在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
 nameserver 10.99.0.2 # 这里存储的是 kube-dns 的 Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 #  DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
-docker inspect --format &amp;quot;{{.State.Pid}}&amp;quot; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy #  ClusterFirst（默认） #  优先使用 kubedns 或者 coredns 进行域名解析。 如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</description>
+docker inspect --format &amp;#34;{{.State.Pid}}&amp;#34; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy #  ClusterFirst（默认） #  优先使用 kubedns 或者 coredns 进行域名解析。 如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</description>
     </item>
     
     <item>
@@ -346,12 +346,12 @@ calico/kube-controllers #  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid>
-      <description>etcd Operator #  $ git clone https://github.com/coreos/etcd-operator # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment
+      <description>etcd Operator #  $ git clone https://github.com/coreos/etcd-operator  # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment
 而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来
 这个 CRD 名叫 etcdclusters.etcd.database.coreos.com
 实际上是在 Kubernetes 里添加了一个名叫 EtcdCluster 的自定义资源类型（CRD）。
 而 Etcd Operator 本身，就是这个 CRD 对应的自定义控制器。
-apiVersion: extensions/v1beta1 kind: Deployment metadata: name: etcd-operator spec: replicas: 1 template: metadata: labels: name: etcd-operator spec: containers: - name: etcd-operator image: quay.</description>
+apiVersion: extensions/v1beta1 kind: Deployment metadata:  name: etcd-operator spec:  replicas: 1  template:  metadata:  labels:  name: etcd-operator  spec:  containers:  - name: etcd-operator  image: quay.</description>
     </item>
     
     <item>

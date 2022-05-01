@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Operator #  Operator 的工作原理 #  利用了 Kubernetes 的自定义 API 资源（CRD），来描述我们想要部署的 “有状态应用”； 然后在自定义控制器里，根据自定义 API 对象的变化，来完成具体的部署和运维工作。
@@ -22,7 +22,7 @@ kudobuilder/kudo #  GoogleCloudPlatform/metacontroller #  Lightweight Kubernetes
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1529,7 +1529,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1612,26 +1612,26 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><a href="https://github.com/kubernetes-sigs/kubebuilder">kubernetes-sigs/kubebuilder</a> <img src="https://img.shields.io/github/stars/kubernetes-sigs/kubebuilder.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kubebuilder.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kubebuilder.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kubebuilder.svg" alt="Last commit" /></p>
 <p><a href="https://kubebuilder.io">https://kubebuilder.io</a></p>
-<a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/operator-framework/operator-sdk.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/operator-framework/operator-sdk.svg?sort=semver" alt="Last Tag" /> <h3 id="operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg-languagehttpsimgshieldsiogithublanguagestopoperator-frameworkoperator-sdksvg-last-taghttpsimgshieldsiogithubvtagoperator-frameworkoperator-sdksvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoperator-frameworkoperator-sdksvg">
-  <img src="https://img.shields.io/github/last-commit/operator-framework/operator-sdk.svg" alt="Last commit" />
+<h3 id="operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg-languagehttpsimgshieldsiogithublanguagestopoperator-frameworkoperator-sdksvg-last-taghttpsimgshieldsiogithubvtagoperator-frameworkoperator-sdksvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoperator-frameworkoperator-sdksvg">
+  <a href="https://github.com/operator-framework/operator-sdk">operator-framework/operator-sdk</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-sdk.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/operator-framework/operator-sdk.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/operator-framework/operator-sdk.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/operator-framework/operator-sdk.svg" alt="Last commit" />
   <a class="anchor" href="#operator-frameworkoperator-sdkhttpsgithubcomoperator-frameworkoperator-sdk-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-sdksvg-languagehttpsimgshieldsiogithublanguagestopoperator-frameworkoperator-sdksvg-last-taghttpsimgshieldsiogithubvtagoperator-frameworkoperator-sdksvgsortsemver-last-commithttpsimgshieldsiogithublast-commitoperator-frameworkoperator-sdksvg">#</a>
 </h3>
 <p>SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.</p>
 <p><a href="https://sdk.operatorframework.io">https://sdk.operatorframework.io</a></p>
-<a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <h3 id="kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">
-  <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars" />
+<h3 id="kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">
+  <a href="https://github.com/kudobuilder/kudo">kudobuilder/kudo</a> <img src="https://img.shields.io/github/stars/kudobuilder/kudo.svg" alt="Github stars" />
   <a class="anchor" href="#kudobuilderkudohttpsgithubcomkudobuilderkudo-github-starshttpsimgshieldsiogithubstarskudobuilderkudosvg">#</a>
 </h3>
-<a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <h3 id="googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg">
-  <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars" />
+<h3 id="googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg">
+  <a href="https://github.com/GoogleCloudPlatform/metacontroller">GoogleCloudPlatform/metacontroller</a> <img src="https://img.shields.io/github/stars/GoogleCloudPlatform/metacontroller.svg" alt="Github stars" />
   <a class="anchor" href="#googlecloudplatformmetacontrollerhttpsgithubcomgooglecloudplatformmetacontroller-github-starshttpsimgshieldsiogithubstarsgooglecloudplatformmetacontrollersvg">#</a>
 </h3>
 <p>Lightweight Kubernetes controllers as a service
 <a href="https://metacontroller.app/">https://metacontroller.app/</a></p>
 <p>可与 Webhook 结合使用，以实现自己的功能。</p>
 <hr>
-<a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <h3 id="operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg">
-  <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars" />
+<h3 id="operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg">
+  <a href="https://github.com/operator-framework/operator-lifecycle-manager">operator-framework/operator-lifecycle-manager</a> <img src="https://img.shields.io/github/stars/operator-framework/operator-lifecycle-manager.svg" alt="Github stars" />
   <a class="anchor" href="#operator-frameworkoperator-lifecycle-managerhttpsgithubcomoperator-frameworkoperator-lifecycle-manager-github-starshttpsimgshieldsiogithubstarsoperator-frameworkoperator-lifecycle-managersvg">#</a>
 </h3>
 <p>A management framework for extending Kubernetes with Operators</p>
@@ -1641,8 +1641,8 @@ https://github.com/alex-shpak/hugo-book
   Operator 示例
   <a class="anchor" href="#operator-%e7%a4%ba%e4%be%8b">#</a>
 </h2>
-<a href="https://github.com/coreos/etcd-operator">coreos/etcd-operator</a> <h3 id="coreosetcd-operatorhttpsgithubcomcoreosetcd-operator-github-starshttpsimgshieldsiogithubstarscoreosetcd-operatorsvg">
-  <img src="https://img.shields.io/github/stars/coreos/etcd-operator.svg" alt="Github stars" />
+<h3 id="coreosetcd-operatorhttpsgithubcomcoreosetcd-operator-github-starshttpsimgshieldsiogithubstarscoreosetcd-operatorsvg">
+  <a href="https://github.com/coreos/etcd-operator">coreos/etcd-operator</a> <img src="https://img.shields.io/github/stars/coreos/etcd-operator.svg" alt="Github stars" />
   <a class="anchor" href="#coreosetcd-operatorhttpsgithubcomcoreosetcd-operator-github-starshttpsimgshieldsiogithubstarscoreosetcd-operatorsvg">#</a>
 </h3>
 <h3 id="etcd-operator">
@@ -1650,57 +1650,57 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#etcd-operator">#</a>
 </h3>
 <p><a href="https://github.com/coreos/etcd-operator">coreos/etcd-operator</a> <img src="https://img.shields.io/github/stars/coreos/etcd-operator.svg" alt="Github stars" /></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git clone https://github.com/coreos/etcd-operator
-
-<span style="color:#75715e"># 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象</span>
-<span style="color:#75715e"># 为 Etcd Operator 创建 RBAC 规则</span>
-$ example/rbac/create_role.sh
-</code></pre></div><p>Etcd Operator 本身，其实就是一个 Deployment</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ git clone https://github.com/coreos/etcd-operator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为 Etcd Operator 创建 RBAC 规则</span>
+</span></span><span style="display:flex;"><span>$ example/rbac/create_role.sh
+</span></span></code></pre></div><p>Etcd Operator 本身，其实就是一个 Deployment</p>
 <p>而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来</p>
 <p>这个 CRD 名叫 <code>etcdclusters.etcd.database.coreos.com</code></p>
 <p>实际上是在 Kubernetes 里添加了一个名叫 <strong>EtcdCluster</strong> 的自定义资源类型（CRD）。</p>
 <p>而 Etcd Operator 本身，就是这个 CRD 对应的<strong>自定义控制器</strong>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">extensions/v1beta1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">template</span>:
-    <span style="color:#f92672">metadata</span>:
-      <span style="color:#f92672">labels</span>:
-        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#f92672">containers</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
-          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">quay.io/coreos/etcd-operator:v0.9.2</span>
-          <span style="color:#f92672">command</span>:
-            - <span style="color:#ae81ff">etcd-operator</span>
-          <span style="color:#f92672">env</span>:
-            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MY_POD_NAMESPACE</span>
-              <span style="color:#f92672">valueFrom</span>:
-                <span style="color:#f92672">fieldRef</span>:
-                  <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">metadata.namespace</span>
-            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MY_POD_NAME</span>
-              <span style="color:#f92672">valueFrom</span>:
-                <span style="color:#f92672">fieldRef</span>:
-                  <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">metadata.name</span>
-</code></pre></div><p>当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">extensions/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etcd-operator</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">quay.io/coreos/etcd-operator:v0.9.2</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">etcd-operator</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MY_POD_NAMESPACE</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">fieldRef</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">metadata.namespace</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MY_POD_NAME</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">fieldRef</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">metadata.name</span>
+</span></span></code></pre></div><p>当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。</p>
 <p>你只需要编写一个 EtcdCluster 的 YAML 文件，然后把它提交给 Kubernetes</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl apply -f example/example-etcd-cluster.yaml
-</code></pre></div><p><code>example-etcd-cluster.yaml</code> 定义的是 EtcdCluster 这个 CRD 的一个具体实例，
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl apply -f example/example-etcd-cluster.yaml
+</span></span></code></pre></div><p><code>example-etcd-cluster.yaml</code> 定义的是 EtcdCluster 这个 CRD 的一个具体实例，
 也就是一个 Custom Resource（CR）</p>
 <p>EtcdCluster 的 spec 字段非常简单。其中，size=3 指定了它所描述的 Etcd 集群的节点个数。
 而 version=“3.2.13”，则指定了 Etcd 的版本，仅此而已。</p>
 <p>而真正把这样一个 Etcd 集群创建出来的逻辑，就是 Etcd Operator 要实现的主要工作</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#e6db74">&#34;etcd.database.coreos.com/v1beta2&#34;</span>
-<span style="color:#f92672">kind</span>: <span style="color:#e6db74">&#34;EtcdCluster&#34;</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;example-etcd-cluster&#34;</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">size</span>: <span style="color:#ae81ff">3</span>
-  <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.2.13&#34;</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#e6db74">&#34;etcd.database.coreos.com/v1beta2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#e6db74">&#34;EtcdCluster&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;example-etcd-cluster&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">size</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.2.13&#34;</span>
+</span></span></code></pre></div><hr>
 <h3 id="zookeeper-operator">
   zookeeper operator
   <a class="anchor" href="#zookeeper-operator">#</a>

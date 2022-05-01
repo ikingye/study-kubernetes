@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Pod #  操作 #  删除被驱逐的 pod
@@ -27,7 +27,7 @@ Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行�
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1533,7 +1533,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1611,8 +1611,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e6%93%8d%e4%bd%9c">#</a>
 </h2>
 <p>删除被驱逐的 pod</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get pods | grep Evicted | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span> | xargs kubectl delete pod
-</code></pre></div><h2 id="infra-容器">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl get pods | grep Evicted | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span> | xargs kubectl delete pod
+</span></span></code></pre></div><h2 id="infra-容器">
   Infra 容器
   <a class="anchor" href="#infra-%e5%ae%b9%e5%99%a8">#</a>
 </h2>
@@ -1668,81 +1668,81 @@ https://github.com/alex-shpak/hugo-book
   PodStatus
   <a class="anchor" href="#podstatus">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PodStatus</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#75715e">// The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// The conditions array, the reason and message fields, and the individual container status
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// arrays contain more detail about the pod&#39;s status.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// There are five possible phase values:
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">//
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Pending: The pod has been accepted by the Kubernetes system, but one or more of the
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// container images has not been created. This includes time before being scheduled as
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// well as time spent downloading images over the network, which could take a while.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Running: The pod has been bound to a node, and all of the containers have been created.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// At least one container is still running, or is in the process of starting or restarting.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Succeeded: All containers in the pod have terminated in success, and will not be restarted.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Failed: All containers in the pod have terminated, and at least one container has
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// terminated in failure. The container either exited with non-zero status or was terminated
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// by the system.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Unknown: For some reason the state of the pod could not be obtained, typically due to an
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// error in communicating with the host of the pod.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">//
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Phase</span> <span style="color:#a6e22e">PodPhase</span> <span style="color:#e6db74">`json:&#34;phase,omitempty&#34; protobuf:&#34;bytes,1,opt,name=phase,casttype=PodPhase&#34;`</span>
-	<span style="color:#75715e">// Current service state of pod.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +patchMergeKey=type
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +patchStrategy=merge
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Conditions</span> []<span style="color:#a6e22e">PodCondition</span> <span style="color:#e6db74">`json:&#34;conditions,omitempty&#34; patchStrategy:&#34;merge&#34; patchMergeKey:&#34;type&#34; protobuf:&#34;bytes,2,rep,name=conditions&#34;`</span>
-	<span style="color:#75715e">// A human readable message indicating details about why the pod is in this condition.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Message</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;message,omitempty&#34; protobuf:&#34;bytes,3,opt,name=message&#34;`</span>
-	<span style="color:#75715e">// A brief CamelCase message indicating details about why the pod is in this state.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// e.g. &#39;Evicted&#39;
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Reason</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;reason,omitempty&#34; protobuf:&#34;bytes,4,opt,name=reason&#34;`</span>
-	<span style="color:#75715e">// nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// scheduled right away as preemption victims receive their graceful termination periods.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// This field does not guarantee that the pod will be scheduled on this node. Scheduler may decide
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// to place the pod elsewhere if other nodes become available sooner. Scheduler may also decide to
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// give the resources on this node to a higher priority pod that is created after preemption.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// As a result, this field may be different than PodSpec.nodeName when the pod is
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// scheduled.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">NominatedNodeName</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;nominatedNodeName,omitempty&#34; protobuf:&#34;bytes,11,opt,name=nominatedNodeName&#34;`</span>
-
-	<span style="color:#75715e">// IP address of the host to which the pod is assigned. Empty if not yet scheduled.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">HostIP</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;hostIP,omitempty&#34; protobuf:&#34;bytes,5,opt,name=hostIP&#34;`</span>
-	<span style="color:#75715e">// IP address allocated to the pod. Routable at least within the cluster.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Empty if not yet allocated.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">PodIP</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;podIP,omitempty&#34; protobuf:&#34;bytes,6,opt,name=podIP&#34;`</span>
-
-	<span style="color:#75715e">// RFC 3339 date and time at which the object was acknowledged by the Kubelet.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// This is before the Kubelet pulled the container image(s) for the pod.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">StartTime</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">metav1</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;startTime,omitempty&#34; protobuf:&#34;bytes,7,opt,name=startTime&#34;`</span>
-
-	<span style="color:#75715e">// The list has one entry per init container in the manifest. The most recent successful
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// init container will have ready = true, the most recently started container will have
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// startTime set.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">InitContainerStatuses</span> []<span style="color:#a6e22e">ContainerStatus</span> <span style="color:#e6db74">`json:&#34;initContainerStatuses,omitempty&#34; protobuf:&#34;bytes,10,rep,name=initContainerStatuses&#34;`</span>
-
-	<span style="color:#75715e">// The list has one entry per container in the manifest. Each entry is currently the output
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// of `docker inspect`.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ContainerStatuses</span> []<span style="color:#a6e22e">ContainerStatus</span> <span style="color:#e6db74">`json:&#34;containerStatuses,omitempty&#34; protobuf:&#34;bytes,8,rep,name=containerStatuses&#34;`</span>
-	<span style="color:#75715e">// The Quality of Service (QOS) classification assigned to the pod based on resource requirements
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// See PodQOSClass type for available QOS classes
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">QOSClass</span> <span style="color:#a6e22e">PodQOSClass</span> <span style="color:#e6db74">`json:&#34;qosClass,omitempty&#34; protobuf:&#34;bytes,9,rep,name=qosClass&#34;`</span>
-}
-</code></pre></div><h3 id="pod-phase运行阶段">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PodStatus</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// The conditions array, the reason and message fields, and the individual container status
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// arrays contain more detail about the pod&#39;s status.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// There are five possible phase values:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Pending: The pod has been accepted by the Kubernetes system, but one or more of the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// container images has not been created. This includes time before being scheduled as
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// well as time spent downloading images over the network, which could take a while.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Running: The pod has been bound to a node, and all of the containers have been created.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// At least one container is still running, or is in the process of starting or restarting.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Succeeded: All containers in the pod have terminated in success, and will not be restarted.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Failed: All containers in the pod have terminated, and at least one container has
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// terminated in failure. The container either exited with non-zero status or was terminated
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// by the system.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Unknown: For some reason the state of the pod could not be obtained, typically due to an
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// error in communicating with the host of the pod.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Phase</span> <span style="color:#a6e22e">PodPhase</span> <span style="color:#e6db74">`json:&#34;phase,omitempty&#34; protobuf:&#34;bytes,1,opt,name=phase,casttype=PodPhase&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Current service state of pod.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +patchMergeKey=type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +patchStrategy=merge
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Conditions</span> []<span style="color:#a6e22e">PodCondition</span> <span style="color:#e6db74">`json:&#34;conditions,omitempty&#34; patchStrategy:&#34;merge&#34; patchMergeKey:&#34;type&#34; protobuf:&#34;bytes,2,rep,name=conditions&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// A human readable message indicating details about why the pod is in this condition.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Message</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;message,omitempty&#34; protobuf:&#34;bytes,3,opt,name=message&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// A brief CamelCase message indicating details about why the pod is in this state.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// e.g. &#39;Evicted&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Reason</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;reason,omitempty&#34; protobuf:&#34;bytes,4,opt,name=reason&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// nominatedNodeName is set only when this pod preempts other pods on the node, but it cannot be
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// scheduled right away as preemption victims receive their graceful termination periods.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// This field does not guarantee that the pod will be scheduled on this node. Scheduler may decide
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// to place the pod elsewhere if other nodes become available sooner. Scheduler may also decide to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// give the resources on this node to a higher priority pod that is created after preemption.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// As a result, this field may be different than PodSpec.nodeName when the pod is
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// scheduled.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">NominatedNodeName</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;nominatedNodeName,omitempty&#34; protobuf:&#34;bytes,11,opt,name=nominatedNodeName&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// IP address of the host to which the pod is assigned. Empty if not yet scheduled.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">HostIP</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;hostIP,omitempty&#34; protobuf:&#34;bytes,5,opt,name=hostIP&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// IP address allocated to the pod. Routable at least within the cluster.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Empty if not yet allocated.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">PodIP</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;podIP,omitempty&#34; protobuf:&#34;bytes,6,opt,name=podIP&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// RFC 3339 date and time at which the object was acknowledged by the Kubelet.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// This is before the Kubelet pulled the container image(s) for the pod.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">StartTime</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">metav1</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;startTime,omitempty&#34; protobuf:&#34;bytes,7,opt,name=startTime&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The list has one entry per init container in the manifest. The most recent successful
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// init container will have ready = true, the most recently started container will have
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// startTime set.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">InitContainerStatuses</span> []<span style="color:#a6e22e">ContainerStatus</span> <span style="color:#e6db74">`json:&#34;initContainerStatuses,omitempty&#34; protobuf:&#34;bytes,10,rep,name=initContainerStatuses&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The list has one entry per container in the manifest. Each entry is currently the output
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// of `docker inspect`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ContainerStatuses</span> []<span style="color:#a6e22e">ContainerStatus</span> <span style="color:#e6db74">`json:&#34;containerStatuses,omitempty&#34; protobuf:&#34;bytes,8,rep,name=containerStatuses&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The Quality of Service (QOS) classification assigned to the pod based on resource requirements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// See PodQOSClass type for available QOS classes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// +optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">QOSClass</span> <span style="color:#a6e22e">PodQOSClass</span> <span style="color:#e6db74">`json:&#34;qosClass,omitempty&#34; protobuf:&#34;bytes,9,rep,name=qosClass&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="pod-phase运行阶段">
   Pod phase（运行阶段）
   <a class="anchor" href="#pod-phase%e8%bf%90%e8%a1%8c%e9%98%b6%e6%ae%b5">#</a>
 </h3>

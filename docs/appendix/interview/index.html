@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.">
+<meta name="description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="4.2 面试题" />
-<meta property="og:description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5." />
+<meta property="og:description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/appendix/interview/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1523,7 +1523,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1594,67 +1594,67 @@ https://github.com/alex-shpak/hugo-book
   头条面试题
   <a class="anchor" href="#%e5%a4%b4%e6%9d%a1%e9%9d%a2%e8%af%95%e9%a2%98">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义
-算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。
-人选反馈：面试官会抓住一个点一直追问，问的比较细。
-
-头条人选二（两周前面试 paas 平台开发工程师）
-一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树
-4.10 亿个数字排序 5.大型企业的上线流程
-二面
-连续子数组的最大和
-链表回文
-三面
-基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。
-
-头条人选三（面试基础架构部门容器岗位）
-
-1. 系统
-   （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络
-   TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法
-2. 数据库
-   MyISAM 和 InnoDB 的简单区别
-3. Docker/K8s
-   CGroup 如何做 cpu 的资源限制，哪几种限制方式
-   K8s 中的 request 和 limit 是如何实现的
-   K8s 中的 rc、rs、deployment 的区别，特点 5.算法
-   合并两个有序链表
-
-头条人选四（基础架构部门研发）
-docker pull 镜像原理
-registry 镜像存储原理
-k8s deployment 创建过程
-gpu 资源共享
-scheduler 工作原理
-docker 架构
-docker exec 过程
-goroutine 挂起
-实现阻塞队列
-项目
-linux 进程调度
-http 请求过程
-tcp 建立连接和断开连接
-goroutine 原理
-flannel 工作原理
-
-头条人选五（devops 偏容器的人选）
-服务器负载是怎么计算的
-如何查看服务执行卡住时服务器做了哪些事
-查看进程打开哪些文件，查看哪些进程打开文件多
-docker 网络模式有几种 分别是做什么
-浏览器输入域名到返回结果过程
-DNS 使用了什么协议，为什么要用这种协议
-tcp 协议如何保证传输安全
-timewait 状态的前后过程以及 timewait 过多时怎么处理 怎么优化
-K8S 是怎么调度的
-iptables 主要有哪些链和哪些表，分别是做什么用
-docker 会调用 iptables 的哪些链
-常驻空间和虚拟空间有什么区别
-网络加速或者网络优化是怎么来做的，服务端和客户端分别可以做哪些
-动态 CDN 和静态 CDN 的区别
-算法题：
-求两个文本文件的交集，并输出，比如 ABC 在 a.txt 有 <span style="color:#ae81ff">5</span> 行，在 b.txt 有 <span style="color:#ae81ff">3</span> 行 那么在结果文件中输出 <span style="color:#ae81ff">3</span> 行
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义
+</span></span><span style="display:flex;"><span>算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。
+</span></span><span style="display:flex;"><span>人选反馈：面试官会抓住一个点一直追问，问的比较细。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>头条人选二（两周前面试 paas 平台开发工程师）
+</span></span><span style="display:flex;"><span>一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树
+</span></span><span style="display:flex;"><span>4.10 亿个数字排序 5.大型企业的上线流程
+</span></span><span style="display:flex;"><span>二面
+</span></span><span style="display:flex;"><span>连续子数组的最大和
+</span></span><span style="display:flex;"><span>链表回文
+</span></span><span style="display:flex;"><span>三面
+</span></span><span style="display:flex;"><span>基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>头条人选三（面试基础架构部门容器岗位）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. 系统
+</span></span><span style="display:flex;"><span>   （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络
+</span></span><span style="display:flex;"><span>   TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法
+</span></span><span style="display:flex;"><span>2. 数据库
+</span></span><span style="display:flex;"><span>   MyISAM 和 InnoDB 的简单区别
+</span></span><span style="display:flex;"><span>3. Docker/K8s
+</span></span><span style="display:flex;"><span>   CGroup 如何做 cpu 的资源限制，哪几种限制方式
+</span></span><span style="display:flex;"><span>   K8s 中的 request 和 limit 是如何实现的
+</span></span><span style="display:flex;"><span>   K8s 中的 rc、rs、deployment 的区别，特点 5.算法
+</span></span><span style="display:flex;"><span>   合并两个有序链表
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>头条人选四（基础架构部门研发）
+</span></span><span style="display:flex;"><span>docker pull 镜像原理
+</span></span><span style="display:flex;"><span>registry 镜像存储原理
+</span></span><span style="display:flex;"><span>k8s deployment 创建过程
+</span></span><span style="display:flex;"><span>gpu 资源共享
+</span></span><span style="display:flex;"><span>scheduler 工作原理
+</span></span><span style="display:flex;"><span>docker 架构
+</span></span><span style="display:flex;"><span>docker exec 过程
+</span></span><span style="display:flex;"><span>goroutine 挂起
+</span></span><span style="display:flex;"><span>实现阻塞队列
+</span></span><span style="display:flex;"><span>项目
+</span></span><span style="display:flex;"><span>linux 进程调度
+</span></span><span style="display:flex;"><span>http 请求过程
+</span></span><span style="display:flex;"><span>tcp 建立连接和断开连接
+</span></span><span style="display:flex;"><span>goroutine 原理
+</span></span><span style="display:flex;"><span>flannel 工作原理
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>头条人选五（devops 偏容器的人选）
+</span></span><span style="display:flex;"><span>服务器负载是怎么计算的
+</span></span><span style="display:flex;"><span>如何查看服务执行卡住时服务器做了哪些事
+</span></span><span style="display:flex;"><span>查看进程打开哪些文件，查看哪些进程打开文件多
+</span></span><span style="display:flex;"><span>docker 网络模式有几种 分别是做什么
+</span></span><span style="display:flex;"><span>浏览器输入域名到返回结果过程
+</span></span><span style="display:flex;"><span>DNS 使用了什么协议，为什么要用这种协议
+</span></span><span style="display:flex;"><span>tcp 协议如何保证传输安全
+</span></span><span style="display:flex;"><span>timewait 状态的前后过程以及 timewait 过多时怎么处理 怎么优化
+</span></span><span style="display:flex;"><span>K8S 是怎么调度的
+</span></span><span style="display:flex;"><span>iptables 主要有哪些链和哪些表，分别是做什么用
+</span></span><span style="display:flex;"><span>docker 会调用 iptables 的哪些链
+</span></span><span style="display:flex;"><span>常驻空间和虚拟空间有什么区别
+</span></span><span style="display:flex;"><span>网络加速或者网络优化是怎么来做的，服务端和客户端分别可以做哪些
+</span></span><span style="display:flex;"><span>动态 CDN 和静态 CDN 的区别
+</span></span><span style="display:flex;"><span>算法题：
+</span></span><span style="display:flex;"><span>求两个文本文件的交集，并输出，比如 ABC 在 a.txt 有 <span style="color:#ae81ff">5</span> 行，在 b.txt 有 <span style="color:#ae81ff">3</span> 行 那么在结果文件中输出 <span style="color:#ae81ff">3</span> 行
+</span></span></code></pre></div></article>
  
       
 

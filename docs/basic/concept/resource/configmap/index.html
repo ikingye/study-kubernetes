@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ConfigMap 基础 #  ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
@@ -11,7 +11,7 @@ ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在�
 kubectl create configmap [NAME] [DATA]
 [DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &ndash;from-file 标志指示 键值对，每个键值对都使用 &ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
 您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
-使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [&#34;/bin/sh&#34;, &#34;-c&#34;, &#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never ">
+使用 ConfigMap #  apiVersion: v1 kind: Pod metadata:  name: dapi-test-pod spec:  containers:  - name: test-container  image: k8s.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="ConfigMap" />
 <meta property="og:description" content="ConfigMap 基础 #  ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
 ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。
@@ -19,7 +19,7 @@ ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在�
 kubectl create configmap [NAME] [DATA]
 [DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &ndash;from-file 标志指示 键值对，每个键值对都使用 &ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
 您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
-使用 ConfigMap #  apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: k8s.gcr.io/busybox command: [&#34;/bin/sh&#34;, &#34;-c&#34;, &#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;] env: - name: SPECIAL_LEVEL_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_LEVEL - name: SPECIAL_TYPE_KEY valueFrom: configMapKeyRef: name: special-config key: SPECIAL_TYPE restartPolicy: Never " />
+使用 ConfigMap #  apiVersion: v1 kind: Pod metadata:  name: dapi-test-pod spec:  containers:  - name: test-container  image: k8s." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/" /><meta property="article:section" content="docs" />
 
@@ -29,7 +29,7 @@ kubectl create configmap [NAME] [DATA]
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1535,7 +1535,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1602,29 +1602,29 @@ https://github.com/alex-shpak/hugo-book
   使用 ConfigMap
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8-configmap">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dapi-test-pod</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">containers</span>:
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-container</span>
-      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">k8s.gcr.io/busybox</span>
-      <span style="color:#f92672">command</span>:
-        [<span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;</span>]
-      <span style="color:#f92672">env</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SPECIAL_LEVEL_KEY</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">special-config</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SPECIAL_LEVEL</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SPECIAL_TYPE_KEY</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">special-config</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SPECIAL_TYPE</span>
-  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Never</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dapi-test-pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-container</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">k8s.gcr.io/busybox</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>        [<span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SPECIAL_LEVEL_KEY</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">special-config</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SPECIAL_LEVEL</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SPECIAL_TYPE_KEY</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">special-config</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SPECIAL_TYPE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Never</span>
+</span></span></code></pre></div></article>
  
       
 

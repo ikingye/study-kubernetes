@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kubernetes 发行版 #  Kubeadm #  kubernetes/kubeadm Kubeadm is a tool built to provide best-practice &ldquo;fast paths&rdquo; for creating Kubernetes clusters. It performs the actions necessary to get a minimum viable, secure cluster up and running in a user friendly way. Kubeadm&rsquo;s scope is limited to the local node filesystem and the Kubernetes API, and it is intended to be a composable building block of higher level tools.
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1525,7 +1525,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1636,20 +1636,35 @@ from katacoda</li>
 
 <div class="book-tabs"><input type="radio" class="toggle" name="tabs-install" id="tabs-install-0" checked="checked" />
   <label for="tabs-install-0">MacOS</label>
-  <div class="book-tabs-content markdown-inner"><h2 id="1-install-kubectlhttpskubernetesiodocstaskstoolsinstall-kubectlinstall-kubectl-on-macos">1. <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos">Install kubectl</a></h2>
+  <div class="book-tabs-content markdown-inner"><h2 id="1-install-kubectlhttpskubernetesiodocstaskstoolsinstall-kubectlinstall-kubectl-on-macos">
+  1. <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos">Install kubectl</a>
+  <a class="anchor" href="#1-install-kubectlhttpskubernetesiodocstaskstoolsinstall-kubectlinstall-kubectl-on-macos">#</a>
+</h2>
 <hr>
-<h2 id="2-install-a-hypervisor">2. Install a Hypervisor</h2>
+<h2 id="2-install-a-hypervisor">
+  2. Install a Hypervisor
+  <a class="anchor" href="#2-install-a-hypervisor">#</a>
+</h2>
 <ul>
 <li>HyperKit</li>
 <li>VirtualBox</li>
 <li>VMware Fusion</li>
 </ul>
 <hr>
-<h2 id="3-install-minikube">3. Install Minikube</h2>
-<h3 id="homebrew">Homebrew</h3>
+<h2 id="3-install-minikube">
+  3. Install Minikube
+  <a class="anchor" href="#3-install-minikube">#</a>
+</h2>
+<h3 id="homebrew">
+  Homebrew
+  <a class="anchor" href="#homebrew">#</a>
+</h3>
 <p><code>brew install minikube</code></p>
-<h3 id="curl">curl</h3>
-<pre><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+<h3 id="curl">
+  curl
+  <a class="anchor" href="#curl">#</a>
+</h3>
+<pre tabindex="0"><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
   &amp;&amp; chmod +x minikube
 
 sudo mv minikube /usr/local/bin

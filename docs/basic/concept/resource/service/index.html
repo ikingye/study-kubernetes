@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.">
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1523,7 +1523,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1624,10 +1624,10 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 没有 EXTERNAL-IP</span>
-NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>                                                                      AGE   SELECTOR
-istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP   13h   app<span style="color:#f92672">=</span>istio-ingressgateway,istio<span style="color:#f92672">=</span>ingressgateway
-</code></pre></div><h3 id="externalname">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 没有 EXTERNAL-IP</span>
+</span></span><span style="display:flex;"><span>NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>                                                                      AGE   SELECTOR
+</span></span><span style="display:flex;"><span>istio-ingressgateway        LoadBalancer   10.110.126.136   &lt;pending&gt;     15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP   13h   app<span style="color:#f92672">=</span>istio-ingressgateway,istio<span style="color:#f92672">=</span>ingressgateway
+</span></span></code></pre></div><h3 id="externalname">
   ExternalName
   <a class="anchor" href="#externalname">#</a>
 </h3>

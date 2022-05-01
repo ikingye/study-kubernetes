@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="HELM #  helm/helm  Helm is the best way to find, share, and use software built for Kubernetes.
@@ -19,7 +19,7 @@ Use Helm to:
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1526,7 +1526,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1625,100 +1625,100 @@ https://github.com/alex-shpak/hugo-book
   命令
   <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  completion  generate autocompletions script <span style="color:#66d9ef">for</span> the specified shell
-  create      create a new chart with the given name
-  dependency  manage a chart<span style="color:#960050;background-color:#1e0010">&#39;</span>s dependencies
-  env         helm client environment information
-  get         download extended information of a named release
-  help        Help about any command
-  history     fetch release history
-  install     install a chart
-  lint        examine a chart <span style="color:#66d9ef">for</span> possible issues
-  list        list releases
-  package     package a chart directory into a chart archive
-  plugin      install, list, or uninstall Helm plugins
-  pull        download a chart from a repository and <span style="color:#f92672">(</span>optionally<span style="color:#f92672">)</span> unpack it in local directory
-  repo        add, list, remove, update, and index chart repositories
-  rollback    roll back a release to a previous revision
-  search      search <span style="color:#66d9ef">for</span> a keyword in charts
-  show        show information of a chart
-  status      display the status of the named release
-  template    locally render templates
-  test        run tests <span style="color:#66d9ef">for</span> a release
-  uninstall   uninstall a release
-  upgrade     upgrade a release
-  verify      verify that a chart at the given path has been signed and is valid
-  version     print the client version information
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  completion  generate autocompletions script <span style="color:#66d9ef">for</span> the specified shell
+</span></span><span style="display:flex;"><span>  create      create a new chart with the given name
+</span></span><span style="display:flex;"><span>  dependency  manage a chart<span style="color:#960050;background-color:#1e0010">&#39;</span>s dependencies
+</span></span><span style="display:flex;"><span>  env         helm client environment information
+</span></span><span style="display:flex;"><span>  get         download extended information of a named release
+</span></span><span style="display:flex;"><span>  help        Help about any command
+</span></span><span style="display:flex;"><span>  history     fetch release history
+</span></span><span style="display:flex;"><span>  install     install a chart
+</span></span><span style="display:flex;"><span>  lint        examine a chart <span style="color:#66d9ef">for</span> possible issues
+</span></span><span style="display:flex;"><span>  list        list releases
+</span></span><span style="display:flex;"><span>  package     package a chart directory into a chart archive
+</span></span><span style="display:flex;"><span>  plugin      install, list, or uninstall Helm plugins
+</span></span><span style="display:flex;"><span>  pull        download a chart from a repository and <span style="color:#f92672">(</span>optionally<span style="color:#f92672">)</span> unpack it in local directory
+</span></span><span style="display:flex;"><span>  repo        add, list, remove, update, and index chart repositories
+</span></span><span style="display:flex;"><span>  rollback    roll back a release to a previous revision
+</span></span><span style="display:flex;"><span>  search      search <span style="color:#66d9ef">for</span> a keyword in charts
+</span></span><span style="display:flex;"><span>  show        show information of a chart
+</span></span><span style="display:flex;"><span>  status      display the status of the named release
+</span></span><span style="display:flex;"><span>  template    locally render templates
+</span></span><span style="display:flex;"><span>  test        run tests <span style="color:#66d9ef">for</span> a release
+</span></span><span style="display:flex;"><span>  uninstall   uninstall a release
+</span></span><span style="display:flex;"><span>  upgrade     upgrade a release
+</span></span><span style="display:flex;"><span>  verify      verify that a chart at the given path has been signed and is valid
+</span></span><span style="display:flex;"><span>  version     print the client version information
+</span></span></code></pre></div><hr>
 <h2 id="开源镜像">
   开源镜像
   <a class="anchor" href="#%e5%bc%80%e6%ba%90%e9%95%9c%e5%83%8f">#</a>
 </h2>
-<a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <h3 id="burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg">
-  <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars" />
+<h3 id="burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg">
+  <a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars" />
   <a class="anchor" href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 删除默认的源</span>
-helm repo remove stable
-helm repo remove incubator
-
-<span style="color:#75715e"># 增加新的国内镜像源</span>
-helm repo add stable http://mirror.azure.cn/kubernetes/charts/
-
-helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/
-
-helm repo list
-
-helm search repo mysql
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 删除默认的源</span>
+</span></span><span style="display:flex;"><span>helm repo remove stable
+</span></span><span style="display:flex;"><span>helm repo remove incubator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 增加新的国内镜像源</span>
+</span></span><span style="display:flex;"><span>helm repo add stable http://mirror.azure.cn/kubernetes/charts/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm repo list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm search repo mysql
+</span></span></code></pre></div><hr>
 <h2 id="todo">
   TODO
   <a class="anchor" href="#todo">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Initialize a Helm Chart Repository</span>
-$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-
-<span style="color:#75715e"># list the charts you can install</span>
-$ helm search repo stable
-
-<span style="color:#75715e"># Install an Example Chart</span>
-$ helm repo update
-$ helm install stable/mysql --generate-name
-NAME: mysql-1596179301
-LAST DEPLOYED: Fri Jul <span style="color:#ae81ff">31</span> 15:08:27 <span style="color:#ae81ff">2020</span>
-NAMESPACE: default
-STATUS: deployed
-REVISION: <span style="color:#ae81ff">1</span>
-NOTES:
-MySQL can be accessed via port <span style="color:#ae81ff">3306</span> on the following DNS name from within your cluster:
-mysql-1596179301.default.svc.cluster.local
-
-To get your root password run:
-
-    MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get secret --namespace default mysql-1596179301 -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.mysql-root-password}&#34;</span> | base64 --decode; echo<span style="color:#66d9ef">)</span>
-
-To connect to your database:
-
-1. Run an Ubuntu pod that you can use as a client:
-
-    kubectl run -i --tty ubuntu --image<span style="color:#f92672">=</span>ubuntu:16.04 --restart<span style="color:#f92672">=</span>Never -- bash -il
-
-2. Install the mysql client:
-
-    $ apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install mysql-client -y
-
-3. Connect using the mysql cli, <span style="color:#66d9ef">then</span> provide your password:
-    $ mysql -h mysql-1596179301 -p
-
-To connect to your database directly from outside the K8s cluster:
-    MYSQL_HOST<span style="color:#f92672">=</span>127.0.0.1
-    MYSQL_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
-
-    <span style="color:#75715e"># Execute the following command to route the connection:</span>
-    kubectl port-forward svc/mysql-1596179301 <span style="color:#ae81ff">3306</span>
-
-    mysql -h <span style="color:#e6db74">${</span>MYSQL_HOST<span style="color:#e6db74">}</span> -P<span style="color:#e6db74">${</span>MYSQL_PORT<span style="color:#e6db74">}</span> -u root -p<span style="color:#e6db74">${</span>MYSQL_ROOT_PASSWORD<span style="color:#e6db74">}</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Initialize a Helm Chart Repository</span>
+</span></span><span style="display:flex;"><span>$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list the charts you can install</span>
+</span></span><span style="display:flex;"><span>$ helm search repo stable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install an Example Chart</span>
+</span></span><span style="display:flex;"><span>$ helm repo update
+</span></span><span style="display:flex;"><span>$ helm install stable/mysql --generate-name
+</span></span><span style="display:flex;"><span>NAME: mysql-1596179301
+</span></span><span style="display:flex;"><span>LAST DEPLOYED: Fri Jul <span style="color:#ae81ff">31</span> 15:08:27 <span style="color:#ae81ff">2020</span>
+</span></span><span style="display:flex;"><span>NAMESPACE: default
+</span></span><span style="display:flex;"><span>STATUS: deployed
+</span></span><span style="display:flex;"><span>REVISION: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>NOTES:
+</span></span><span style="display:flex;"><span>MySQL can be accessed via port <span style="color:#ae81ff">3306</span> on the following DNS name from within your cluster:
+</span></span><span style="display:flex;"><span>mysql-1596179301.default.svc.cluster.local
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To get your root password run:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get secret --namespace default mysql-1596179301 -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.mysql-root-password}&#34;</span> | base64 --decode; echo<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To connect to your database:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. Run an Ubuntu pod that you can use as a client:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    kubectl run -i --tty ubuntu --image<span style="color:#f92672">=</span>ubuntu:16.04 --restart<span style="color:#f92672">=</span>Never -- bash -il
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2. Install the mysql client:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $ apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install mysql-client -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3. Connect using the mysql cli, <span style="color:#66d9ef">then</span> provide your password:
+</span></span><span style="display:flex;"><span>    $ mysql -h mysql-1596179301 -p
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To connect to your database directly from outside the K8s cluster:
+</span></span><span style="display:flex;"><span>    MYSQL_HOST<span style="color:#f92672">=</span>127.0.0.1
+</span></span><span style="display:flex;"><span>    MYSQL_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Execute the following command to route the connection:</span>
+</span></span><span style="display:flex;"><span>    kubectl port-forward svc/mysql-1596179301 <span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    mysql -h <span style="color:#e6db74">${</span>MYSQL_HOST<span style="color:#e6db74">}</span> -P<span style="color:#e6db74">${</span>MYSQL_PORT<span style="color:#e6db74">}</span> -u root -p<span style="color:#e6db74">${</span>MYSQL_ROOT_PASSWORD<span style="color:#e6db74">}</span>
+</span></span></code></pre></div></article>
  
       
 

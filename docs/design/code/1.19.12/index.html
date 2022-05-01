@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kubernetes 1.19.12 源码分析 #  https://github.com/kubernetes/kubernetes/tree/v1.19.12
  代码行数 #  152 万行
-XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: json, cbor, yaml $ tokei --sort code --exclude vendor --exclude test =============================================================================== Language Files Lines Code Comments Blanks =============================================================================== Go 8046 1954427 1522897 261453 170077 JSON 438 455020 455020 0 0 YAML 745 104781 103873 677 231 Shell 219 31646 20558 7221 3867 Protocol Buffers 78 25224 7269 13770 4185 PowerShell 5 3212 2261 702 249 Makefile 15 1394 684 524 186 Python 5 650 435 103 112 Autoconf 2 464 428 32 4 SVG 4 386 378 4 4 Dockerfile 14 396 119 213 64 C 2 104 60 32 12 BASH 4 14 2 8 4 Plain Text 18 271 0 225 46 ------------------------------------------------------------------------------- Markdown 197 13193 0 9544 3649 |- BASH 26 415 382 21 12 |- Go 3 24 15 5 4 |- JSON 2 118 118 0 0 |- Shell 2 198 152 13 33 |- YAML 24 2263 1823 417 23 (Total) 16211 2490 10000 3721 =============================================================================== Total 9792 2594200 2116474 294964 182762 =============================================================================== ">
+XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: json, cbor, yaml  $ tokei --sort code --exclude vendor --exclude test ===============================================================================  Language Files Lines Code Comments Blanks ===============================================================================  Go 8046 1954427 1522897 261453 170077  JSON 438 455020 455020 0 0  YAML 745 104781 103873 677 231  Shell 219 31646 20558 7221 3867  Protocol Buffers 78 25224 7269 13770 4185  PowerShell 5 3212 2261 702 249  Makefile 15 1394 684 524 186  Python 5 650 435 103 112  Autoconf 2 464 428 32 4  SVG 4 386 378 4 4  Dockerfile 14 396 119 213 64  C 2 104 60 32 12  BASH 4 14 2 8 4  Plain Text 18 271 0 225 46 -------------------------------------------------------------------------------  Markdown 197 13193 0 9544 3649  |- BASH 26 415 382 21 12  |- Go 3 24 15 5 4  |- JSON 2 118 118 0 0  |- Shell 2 198 152 13 33  |- YAML 24 2263 1823 417 23  (Total) 16211 2490 10000 3721 ===============================================================================  Total 9792 2594200 2116474 294964 182762 =============================================================================== ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.19.12" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -17,7 +17,7 @@ XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: js
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.0647a5958e7a8bae5eef5b3058d3f39d96110c136712b71390b97136620d3f51.js" integrity="sha256-BkellY56i65e71swWNPznZYRDBNnErcTkLlxNmINP1E="></script>
+<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/design/code/1.19.12/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1524,7 +1524,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1580,39 +1580,39 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>152 万行</p>
 <p><a href="https://github.com/XAMPPRocky/tokei">XAMPPRocky/tokei</a> <img src="https://img.shields.io/github/stars/XAMPPRocky/tokei.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/XAMPPRocky/tokei.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/XAMPPRocky/tokei.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/XAMPPRocky/tokei.svg" alt="Last commit" /></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ tokei -V
-tokei 12.0.4 compiled with serialization support: json, cbor, yaml
-
-$ tokei --sort code --exclude vendor --exclude test
-<span style="color:#f92672">===============================================================================</span>
- Language            Files        Lines         Code     Comments       Blanks
-<span style="color:#f92672">===============================================================================</span>
- Go                   <span style="color:#ae81ff">8046</span>      <span style="color:#ae81ff">1954427</span>      <span style="color:#ae81ff">1522897</span>       <span style="color:#ae81ff">261453</span>       <span style="color:#ae81ff">170077</span>
- JSON                  <span style="color:#ae81ff">438</span>       <span style="color:#ae81ff">455020</span>       <span style="color:#ae81ff">455020</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
- YAML                  <span style="color:#ae81ff">745</span>       <span style="color:#ae81ff">104781</span>       <span style="color:#ae81ff">103873</span>          <span style="color:#ae81ff">677</span>          <span style="color:#ae81ff">231</span>
- Shell                 <span style="color:#ae81ff">219</span>        <span style="color:#ae81ff">31646</span>        <span style="color:#ae81ff">20558</span>         <span style="color:#ae81ff">7221</span>         <span style="color:#ae81ff">3867</span>
- Protocol Buffers       <span style="color:#ae81ff">78</span>        <span style="color:#ae81ff">25224</span>         <span style="color:#ae81ff">7269</span>        <span style="color:#ae81ff">13770</span>         <span style="color:#ae81ff">4185</span>
- PowerShell              <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">3212</span>         <span style="color:#ae81ff">2261</span>          <span style="color:#ae81ff">702</span>          <span style="color:#ae81ff">249</span>
- Makefile               <span style="color:#ae81ff">15</span>         <span style="color:#ae81ff">1394</span>          <span style="color:#ae81ff">684</span>          <span style="color:#ae81ff">524</span>          <span style="color:#ae81ff">186</span>
- Python                  <span style="color:#ae81ff">5</span>          <span style="color:#ae81ff">650</span>          <span style="color:#ae81ff">435</span>          <span style="color:#ae81ff">103</span>          <span style="color:#ae81ff">112</span>
- Autoconf                <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">464</span>          <span style="color:#ae81ff">428</span>           <span style="color:#ae81ff">32</span>            <span style="color:#ae81ff">4</span>
- SVG                     <span style="color:#ae81ff">4</span>          <span style="color:#ae81ff">386</span>          <span style="color:#ae81ff">378</span>            <span style="color:#ae81ff">4</span>            <span style="color:#ae81ff">4</span>
- Dockerfile             <span style="color:#ae81ff">14</span>          <span style="color:#ae81ff">396</span>          <span style="color:#ae81ff">119</span>          <span style="color:#ae81ff">213</span>           <span style="color:#ae81ff">64</span>
- C                       <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">104</span>           <span style="color:#ae81ff">60</span>           <span style="color:#ae81ff">32</span>           <span style="color:#ae81ff">12</span>
- BASH                    <span style="color:#ae81ff">4</span>           <span style="color:#ae81ff">14</span>            <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">8</span>            <span style="color:#ae81ff">4</span>
- Plain Text             <span style="color:#ae81ff">18</span>          <span style="color:#ae81ff">271</span>            <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">225</span>           <span style="color:#ae81ff">46</span>
--------------------------------------------------------------------------------
- Markdown              <span style="color:#ae81ff">197</span>        <span style="color:#ae81ff">13193</span>            <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">9544</span>         <span style="color:#ae81ff">3649</span>
- |- BASH                <span style="color:#ae81ff">26</span>          <span style="color:#ae81ff">415</span>          <span style="color:#ae81ff">382</span>           <span style="color:#ae81ff">21</span>           <span style="color:#ae81ff">12</span>
- |- Go                   <span style="color:#ae81ff">3</span>           <span style="color:#ae81ff">24</span>           <span style="color:#ae81ff">15</span>            <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">4</span>
- |- JSON                 <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">118</span>          <span style="color:#ae81ff">118</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
- |- Shell                <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">198</span>          <span style="color:#ae81ff">152</span>           <span style="color:#ae81ff">13</span>           <span style="color:#ae81ff">33</span>
- |- YAML                <span style="color:#ae81ff">24</span>         <span style="color:#ae81ff">2263</span>         <span style="color:#ae81ff">1823</span>          <span style="color:#ae81ff">417</span>           <span style="color:#ae81ff">23</span>
- <span style="color:#f92672">(</span>Total<span style="color:#f92672">)</span>                          <span style="color:#ae81ff">16211</span>         <span style="color:#ae81ff">2490</span>        <span style="color:#ae81ff">10000</span>         3721
-<span style="color:#f92672">===============================================================================</span>
- Total                <span style="color:#ae81ff">9792</span>      <span style="color:#ae81ff">2594200</span>      <span style="color:#ae81ff">2116474</span>       <span style="color:#ae81ff">294964</span>       182762
-<span style="color:#f92672">===============================================================================</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ tokei -V
+</span></span><span style="display:flex;"><span>tokei 12.0.4 compiled with serialization support: json, cbor, yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ tokei --sort code --exclude vendor --exclude test
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Language            Files        Lines         Code     Comments       Blanks
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Go                   <span style="color:#ae81ff">8046</span>      <span style="color:#ae81ff">1954427</span>      <span style="color:#ae81ff">1522897</span>       <span style="color:#ae81ff">261453</span>       <span style="color:#ae81ff">170077</span>
+</span></span><span style="display:flex;"><span> JSON                  <span style="color:#ae81ff">438</span>       <span style="color:#ae81ff">455020</span>       <span style="color:#ae81ff">455020</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> YAML                  <span style="color:#ae81ff">745</span>       <span style="color:#ae81ff">104781</span>       <span style="color:#ae81ff">103873</span>          <span style="color:#ae81ff">677</span>          <span style="color:#ae81ff">231</span>
+</span></span><span style="display:flex;"><span> Shell                 <span style="color:#ae81ff">219</span>        <span style="color:#ae81ff">31646</span>        <span style="color:#ae81ff">20558</span>         <span style="color:#ae81ff">7221</span>         <span style="color:#ae81ff">3867</span>
+</span></span><span style="display:flex;"><span> Protocol Buffers       <span style="color:#ae81ff">78</span>        <span style="color:#ae81ff">25224</span>         <span style="color:#ae81ff">7269</span>        <span style="color:#ae81ff">13770</span>         <span style="color:#ae81ff">4185</span>
+</span></span><span style="display:flex;"><span> PowerShell              <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">3212</span>         <span style="color:#ae81ff">2261</span>          <span style="color:#ae81ff">702</span>          <span style="color:#ae81ff">249</span>
+</span></span><span style="display:flex;"><span> Makefile               <span style="color:#ae81ff">15</span>         <span style="color:#ae81ff">1394</span>          <span style="color:#ae81ff">684</span>          <span style="color:#ae81ff">524</span>          <span style="color:#ae81ff">186</span>
+</span></span><span style="display:flex;"><span> Python                  <span style="color:#ae81ff">5</span>          <span style="color:#ae81ff">650</span>          <span style="color:#ae81ff">435</span>          <span style="color:#ae81ff">103</span>          <span style="color:#ae81ff">112</span>
+</span></span><span style="display:flex;"><span> Autoconf                <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">464</span>          <span style="color:#ae81ff">428</span>           <span style="color:#ae81ff">32</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> SVG                     <span style="color:#ae81ff">4</span>          <span style="color:#ae81ff">386</span>          <span style="color:#ae81ff">378</span>            <span style="color:#ae81ff">4</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> Dockerfile             <span style="color:#ae81ff">14</span>          <span style="color:#ae81ff">396</span>          <span style="color:#ae81ff">119</span>          <span style="color:#ae81ff">213</span>           <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span> C                       <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">104</span>           <span style="color:#ae81ff">60</span>           <span style="color:#ae81ff">32</span>           <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span> BASH                    <span style="color:#ae81ff">4</span>           <span style="color:#ae81ff">14</span>            <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">8</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> Plain Text             <span style="color:#ae81ff">18</span>          <span style="color:#ae81ff">271</span>            <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">225</span>           <span style="color:#ae81ff">46</span>
+</span></span><span style="display:flex;"><span>-------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> Markdown              <span style="color:#ae81ff">197</span>        <span style="color:#ae81ff">13193</span>            <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">9544</span>         <span style="color:#ae81ff">3649</span>
+</span></span><span style="display:flex;"><span> |- BASH                <span style="color:#ae81ff">26</span>          <span style="color:#ae81ff">415</span>          <span style="color:#ae81ff">382</span>           <span style="color:#ae81ff">21</span>           <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span> |- Go                   <span style="color:#ae81ff">3</span>           <span style="color:#ae81ff">24</span>           <span style="color:#ae81ff">15</span>            <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> |- JSON                 <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">118</span>          <span style="color:#ae81ff">118</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> |- Shell                <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">198</span>          <span style="color:#ae81ff">152</span>           <span style="color:#ae81ff">13</span>           <span style="color:#ae81ff">33</span>
+</span></span><span style="display:flex;"><span> |- YAML                <span style="color:#ae81ff">24</span>         <span style="color:#ae81ff">2263</span>         <span style="color:#ae81ff">1823</span>          <span style="color:#ae81ff">417</span>           <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">(</span>Total<span style="color:#f92672">)</span>                          <span style="color:#ae81ff">16211</span>         <span style="color:#ae81ff">2490</span>        <span style="color:#ae81ff">10000</span>         3721
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Total                <span style="color:#ae81ff">9792</span>      <span style="color:#ae81ff">2594200</span>      <span style="color:#ae81ff">2116474</span>       <span style="color:#ae81ff">294964</span>       182762
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span></code></pre></div></article>
  
       
 

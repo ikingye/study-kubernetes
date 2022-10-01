@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.98.0" />
+  <meta name="generator" content="Hugo 0.104.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HELM #  helm/helm  Helm is the best way to find, share, and use software built for Kubernetes.
- 官网：https://helm.sh
+<meta name="description" content="HELM # helm/helm Helm is the best way to find, share, and use software built for Kubernetes.
+官网：https://helm.sh
 Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
 Use Helm to:
- Find and use popular software packaged as Helm Charts to run in Kubernetes Share your own applications as Helm Charts Create reproducible builds of your Kubernetes applications Intelligently manage your Kubernetes manifest files Manage releases of Helm packages   基本概念 #   Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，  Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合 类似  Homebrew 中的 formula apt 的 dpkg yum/dnf 的 rpm     Repository：用于发布和存储 Chart 的存储库。 Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。 Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。  HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.">
+Find and use popular software packaged as Helm Charts to run in Kubernetes Share your own applications as Helm Charts Create reproducible builds of your Kubernetes applications Intelligently manage your Kubernetes manifest files Manage releases of Helm packages 基本概念 # Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义， Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合 类似 Homebrew 中的 formula apt 的 dpkg yum/dnf 的 rpm Repository：用于发布和存储 Chart 的存储库。 Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。 Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。 HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Helm" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -19,7 +19,7 @@ Use Helm to:
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
+<script defer src="/study-kubernetes/en.search.min.0e5e082ba26d80a3107bd5a4bf341e7d7b8906539416e929e3d53c22a28f0edc.js" integrity="sha256-Dl4IK6JtgKMQe9WkvzQefXuJBlOUFukp49U8IqKPDtw="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme

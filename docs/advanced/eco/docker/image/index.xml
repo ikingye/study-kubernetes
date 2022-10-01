@@ -11,7 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/</guid>
-      <description>alpine #  安装 telnet #  apk add busybox-extras</description>
+      <description>alpine # 安装 telnet # apk add busybox-extras</description>
     </item>
     
   </channel>

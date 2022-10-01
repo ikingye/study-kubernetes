@@ -11,10 +11,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</guid>
-      <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+      <description>Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 镜像加速 # 阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &amp;ldquo;registry-mirrors&amp;rdquo; 的数组里，点击 Apply &amp;amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
 vi ~/.docker/deamon.json
-{  &amp;#34;experimental&amp;#34;: false,  &amp;#34;debug&amp;#34;: true,  &amp;#34;registry-mirrors&amp;#34;: [  &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;,  &amp;#34;https://mirror.baidubce.com&amp;#34;,  &amp;#34;https://hub-mirror.c.163.com&amp;#34;  ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.</description>
+{ &amp;#34;experimental&amp;#34;: false, &amp;#34;debug&amp;#34;: true, &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;, &amp;#34;https://mirror.baidubce.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：
+docker pull registry.</description>
     </item>
     
     <item>
@@ -23,7 +24,7 @@ vi ~/.docker/deamon.json
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</guid>
-      <description>Docker 命令 #  docker ps #  docker ps vs docker container ls #  Management Commands vs Commands
+      <description>Docker 命令 # docker ps # docker ps vs docker container ls # Management Commands vs Commands
 Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.
 For example docker container ls is the new way to do docker ps.
 Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run docker image ls, docker network ls or docker volume ls.</description>
@@ -35,8 +36,8 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</guid>
-      <description>Docker 版本 #  查看版本 #  docker -v docker --version #查看版本 docker-compose --version #查看版本 docker-machine --version #查看版本 docker version #查看client和server端版本，并可以查看是否开启体验功能  历史版本 #  最新版本
-19.03 (2019-07-22) #  19.03.12 (2020-06-18) #   18.09 (2018-11-08) #  Docker 合并版本号 #  New in 18.09 is an aligned release model for Docker Engine - Community and Docker Engine - Enterprise. The new versioning scheme is YY.MM.x where x is an incrementing patch version.</description>
+      <description>Docker 版本 # 查看版本 # docker -v docker --version #查看版本 docker-compose --version #查看版本 docker-machine --version #查看版本 docker version #查看client和server端版本，并可以查看是否开启体验功能 历史版本 # 最新版本
+19.03 (2019-07-22) # 19.03.12 (2020-06-18) # 18.09 (2018-11-08) # Docker 合并版本号 # New in 18.09 is an aligned release model for Docker Engine - Community and Docker Engine - Enterprise. The new versioning scheme is YY.MM.x where x is an incrementing patch version. The enterprise engine is a superset of the community engine.</description>
     </item>
     
     <item>
@@ -45,7 +46,7 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid>
-      <description>Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash  # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash  # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
+      <description>Docker 端口 # 端口映射 # -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器 可以有多个 -p 端口映射格式 # # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 # # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
     </item>
     
     <item>
@@ -54,7 +55,7 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</guid>
-      <description>containerd #  </description>
+      <description> containerd # </description>
     </item>
     
     <item>
@@ -63,14 +64,16 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
-      <description>dockerfile #  目标:
- 更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单  做法：
-  编写 .dockerignore 文件
-  容器只运行单个应用
-  将多个 RUN 指令合并为一个
-  基础镜像的标签不要用 latest
- 如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
-# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y nodejs \  # added lines  &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)</description>
+      <description>dockerfile # 目标:
+更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单 做法：
+编写 .dockerignore 文件
+容器只运行单个应用
+将多个 RUN 指令合并为一个
+基础镜像的标签不要用 latest
+如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签 每个 RUN 指令后删除多余文件
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \ &amp;amp;&amp;amp; apt-get install -y nodejs \ # added lines &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* 选择合适的基础镜像 (alpine 版本最好)
+alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像 设置 WORKDIR 和 CMD
+FROM node:7-alpine # WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。 WORKDIR /app COPY .</description>
     </item>
     
     <item>
@@ -79,10 +82,10 @@ Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid>
-      <description>Docker 教程 #  p8952/bocker #  Docker implemented in around 100 lines of bash
-yeasy/docker_practice #  Learn and understand Docker technologies, with real DevOps practice!
+      <description>Docker 教程 # p8952/bocker # Docker implemented in around 100 lines of bash
+yeasy/docker_practice # Learn and understand Docker technologies, with real DevOps practice!
 Docker 从入门到实践
-play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+play-with-docker/play-with-docker # Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
 Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
     </item>
     
@@ -92,9 +95,9 @@ Under the hood DIND or Docker-in-Docker is used to give the effect of multiple V
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</guid>
-      <description>关注 #  moby/moby #  Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
-docker/docker-ce #  Docker CE https://www.docker.com/community-edition
-play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+      <description>关注 # moby/moby # Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
+docker/docker-ce # Docker CE https://www.docker.com/community-edition
+play-with-docker/play-with-docker # Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
 Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
     </item>
     

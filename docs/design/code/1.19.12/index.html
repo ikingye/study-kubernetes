@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.98.0" />
+  <meta name="generator" content="Hugo 0.104.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 1.19.12 源码分析 #  https://github.com/kubernetes/kubernetes/tree/v1.19.12
- 代码行数 #  152 万行
-XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: json, cbor, yaml  $ tokei --sort code --exclude vendor --exclude test ===============================================================================  Language Files Lines Code Comments Blanks ===============================================================================  Go 8046 1954427 1522897 261453 170077  JSON 438 455020 455020 0 0  YAML 745 104781 103873 677 231  Shell 219 31646 20558 7221 3867  Protocol Buffers 78 25224 7269 13770 4185  PowerShell 5 3212 2261 702 249  Makefile 15 1394 684 524 186  Python 5 650 435 103 112  Autoconf 2 464 428 32 4  SVG 4 386 378 4 4  Dockerfile 14 396 119 213 64  C 2 104 60 32 12  BASH 4 14 2 8 4  Plain Text 18 271 0 225 46 -------------------------------------------------------------------------------  Markdown 197 13193 0 9544 3649  |- BASH 26 415 382 21 12  |- Go 3 24 15 5 4  |- JSON 2 118 118 0 0  |- Shell 2 198 152 13 33  |- YAML 24 2263 1823 417 23  (Total) 16211 2490 10000 3721 ===============================================================================  Total 9792 2594200 2116474 294964 182762 =============================================================================== ">
+<meta name="description" content=" Kubernetes 1.19.12 源码分析 # https://github.com/kubernetes/kubernetes/tree/v1.19.12
+代码行数 # 152 万行
+XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: json, cbor, yaml $ tokei --sort code --exclude vendor --exclude test =============================================================================== Language Files Lines Code Comments Blanks =============================================================================== Go 8046 1954427 1522897 261453 170077 JSON 438 455020 455020 0 0 YAML 745 104781 103873 677 231 Shell 219 31646 20558 7221 3867 Protocol Buffers 78 25224 7269 13770 4185 PowerShell 5 3212 2261 702 249 Makefile 15 1394 684 524 186 Python 5 650 435 103 112 Autoconf 2 464 428 32 4 SVG 4 386 378 4 4 Dockerfile 14 396 119 213 64 C 2 104 60 32 12 BASH 4 14 2 8 4 Plain Text 18 271 0 225 46 ------------------------------------------------------------------------------- Markdown 197 13193 0 9544 3649 |- BASH 26 415 382 21 12 |- Go 3 24 15 5 4 |- JSON 2 118 118 0 0 |- Shell 2 198 152 13 33 |- YAML 24 2263 1823 417 23 (Total) 16211 2490 10000 3721 =============================================================================== Total 9792 2594200 2116474 294964 182762 =============================================================================== ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.19.12" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -17,7 +17,7 @@ XAMPPRocky/tokei $ tokei -V tokei 12.0.4 compiled with serialization support: js
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.7caff0ecee1d77e6aa57b416b501d87bbcc8056f4bb1cf992870c7c81b3f9419.js" integrity="sha256-fK/w7O4dd&#43;aqV7QWtQHYe7zIBW9Lsc&#43;ZKHDHyBs/lBk="></script>
+<script defer src="/study-kubernetes/en.search.min.0e5e082ba26d80a3107bd5a4bf341e7d7b8906539416e929e3d53c22a28f0edc.js" integrity="sha256-Dl4IK6JtgKMQe9WkvzQefXuJBlOUFukp49U8IqKPDtw="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/design/code/1.19.12/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme

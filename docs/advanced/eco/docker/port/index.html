@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash  # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash  # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="端口" />
+<meta property="og:description" content="Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash  # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash  # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-09-22T14:18:24+08:00" />
+
+<title>端口 | Kubernetes 学习笔记</title>
+<link rel="manifest" href="/study-kubernetes/manifest.json">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-kubernetes/en.search.min.12c81362526b6dd10ddf3e2d125206d80b9390be99fc0e69211d9bd10427203e.js" integrity="sha256-EsgTYlJrbdEN3z4tElIG2AuTkL6Z/A5pIR2b0QQnID4="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+  <li><a href="https://kingye.me" target="_blank" rel="noopener noreferrer">博客</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png" target="_blank" rel="noopener noreferrer">公众号</a></li>
+  <li><a href="https://github.com/ikingye" target="_blank" rel="noopener noreferrer">Github</a></li>
+  <li><a href="https://weibo.com/kingyip15215" target="_blank" rel="noopener noreferrer">微博</a></li>
+  <li><a href="https://www.zhihu.com/people/wutongyip" target="_blank" rel="noopener noreferrer">知乎</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-909df55e38d833be79a983c659f46da6" class="toggle"  />
+    <label for="section-909df55e38d833be79a983c659f46da6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/" class="">安装</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-828451a034a8387f41aec3f98657da3c" class="toggle"  />
+    <label for="section-828451a034a8387f41aec3f98657da3c" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/distro/" class="">发行版</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="toggle"  />
+    <label for="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/config/" class="">配置</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8905e468fa6fdb27eb027614843cab" class="toggle"  />
+    <label for="section-0f8905e468fa6fdb27eb027614843cab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/quick/" class="">1.1 快速上手</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a5f375c158f7e21fbabd12ed741d299a" class="toggle"  />
+    <label for="section-a5f375c158f7e21fbabd12ed741d299a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/concept/" class="">1.2 概念</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/volume/" class="">Volume</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5466eea417e2dff49ab8c9a055e52849" class="toggle"  />
+    <label for="section-5466eea417e2dff49ab8c9a055e52849" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/" class="">1.3 架构</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/" class="">K8s 网络</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/port/" class="">K8s 端口</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/" class="">K8s DNS</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/" class="">CoreDNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/" class="">KubeDNS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f11fb52809e2e30eda16bac8a874697" class="toggle"  />
+    <label for="section-9f11fb52809e2e30eda16bac8a874697" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/" class="">故障排查</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-712ea80b132ab855e1805b166f6ff2b4" class="toggle"  />
+    <label for="section-712ea80b132ab855e1805b166f6ff2b4" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/architecture/" class="">架构</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/" class="">组件</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/" class="">api-server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/schedule/" class="">Schedule</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/controller-manager/" class="">Controller Manager</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/" class="">Kube-proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kubelet/" class="">Kubelet</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35546ce3f1a0bc0184ae9ff86acbf112" class="toggle"  />
+    <label for="section-35546ce3f1a0bc0184ae9ff86acbf112" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/" class="">1.4 其他</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2a1618fa4fc6a507389a078649523e6b" class="toggle"  />
+    <label for="section-2a1618fa4fc6a507389a078649523e6b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/other/distro/" class="">发行版</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a784c11a68fca5d10a4ba33481b6822d" class="toggle"  />
+    <label for="section-a784c11a68fca5d10a4ba33481b6822d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/" class="">Helm</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aa7183a59707f437266456cf946593a3" class="toggle"  />
+    <label for="section-aa7183a59707f437266456cf946593a3" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/" class="">client-go</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-560deb3262270657ff5a4d58757ce7ee" class="toggle"  />
+    <label for="section-560deb3262270657ff5a4d58757ce7ee" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/" class="">2.3 功能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/" class="">Operator</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/" class="">kubebuilder</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/" class="">etcd Operator</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="toggle"  />
+    <label for="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/hpa/" class="">Horizontal Pod Autoscaler</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-dc02d1c0c17e76773699c48b8436e0a6" class="toggle"  />
+    <label for="section-dc02d1c0c17e76773699c48b8436e0a6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/" class="">2.5 故障排查</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8e430d7be8b50287692911bee152a82b" class="toggle"  />
+    <label for="section-8e430d7be8b50287692911bee152a82b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/pod/" class="">pod 排错</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-44663a755dbc8f64101cf03e4f3aad6a" class="toggle"  />
+    <label for="section-44663a755dbc8f64101cf03e4f3aad6a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/prof/" class="">2.6 性能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2c82aea70046bb9b10132609e0053168" class="toggle"  />
+    <label for="section-2c82aea70046bb9b10132609e0053168" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/test/test/" class="">2.7 测试</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5984e55a477d080e1223d921138569d1" class="toggle" checked />
+    <label for="section-5984e55a477d080e1223d921138569d1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/" class="">2.8 生态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2e744a6c9eac83267e9d4d144893cfe2" class="toggle" checked />
+    <label for="section-2e744a6c9eac83267e9d4d144893cfe2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/" class="">Docker</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6cb574ab5cee54b510bad90cde9cbeac" class="toggle"  />
+    <label for="section-6cb574ab5cee54b510bad90cde9cbeac" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/" class="">Docker 快速上手</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-371f67f9589634fd0d550c204140eada" class="toggle"  />
+    <label for="section-371f67f9589634fd0d550c204140eada" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/" class="">命令</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0baba43efdaf344d30a6ed0ac119a10" class="toggle"  />
+    <label for="section-d0baba43efdaf344d30a6ed0ac119a10" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="toggle" checked />
+    <label for="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/" class="active">端口</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b2c48accaefe10a7fd81924cb4c6107" class="toggle"  />
+    <label for="section-9b2c48accaefe10a7fd81924cb4c6107" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/" class="">镜像</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/" class="">alpine</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/" class="">containerd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="">dockerfile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed796c7947ac322a7070e77c0c4fe787" class="toggle"  />
+    <label for="section-ed796c7947ac322a7070e77c0c4fe787" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/network/" class="">Docker 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ec1733c8b5f656492da01afff1d6b73" class="toggle"  />
+    <label for="section-5ec1733c8b5f656492da01afff1d6b73" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/" class="">教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/" class="">关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4c421087fdbd9fcf3673a2022e95228f" class="toggle"  />
+    <label for="section-4c421087fdbd9fcf3673a2022e95228f" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kata/" class="">Kata</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-075716b7689432f42dfc868948cf8dbf" class="toggle"  />
+    <label for="section-075716b7689432f42dfc868948cf8dbf" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubevirt/" class="">KubeVirt</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e46f955245a7fc42a220702c1084001a" class="toggle"  />
+    <label for="section-e46f955245a7fc42a220702c1084001a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/k3s/" class="">K3s</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/" class="">OAM</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/" class="">KubeVela</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f26d573f9d513d80f4cd70743a579425" class="toggle"  />
+    <label for="section-f26d573f9d513d80f4cd70743a579425" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeedge/" class="">KubeEdge</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="toggle"  />
+    <label for="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/knative/" class="">Knative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4bc3fa5928b533e570127a7884b5a399" class="toggle"  />
+    <label for="section-4bc3fa5928b533e570127a7884b5a399" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeflow/" class="">Kubeflow</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11afa853b830cacf12cc8985805b0ba2" class="toggle"  />
+    <label for="section-11afa853b830cacf12cc8985805b0ba2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeless/" class="">Kubeless</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d6b68e037029053b3553557b83c5ea9" class="toggle"  />
+    <label for="section-2d6b68e037029053b3553557b83c5ea9" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/" class="">Kubernetes 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-136608c50c51e8defaed66151967dea7" class="toggle"  />
+    <label for="section-136608c50c51e8defaed66151967dea7" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/calico/" class="">Calico</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/design/" class="">第三部分 设计与实现</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ffe7615f1d32247b6c49a7564f69acab" class="toggle"  />
+    <label for="section-ffe7615f1d32247b6c49a7564f69acab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/component/" class="">3.1 Kubernetes 组件</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f2b4598cad31089864f9c91b6b888358" class="toggle"  />
+    <label for="section-f2b4598cad31089864f9c91b6b888358" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/" class="">3.2 CRD</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-49af78edf56cb8997ceca2964ae1f83d" class="toggle"  />
+    <label for="section-49af78edf56cb8997ceca2964ae1f83d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/" class="">3.2.2 Operator</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-03eb74028d00c9a16dc6a9b4072bd5da" class="toggle"  />
+    <label for="section-03eb74028d00c9a16dc6a9b4072bd5da" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/operatorhub/" class="">OperatorHub</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-98b52b70569087bf58f2c72bcfae23f1" class="toggle"  />
+    <label for="section-98b52b70569087bf58f2c72bcfae23f1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/" class="">3.7 源码分析</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-28506a73de82b6ea4d44c59476be627d" class="toggle"  />
+    <label for="section-28506a73de82b6ea4d44c59476be627d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.19.12/" class="">1.19.12</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba6424c7fd6f4c4e3e8e52f9c6286ebd" class="toggle"  />
+    <label for="section-ba6424c7fd6f4c4e3e8e52f9c6286ebd" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.20.8/" class="">1.20.8</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-881c8687619ddb10c86f8f927fb23166" class="toggle"  />
+    <label for="section-881c8687619ddb10c86f8f927fb23166" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/" class="">1.0.0</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d181cd3861ca7652e852d22b5c3ff21" class="toggle"  />
+    <label for="section-2d181cd3861ca7652e852d22b5c3ff21" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1141a4bba37d01f14e63bf36d9c7071d" class="toggle"  />
+    <label for="section-1141a4bba37d01f14e63bf36d9c7071d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c743998336860c656367010fc7573b86" class="toggle"  />
+    <label for="section-c743998336860c656367010fc7573b86" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+<ul>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png" target="_blank" rel="noopener noreferrer">微信</a></li>
+  <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=EUhzg0UwUksxpQnwEmPngRLezlC6qrnn&jump_from=webapi" target="_blank" rel="noopener noreferrer"><img src="//pub.idqqimg.com/wpa/images/group.png"></a></li>
+</ul>
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>端口</strong>
+
+  <label for="toc-control">
+    
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#端口映射">端口映射</a>
+      <ul>
+        <li><a href="#端口映射格式">端口映射格式</a></li>
+        <li><a href="#端口映射命令">端口映射命令</a></li>
+        <li><a href="#指定通信协议比如-tcpudp">指定通信协议，比如 tcp、udp</a></li>
+        <li><a href="#查看映射端口配置">查看映射端口配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#通过宿主机的-iptables-进行-nat-转发">通过宿主机的 iptables 进行 nat 转发</a></li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#启动-docker-容器时有如下报错">启动 docker 容器时，有如下报错</a></li>
+        <li><a href="#docker-端口映射到宿主机后外部无法访问对应宿主机端口">Docker 端口映射到宿主机后，外部无法访问对应宿主机端口</a>
+          <ul>
+            <li><a href="#打开-ip-转发功能">打开 ip 转发功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article id="article" class="markdown"><h1 id="docker-端口">
+  Docker 端口
+  <a class="anchor" href="#docker-%e7%ab%af%e5%8f%a3">#</a>
+</h1>
+<h2 id="端口映射">
+  端口映射
+  <a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84">#</a>
+</h2>
+<ul>
+<li><code>-P</code>（大写）：将容器内部开放的网络端口<strong>随机</strong>映射到宿主机的一个端口上</li>
+<li><code>-p</code>（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器
+<ul>
+<li>可以有多个 <code>-p</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="端口映射格式">
+  端口映射格式
+  <a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e6%a0%bc%e5%bc%8f">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 指定 ip、指定宿主机 port、指定容器 port</span>
+</span></span><span style="display:flex;"><span>ip:hostport:containerport
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定 ip、未指定宿主机 port（随机）、指定容器 port</span>
+</span></span><span style="display:flex;"><span>ip::containerport
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 未指定 ip、指定宿主机 port、指定容器 port</span>
+</span></span><span style="display:flex;"><span>hostport:containerport
+</span></span></code></pre></div><h3 id="端口映射命令">
+  端口映射命令
+  <a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%91%bd%e4%bb%a4">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 将容器暴露的所有端口，都随机映射到宿主机上（不推荐）</span>
+</span></span><span style="display:flex;"><span>docker run -P -it ubuntu /bin/bash
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器指定端口随机映射到宿主机一个随机端口</span>
+</span></span><span style="display:flex;"><span>docker run -P <span style="color:#ae81ff">80</span> -it ubuntu /bin/bash
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 有两个冒号 :</span>
+</span></span><span style="display:flex;"><span>docker run -P 192.168.0.100::80 -it ubuntu /bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器指定端口指定映射到宿主机的指定端口上</span>
+</span></span><span style="display:flex;"><span>docker run -p 8000:80 -it ubuntu /bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器指定端口，指定映射到宿主机指定 ip 和端口</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 只能访问 192.168.0.100:8000，</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问 127.0.0.1:8000 或 localhost:8000 都不行</span>
+</span></span><span style="display:flex;"><span>docker run -p 192.168.0.100:8000:80 -it ubuntu /bin/bash
+</span></span></code></pre></div><h3 id="指定通信协议比如-tcpudp">
+  指定通信协议，比如 tcp、udp
+  <a class="anchor" href="#%e6%8c%87%e5%ae%9a%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae%e6%af%94%e5%a6%82-tcpudp">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># tcp</span>
+</span></span><span style="display:flex;"><span>docker run -ti -d --name my-nginx5 -p 8099:80/tcp docker.io/nginx
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># udp</span>
+</span></span><span style="display:flex;"><span>docker run -ti -d --name my-nginx6 -p 192.168.10.214:8077:80/udp docker.io/nginx
+</span></span></code></pre></div><h3 id="查看映射端口配置">
+  查看映射端口配置
+  <a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e6%98%a0%e5%b0%84%e7%ab%af%e5%8f%a3%e9%85%8d%e7%bd%ae">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 结果输出： 80/tcp -&gt; 0.0.0.0:800</span>
+</span></span><span style="display:flex;"><span>docker port container_ID <span style="color:#75715e"># 容器 ID</span>
+</span></span></code></pre></div><h2 id="通过宿主机的-iptables-进行-nat-转发">
+  通过宿主机的 iptables 进行 nat 转发
+  <a class="anchor" href="#%e9%80%9a%e8%bf%87%e5%ae%bf%e4%b8%bb%e6%9c%ba%e7%9a%84-iptables-%e8%bf%9b%e8%a1%8c-nat-%e8%bd%ac%e5%8f%91">#</a>
+</h2>
+<p>容器除了在启动时添加端口映射关系，还可以通过宿主机的 iptables 进行 nat 转发，将宿主机的端口映射到容器的内部端口上，
+这种方式适用于容器启动时没有指定端口映射的情况。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 容器 my-nginx9 在启动时没有指定其内部的 80 端口映射到宿主机的端口上，</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 所以默认是没法访问的</span>
+</span></span><span style="display:flex;"><span>docker run -ti -d --name my-nginx9 docker.io/nginx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 首先获得容器的 ip 地址</span>
+</span></span><span style="display:flex;"><span>docker inspect my-nginx9|grep IPAddress
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将容器的 80 端口映射到 dockers 宿主机的 9998 端口</span>
+</span></span><span style="display:flex;"><span>iptables -t nat -A PREROUTING -p tcp -m tcp --dport <span style="color:#ae81ff">9998</span> -j DNAT --to-destination 172.17.0.9:80
+</span></span><span style="display:flex;"><span>iptables -t nat -A POSTROUTING -d 172.17.0.9/32 -p tcp -m tcp --sport <span style="color:#ae81ff">80</span> -j SNAT --to-source 192.16.10.214
+</span></span><span style="display:flex;"><span>iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport <span style="color:#ae81ff">9998</span> -j ACCEPT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 保存以上 iptables 规则</span>
+</span></span><span style="display:flex;"><span>iptables-save &gt; /etc/sysconfig/iptables
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看/etc/sysconfig/iptables 文件，</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 注意下面两行有关 icmp-host-prohibited 的设置一定要注释掉，否则 nat 转发会失败</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -A INPUT -j REJECT --reject-with icmp-host-prohibited</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -A FORWARD -j REJECT --reject-with icmp-host-prohibited</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 最后重启 iptbales 服务</span>
+</span></span><span style="display:flex;"><span>systemctl restart iptables
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看 iptables 规则</span>
+</span></span><span style="display:flex;"><span>iptables -L
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 然后访问 http://192.168.10.214:9998/，就能转发访问到 my-nginx9 容器的 80 端口了</span>
+</span></span></code></pre></div><hr>
+<h2 id="问答">
+  问答
+  <a class="anchor" href="#%e9%97%ae%e7%ad%94">#</a>
+</h2>
+<h3 id="启动-docker-容器时有如下报错">
+  启动 docker 容器时，有如下报错
+  <a class="anchor" href="#%e5%90%af%e5%8a%a8-docker-%e5%ae%b9%e5%99%a8%e6%97%b6%e6%9c%89%e5%a6%82%e4%b8%8b%e6%8a%a5%e9%94%99">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/usr/bin/docker-current: Error response from daemon: driver failed programming external connectivity on endpoint my-nginx <span style="color:#f92672">(</span>db5a0edac68d1ea7ccaa3a1e0db31ebdf278076ef4851ee4250221af6167f9ac<span style="color:#f92672">)</span>: <span style="color:#f92672">(</span>iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport <span style="color:#ae81ff">8088</span> -j DNAT --to-destination 172.17.0.2:80 ! -i docker0: iptables: No chain/target/match by that name.
+</span></span></code></pre></div><p>解决办法
+1）不需要关闭防火墙
+2）重启 docker 服务:systemctl restart docker
+3）docker 服务重启后，所有容器都会关闭，应立即批量启动全部容器:docker start <code>docker ps -a -q</code>
+启动的容器也会包括上面报错的容器，重启 docker 后，该容器就能正常启动和使用了。</p>
+<h3 id="docker-端口映射到宿主机后外部无法访问对应宿主机端口">
+  Docker 端口映射到宿主机后，外部无法访问对应宿主机端口
+  <a class="anchor" href="#docker-%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%88%b0%e5%ae%bf%e4%b8%bb%e6%9c%ba%e5%90%8e%e5%a4%96%e9%83%a8%e6%97%a0%e6%b3%95%e8%ae%bf%e9%97%ae%e5%af%b9%e5%ba%94%e5%ae%bf%e4%b8%bb%e6%9c%ba%e7%ab%af%e5%8f%a3">#</a>
+</h3>
+<p>创建 docker 容器的时候,做了端口映射到宿主机, 防火墙已关闭, 但是外部始终无法访问宿主机端口?
+这种情况基本就是因为宿主机没有开启 ip 转发功能，从而导致外部网络访问宿主机对应端口是没能转发到 Docker Container 所对应的端口上。</p>
+<p>解决办法:
+Linux 发行版默认情况下是不开启 ip 转发功能的。这是一个好的做法，因为大多数人是用不到 ip 转发的，但是如果架设一个 Linux 路由或者 VPN 服务我们就需要开启该服务了。</p>
+<p>在 Linux 中开启 ip 转发的内核参数为：<code>net.ipv4.ip_forward</code>，查看是否开启 ip 转发：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat /proc/sys/net/ipv4/ip_forward // 0：未开启，1：已开启
+</span></span></code></pre></div><h4 id="打开-ip-转发功能">
+  打开 ip 转发功能
+  <a class="anchor" href="#%e6%89%93%e5%bc%80-ip-%e8%bd%ac%e5%8f%91%e5%8a%9f%e8%83%bd">#</a>
+</h4>
+<p>临时打开 ip 转发功能!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sysctl -w net.ipv4.ip_forward=1</span>
+</span></span></code></pre></div><p>永久生效的 ip 转发</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vim /etc/sysctl.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>net.ipv4.ip_forward <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 立即生效</span>
+</span></span><span style="display:flex;"><span>sysctl -p /etc/sysctl.conf
+</span></span></code></pre></div><p>Linux 系统中也可以通过重启网卡来立即生效。</p>
+<p>修改 sysctl.conf 文件后的生效</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># CentOS 6</span>
+</span></span><span style="display:flex;"><span>service network restart
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CentOS 7</span>
+</span></span><span style="display:flex;"><span>systemctl restart network
+</span></span></code></pre></div><p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/kevingrace/p/9453987.html">Docker 容器内部端口映射到外部宿主机端口 - 运维笔记</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/1ef8c2f94b0a8d16cfa74e49e89fd16472f59798" title='Last modified by yewang | 2020-09-22' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-09-22</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        <div>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <p><span id="busuanzi_container_page_pv">本文访问量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人</span></p>
+</div>
+
+
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-kubernetes"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+<div id="footer">
+  <p>
+    <a href="https://kingye.me">叶王</a> &copy; 2013-2021
+    版权所有。如果本文档对你有所帮助，可以<a
+      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      >请作者喝饮料</a
+    >。
+  </p>
+</div>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#端口映射">端口映射</a>
+      <ul>
+        <li><a href="#端口映射格式">端口映射格式</a></li>
+        <li><a href="#端口映射命令">端口映射命令</a></li>
+        <li><a href="#指定通信协议比如-tcpudp">指定通信协议，比如 tcp、udp</a></li>
+        <li><a href="#查看映射端口配置">查看映射端口配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#通过宿主机的-iptables-进行-nat-转发">通过宿主机的 iptables 进行 nat 转发</a></li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#启动-docker-容器时有如下报错">启动 docker 容器时，有如下报错</a></li>
+        <li><a href="#docker-端口映射到宿主机后外部无法访问对应宿主机端口">Docker 端口映射到宿主机后，外部无法访问对应宿主机端口</a>
+          <ul>
+            <li><a href="#打开-ip-转发功能">打开 ip 转发功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

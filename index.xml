@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>首页 on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/</link>
+    <description>Recent content in 首页 on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>alpine</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/</guid>
+      <description>alpine #  安装 telnet #  apk add busybox-extras</description>
+    </item>
+    
+    <item>
+      <title>api-server</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</guid>
+      <description>api-server 基础 #  </description>
+    </item>
+    
+    <item>
+      <title>Docker 快速上手</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</guid>
+      <description>Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &amp;ldquo;registry-mirrors&amp;rdquo; 的数组里，点击 Apply &amp;amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
+vi ~/.docker/deamon.json
+{  &amp;#34;experimental&amp;#34;: false,  &amp;#34;debug&amp;#34;: true,  &amp;#34;registry-mirrors&amp;#34;: [  &amp;#34;https://pjuig8sx.mirror.aliyuncs.com&amp;#34;,  &amp;#34;https://mirror.baidubce.com&amp;#34;,  &amp;#34;https://hub-mirror.c.163.com&amp;#34;  ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.</description>
+    </item>
+    
+    <item>
+      <title>K8s 端口</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/port/</guid>
+      <description>K8s 端口 #   service 的端口  port：负责处理对内的通信，  访问方式：clusterIP:port 或者 externalIP:port  externalIP 不归 kubernetes 管，cluster administrator 自己负责     nodePort：在 node 上，负责对外通信  访问方式：NodeIP:NodePort     pod 的端口  targetPort：在 pod 上  从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器     容器的端口  containerPort：在容器上，用于被 pod 绑定  targetPort 和 containerPort 是一致的 是可选的，仅仅是提示信息 容器中任何监听 0.0.0.0 的端口，都会暴露出来 无法被更新 主机的端口   hostPort：容器暴露的端口映射到的主机端口  尽量不要为 Pod 指定 hostPort 将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &amp;lt;hostIP, hostPort, protocol&amp;gt; 组合必须是唯一的 如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 0.</description>
+    </item>
+    
+    <item>
+      <title>Pod</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/pod/</guid>
+      <description>Pod #  操作 #  删除被驱逐的 pod
+kubectl get pods | grep Evicted | awk &amp;#39;{print $1}&amp;#39; | xargs kubectl delete pod Infra 容器 #  使用镜像：k8s.gcr.io/pause
+这个镜像是一个用汇编语言编写的、永远处于 “暂停” 状态的容器，解压后的大小也只有 100~200 KB 左右。
+Init 容器 #  以 Init: 开始的 Pod 状态概括表示 Init 容器的执行状态。
+下表展示了在调试 Init 容器时可能见到的状态值。
+   状态 含义     Init:N/M Pod 中有 M 个 Init 容器，其中 M 已经完成   Init:Error Init 容器执行错误   Init:CrashLoopBackOff Init 容器已经失败多次   Pending Pod 还没有开始执行 Init 容器   PodInitializing or Running Pod 已经完成执行 Init 容器    如果一个 Pod 停滞在 Pending 状态，表示 Pod 没有被调度到节点上。通常这是因为 某种类型的资源不足导致无法调度。 查看上面的 kubectl describe &amp;hellip; 命令的输出，其中应该显示了为什么没被调度的原因。</description>
+    </item>
+    
+    <item>
+      <title>replicaset</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/replicaset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/replicaset/</guid>
+      <description>replicaset #  问答 #  replicaset vs deployment？ #   ReplicaSet 是下一代 ReplicationController， 支持新的基于集合的标签选择算符。 ReplicaSet 并不直接支持滚动更新，参考 ReplicationController 的设计目的是通过逐个替换 Pod 以方便滚动更新服务，参考  </description>
+    </item>
+    
+    <item>
+      <title>发行版</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/install/distro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/install/distro/</guid>
+      <description>Kubernetes 发行版 #  Kubeadm #  kubernetes/kubeadm Kubeadm is a tool built to provide best-practice &amp;ldquo;fast paths&amp;rdquo; for creating Kubernetes clusters. It performs the actions necessary to get a minimum viable, secure cluster up and running in a user friendly way. Kubeadm&amp;rsquo;s scope is limited to the local node filesystem and the Kubernetes API, and it is intended to be a composable building block of higher level tools.
+ 用于快速搭建 kubernetes 集群，目前应该是比较方便和推荐的，简单易用 kubeadm 是 Kubernetes 1.</description>
+    </item>
+    
+    <item>
+      <title>配置</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/install/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/install/config/</guid>
+      <description>Kubernetes 配置 #  apiserver #  修改 Kubernetes apiserver 启动参数 #  如果您使用 kubeadm 安装 Kubernetes 集群，Kubernetes apiserver 通过 static pod 启动，
+其 yaml 文件的位置在 /etc/kubernetes/manifests/kube-apiserver.yaml
+ Static Pod 的配置文件被修改后，立即生效。 Kubelet 会监听该文件的变化，当您修改了 /etc/kubenetes/manifest/kube-apiserver.yaml 文件之后，kubelet 将自动终止原有的 kube-apiserver-{nodename} 的 Pod，并自动创建一个使用了新配置参数的 Pod 作为替代。 如果您有多个 Kubernetes Master 节点，您需要在每一个 Master 节点上都修改该文件，并使各节点上的参数保持一致。  参考：
+ 修改 Kubernetes apiserver 启动参数  </description>
+    </item>
+    
+    <item>
+      <title>ConfigMap</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/</guid>
+      <description>ConfigMap 基础 #  ConfigMap 在运行时会将配置文件、命令行参数、环境变量、端口号以及其他配置工件绑定到 Pod 的容器和系统组件。借助 ConfigMap，您可以将配置与 Pod 和组件分开，这有助于保持工作负载的可移植性，使其配置更易于更改和管理，并防止将配置数据硬编码到 Pod 规范。
+ConfigMap 可用于存储和共享非敏感、未加密的配置信息。要在集群中使用敏感信息，您必须使用 Secret。
+创建 ConfigMap #  使用以下命令创建 ConfigMap：
+kubectl create configmap [NAME] [DATA]
+[DATA] 可以是： 包含一个或多个配置文件的目录的路径，使用 &amp;ndash;from-file 标志指示 键值对，每个键值对都使用 &amp;ndash;from-literal 标志指定 如需详细了解 kubectl create，请参阅参考文档。
+您还可以通过在 YAML 清单文件中定义 ConfigMap 对象并使用 kubectl create -f [FILE] 部署对象来创建 ConfigMap。
+使用 ConfigMap #  apiVersion: v1 kind: Pod metadata:  name: dapi-test-pod spec:  containers:  - name: test-container  image: k8s.</description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/deployment/</guid>
+      <description>Deployment #  故障排查 #  下载 pdf 版本
+参考：
+ A visual guide on troubleshooting Kubernetes deployments  Kubernetes Deployment 故障排查常见方法     问答 #  为什么要有 Deployment #  </description>
+    </item>
+    
+    <item>
+      <title>CRD</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/crd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/crd/</guid>
+      <description>CRD #  如何实现一个 CRD ？ #   关注 #  GoogleCloudPlatform/metacontroller #  Metacontroller is an add-on for Kubernetes that makes it easy to write and deploy custom controllers in the form of simple scripts.
+This is not an officially supported Google product. Although this open-source project was started by GKE, the add-on works the same in any Kubernetes cluster.</description>
+    </item>
+    
+    <item>
+      <title>Kube-proxy</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</guid>
+      <description>Kube-proxy #  </description>
+    </item>
+    
+    <item>
+      <title>故障排查</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/</guid>
+      <description>Kubernetes 网络故障排查 #  </description>
+    </item>
+    
+    <item>
+      <title>4.1 教程</title>
+      <link>https://kingye.me/study-kubernetes/docs/appendix/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/appendix/tutorial/</guid>
+      <description>Kubernetes 教程 #  基础 #  The Kubernetes Learning Resources List #  collabnix/dockerlabs #  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
+To get started with Kubernetes, follow the below steps:
+Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster
+kelseyhightower/kubernetes-the-hard-way #  Bootstrap Kubernetes the hard way on Google Cloud Platform. No scripts.
+feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>CoreDNS</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</guid>
+      <description>CoreDNS #  coredns/coredns </description>
+    </item>
+    
+    <item>
+      <title>kubebuilder</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid>
+      <description>kubebuilder #  kubernetes-sigs/kubebuilder #  Kubebuilder - SDK for building Kubernetes APIs using CRDs http://book.kubebuilder.io/</description>
+    </item>
+    
+    <item>
+      <title>Kubectl</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</guid>
+      <description>Kubectl #  集群信息查询 #   kubectl cluster-info  node #   kubectl get nodes kubectl describe node   常用操作 #  设置 #  设置 role #  # 添加 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=master kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker  # 删除 kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role=worker  # 重置 role kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role=&amp;lt;your_new_label&amp;gt; 获取 service ip, port #  kubectl get service/servicename -o jsonpath=&amp;#39;{.</description>
+    </item>
+    
+    <item>
+      <title>pod 排错</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</guid>
+      <description>pod 排错 #  排查 Pod 异常的常用命令如下：
+ 查看 Pod 状态：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide 查看 Pod 的 yaml 配置：kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o yaml 查看 Pod 的事件：kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 查看 Pod 容器日志：kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]  Pending 状态 #  Pending 状态说明 Pod 还没有调度到某个 Node 上面
+可以通过 kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; 命令查看到 Pod 的事件
+参考：
+ Kubernetes 指南 - Pod 排错 排错指南 - Pod Kubernetes Docs - Troubleshoot Applications  </description>
+    </item>
+    
+    <item>
+      <title>Service</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/</guid>
+      <description>Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &amp;lt;NodeIP&amp;gt;:&amp;lt;NodePort&amp;gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.</description>
+    </item>
+    
+    <item>
+      <title>命令</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</guid>
+      <description>Docker 命令 #  docker ps #  docker ps vs docker container ls #  Management Commands vs Commands
+Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.
+For example docker container ls is the new way to do docker ps.
+Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run docker image ls, docker network ls or docker volume ls.</description>
+    </item>
+    
+    <item>
+      <title>版本</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</guid>
+      <description>Docker 版本 #  查看版本 #  docker -v docker --version #查看版本 docker-compose --version #查看版本 docker-machine --version #查看版本 docker version #查看client和server端版本，并可以查看是否开启体验功能  历史版本 #  最新版本
+19.03 (2019-07-22) #  19.03.12 (2020-06-18) #   18.09 (2018-11-08) #  Docker 合并版本号 #  New in 18.09 is an aligned release model for Docker Engine - Community and Docker Engine - Enterprise. The new versioning scheme is YY.MM.x where x is an incrementing patch version.</description>
+    </item>
+    
+    <item>
+      <title>版本</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/other/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/other/version/</guid>
+      <description>Kubernetes 版本 #  kubernetes/kubernetes 查看版本 #  kuberctl #   kuberctl version  这里 Client Version 的 GitVersion 是 kuberctl 的版本
+apiserver #   kuberctl version  这里 Server Version 的 GitVersion 是 apiserver 的版本
+kubelet #   kuberctl get nodes  这里的 VERSION 是 kubelet 的版本
+ 版本列表 #  v1.26 #   v1.25 #   Moved container registry service from k8s.gcr.io to registry.</description>
+    </item>
+    
+    <item>
+      <title>端口</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid>
+      <description>Docker 端口 #  端口映射 #   -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器  可以有多个 -p    端口映射格式 #  # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 #  # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash  # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash  # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
+    </item>
+    
+    <item>
+      <title>containerd</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</guid>
+      <description>containerd #  </description>
+    </item>
+    
+    <item>
+      <title>dockerfile</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
+      <description>dockerfile #  目标:
+ 更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单  做法：
+  编写 .dockerignore 文件
+  容器只运行单个应用
+  将多个 RUN 指令合并为一个
+  基础镜像的标签不要用 latest
+ 如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y nodejs \  # added lines  &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)</description>
+    </item>
+    
+    <item>
+      <title>4.2 面试题</title>
+      <link>https://kingye.me/study-kubernetes/docs/appendix/interview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/appendix/interview/</guid>
+      <description>面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3.</description>
+    </item>
+    
+    <item>
+      <title>KubeDNS</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</guid>
+      <description>KubeDNS #  在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件， 普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。
+nameserver 10.99.0.2 # 这里存储的是 kube-dns 的 Service IP search default.svc.cluster.local. svc.cluster.local. cluster.local. options ndots:5 如何进入 kube-dns 容器进行抓包 #  DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。
+docker inspect --format &amp;#34;{{.State.Pid}}&amp;#34; dns_container_id # 进入 container 的 network namespace nsenter -n -t pid # 对 53 端口进行抓包 tcpdump -i eth0 -N udp dst port 53 dnsPolicy #  ClusterFirst（默认） #  优先使用 kubedns 或者 coredns 进行域名解析。 如果解析不成功，才会使用宿主机的 DNS 配置进行解析。</description>
+    </item>
+    
+    <item>
+      <title>Kustomize</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</guid>
+      <description>Kustomize #  kubernetes-sigs/kustomize Customization of kubernetes YAML configurations
+kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+一般应用都会存在多套部署环境：开发环境、测试环境、生产环境，多套环境意味着存在多套 K8S 应用资源 YAML。 而这么多套 YAML 之间只存在微小配置差异，比如镜像版本不同、Label 不同等，而这些不同环境下的 YAML 经常会因为人为疏忽导致配置错误。 再者，多套环境的 YAML 维护通常是通过把一个环境下的 YAML 拷贝出来然后对差异的地方进行修改。 一些类似 Helm 等应用管理工具需要额外学习 DSL 语法。
+总结以上，在 k8s 环境下存在多套环境的应用，经常遇到以下几个问题：
+ 如何管理不同环境或不同团队的应用的 Kubernetes YAML 资源 如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量 如何简化维护应用的流程，不需要额外学习模板语法  Kustomize 通过以下几种方式解决了上述问题：
+ kustomize 通过 Base &amp;amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置 kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用 kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法  </description>
+    </item>
+    
+    <item>
+      <title>架构</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/architecture/</guid>
+      <description>Kubernetes 架构 #  </description>
+    </item>
+    
+    <item>
+      <title>4.3 关注项目</title>
+      <link>https://kingye.me/study-kubernetes/docs/appendix/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/appendix/attention/</guid>
+      <description>Kubernetes 关注项目 #  ramitsurana/awesome-kubernetes kubernetes 官方 #  kubernetes/kubernetes #  Production-Grade Container Scheduling and Management https://kubernetes.io
+kubernetes/client-go #  Go client for Kubernetes.
+kubernetes/kops #  kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.
+kubernetes/dashboard #  General-purpose web UI for Kubernetes clusters
+kubernetes/kube-state-metrics #  Add-on agent to generate and expose cluster-level metrics.
+kubernetes/examples #  Kubernetes application example tutorials</description>
+    </item>
+    
+    <item>
+      <title>Calico</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</guid>
+      <description>Calico #  projectcalico/calico https://docs.projectcalico.org/
+calico/kube-controllers #  </description>
+    </item>
+    
+    <item>
+      <title>etcd Operator</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid>
+      <description>etcd Operator #  $ git clone https://github.com/coreos/etcd-operator  # 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象 # 为 Etcd Operator 创建 RBAC 规则 $ example/rbac/create_role.sh Etcd Operator 本身，其实就是一个 Deployment
+而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来
+这个 CRD 名叫 etcdclusters.etcd.database.coreos.com
+实际上是在 Kubernetes 里添加了一个名叫 EtcdCluster 的自定义资源类型（CRD）。
+而 Etcd Operator 本身，就是这个 CRD 对应的自定义控制器。
+apiVersion: extensions/v1beta1 kind: Deployment metadata:  name: etcd-operator spec:  replicas: 1  template:  metadata:  labels:  name: etcd-operator  spec:  containers:  - name: etcd-operator  image: quay.</description>
+    </item>
+    
+    <item>
+      <title>KubeVela</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/</guid>
+      <description>KubeVela #  oam-dev/kubevela Make shipping applications more enjoyable. https://kubevela.io/
+ps: oam-dev/rudr 已经被废弃，转为 KubeVela</description>
+    </item>
+    
+    <item>
+      <title>OperatorHub</title>
+      <link>https://kingye.me/study-kubernetes/docs/design/crd/operator/operatorhub/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/design/crd/operator/operatorhub/</guid>
+      <description>OperatorHub #  https://operatorhub.io/</description>
+    </item>
+    
+    <item>
+      <title>Volume</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/concept/resource/volume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/concept/resource/volume/</guid>
+      <description>Volume #  Volume 必须和 pod 在同一个 namespace #  All sources are required to be in the same namespace as the Pod.
+参考：
+ kubernetes.io: volumes all-in-one volume design document  </description>
+    </item>
+    
+    <item>
+      <title>发行版</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/other/distro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/basic/other/distro/</guid>
+      <description>Kubernetes 发行版 #   Rancher 偏运维  RKE Rancher Kubernetes Engine rancher/rke    OpenShift 偏开发 AWS EKS Elastic Kubernetes Service Google GKE Google Kubernetes Engine Microsoft AKS Azure Kubernetes Service CDK Canonical Distribution of Kubernetes （Canonical 是 Ubuntu Linux 的制造商） CoreOS Tectonic/Red Hat CoreOS Docker 社区版 / Docker 企业版 Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 Craig McLuckie 和 Joe Beda，创办了 Heptio） 2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划 Kontena Pharos PKS Pivotal Container Service SUSE 容器服务平台 Telekube kubesphere/kubesphere KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。 KubeOperator/KubeOperator KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。  参考：</description>
+    </item>
+    
+    <item>
+      <title>Kubeless</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/kubeless/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/kubeless/</guid>
+      <description>Kubeless #  kubeless/kubeless Kubernetes Native Serverless Framework</description>
+    </item>
+    
+    <item>
+      <title>2.7 测试</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/test/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/test/test/</guid>
+      <description>测试 #  open-policy-agent/conftest #  Write tests against structured configuration data using the Open Policy Agent Rego query language</description>
+    </item>
+    
+    <item>
+      <title>client-go</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</guid>
+      <description>kubernetes/client-go #  安装 #  版本 #  v0.x.y #  Kubernetes releases &amp;gt;= v1.17.0
+kubernetes-1.x.y #  Kubernetes releases &amp;lt; v1.17.0</description>
+    </item>
+    
+    <item>
+      <title>Horizontal Pod Autoscaler</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/feature/hpa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/feature/hpa/</guid>
+      <description>Horizontal Pod Autoscaler #  Pod 水平自动伸缩</description>
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid>
+      <description>Docker 教程 #  p8952/bocker #  Docker implemented in around 100 lines of bash
+yeasy/docker_practice #  Learn and understand Docker technologies, with real DevOps practice!
+Docker 从入门到实践
+play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+    
+    <item>
+      <title>关注项目</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</guid>
+      <description>关注 #  moby/moby #  Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/
+docker/docker-ce #  Docker CE https://www.docker.com/community-edition
+play-with-docker/play-with-docker #  Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.
+Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+    
+  </channel>
+</rss>

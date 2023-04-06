@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kubernetes 安装 #  Kubernetes 各组件配置文件 #  kubelet #  kubelet 是通过 systemctl 来管理的，因此配置文件在 /etc/systemd/system/ 或 /usr/lib/systemd/system/
-# 修改配置文件 vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf  # kubeadm init 生成的 # 使用 systemd vi /var/lib/kubelet/config.yaml # 配置 6443 vi /etc/kubernetes/kubelet.conf  # 重启 systemctl daemon-reload &amp;&amp; systemctl restart kubelet  # 查看 kubelet 错误日志 journalctl -xef | egrep &#34;: [F][0-9]&#34; -B 1  教程 #  和我一步步部署 kubernetes 集群 #  opsnull/follow-me-install-kubernetes-cluster 本系列文档介绍使用二进制部署 kubernetes v1.">
+# 修改配置文件 vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf  # kubeadm init 生成的 # 使用 systemd vi /var/lib/kubelet/config.yaml # 配置 6443 vi /etc/kubernetes/kubelet.conf  # 重启 systemctl daemon-reload &amp;&amp; systemctl restart kubelet  # 查看 kubelet 错误日志 journalctl -xef | egrep &#34;: [F][0-9]&#34; -B 1 kubeadm vs kops vs kubespray #   Kubespray 基于 Ansible 实现配置和编排  更灵活，适用多平台   Kops 自己实现配置和编排  适用某个固定平台   kubeadm  需要领域知识，类似 Kubernetes cluster operator 从 v2.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="安装" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.8cd4bb2e23836439b06bf242232f2e7c24d3b44b4a1915c44b631bd51666875f.js" integrity="sha256-jNS7LiODZDmwa/JCIy8ufCTTtEtKGRXES2Mb1RZmh18="></script>
+<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/basic/install/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme
@@ -1538,6 +1538,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#kubeadm-vs-kops-vs-kubespray">kubeadm vs kops vs kubespray</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#和我一步步部署-kubernetes-集群">和我一步步部署 kubernetes 集群</a></li>
@@ -1582,7 +1583,29 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看 kubelet 错误日志</span>
 </span></span><span style="display:flex;"><span>journalctl -xef | egrep <span style="color:#e6db74">&#34;: [F][0-9]&#34;</span> -B <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><hr>
+</span></span></code></pre></div><h2 id="kubeadm-vs-kops-vs-kubespray">
+  kubeadm vs kops vs kubespray
+  <a class="anchor" href="#kubeadm-vs-kops-vs-kubespray">#</a>
+</h2>
+<ul>
+<li>Kubespray 基于 Ansible 实现配置和编排
+<ul>
+<li>更灵活，适用多平台</li>
+</ul>
+</li>
+<li>Kops 自己实现配置和编排
+<ul>
+<li>适用某个固定平台</li>
+</ul>
+</li>
+<li>kubeadm
+<ul>
+<li>需要领域知识，类似 Kubernetes cluster operator</li>
+<li>从 v2.3 开始，kubespray 底层使用 kubeadm</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h2 id="教程">
   教程
   <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
@@ -1671,6 +1694,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#kubelet">kubelet</a></li>
       </ul>
     </li>
+    <li><a href="#kubeadm-vs-kops-vs-kubespray">kubeadm vs kops vs kubespray</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#和我一步步部署-kubernetes-集群">和我一步步部署 kubernetes 集群</a></li>

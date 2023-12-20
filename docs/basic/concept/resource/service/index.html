@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.">
+<meta name="description" content="Service # type # ClusterIP # 通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType NodePort # 通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务 LoadBalancer # 使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务 访问方式 # 内部：ClusterIP:port (10.110.126.136:80) 外部： hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80) # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.110.126.136 &lt;pending&gt; 15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP 13h app=istio-ingressgateway,istio=ingressgateway ExternalName # 通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Service" />
-<meta property="og:description" content="Service #  type #  ClusterIP #   通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType  NodePort #   通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务  LoadBalancer #   使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务  访问方式 #   内部：ClusterIP:port (10.110.126.136:80) 外部：  hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80)    # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10." />
+<meta property="og:description" content="Service # type # ClusterIP # 通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问 这也是默认的 ServiceType NodePort # 通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务 NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建 通过请求 &lt;NodeIP&gt;:&lt;NodePort&gt;，可以从集群的外部访问一个 NodePort 服务 LoadBalancer # 使用云提供商的负载局衡器，可以向外部暴露服务 外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务 访问方式 # 内部：ClusterIP:port (10.110.126.136:80) 外部： hostIP:nodePort (机器 IP:30032) EXTERNAL-IP:port (xxxx:80) # 没有 EXTERNAL-IP NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE SELECTOR istio-ingressgateway LoadBalancer 10.110.126.136 &lt;pending&gt; 15020:30332/TCP,80:30032/TCP,443:30551/TCP,31400:32430/TCP,15443:30294/TCP 13h app=istio-ingressgateway,istio=ingressgateway ExternalName # 通过返回 CNAME 和它的值，可以将服务映射到 externalName 字段的内容（例如， foo." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book

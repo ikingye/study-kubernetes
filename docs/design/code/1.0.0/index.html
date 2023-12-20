@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kubernetes 1.0.0 源码分析 #  https://github.com/kubernetes/kubernetes/tree/v1.0.0
- 代码行数 #  cloc #  AlDanial/cloc $ cloc --version 1.94  $ cloc .   6328 text files.  5766 unique files.  668 files ignored.  4 errors: Line count, exceeded timeout: ./pkg/ui/data/swagger/datafile.go Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.js Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.min.js Line count, exceeded timeout: ./third_party/ui/bower_components/angular/angular.min.js  github.com/AlDanial/cloc v 1.94 T=28.96 s (199.1 files/s, 40061.4 lines/s) -------------------------------------------------------------------------------- Language files blank comment code -------------------------------------------------------------------------------- Go 3745 95221 115772 599870 JavaScript 443 17244 56651 92961 JSON 174 4 0 44954 Markdown 393 10130 0 30592 CSS 170 3226 1088 22298 Bourne Shell 211 3315 5908 14438 SVG 36 6 37 12614 HTML 84 1556 60 6340 YAML 222 492 1140 5434 Text 43 859 0 4619 Protocol Buffers 13 575 1178 1828 Bourne Again Shell 24 309 249 1613 Python 22 301 482 1087 SaltStack 36 124 117 983 LESS 7 166 54 912 make 53 267 285 602 Dockerfile 68 196 369 508 XML 9 0 0 213 C 2 27 13 175 Java 1 18 10 126 SCSS 2 29 0 124 CoffeeScript 1 12 3 108 Assembly 1 11 10 36 PHP 1 6 0 27 Properties 2 2 4 18 INI 2 1 0 9 TOML 1 0 0 3 -------------------------------------------------------------------------------- SUM: 5766 134097 183430 842492 -------------------------------------------------------------------------------- tokei #  XAMPPRocky/tokei $ tokei -V tokei 12.">
+<meta name="description" content="Kubernetes 1.0.0 源码分析 # https://github.com/kubernetes/kubernetes/tree/v1.0.0
+代码行数 # cloc # AlDanial/cloc $ cloc --version 1.94 $ cloc . 6328 text files. 5766 unique files. 668 files ignored. 4 errors: Line count, exceeded timeout: ./pkg/ui/data/swagger/datafile.go Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.js Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.min.js Line count, exceeded timeout: ./third_party/ui/bower_components/angular/angular.min.js github.com/AlDanial/cloc v 1.94 T=28.96 s (199.1 files/s, 40061.4 lines/s) -------------------------------------------------------------------------------- Language files blank comment code -------------------------------------------------------------------------------- Go 3745 95221 115772 599870 JavaScript 443 17244 56651 92961 JSON 174 4 0 44954 Markdown 393 10130 0 30592 CSS 170 3226 1088 22298 Bourne Shell 211 3315 5908 14438 SVG 36 6 37 12614 HTML 84 1556 60 6340 YAML 222 492 1140 5434 Text 43 859 0 4619 Protocol Buffers 13 575 1178 1828 Bourne Again Shell 24 309 249 1613 Python 22 301 482 1087 SaltStack 36 124 117 983 LESS 7 166 54 912 make 53 267 285 602 Dockerfile 68 196 369 508 XML 9 0 0 213 C 2 27 13 175 Java 1 18 10 126 SCSS 2 29 0 124 CoffeeScript 1 12 3 108 Assembly 1 11 10 36 PHP 1 6 0 27 Properties 2 2 4 18 INI 2 1 0 9 TOML 1 0 0 3 -------------------------------------------------------------------------------- SUM: 5766 134097 183430 842492 -------------------------------------------------------------------------------- tokei # XAMPPRocky/tokei $ tokei -V tokei 12.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.0.0" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme

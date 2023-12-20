@@ -2,13 +2,15 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker 网络 #  网络模式 #   bridge 模式  使用 –net=bridge 指定，默认   host 模式  使用 –net=host 指定 一些对安全性有求高并且不需要联网的应用可以使用 none 网络   none 模式  使用 –net=none 指定   container 模式  使用 –net=container:NAMEorID 指定    bridge 模式 #  Docker Daemon 启动时默认会创建 Docker0 这个网桥，网段为 172.17.0.0/16,
+<meta name="description" content="Docker 网络 # 网络模式 # bridge 模式 使用 –net=bridge 指定，默认 host 模式 使用 –net=host 指定 一些对安全性有求高并且不需要联网的应用可以使用 none 网络 none 模式 使用 –net=none 指定 container 模式 使用 –net=container:NAMEorID 指定 bridge 模式 # Docker Daemon 启动时默认会创建 Docker0 这个网桥，网段为 172.17.0.0/16,
 宿主机 IP 为 172.17.0.1 , 作为这个虚拟子网的网关。
-创建网桥 #  新建一个名为 anyesu_net 网段为 172.18.0.0/16 的网桥：
-docker network create --subnet=172.">
+创建网桥 # 新建一个名为 anyesu_net 网段为 172.18.0.0/16 的网桥：
+docker network create --subnet=172.18.0.0/16 anyesu_net 启动容器时指定 --net anyesu_net 即可。
+host 模式 # 优势 # host 网络最大的好处就是性能
+劣势 # host 网络不便之处就是考虑端口冲突问题">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker 网络" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -18,7 +20,7 @@ docker network create --subnet=172.">
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/network/index.xml" title="Kubernetes 学习笔记" />
 <!--
 Made with Book Theme

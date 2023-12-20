@@ -4,15 +4,15 @@
     <title>第二部分 进阶实战 on Kubernetes 学习笔记</title>
     <link>https://kingye.me/study-kubernetes/docs/advanced/</link>
     <description>Recent content in 第二部分 进阶实战 on Kubernetes 学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/advanced/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2.7 测试</title>
       <link>https://kingye.me/study-kubernetes/docs/advanced/test/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-kubernetes/docs/advanced/test/test/</guid>
-      <description>测试 #  open-policy-agent/conftest #  Write tests against structured configuration data using the Open Policy Agent Rego query language</description>
+      <description>测试 # open-policy-agent/conftest # Write tests against structured configuration data using the Open Policy Agent Rego query language</description>
     </item>
-    
   </channel>
 </rss>

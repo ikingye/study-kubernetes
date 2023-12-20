@@ -2,18 +2,20 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+<meta name="description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 镜像加速 # 阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &ldquo;registry-mirrors&rdquo; 的数组里，点击 Apply &amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
 vi ~/.docker/deamon.json
-{  &#34;experimental&#34;: false,  &#34;debug&#34;: true,  &#34;registry-mirrors&#34;: [  &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;,  &#34;https://mirror.baidubce.com&#34;,  &#34;https://hub-mirror.c.163.com&#34;  ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq.">
+{ &#34;experimental&#34;: false, &#34;debug&#34;: true, &#34;registry-mirrors&#34;: [ &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;, &#34;https://mirror.baidubce.com&#34;, &#34;https://hub-mirror.c.163.com&#34; ] } 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：
+docker pull registry.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker 快速上手" />
-<meta property="og:description" content="Docker 快速上手 #  安装 #  MacOS 下载: https://download.docker.com/mac/stable/Docker.dmgLinux Windows  镜像加速 #  阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+<meta property="og:description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 镜像加速 # 阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &ldquo;registry-mirrors&rdquo; 的数组里，点击 Apply &amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
 vi ~/.docker/deamon.json
-{  &#34;experimental&#34;: false,  &#34;debug&#34;: true,  &#34;registry-mirrors&#34;: [  &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;,  &#34;https://mirror.baidubce.com&#34;,  &#34;https://hub-mirror.c.163.com&#34;  ] } 登陆阿里云镜像仓库 #   docker login --username=657336244@qq." />
+{ &#34;experimental&#34;: false, &#34;debug&#34;: true, &#34;registry-mirrors&#34;: [ &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;, &#34;https://mirror.baidubce.com&#34;, &#34;https://hub-mirror.c.163.com&#34; ] } 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：
+docker pull registry." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +25,7 @@ vi ~/.docker/deamon.json
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book

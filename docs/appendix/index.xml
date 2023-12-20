@@ -4,42 +4,29 @@
     <title>第四部分 附录 on Kubernetes 学习笔记</title>
     <link>https://kingye.me/study-kubernetes/docs/appendix/</link>
     <description>Recent content in 第四部分 附录 on Kubernetes 学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-kubernetes/docs/appendix/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/appendix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>4.1 教程</title>
       <link>https://kingye.me/study-kubernetes/docs/appendix/tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-kubernetes/docs/appendix/tutorial/</guid>
-      <description>Kubernetes 教程 #  基础 #  The Kubernetes Learning Resources List #  collabnix/dockerlabs #  Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com
-To get started with Kubernetes, follow the below steps:
-Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster
-kelseyhightower/kubernetes-the-hard-way #  Bootstrap Kubernetes the hard way on Google Cloud Platform. No scripts.
-feiskyer/kubernetes-handbook #  Kubernetes Handbook （Kubernetes 指南） https://kubernetes.</description>
+      <description>Kubernetes 教程 # 基础 # The Kubernetes Learning Resources List # collabnix/dockerlabs # Docker - Beginners | Intermediate | Advanced https://dockerlabs.collabnix.com&#xA;To get started with Kubernetes, follow the below steps:&#xA;Open https://labs.play-with-kubernetes.com on your browser Click on Add Instances to setup first k8s node cluster&#xA;kelseyhightower/kubernetes-the-hard-way # Bootstrap Kubernetes the hard way on Google Cloud Platform. No scripts.&#xA;feiskyer/kubernetes-handbook # Kubernetes Handbook （Kubernetes 指南） https://kubernetes.feisky.xyz&#xA;play-with-docker/play-with-docker # Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.</description>
     </item>
-    
     <item>
       <title>4.2 面试题</title>
       <link>https://kingye.me/study-kubernetes/docs/appendix/interview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-kubernetes/docs/appendix/interview/</guid>
-      <description>面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3.</description>
+      <description>面试题 # 基础 # 进阶 # 其他 # 头条面试题 # 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.</description>
     </item>
-    
     <item>
       <title>4.3 关注项目</title>
       <link>https://kingye.me/study-kubernetes/docs/appendix/attention/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-kubernetes/docs/appendix/attention/</guid>
-      <description>Kubernetes 关注项目 #  ramitsurana/awesome-kubernetes kubernetes 官方 #  kubernetes/kubernetes #  Production-Grade Container Scheduling and Management https://kubernetes.io
-kubernetes/client-go #  Go client for Kubernetes.
-kubernetes/kops #  kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.
-kubernetes/dashboard #  General-purpose web UI for Kubernetes clusters
-kubernetes/kube-state-metrics #  Add-on agent to generate and expose cluster-level metrics.
-kubernetes/examples #  Kubernetes application example tutorials</description>
+      <description>Kubernetes 关注项目 # ramitsurana/awesome-kubernetes kubernetes 官方 # kubernetes/kubernetes # Production-Grade Container Scheduling and Management https://kubernetes.io&#xA;kubernetes/client-go # Go client for Kubernetes.&#xA;kubernetes/kops # kops - Kubernetes Operations The easiest way to get a production grade Kubernetes cluster up and running.&#xA;kubernetes/dashboard # General-purpose web UI for Kubernetes clusters&#xA;kubernetes/kube-state-metrics # Add-on agent to generate and expose cluster-level metrics.&#xA;kubernetes/examples # Kubernetes application example tutorials&#xA;kubernetes/sample-controller # Repository for sample controller.</description>
     </item>
-    
   </channel>
 </rss>

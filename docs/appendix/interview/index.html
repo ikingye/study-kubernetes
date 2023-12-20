@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3.">
+<meta name="description" content="面试题 # 基础 # 进阶 # 其他 # 头条面试题 # 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="4.2 面试题" />
-<meta property="og:description" content="面试题 #  基础 #  进阶 #   其他 #  头条面试题 #  头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。  头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。  头条人选三（面试基础架构部门容器岗位）  1. 系统  （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络  TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库  MyISAM 和 InnoDB 的简单区别 3." />
+<meta property="og:description" content="面试题 # 基础 # 进阶 # 其他 # 头条面试题 # 头条人选一（最近一周刚面试，面试岗位是头条杭州的 docker、k8s 工程师） 1.解释一下 acid 2.数据库的隔离级别 3.每个隔离级别的实现原理 4.讲一下分布式事务现有的方案，优缺点 5.说一下 cgroup 原理 6.说一下 mesos，k8s 的架构 7.说一下 actor 编程模型的原理和意义 算法：输出所有出现次数大于 n/k 的数,如果没有这样的数,请输出”-1“。 人选反馈：面试官会抓住一个点一直追问，问的比较细。 头条人选二（两周前面试 paas 平台开发工程师） 一面 1.字符串原地反转 2.软连接和硬连接的区别 3.前序和中序构造二叉树 4.10 亿个数字排序 5.大型企业的上线流程 二面 连续子数组的最大和 链表回文 三面 基于人选项目去发问，偏业务，没有算法题，还问到一些开源组件的使用情况。 头条人选三（面试基础架构部门容器岗位） 1. 系统 （Linux 下面进程是如何调度的，进程的优先级），有没有遇到过问题，描述原因和解决方法 2.网络 TIME_WAIT 状态出现的原因，排查的思路，有没有调优的方法 2. 数据库 MyISAM 和 InnoDB 的简单区别 3. Docker/K8s CGroup 如何做 cpu 的资源限制，哪几种限制方式 K8s 中的 request 和 limit 是如何实现的 K8s 中的 rc、rs、deployment 的区别，特点 5." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/appendix/interview/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book

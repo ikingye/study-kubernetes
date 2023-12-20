@@ -2,26 +2,30 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="dockerfile #  目标:
- 更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单  做法：
-  编写 .dockerignore 文件
-  容器只运行单个应用
-  将多个 RUN 指令合并为一个
-  基础镜像的标签不要用 latest
- 如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
-# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;&amp; apt-get install -y nodejs \  # added lines  &amp;&amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)">
+<meta name="description" content="dockerfile # 目标:
+更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单 做法：
+编写 .dockerignore 文件
+容器只运行单个应用
+将多个 RUN 指令合并为一个
+基础镜像的标签不要用 latest
+如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签 每个 RUN 指令后删除多余文件
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \ &amp;&amp; apt-get install -y nodejs \ # added lines &amp;&amp; rm -rf /var/lib/apt/lists/* 选择合适的基础镜像 (alpine 版本最好)
+alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像 设置 WORKDIR 和 CMD
+FROM node:7-alpine # WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。 WORKDIR /app COPY .">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="dockerfile" />
-<meta property="og:description" content="dockerfile #  目标:
- 更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单  做法：
-  编写 .dockerignore 文件
-  容器只运行单个应用
-  将多个 RUN 指令合并为一个
-  基础镜像的标签不要用 latest
- 如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签    每个 RUN 指令后删除多余文件
-# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \  &amp;&amp; apt-get install -y nodejs \  # added lines  &amp;&amp; rm -rf /var/lib/apt/lists/*   选择合适的基础镜像 (alpine 版本最好)" />
+<meta property="og:description" content="dockerfile # 目标:
+更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单 做法：
+编写 .dockerignore 文件
+容器只运行单个应用
+将多个 RUN 指令合并为一个
+基础镜像的标签不要用 latest
+如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签 每个 RUN 指令后删除多余文件
+# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \ &amp;&amp; apt-get install -y nodejs \ # added lines &amp;&amp; rm -rf /var/lib/apt/lists/* 选择合适的基础镜像 (alpine 版本最好)
+alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像 设置 WORKDIR 和 CMD
+FROM node:7-alpine # WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。 WORKDIR /app COPY ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/" /><meta property="article:section" content="docs" />
 
@@ -31,7 +35,7 @@
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.12f4b2df2fe0b167aef8cc6b4dc9550277cd78a29cbc81a6a9cec0737129a597.js" integrity="sha256-EvSy3y/gsWeu&#43;MxrTclVAnfNeKKcvIGmqc7Ac3EppZc="></script>
+<script defer src="/study-kubernetes/en.search.min.c446d88c59f95e53ebbaf3e55a9f2596ef828df1784ce06a5d7c480a58747820.js" integrity="sha256-xEbYjFn5XlPruvPlWp8llu&#43;CjfF4TOBqXXxIClh0eCA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book

@@ -5,15 +5,11 @@
   <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 镜像加速 # 阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
-针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &ldquo;registry-mirrors&rdquo; 的数组里，点击 Apply &amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
-vi ~/.docker/deamon.json
-{ &#34;experimental&#34;: false, &#34;debug&#34;: true, &#34;registry-mirrors&#34;: [ &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;, &#34;https://mirror.baidubce.com&#34;, &#34;https://hub-mirror.c.163.com&#34;, &#34;https://v16stybc.mirror.aliyuncs.com&#34;, &#34;https://hub.uuuadc.top&#34;, &#34;https://docker.anyhub.us.kg&#34;, &#34;https://dockerhub.jobcher.com&#34;, &#34;https://dockerhub.icu&#34;, &#34;https://docker.kingye.me&#34;, &#34;https://docker.ckyl.me&#34;, &#34;https://docker.awsl9527.cn&#34; ] } 登陆阿里云镜像仓库 # docker login --username=657336244@qq.">
+<meta name="description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 k8s.gcr.io/kube-apiserver:v1.20.8 docker rmi -f registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 # 遇到 aliyun 没有的，可以直接在 https://hub.docker.com/ 搜索 docker pull bitnami/kube-state-metrics:2.1.1 cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo [kubernetes] name=Kubernetes baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/ enabled=1 gpgcheck=1 repo_gpgcheck=1 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg EOF yum install -y kubelet-1.20.8 kubeadm-1.20.8 kubectl-1.20.8 systemctl enable kubelet &amp;&amp; systemctl start kubelet url=registry.cn-hangzhou.aliyuncs.com/google_containers version=v1.20.8 images=(`kubeadm config images list --kubernetes-version=$version|awk -F &#39;/&#39; &#39;{print $2}&#39;`) for imagename in ${images[@]} ; do docker pull $url/$imagename docker tag $url/$imagename k8s.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker 快速上手" />
-<meta property="og:description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 镜像加速 # 阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
-针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤： 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将 https://pjuig8sx.mirror.aliyuncs.com 加到 &ldquo;registry-mirrors&rdquo; 的数组里，点击 Apply &amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。
-vi ~/.docker/deamon.json
-{ &#34;experimental&#34;: false, &#34;debug&#34;: true, &#34;registry-mirrors&#34;: [ &#34;https://pjuig8sx.mirror.aliyuncs.com&#34;, &#34;https://mirror.baidubce.com&#34;, &#34;https://hub-mirror.c.163.com&#34;, &#34;https://v16stybc.mirror.aliyuncs.com&#34;, &#34;https://hub.uuuadc.top&#34;, &#34;https://docker.anyhub.us.kg&#34;, &#34;https://dockerhub.jobcher.com&#34;, &#34;https://dockerhub.icu&#34;, &#34;https://docker.kingye.me&#34;, &#34;https://docker.ckyl.me&#34;, &#34;https://docker.awsl9527.cn&#34; ] } 登陆阿里云镜像仓库 # docker login --username=657336244@qq." />
+<meta property="og:description" content="Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 k8s.gcr.io/kube-apiserver:v1.20.8 docker rmi -f registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 # 遇到 aliyun 没有的，可以直接在 https://hub.docker.com/ 搜索 docker pull bitnami/kube-state-metrics:2.1.1 cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo [kubernetes] name=Kubernetes baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/ enabled=1 gpgcheck=1 repo_gpgcheck=1 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg EOF yum install -y kubelet-1.20.8 kubeadm-1.20.8 kubectl-1.20.8 systemctl enable kubelet &amp;&amp; systemctl start kubelet url=registry.cn-hangzhou.aliyuncs.com/google_containers version=v1.20.8 images=(`kubeadm config images list --kubernetes-version=$version|awk -F &#39;/&#39; &#39;{print $2}&#39;`) for imagename in ${images[@]} ; do docker pull $url/$imagename docker tag $url/$imagename k8s." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +19,7 @@ vi ~/.docker/deamon.json
 <link rel="manifest" href="/study-kubernetes/manifest.json">
 <link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-kubernetes/en.search.min.2552f1c2f3121af3e9490a1eca1b061b17886e743ed651719d3adca54d738cdf.js" integrity="sha256-JVLxwvMSGvPpSQoeyhsGGxeIbnQ&#43;1lFxnTrcpU1zjN8="></script>
+<script defer src="/study-kubernetes/en.search.min.113dc8b55e3a23c1505c26625307ddfb2e09555b7c19d3d921f2aa394e97cfa9.js" integrity="sha256-ET3ItV46I8FQXCZiUwfd&#43;y4JVVt8GdPZIfKqOU6Xz6k="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1540,11 +1536,7 @@ https://github.com/alex-shpak/hugo-book
 <nav id="TableOfContents">
   <ul>
     <li><a href="#安装">安装</a></li>
-    <li><a href="#镜像加速">镜像加速</a>
-      <ul>
-        <li><a href="#登陆阿里云镜像仓库">登陆阿里云镜像仓库</a></li>
-      </ul>
-    </li>
+    <li><a href="#登陆阿里云镜像仓库">登陆阿里云镜像仓库</a></li>
   </ul>
 </nav>
 
@@ -1577,36 +1569,10 @@ https://github.com/alex-shpak/hugo-book
   <label for="tabs-uniqueid-2">Windows</label>
   <div class="book-tabs-content markdown-inner"></div></div>
 
-<h2 id="镜像加速">
-  镜像加速
-  <a class="anchor" href="#%e9%95%9c%e5%83%8f%e5%8a%a0%e9%80%9f">#</a>
-</h2>
-<p>阿里云 获取你的加速地址：https://cr.console.aliyun.com/cn-shanghai/instances/mirrors</p>
-<p>针对安装了 Docker for Mac 的用户，您可以参考以下配置步骤：
-右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将
-<code>https://pjuig8sx.mirror.aliyuncs.com</code>  加到 &ldquo;registry-mirrors&rdquo; 的数组里，点击 Apply &amp; Restart 按钮，等待 Docker 重启并应用配置的镜像加速器。</p>
-<p><code>vi ~/.docker/deamon.json</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;experimental&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;debug&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;registry-mirrors&#34;</span>: [
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://pjuig8sx.mirror.aliyuncs.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://mirror.baidubce.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://hub-mirror.c.163.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://v16stybc.mirror.aliyuncs.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://hub.uuuadc.top&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://docker.anyhub.us.kg&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://dockerhub.jobcher.com&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://dockerhub.icu&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://docker.kingye.me&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://docker.ckyl.me&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://docker.awsl9527.cn&#34;</span>
-</span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="登陆阿里云镜像仓库">
+<h2 id="登陆阿里云镜像仓库">
   登陆阿里云镜像仓库
   <a class="anchor" href="#%e7%99%bb%e9%99%86%e9%98%bf%e9%87%8c%e4%ba%91%e9%95%9c%e5%83%8f%e4%bb%93%e5%ba%93">#</a>
-</h3>
+</h2>
 <ul>
 <li><code>docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com</code></li>
 <li>密码：阿里云密码</li>
@@ -1711,11 +1677,7 @@ https://github.com/alex-shpak/hugo-book
 <nav id="TableOfContents">
   <ul>
     <li><a href="#安装">安装</a></li>
-    <li><a href="#镜像加速">镜像加速</a>
-      <ul>
-        <li><a href="#登陆阿里云镜像仓库">登陆阿里云镜像仓库</a></li>
-      </ul>
-    </li>
+    <li><a href="#登陆阿里云镜像仓库">登陆阿里云镜像仓库</a></li>
   </ul>
 </nav>
 

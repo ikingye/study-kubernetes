@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.4 其他 on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/docs/basic/other/</link>
+    <description>Recent content in 1.4 其他 on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/basic/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>版本</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/other/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/other/version/</guid>
+      <description>Kubernetes 版本 # kubernetes/kubernetes 查看版本 # kuberctl # kuberctl version 这里 Client Version 的 GitVersion 是 kuberctl 的版本&#xA;apiserver # kuberctl version 这里 Server Version 的 GitVersion 是 apiserver 的版本&#xA;kubelet # kuberctl get nodes 这里的 VERSION 是 kubelet 的版本&#xA;版本列表 # v1.26 # v1.25 # Moved container registry service from k8s.gcr.io to registry.k8s.io Introduced KMS v2 Kube-proxy images are now based on distroless images PodSecurityPolicy is Removed, Pod Security Admission graduates to Stable Ephemeral Containers Graduate to Stable Support for cgroups v2 Graduates to Stable Promoted endPort in Network Policy to Stable Promoted Local Ephemeral Storage Capacity Isolation to Stable Promoted core CSI Migration to Stable Promoted CSI Ephemeral Volume to Stable Promoted SeccompDefault to Beta Promoted CRD Validation Expression Language to Beta Promoted Server Side Unknown Field Validation to Beta v1.</description>
+    </item>
+    <item>
+      <title>发行版</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/other/distro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/other/distro/</guid>
+      <description>Kubernetes 发行版 # Rancher 偏运维 RKE Rancher Kubernetes Engine rancher/rke OpenShift 偏开发 AWS EKS Elastic Kubernetes Service Google GKE Google Kubernetes Engine Microsoft AKS Azure Kubernetes Service CDK Canonical Distribution of Kubernetes （Canonical 是 Ubuntu Linux 的制造商） CoreOS Tectonic/Red Hat CoreOS Docker 社区版 / Docker 企业版 Heptio Kubernetes 订阅版（Kubernetes 的两位创始人 Craig McLuckie 和 Joe Beda，创办了 Heptio） 2018 年 VMware 收购了 Heptio，不过此次收购目前暂未影响 Heptio 的产品计划 Kontena Pharos PKS Pivotal Container Service SUSE 容器服务平台 Telekube kubesphere/kubesphere KubeSphere 是在 Kubernetes 之上构建的以应用为中心的多租户容器平台，提供全栈的 IT 自动化运维的能力，简化企业的 DevOps 工作流。 KubeOperator/KubeOperator KubeOperator 是一个开源的轻量级 Kubernetes 发行版，专注于帮助企业规划、部署和运营生产级别的 K8s 集群。 参考：</description>
+    </item>
+  </channel>
+</rss>

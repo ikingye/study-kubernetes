@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/</link>
+    <description>Recent content in Docker on Kubernetes 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 快速上手</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</guid>
+      <description>Docker 快速上手 # 安装 # MacOS 下载: https://download.docker.com/mac/stable/Docker.dmg Linux Windows 登陆阿里云镜像仓库 # docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com 密码：阿里云密码 拉取 k8s.gcr.io 镜像：&#xA;docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 k8s.gcr.io/kube-apiserver:v1.20.8 docker rmi -f registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 # 遇到 aliyun 没有的，可以直接在 https://hub.docker.com/ 搜索 docker pull bitnami/kube-state-metrics:2.1.1 cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo [kubernetes] name=Kubernetes baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/ enabled=1 gpgcheck=1 repo_gpgcheck=1 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg EOF yum install -y kubelet-1.20.8 kubeadm-1.20.8 kubectl-1.20.8 systemctl enable kubelet &amp;amp;&amp;amp; systemctl start kubelet url=registry.cn-hangzhou.aliyuncs.com/google_containers version=v1.20.8 images=(`kubeadm config images list --kubernetes-version=$version|awk -F &amp;#39;/&amp;#39; &amp;#39;{print $2}&amp;#39;`) for imagename in ${images[@]} ; do docker pull $url/$imagename docker tag $url/$imagename k8s.</description>
+    </item>
+    <item>
+      <title>命令</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</guid>
+      <description>Docker 命令 # docker ps # docker ps vs docker container ls # Management Commands vs Commands&#xA;Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.&#xA;For example docker container ls is the new way to do docker ps.&#xA;Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run docker image ls, docker network ls or docker volume ls.</description>
+    </item>
+    <item>
+      <title>版本</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</guid>
+      <description>Docker 版本 # 查看版本 # docker -v docker --version #查看版本 docker-compose --version #查看版本 docker-machine --version #查看版本 docker version #查看client和server端版本，并可以查看是否开启体验功能 历史版本 # 最新版本&#xA;19.03 (2019-07-22) # 19.03.12 (2020-06-18) # 18.09 (2018-11-08) # Docker 合并版本号 # New in 18.09 is an aligned release model for Docker Engine - Community and Docker Engine - Enterprise. The new versioning scheme is YY.MM.x where x is an incrementing patch version. The enterprise engine is a superset of the community engine.</description>
+    </item>
+    <item>
+      <title>端口</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid>
+      <description>Docker 端口 # 端口映射 # -P（大写）：将容器内部开放的网络端口随机映射到宿主机的一个端口上 -p（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器 可以有多个 -p 端口映射格式 # # 指定 ip、指定宿主机 port、指定容器 port ip:hostport:containerport # 指定 ip、未指定宿主机 port（随机）、指定容器 port ip::containerport # 未指定 ip、指定宿主机 port、指定容器 port hostport:containerport 端口映射命令 # # 将容器暴露的所有端口，都随机映射到宿主机上（不推荐） docker run -P -it ubuntu /bin/bash # 将容器指定端口随机映射到宿主机一个随机端口 docker run -P 80 -it ubuntu /bin/bash # 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口 # 有两个冒号 : docker run -P 192.168.0.100::80 -it ubuntu /bin/bash # 将容器指定端口指定映射到宿主机的指定端口上 docker run -p 8000:80 -it ubuntu /bin/bash # 将容器指定端口，指定映射到宿主机指定 ip 和端口 # 只能访问 192.</description>
+    </item>
+    <item>
+      <title>containerd</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</guid>
+      <description> containerd # </description>
+    </item>
+    <item>
+      <title>dockerfile</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid>
+      <description>dockerfile # 目标:&#xA;更快的构建速度 更小的 Docker 镜像大小 更少的 Docker 镜像层 充分利用镜像缓存 增加 Dockerfile 可读性 让 Docker 容器使用起来更简单 做法：&#xA;编写 .dockerignore 文件&#xA;容器只运行单个应用&#xA;将多个 RUN 指令合并为一个&#xA;基础镜像的标签不要用 latest&#xA;如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签 每个 RUN 指令后删除多余文件&#xA;# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中 RUN apt-get update \ &amp;amp;&amp;amp; apt-get install -y nodejs \ # added lines &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* 选择合适的基础镜像 (alpine 版本最好)&#xA;alpine 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像 设置 WORKDIR 和 CMD&#xA;FROM node:7-alpine # WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。 WORKDIR /app COPY .</description>
+    </item>
+    <item>
+      <title>教程</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid>
+      <description>Docker 教程 # p8952/bocker # Docker implemented in around 100 lines of bash&#xA;yeasy/docker_practice # Learn and understand Docker technologies, with real DevOps practice!&#xA;Docker 从入门到实践&#xA;play-with-docker/play-with-docker # Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&#xA;Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+    <item>
+      <title>关注项目</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</guid>
+      <description>关注 # moby/moby # Moby Project - a collaborative project for the container ecosystem to assemble container-based systems https://mobyproject.org/&#xA;docker/docker-ce # Docker CE https://www.docker.com/community-edition&#xA;play-with-docker/play-with-docker # Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&#xA;Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.121.1">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HELM # helm/helm Helm is the best way to find, share, and use software built for Kubernetes.
+官网：https://helm.sh
+Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
+Use Helm to:
+Find and use popular software packaged as Helm Charts to run in Kubernetes Share your own applications as Helm Charts Create reproducible builds of your Kubernetes applications Intelligently manage your Kubernetes manifest files Manage releases of Helm packages 基本概念 # Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义， Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合 类似 Homebrew 中的 formula apt 的 dpkg yum/dnf 的 rpm Repository：用于发布和存储 Chart 的存储库。 Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。 Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。 HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Helm" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/" />
+
+<title>Helm | Kubernetes 学习笔记</title>
+<link rel="manifest" href="/study-kubernetes/manifest.json">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-kubernetes/en.search.min.2cadff921929d50c8a2736d320380ca9c5223eedbca353a06819f0170db4455b.js" integrity="sha256-LK3/khkp1QyKJzbTIDgMqcUiPu28o1OgaBnwFw20RVs="></script>
+<link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/index.xml" title="Kubernetes 学习笔记" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+  <li><a href="https://kingye.me" target="_blank" rel="noopener noreferrer">博客</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png" target="_blank" rel="noopener noreferrer">公众号</a></li>
+  <li><a href="https://github.com/ikingye" target="_blank" rel="noopener noreferrer">Github</a></li>
+  <li><a href="https://weibo.com/kingyip15215" target="_blank" rel="noopener noreferrer">微博</a></li>
+  <li><a href="https://www.zhihu.com/people/wutongyip" target="_blank" rel="noopener noreferrer">知乎</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-909df55e38d833be79a983c659f46da6" class="toggle"  />
+    <label for="section-909df55e38d833be79a983c659f46da6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/" class="">安装</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-828451a034a8387f41aec3f98657da3c" class="toggle"  />
+    <label for="section-828451a034a8387f41aec3f98657da3c" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/distro/" class="">发行版</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="toggle"  />
+    <label for="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/config/" class="">配置</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8905e468fa6fdb27eb027614843cab" class="toggle"  />
+    <label for="section-0f8905e468fa6fdb27eb027614843cab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/quick/" class="">1.1 快速上手</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a5f375c158f7e21fbabd12ed741d299a" class="toggle"  />
+    <label for="section-a5f375c158f7e21fbabd12ed741d299a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/concept/" class="">1.2 概念</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/volume/" class="">Volume</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5466eea417e2dff49ab8c9a055e52849" class="toggle"  />
+    <label for="section-5466eea417e2dff49ab8c9a055e52849" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/" class="">1.3 架构</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/" class="">K8s 网络</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/port/" class="">K8s 端口</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/" class="">K8s DNS</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/" class="">CoreDNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/" class="">KubeDNS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f11fb52809e2e30eda16bac8a874697" class="toggle"  />
+    <label for="section-9f11fb52809e2e30eda16bac8a874697" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/" class="">故障排查</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-712ea80b132ab855e1805b166f6ff2b4" class="toggle"  />
+    <label for="section-712ea80b132ab855e1805b166f6ff2b4" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/architecture/" class="">架构</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/" class="">组件</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/" class="">api-server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/schedule/" class="">Schedule</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/controller-manager/" class="">Controller Manager</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/" class="">Kube-proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kubelet/" class="">Kubelet</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35546ce3f1a0bc0184ae9ff86acbf112" class="toggle"  />
+    <label for="section-35546ce3f1a0bc0184ae9ff86acbf112" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/" class="">1.4 其他</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2a1618fa4fc6a507389a078649523e6b" class="toggle"  />
+    <label for="section-2a1618fa4fc6a507389a078649523e6b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/other/distro/" class="">发行版</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a784c11a68fca5d10a4ba33481b6822d" class="toggle" checked />
+    <label for="section-a784c11a68fca5d10a4ba33481b6822d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/" class=" active">Helm</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aa7183a59707f437266456cf946593a3" class="toggle"  />
+    <label for="section-aa7183a59707f437266456cf946593a3" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/" class="">client-go</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-560deb3262270657ff5a4d58757ce7ee" class="toggle"  />
+    <label for="section-560deb3262270657ff5a4d58757ce7ee" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/" class="">2.3 功能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/" class="">Operator</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/" class="">kubebuilder</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/" class="">etcd Operator</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="toggle"  />
+    <label for="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/hpa/" class="">Horizontal Pod Autoscaler</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-dc02d1c0c17e76773699c48b8436e0a6" class="toggle"  />
+    <label for="section-dc02d1c0c17e76773699c48b8436e0a6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/" class="">2.5 故障排查</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8e430d7be8b50287692911bee152a82b" class="toggle"  />
+    <label for="section-8e430d7be8b50287692911bee152a82b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/pod/" class="">pod 排错</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-44663a755dbc8f64101cf03e4f3aad6a" class="toggle"  />
+    <label for="section-44663a755dbc8f64101cf03e4f3aad6a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/prof/" class="">2.6 性能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2c82aea70046bb9b10132609e0053168" class="toggle"  />
+    <label for="section-2c82aea70046bb9b10132609e0053168" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/test/test/" class="">2.7 测试</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5984e55a477d080e1223d921138569d1" class="toggle"  />
+    <label for="section-5984e55a477d080e1223d921138569d1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/" class="">2.8 生态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2e744a6c9eac83267e9d4d144893cfe2" class="toggle"  />
+    <label for="section-2e744a6c9eac83267e9d4d144893cfe2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/" class="">Docker</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6cb574ab5cee54b510bad90cde9cbeac" class="toggle"  />
+    <label for="section-6cb574ab5cee54b510bad90cde9cbeac" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/" class="">Docker 快速上手</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-371f67f9589634fd0d550c204140eada" class="toggle"  />
+    <label for="section-371f67f9589634fd0d550c204140eada" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/" class="">命令</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0baba43efdaf344d30a6ed0ac119a10" class="toggle"  />
+    <label for="section-d0baba43efdaf344d30a6ed0ac119a10" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="toggle"  />
+    <label for="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/" class="">端口</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b2c48accaefe10a7fd81924cb4c6107" class="toggle"  />
+    <label for="section-9b2c48accaefe10a7fd81924cb4c6107" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/" class="">镜像</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/" class="">alpine</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/" class="">containerd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="">dockerfile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed796c7947ac322a7070e77c0c4fe787" class="toggle"  />
+    <label for="section-ed796c7947ac322a7070e77c0c4fe787" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/network/" class="">Docker 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ec1733c8b5f656492da01afff1d6b73" class="toggle"  />
+    <label for="section-5ec1733c8b5f656492da01afff1d6b73" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/" class="">教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/" class="">关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4c421087fdbd9fcf3673a2022e95228f" class="toggle"  />
+    <label for="section-4c421087fdbd9fcf3673a2022e95228f" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kata/" class="">Kata</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-075716b7689432f42dfc868948cf8dbf" class="toggle"  />
+    <label for="section-075716b7689432f42dfc868948cf8dbf" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubevirt/" class="">KubeVirt</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e46f955245a7fc42a220702c1084001a" class="toggle"  />
+    <label for="section-e46f955245a7fc42a220702c1084001a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/k3s/" class="">K3s</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/" class="">OAM</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/" class="">KubeVela</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f26d573f9d513d80f4cd70743a579425" class="toggle"  />
+    <label for="section-f26d573f9d513d80f4cd70743a579425" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeedge/" class="">KubeEdge</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="toggle"  />
+    <label for="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/knative/" class="">Knative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4bc3fa5928b533e570127a7884b5a399" class="toggle"  />
+    <label for="section-4bc3fa5928b533e570127a7884b5a399" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeflow/" class="">Kubeflow</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11afa853b830cacf12cc8985805b0ba2" class="toggle"  />
+    <label for="section-11afa853b830cacf12cc8985805b0ba2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeless/" class="">Kubeless</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d6b68e037029053b3553557b83c5ea9" class="toggle"  />
+    <label for="section-2d6b68e037029053b3553557b83c5ea9" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/" class="">Kubernetes 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-136608c50c51e8defaed66151967dea7" class="toggle"  />
+    <label for="section-136608c50c51e8defaed66151967dea7" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/calico/" class="">Calico</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/design/" class="">第三部分 设计与实现</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ffe7615f1d32247b6c49a7564f69acab" class="toggle"  />
+    <label for="section-ffe7615f1d32247b6c49a7564f69acab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/component/" class="">3.1 Kubernetes 组件</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f2b4598cad31089864f9c91b6b888358" class="toggle"  />
+    <label for="section-f2b4598cad31089864f9c91b6b888358" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/" class="">3.2 CRD</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-49af78edf56cb8997ceca2964ae1f83d" class="toggle"  />
+    <label for="section-49af78edf56cb8997ceca2964ae1f83d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/" class="">3.2.2 Operator</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-03eb74028d00c9a16dc6a9b4072bd5da" class="toggle"  />
+    <label for="section-03eb74028d00c9a16dc6a9b4072bd5da" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/operatorhub/" class="">OperatorHub</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-98b52b70569087bf58f2c72bcfae23f1" class="toggle"  />
+    <label for="section-98b52b70569087bf58f2c72bcfae23f1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/" class="">3.7 源码分析</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-94ef3507361716879403cb3b3bebf36e" class="toggle"  />
+    <label for="section-94ef3507361716879403cb3b3bebf36e" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.25.0/" class="">1.25.0</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-881c8687619ddb10c86f8f927fb23166" class="toggle"  />
+    <label for="section-881c8687619ddb10c86f8f927fb23166" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/" class="">1.0.0</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d181cd3861ca7652e852d22b5c3ff21" class="toggle"  />
+    <label for="section-2d181cd3861ca7652e852d22b5c3ff21" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1141a4bba37d01f14e63bf36d9c7071d" class="toggle"  />
+    <label for="section-1141a4bba37d01f14e63bf36d9c7071d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c743998336860c656367010fc7573b86" class="toggle"  />
+    <label for="section-c743998336860c656367010fc7573b86" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+<ul>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png" target="_blank" rel="noopener noreferrer">微信</a></li>
+  <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=EUhzg0UwUksxpQnwEmPngRLezlC6qrnn&jump_from=webapi" target="_blank" rel="noopener noreferrer"><img src="//pub.idqqimg.com/wpa/images/group.png"></a></li>
+</ul>
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Helm</strong>
+
+  <label for="toc-control">
+    
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#开源镜像">开源镜像</a>
+      <ul>
+        <li><a href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg"><a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars"></a></li>
+      </ul>
+    </li>
+    <li><a href="#todo">TODO</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article id="article" class="markdown"><h1 id="helm">
+  HELM
+  <a class="anchor" href="#helm">#</a>
+</h1>
+<p><a href="https://github.com/helm/helm">helm/helm</a> <img src="https://img.shields.io/github/stars/helm/helm.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/helm/helm.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/helm/helm.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/helm/helm.svg" alt="Last commit" /></p>
+<blockquote>
+<p>Helm is the best way to find, share, and use software built for Kubernetes.</p>
+</blockquote>
+<p>官网：<a href="https://helm.sh/">https://helm.sh</a></p>
+<p>Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.</p>
+<p>Use Helm to:</p>
+<ul>
+<li>Find and use popular software packaged as Helm Charts to run in Kubernetes</li>
+<li>Share your own applications as Helm Charts</li>
+<li>Create reproducible builds of your Kubernetes applications</li>
+<li>Intelligently manage your Kubernetes manifest files</li>
+<li>Manage releases of Helm packages</li>
+</ul>
+<hr>
+<h2 id="基本概念">
+  基本概念
+  <a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#</a>
+</h2>
+<ul>
+<li>Chart：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，
+<ul>
+<li>Chart 是用来封装 Kubernetes 原生应用程序的一系列 YAML 文件集合</li>
+<li>类似
+<ul>
+<li>Homebrew 中的 formula</li>
+<li>apt 的 dpkg</li>
+<li>yum/dnf 的 rpm</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Repository：用于发布和存储 Chart 的存储库。</li>
+<li>Release：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li>
+<li>Tiller 是 Helm2 的服务端，通常运行在您的 kubernetes 集群中。Tiller 用于接收 Helm 的请求，并根据 Chart 生成 Kubernetes 的部署文件，然后提交给 Kubernetes 创建应用。
+<ul>
+<li>HElm3 中删除了 Tiller，只有客户端使用，调用 ~/.kube/config 来访问 api server 进行创建</li>
+</ul>
+</li>
+</ul>
+<h2 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  completion  generate autocompletions script <span style="color:#66d9ef">for</span> the specified shell
+</span></span><span style="display:flex;"><span>  create      create a new chart with the given name
+</span></span><span style="display:flex;"><span>  dependency  manage a chart<span style="color:#960050;background-color:#1e0010">&#39;</span>s dependencies
+</span></span><span style="display:flex;"><span>  env         helm client environment information
+</span></span><span style="display:flex;"><span>  get         download extended information of a named release
+</span></span><span style="display:flex;"><span>  help        Help about any command
+</span></span><span style="display:flex;"><span>  history     fetch release history
+</span></span><span style="display:flex;"><span>  install     install a chart
+</span></span><span style="display:flex;"><span>  lint        examine a chart <span style="color:#66d9ef">for</span> possible issues
+</span></span><span style="display:flex;"><span>  list        list releases
+</span></span><span style="display:flex;"><span>  package     package a chart directory into a chart archive
+</span></span><span style="display:flex;"><span>  plugin      install, list, or uninstall Helm plugins
+</span></span><span style="display:flex;"><span>  pull        download a chart from a repository and <span style="color:#f92672">(</span>optionally<span style="color:#f92672">)</span> unpack it in local directory
+</span></span><span style="display:flex;"><span>  repo        add, list, remove, update, and index chart repositories
+</span></span><span style="display:flex;"><span>  rollback    roll back a release to a previous revision
+</span></span><span style="display:flex;"><span>  search      search <span style="color:#66d9ef">for</span> a keyword in charts
+</span></span><span style="display:flex;"><span>  show        show information of a chart
+</span></span><span style="display:flex;"><span>  status      display the status of the named release
+</span></span><span style="display:flex;"><span>  template    locally render templates
+</span></span><span style="display:flex;"><span>  test        run tests <span style="color:#66d9ef">for</span> a release
+</span></span><span style="display:flex;"><span>  uninstall   uninstall a release
+</span></span><span style="display:flex;"><span>  upgrade     upgrade a release
+</span></span><span style="display:flex;"><span>  verify      verify that a chart at the given path has been signed and is valid
+</span></span><span style="display:flex;"><span>  version     print the client version information
+</span></span></code></pre></div><hr>
+<h2 id="开源镜像">
+  开源镜像
+  <a class="anchor" href="#%e5%bc%80%e6%ba%90%e9%95%9c%e5%83%8f">#</a>
+</h2>
+<h3 id="burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg">
+  <a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars" />
+  <a class="anchor" href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 删除默认的源</span>
+</span></span><span style="display:flex;"><span>helm repo remove stable
+</span></span><span style="display:flex;"><span>helm repo remove incubator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 增加新的国内镜像源</span>
+</span></span><span style="display:flex;"><span>helm repo add stable http://mirror.azure.cn/kubernetes/charts/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm repo list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm search repo mysql
+</span></span></code></pre></div><hr>
+<h2 id="todo">
+  TODO
+  <a class="anchor" href="#todo">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Initialize a Helm Chart Repository</span>
+</span></span><span style="display:flex;"><span>$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list the charts you can install</span>
+</span></span><span style="display:flex;"><span>$ helm search repo stable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install an Example Chart</span>
+</span></span><span style="display:flex;"><span>$ helm repo update
+</span></span><span style="display:flex;"><span>$ helm install stable/mysql --generate-name
+</span></span><span style="display:flex;"><span>NAME: mysql-1596179301
+</span></span><span style="display:flex;"><span>LAST DEPLOYED: Fri Jul <span style="color:#ae81ff">31</span> 15:08:27 <span style="color:#ae81ff">2020</span>
+</span></span><span style="display:flex;"><span>NAMESPACE: default
+</span></span><span style="display:flex;"><span>STATUS: deployed
+</span></span><span style="display:flex;"><span>REVISION: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>NOTES:
+</span></span><span style="display:flex;"><span>MySQL can be accessed via port <span style="color:#ae81ff">3306</span> on the following DNS name from within your cluster:
+</span></span><span style="display:flex;"><span>mysql-1596179301.default.svc.cluster.local
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To get your root password run:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get secret --namespace default mysql-1596179301 -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.mysql-root-password}&#34;</span> | base64 --decode; echo<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To connect to your database:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. Run an Ubuntu pod that you can use as a client:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    kubectl run -i --tty ubuntu --image<span style="color:#f92672">=</span>ubuntu:16.04 --restart<span style="color:#f92672">=</span>Never -- bash -il
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2. Install the mysql client:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $ apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install mysql-client -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3. Connect using the mysql cli, <span style="color:#66d9ef">then</span> provide your password:
+</span></span><span style="display:flex;"><span>    $ mysql -h mysql-1596179301 -p
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To connect to your database directly from outside the K8s cluster:
+</span></span><span style="display:flex;"><span>    MYSQL_HOST<span style="color:#f92672">=</span>127.0.0.1
+</span></span><span style="display:flex;"><span>    MYSQL_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Execute the following command to route the connection:</span>
+</span></span><span style="display:flex;"><span>    kubectl port-forward svc/mysql-1596179301 <span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    mysql -h <span style="color:#e6db74">${</span>MYSQL_HOST<span style="color:#e6db74">}</span> -P<span style="color:#e6db74">${</span>MYSQL_PORT<span style="color:#e6db74">}</span> -u root -p<span style="color:#e6db74">${</span>MYSQL_ROOT_PASSWORD<span style="color:#e6db74">}</span>
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/8c0b1ef8cb004ccf0d0281d2b4711ac6a11aed2d" title='Last modified by yewang | 2021-02-04' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2021-02-04</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        <div>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <p><span id="busuanzi_container_page_pv">本文访问量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人</span></p>
+</div>
+
+
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-kubernetes"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+<div id="footer">
+  <p>
+    <a href="https://kingye.me">叶王</a> &copy; 2013-2024
+    版权所有。如果本文档对你有所帮助，可以<a
+      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      >请作者喝饮料</a
+    >。
+  </p>
+</div>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#开源镜像">开源镜像</a>
+      <ul>
+        <li><a href="#burdenbearkube-charts-mirrorhttpsgithubcomburdenbearkube-charts-mirror-github-starshttpsimgshieldsiogithubstarsburdenbearkube-charts-mirrorsvg"><a href="https://github.com/BurdenBear/kube-charts-mirror">BurdenBear/kube-charts-mirror</a> <img src="https://img.shields.io/github/stars/BurdenBear/kube-charts-mirror.svg" alt="Github stars"></a></li>
+      </ul>
+    </li>
+    <li><a href="#todo">TODO</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

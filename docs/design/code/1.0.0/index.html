@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.121.1">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kubernetes 1.0.0 源码分析 # https://github.com/kubernetes/kubernetes/tree/v1.0.0
+代码行数 # cloc # AlDanial/cloc $ cloc --version 1.94 $ cloc . 6328 text files. 5766 unique files. 668 files ignored. 4 errors: Line count, exceeded timeout: ./pkg/ui/data/swagger/datafile.go Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.js Line count, exceeded timeout: ./third_party/swagger-ui/swagger-ui.min.js Line count, exceeded timeout: ./third_party/ui/bower_components/angular/angular.min.js github.com/AlDanial/cloc v 1.94 T=28.96 s (199.1 files/s, 40061.4 lines/s) -------------------------------------------------------------------------------- Language files blank comment code -------------------------------------------------------------------------------- Go 3745 95221 115772 599870 JavaScript 443 17244 56651 92961 JSON 174 4 0 44954 Markdown 393 10130 0 30592 CSS 170 3226 1088 22298 Bourne Shell 211 3315 5908 14438 SVG 36 6 37 12614 HTML 84 1556 60 6340 YAML 222 492 1140 5434 Text 43 859 0 4619 Protocol Buffers 13 575 1178 1828 Bourne Again Shell 24 309 249 1613 Python 22 301 482 1087 SaltStack 36 124 117 983 LESS 7 166 54 912 make 53 267 285 602 Dockerfile 68 196 369 508 XML 9 0 0 213 C 2 27 13 175 Java 1 18 10 126 SCSS 2 29 0 124 CoffeeScript 1 12 3 108 Assembly 1 11 10 36 PHP 1 6 0 27 Properties 2 2 4 18 INI 2 1 0 9 TOML 1 0 0 3 -------------------------------------------------------------------------------- SUM: 5766 134097 183430 842492 -------------------------------------------------------------------------------- tokei # XAMPPRocky/tokei $ tokei -V tokei 12.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.0.0" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/" />
+
+<title>1.0.0 | Kubernetes 学习笔记</title>
+<link rel="manifest" href="/study-kubernetes/manifest.json">
+<link rel="icon" href="/study-kubernetes/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/study-kubernetes/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-kubernetes/en.search.min.2cadff921929d50c8a2736d320380ca9c5223eedbca353a06819f0170db4455b.js" integrity="sha256-LK3/khkp1QyKJzbTIDgMqcUiPu28o1OgaBnwFw20RVs="></script>
+<link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/index.xml" title="Kubernetes 学习笔记" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/study-kubernetes"><span>Kubernetes 学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+  <li><a href="https://kingye.me" target="_blank" rel="noopener noreferrer">博客</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png" target="_blank" rel="noopener noreferrer">公众号</a></li>
+  <li><a href="https://github.com/ikingye" target="_blank" rel="noopener noreferrer">Github</a></li>
+  <li><a href="https://weibo.com/kingyip15215" target="_blank" rel="noopener noreferrer">微博</a></li>
+  <li><a href="https://www.zhihu.com/people/wutongyip" target="_blank" rel="noopener noreferrer">知乎</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-909df55e38d833be79a983c659f46da6" class="toggle"  />
+    <label for="section-909df55e38d833be79a983c659f46da6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/" class="">安装</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-828451a034a8387f41aec3f98657da3c" class="toggle"  />
+    <label for="section-828451a034a8387f41aec3f98657da3c" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/distro/" class="">发行版</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="toggle"  />
+    <label for="section-f0849b2ab7b0b0f1e66c1d7f56d977bc" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/install/config/" class="">配置</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8905e468fa6fdb27eb027614843cab" class="toggle"  />
+    <label for="section-0f8905e468fa6fdb27eb027614843cab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/quick/" class="">1.1 快速上手</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a5f375c158f7e21fbabd12ed741d299a" class="toggle"  />
+    <label for="section-a5f375c158f7e21fbabd12ed741d299a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/concept/" class="">1.2 概念</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/" class="">API 对象</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/pod/" class="">Pod</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/replicaset/" class="">replicaset</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/configmap/" class="">ConfigMap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/deployment/" class="">Deployment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/crd/" class="">CRD</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/service/" class="">Service</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/concept/resource/volume/" class="">Volume</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5466eea417e2dff49ab8c9a055e52849" class="toggle"  />
+    <label for="section-5466eea417e2dff49ab8c9a055e52849" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/" class="">1.3 架构</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/" class="">K8s 网络</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/port/" class="">K8s 端口</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/" class="">K8s DNS</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/" class="">CoreDNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/" class="">KubeDNS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f11fb52809e2e30eda16bac8a874697" class="toggle"  />
+    <label for="section-9f11fb52809e2e30eda16bac8a874697" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/" class="">故障排查</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-712ea80b132ab855e1805b166f6ff2b4" class="toggle"  />
+    <label for="section-712ea80b132ab855e1805b166f6ff2b4" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/arch/architecture/" class="">架构</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/" class="">组件</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/" class="">api-server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/schedule/" class="">Schedule</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/controller-manager/" class="">Controller Manager</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/" class="">Kube-proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/arch/component/kubelet/" class="">Kubelet</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35546ce3f1a0bc0184ae9ff86acbf112" class="toggle"  />
+    <label for="section-35546ce3f1a0bc0184ae9ff86acbf112" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/" class="">1.4 其他</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2a1618fa4fc6a507389a078649523e6b" class="toggle"  />
+    <label for="section-2a1618fa4fc6a507389a078649523e6b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/basic/other/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/basic/other/distro/" class="">发行版</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a784c11a68fca5d10a4ba33481b6822d" class="toggle"  />
+    <label for="section-a784c11a68fca5d10a4ba33481b6822d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/" class="">2.2 工具</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/" class="">Kubectl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/" class="">Kustomize</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/helm/" class="">Helm</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aa7183a59707f437266456cf946593a3" class="toggle"  />
+    <label for="section-aa7183a59707f437266456cf946593a3" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/" class="">client-go</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-560deb3262270657ff5a4d58757ce7ee" class="toggle"  />
+    <label for="section-560deb3262270657ff5a4d58757ce7ee" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/" class="">2.3 功能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/" class="">Operator</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/" class="">kubebuilder</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/" class="">etcd Operator</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="toggle"  />
+    <label for="section-aaf0fcdfb306db62c7f6b51c8a3f2e1d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/feature/hpa/" class="">Horizontal Pod Autoscaler</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-dc02d1c0c17e76773699c48b8436e0a6" class="toggle"  />
+    <label for="section-dc02d1c0c17e76773699c48b8436e0a6" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/" class="">2.5 故障排查</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8e430d7be8b50287692911bee152a82b" class="toggle"  />
+    <label for="section-8e430d7be8b50287692911bee152a82b" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/debug/pod/" class="">pod 排错</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-44663a755dbc8f64101cf03e4f3aad6a" class="toggle"  />
+    <label for="section-44663a755dbc8f64101cf03e4f3aad6a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/prof/" class="">2.6 性能</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2c82aea70046bb9b10132609e0053168" class="toggle"  />
+    <label for="section-2c82aea70046bb9b10132609e0053168" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/test/test/" class="">2.7 测试</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5984e55a477d080e1223d921138569d1" class="toggle"  />
+    <label for="section-5984e55a477d080e1223d921138569d1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/" class="">2.8 生态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2e744a6c9eac83267e9d4d144893cfe2" class="toggle"  />
+    <label for="section-2e744a6c9eac83267e9d4d144893cfe2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/" class="">Docker</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6cb574ab5cee54b510bad90cde9cbeac" class="toggle"  />
+    <label for="section-6cb574ab5cee54b510bad90cde9cbeac" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/" class="">Docker 快速上手</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-371f67f9589634fd0d550c204140eada" class="toggle"  />
+    <label for="section-371f67f9589634fd0d550c204140eada" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/" class="">命令</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0baba43efdaf344d30a6ed0ac119a10" class="toggle"  />
+    <label for="section-d0baba43efdaf344d30a6ed0ac119a10" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/" class="">版本</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="toggle"  />
+    <label for="section-50d3cdbec55ead8d37883ba6d6bdb3a5" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/" class="">端口</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b2c48accaefe10a7fd81924cb4c6107" class="toggle"  />
+    <label for="section-9b2c48accaefe10a7fd81924cb4c6107" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/" class="">镜像</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/image/alpine/" class="">alpine</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/" class="">containerd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/" class="">dockerfile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed796c7947ac322a7070e77c0c4fe787" class="toggle"  />
+    <label for="section-ed796c7947ac322a7070e77c0c4fe787" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/network/" class="">Docker 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ec1733c8b5f656492da01afff1d6b73" class="toggle"  />
+    <label for="section-5ec1733c8b5f656492da01afff1d6b73" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/" class="">教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/" class="">关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4c421087fdbd9fcf3673a2022e95228f" class="toggle"  />
+    <label for="section-4c421087fdbd9fcf3673a2022e95228f" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kata/" class="">Kata</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-075716b7689432f42dfc868948cf8dbf" class="toggle"  />
+    <label for="section-075716b7689432f42dfc868948cf8dbf" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubevirt/" class="">KubeVirt</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e46f955245a7fc42a220702c1084001a" class="toggle"  />
+    <label for="section-e46f955245a7fc42a220702c1084001a" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/k3s/" class="">K3s</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/" class="">OAM</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/" class="">KubeVela</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f26d573f9d513d80f4cd70743a579425" class="toggle"  />
+    <label for="section-f26d573f9d513d80f4cd70743a579425" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeedge/" class="">KubeEdge</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="toggle"  />
+    <label for="section-4a3f7b6d908bc79200b3a9a74dfcee47" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/knative/" class="">Knative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4bc3fa5928b533e570127a7884b5a399" class="toggle"  />
+    <label for="section-4bc3fa5928b533e570127a7884b5a399" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeflow/" class="">Kubeflow</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11afa853b830cacf12cc8985805b0ba2" class="toggle"  />
+    <label for="section-11afa853b830cacf12cc8985805b0ba2" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/eco/kubeless/" class="">Kubeless</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d6b68e037029053b3553557b83c5ea9" class="toggle"  />
+    <label for="section-2d6b68e037029053b3553557b83c5ea9" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/" class="">Kubernetes 网络</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-136608c50c51e8defaed66151967dea7" class="toggle"  />
+    <label for="section-136608c50c51e8defaed66151967dea7" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/advanced/network/calico/" class="">Calico</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-kubernetes/docs/design/" class="">第三部分 设计与实现</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ffe7615f1d32247b6c49a7564f69acab" class="toggle"  />
+    <label for="section-ffe7615f1d32247b6c49a7564f69acab" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/component/" class="">3.1 Kubernetes 组件</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f2b4598cad31089864f9c91b6b888358" class="toggle"  />
+    <label for="section-f2b4598cad31089864f9c91b6b888358" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/" class="">3.2 CRD</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-49af78edf56cb8997ceca2964ae1f83d" class="toggle"  />
+    <label for="section-49af78edf56cb8997ceca2964ae1f83d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/" class="">3.2.2 Operator</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-03eb74028d00c9a16dc6a9b4072bd5da" class="toggle"  />
+    <label for="section-03eb74028d00c9a16dc6a9b4072bd5da" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/crd/operator/operatorhub/" class="">OperatorHub</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-98b52b70569087bf58f2c72bcfae23f1" class="toggle" checked />
+    <label for="section-98b52b70569087bf58f2c72bcfae23f1" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/" class="">3.7 源码分析</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-94ef3507361716879403cb3b3bebf36e" class="toggle"  />
+    <label for="section-94ef3507361716879403cb3b3bebf36e" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.25.0/" class="">1.25.0</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-881c8687619ddb10c86f8f927fb23166" class="toggle" checked />
+    <label for="section-881c8687619ddb10c86f8f927fb23166" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/design/code/1.0.0/" class="active">1.0.0</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2d181cd3861ca7652e852d22b5c3ff21" class="toggle"  />
+    <label for="section-2d181cd3861ca7652e852d22b5c3ff21" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/tutorial/" class="">4.1 教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1141a4bba37d01f14e63bf36d9c7071d" class="toggle"  />
+    <label for="section-1141a4bba37d01f14e63bf36d9c7071d" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/interview/" class="">4.2 面试题</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c743998336860c656367010fc7573b86" class="toggle"  />
+    <label for="section-c743998336860c656367010fc7573b86" class="flex justify-between">
+      <a href="https://kingye.me/study-kubernetes/docs/appendix/attention/" class="">4.3 关注项目</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+<ul>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png" target="_blank" rel="noopener noreferrer">微信</a></li>
+  <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=EUhzg0UwUksxpQnwEmPngRLezlC6qrnn&jump_from=webapi" target="_blank" rel="noopener noreferrer"><img src="//pub.idqqimg.com/wpa/images/group.png"></a></li>
+</ul>
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-kubernetes/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>1.0.0</strong>
+
+  <label for="toc-control">
+    
+    <img src="/study-kubernetes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#代码行数">代码行数</a>
+      <ul>
+        <li><a href="#cloc">cloc</a></li>
+        <li><a href="#tokei">tokei</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article id="article" class="markdown"><h1 id="kubernetes-100-源码分析">
+  Kubernetes 1.0.0 源码分析
+  <a class="anchor" href="#kubernetes-100-%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90">#</a>
+</h1>
+<p><a href="https://github.com/kubernetes/kubernetes/tree/v1.0.0">https://github.com/kubernetes/kubernetes/tree/v1.0.0</a></p>
+<hr>
+<h2 id="代码行数">
+  代码行数
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e8%a1%8c%e6%95%b0">#</a>
+</h2>
+<h3 id="cloc">
+  cloc
+  <a class="anchor" href="#cloc">#</a>
+</h3>
+<p><a href="https://github.com/AlDanial/cloc">AlDanial/cloc</a> <img src="https://img.shields.io/github/stars/AlDanial/cloc.svg" alt="Github stars" /> <img src="https://img.shields.io/github/forks/AlDanial/cloc.svg" alt="Github forks" /> <img src="https://img.shields.io/github/languages/top/AlDanial/cloc.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/AlDanial/cloc.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/AlDanial/cloc.svg" alt="Last commit" /></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cloc --version
+</span></span><span style="display:flex;"><span>1.94
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cloc .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">6328</span> text files.
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">5766</span> unique files.
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">668</span> files ignored.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> errors:
+</span></span><span style="display:flex;"><span>Line count, exceeded timeout:  ./pkg/ui/data/swagger/datafile.go
+</span></span><span style="display:flex;"><span>Line count, exceeded timeout:  ./third_party/swagger-ui/swagger-ui.js
+</span></span><span style="display:flex;"><span>Line count, exceeded timeout:  ./third_party/swagger-ui/swagger-ui.min.js
+</span></span><span style="display:flex;"><span>Line count, exceeded timeout:  ./third_party/ui/bower_components/angular/angular.min.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>github.com/AlDanial/cloc v 1.94  T<span style="color:#f92672">=</span>28.96 s <span style="color:#f92672">(</span>199.1 files/s, 40061.4 lines/s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Language                      files          blank        comment           code
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Go                             <span style="color:#ae81ff">3745</span>          <span style="color:#ae81ff">95221</span>         <span style="color:#ae81ff">115772</span>         <span style="color:#ae81ff">599870</span>
+</span></span><span style="display:flex;"><span>JavaScript                      <span style="color:#ae81ff">443</span>          <span style="color:#ae81ff">17244</span>          <span style="color:#ae81ff">56651</span>          <span style="color:#ae81ff">92961</span>
+</span></span><span style="display:flex;"><span>JSON                            <span style="color:#ae81ff">174</span>              <span style="color:#ae81ff">4</span>              <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">44954</span>
+</span></span><span style="display:flex;"><span>Markdown                        <span style="color:#ae81ff">393</span>          <span style="color:#ae81ff">10130</span>              <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">30592</span>
+</span></span><span style="display:flex;"><span>CSS                             <span style="color:#ae81ff">170</span>           <span style="color:#ae81ff">3226</span>           <span style="color:#ae81ff">1088</span>          <span style="color:#ae81ff">22298</span>
+</span></span><span style="display:flex;"><span>Bourne Shell                    <span style="color:#ae81ff">211</span>           <span style="color:#ae81ff">3315</span>           <span style="color:#ae81ff">5908</span>          <span style="color:#ae81ff">14438</span>
+</span></span><span style="display:flex;"><span>SVG                              <span style="color:#ae81ff">36</span>              <span style="color:#ae81ff">6</span>             <span style="color:#ae81ff">37</span>          <span style="color:#ae81ff">12614</span>
+</span></span><span style="display:flex;"><span>HTML                             <span style="color:#ae81ff">84</span>           <span style="color:#ae81ff">1556</span>             <span style="color:#ae81ff">60</span>           <span style="color:#ae81ff">6340</span>
+</span></span><span style="display:flex;"><span>YAML                            <span style="color:#ae81ff">222</span>            <span style="color:#ae81ff">492</span>           <span style="color:#ae81ff">1140</span>           <span style="color:#ae81ff">5434</span>
+</span></span><span style="display:flex;"><span>Text                             <span style="color:#ae81ff">43</span>            <span style="color:#ae81ff">859</span>              <span style="color:#ae81ff">0</span>           <span style="color:#ae81ff">4619</span>
+</span></span><span style="display:flex;"><span>Protocol Buffers                 <span style="color:#ae81ff">13</span>            <span style="color:#ae81ff">575</span>           <span style="color:#ae81ff">1178</span>           <span style="color:#ae81ff">1828</span>
+</span></span><span style="display:flex;"><span>Bourne Again Shell               <span style="color:#ae81ff">24</span>            <span style="color:#ae81ff">309</span>            <span style="color:#ae81ff">249</span>           <span style="color:#ae81ff">1613</span>
+</span></span><span style="display:flex;"><span>Python                           <span style="color:#ae81ff">22</span>            <span style="color:#ae81ff">301</span>            <span style="color:#ae81ff">482</span>           <span style="color:#ae81ff">1087</span>
+</span></span><span style="display:flex;"><span>SaltStack                        <span style="color:#ae81ff">36</span>            <span style="color:#ae81ff">124</span>            <span style="color:#ae81ff">117</span>            <span style="color:#ae81ff">983</span>
+</span></span><span style="display:flex;"><span>LESS                              <span style="color:#ae81ff">7</span>            <span style="color:#ae81ff">166</span>             <span style="color:#ae81ff">54</span>            <span style="color:#ae81ff">912</span>
+</span></span><span style="display:flex;"><span>make                             <span style="color:#ae81ff">53</span>            <span style="color:#ae81ff">267</span>            <span style="color:#ae81ff">285</span>            <span style="color:#ae81ff">602</span>
+</span></span><span style="display:flex;"><span>Dockerfile                       <span style="color:#ae81ff">68</span>            <span style="color:#ae81ff">196</span>            <span style="color:#ae81ff">369</span>            <span style="color:#ae81ff">508</span>
+</span></span><span style="display:flex;"><span>XML                               <span style="color:#ae81ff">9</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">213</span>
+</span></span><span style="display:flex;"><span>C                                 <span style="color:#ae81ff">2</span>             <span style="color:#ae81ff">27</span>             <span style="color:#ae81ff">13</span>            <span style="color:#ae81ff">175</span>
+</span></span><span style="display:flex;"><span>Java                              <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">18</span>             <span style="color:#ae81ff">10</span>            <span style="color:#ae81ff">126</span>
+</span></span><span style="display:flex;"><span>SCSS                              <span style="color:#ae81ff">2</span>             <span style="color:#ae81ff">29</span>              <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">124</span>
+</span></span><span style="display:flex;"><span>CoffeeScript                      <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">12</span>              <span style="color:#ae81ff">3</span>            <span style="color:#ae81ff">108</span>
+</span></span><span style="display:flex;"><span>Assembly                          <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">11</span>             <span style="color:#ae81ff">10</span>             <span style="color:#ae81ff">36</span>
+</span></span><span style="display:flex;"><span>PHP                               <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">6</span>              <span style="color:#ae81ff">0</span>             <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span>Properties                        <span style="color:#ae81ff">2</span>              <span style="color:#ae81ff">2</span>              <span style="color:#ae81ff">4</span>             <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>INI                               <span style="color:#ae81ff">2</span>              <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>TOML                              <span style="color:#ae81ff">1</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">0</span>              <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>SUM:                           <span style="color:#ae81ff">5766</span>         <span style="color:#ae81ff">134097</span>         <span style="color:#ae81ff">183430</span>         <span style="color:#ae81ff">842492</span>
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span></code></pre></div><h3 id="tokei">
+  tokei
+  <a class="anchor" href="#tokei">#</a>
+</h3>
+<p><a href="https://github.com/XAMPPRocky/tokei">XAMPPRocky/tokei</a> <img src="https://img.shields.io/github/stars/XAMPPRocky/tokei.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/XAMPPRocky/tokei.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/XAMPPRocky/tokei.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/XAMPPRocky/tokei.svg" alt="Last commit" /></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ tokei -V
+</span></span><span style="display:flex;"><span>tokei 12.0.4 compiled with serialization support: json, cbor, yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ tokei --sort code --exclude test
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Language            Files        Lines         Code     Comments       Blanks
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Go                   <span style="color:#ae81ff">3765</span>       <span style="color:#ae81ff">803073</span>       <span style="color:#ae81ff">611213</span>       <span style="color:#ae81ff">104189</span>        <span style="color:#ae81ff">87671</span>
+</span></span><span style="display:flex;"><span> JavaScript            <span style="color:#ae81ff">411</span>       <span style="color:#ae81ff">153108</span>        <span style="color:#ae81ff">88958</span>        <span style="color:#ae81ff">50674</span>        <span style="color:#ae81ff">13476</span>
+</span></span><span style="display:flex;"><span> JSON                  <span style="color:#ae81ff">154</span>        <span style="color:#ae81ff">44424</span>        <span style="color:#ae81ff">44420</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> CSS                   <span style="color:#ae81ff">173</span>        <span style="color:#ae81ff">26388</span>        <span style="color:#ae81ff">22087</span>         <span style="color:#ae81ff">1156</span>         <span style="color:#ae81ff">3145</span>
+</span></span><span style="display:flex;"><span> Shell                 <span style="color:#ae81ff">208</span>        <span style="color:#ae81ff">23742</span>        <span style="color:#ae81ff">14575</span>         <span style="color:#ae81ff">5960</span>         <span style="color:#ae81ff">3207</span>
+</span></span><span style="display:flex;"><span> SVG                    <span style="color:#ae81ff">58</span>        <span style="color:#ae81ff">12895</span>        <span style="color:#ae81ff">12847</span>           <span style="color:#ae81ff">41</span>            <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span> YAML                  <span style="color:#ae81ff">195</span>         <span style="color:#ae81ff">6751</span>         <span style="color:#ae81ff">5180</span>         <span style="color:#ae81ff">1132</span>          <span style="color:#ae81ff">439</span>
+</span></span><span style="display:flex;"><span> Protocol Buffers       <span style="color:#ae81ff">13</span>         <span style="color:#ae81ff">3581</span>         <span style="color:#ae81ff">2220</span>          <span style="color:#ae81ff">786</span>          <span style="color:#ae81ff">575</span>
+</span></span><span style="display:flex;"><span> BASH                   <span style="color:#ae81ff">21</span>         <span style="color:#ae81ff">2006</span>         <span style="color:#ae81ff">1475</span>          <span style="color:#ae81ff">245</span>          <span style="color:#ae81ff">286</span>
+</span></span><span style="display:flex;"><span> Python                 <span style="color:#ae81ff">23</span>         <span style="color:#ae81ff">1886</span>         <span style="color:#ae81ff">1178</span>          <span style="color:#ae81ff">405</span>          <span style="color:#ae81ff">303</span>
+</span></span><span style="display:flex;"><span> LESS                    <span style="color:#ae81ff">7</span>         <span style="color:#ae81ff">1132</span>          <span style="color:#ae81ff">912</span>           <span style="color:#ae81ff">54</span>          <span style="color:#ae81ff">166</span>
+</span></span><span style="display:flex;"><span> Makefile               <span style="color:#ae81ff">50</span>         <span style="color:#ae81ff">1092</span>          <span style="color:#ae81ff">559</span>          <span style="color:#ae81ff">285</span>          <span style="color:#ae81ff">248</span>
+</span></span><span style="display:flex;"><span> Dockerfile             <span style="color:#ae81ff">66</span>         <span style="color:#ae81ff">1051</span>          <span style="color:#ae81ff">491</span>          <span style="color:#ae81ff">369</span>          <span style="color:#ae81ff">191</span>
+</span></span><span style="display:flex;"><span> C                       <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">215</span>          <span style="color:#ae81ff">175</span>           <span style="color:#ae81ff">13</span>           <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span> XML                     <span style="color:#ae81ff">4</span>          <span style="color:#ae81ff">140</span>          <span style="color:#ae81ff">140</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> Java                    <span style="color:#ae81ff">1</span>          <span style="color:#ae81ff">154</span>          <span style="color:#ae81ff">126</span>           <span style="color:#ae81ff">10</span>           <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span> Sass                    <span style="color:#ae81ff">3</span>          <span style="color:#ae81ff">153</span>          <span style="color:#ae81ff">124</span>            <span style="color:#ae81ff">0</span>           <span style="color:#ae81ff">29</span>
+</span></span><span style="display:flex;"><span> Autoconf                <span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">111</span>          <span style="color:#ae81ff">109</span>            <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> CoffeeScript            <span style="color:#ae81ff">1</span>          <span style="color:#ae81ff">123</span>          <span style="color:#ae81ff">108</span>            <span style="color:#ae81ff">3</span>           <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span> Assembly                <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">57</span>           <span style="color:#ae81ff">36</span>           <span style="color:#ae81ff">10</span>           <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span> PHP                     <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">33</span>           <span style="color:#ae81ff">27</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span> INI                     <span style="color:#ae81ff">2</span>           <span style="color:#ae81ff">10</span>            <span style="color:#ae81ff">9</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> TOML                    <span style="color:#ae81ff">1</span>            <span style="color:#ae81ff">3</span>            <span style="color:#ae81ff">3</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> Plain Text             <span style="color:#ae81ff">44</span>         <span style="color:#ae81ff">5486</span>            <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">4626</span>          <span style="color:#ae81ff">860</span>
+</span></span><span style="display:flex;"><span>-------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> HTML                   <span style="color:#ae81ff">96</span>         <span style="color:#ae81ff">6606</span>         <span style="color:#ae81ff">5616</span>           <span style="color:#ae81ff">67</span>          <span style="color:#ae81ff">923</span>
+</span></span><span style="display:flex;"><span> |- CSS                 <span style="color:#ae81ff">12</span>           <span style="color:#ae81ff">20</span>           <span style="color:#ae81ff">20</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> |- JavaScript          <span style="color:#ae81ff">16</span>          <span style="color:#ae81ff">158</span>          <span style="color:#ae81ff">122</span>           <span style="color:#ae81ff">15</span>           <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">(</span>Total<span style="color:#f92672">)</span>                           <span style="color:#ae81ff">6784</span>         <span style="color:#ae81ff">5758</span>           <span style="color:#ae81ff">82</span>          <span style="color:#ae81ff">944</span>
+</span></span><span style="display:flex;"><span>-------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> Markdown              <span style="color:#ae81ff">396</span>        <span style="color:#ae81ff">35167</span>            <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">25424</span>         <span style="color:#ae81ff">9743</span>
+</span></span><span style="display:flex;"><span> |- BASH                <span style="color:#ae81ff">27</span>          <span style="color:#ae81ff">620</span>          <span style="color:#ae81ff">573</span>           <span style="color:#ae81ff">24</span>           <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span> |- C                    <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">46</span>           <span style="color:#ae81ff">29</span>           <span style="color:#ae81ff">15</span>            <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> |- Go                  <span style="color:#ae81ff">42</span>         <span style="color:#ae81ff">1941</span>         <span style="color:#ae81ff">1381</span>          <span style="color:#ae81ff">285</span>          <span style="color:#ae81ff">275</span>
+</span></span><span style="display:flex;"><span> |- HTML                 <span style="color:#ae81ff">7</span>           <span style="color:#ae81ff">99</span>           <span style="color:#ae81ff">67</span>            <span style="color:#ae81ff">8</span>           <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span> |- INI                  <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">10</span>            <span style="color:#ae81ff">6</span>            <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> |- JavaScript           <span style="color:#ae81ff">5</span>           <span style="color:#ae81ff">52</span>           <span style="color:#ae81ff">52</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> |- JSON                <span style="color:#ae81ff">13</span>          <span style="color:#ae81ff">741</span>          <span style="color:#ae81ff">729</span>            <span style="color:#ae81ff">0</span>           <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span> |- PHP                  <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">33</span>           <span style="color:#ae81ff">27</span>            <span style="color:#ae81ff">0</span>            <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span> |- Python               <span style="color:#ae81ff">1</span>           <span style="color:#ae81ff">12</span>            <span style="color:#ae81ff">7</span>            <span style="color:#ae81ff">1</span>            <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> |- Shell               <span style="color:#ae81ff">36</span>          <span style="color:#ae81ff">828</span>          <span style="color:#ae81ff">791</span>            <span style="color:#ae81ff">7</span>           <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span> |- YAML                <span style="color:#ae81ff">23</span>         <span style="color:#ae81ff">1064</span>         <span style="color:#ae81ff">1024</span>           <span style="color:#ae81ff">40</span>            <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">(</span>Total<span style="color:#f92672">)</span>                          <span style="color:#ae81ff">40613</span>         <span style="color:#ae81ff">4686</span>        <span style="color:#ae81ff">25806</span>        10121
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span> Total                <span style="color:#ae81ff">5698</span>      <span style="color:#ae81ff">1135011</span>       <span style="color:#ae81ff">817416</span>       <span style="color:#ae81ff">195848</span>       121747
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-kubernetes/commit/f5540392c58dd95531e63cb2e920d44acf3f68d8" title='Last modified by yewang | 2022-11-06' target="_blank" rel="noopener">
+      <img src="/study-kubernetes/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2022-11-06</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        <div>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <p><span id="busuanzi_container_page_pv">本文访问量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人</span></p>
+</div>
+
+
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-kubernetes"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+<div id="footer">
+  <p>
+    <a href="https://kingye.me">叶王</a> &copy; 2013-2024
+    版权所有。如果本文档对你有所帮助，可以<a
+      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      >请作者喝饮料</a
+    >。
+  </p>
+</div>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#代码行数">代码行数</a>
+      <ul>
+        <li><a href="#cloc">cloc</a></li>
+        <li><a href="#tokei">tokei</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes 网络 on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/docs/advanced/network/</link>
+    <description>Recent content in Kubernetes 网络 on Kubernetes 学习笔记</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/advanced/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Calico</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</guid>
+      <description>&lt;h1 id=&#34;calico&#34;&gt;&#xA;  Calico&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#calico&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/projectcalico/calico&#34;&gt;projectcalico/calico&lt;/a&gt; &lt;img src=&#34;https://img.shields.io/github/stars/projectcalico/calico.svg&#34; alt=&#34;Github stars&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/languages/top/projectcalico/calico.svg&#34; alt=&#34;Language&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/v/tag/projectcalico/calico.svg?sort=semver&#34; alt=&#34;Last Tag&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/last-commit/projectcalico/calico.svg&#34; alt=&#34;Last commit&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.projectcalico.org/&#34;&gt;https://docs.projectcalico.org/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;calicokube-controllers&#34;&gt;&#xA;  calico/kube-controllers&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#calicokube-controllers&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;</description>
+    </item>
+  </channel>
+</rss>

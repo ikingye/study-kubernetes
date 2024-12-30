@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OAM on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/docs/advanced/eco/oam/</link>
+    <description>Recent content in OAM on Kubernetes 学习笔记</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/advanced/eco/oam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KubeVela</title>
+      <link>https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/advanced/eco/oam/kubevela/</guid>
+      <description>&lt;h1 id=&#34;kubevela&#34;&gt;&#xA;  KubeVela&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#kubevela&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/oam-dev/kubevela&#34;&gt;oam-dev/kubevela&lt;/a&gt; &lt;img src=&#34;https://img.shields.io/github/stars/oam-dev/kubevela.svg&#34; alt=&#34;Github stars&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/languages/top/oam-dev/kubevela.svg&#34; alt=&#34;Language&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/v/tag/oam-dev/kubevela.svg?sort=semver&#34; alt=&#34;Last Tag&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/last-commit/oam-dev/kubevela.svg&#34; alt=&#34;Last commit&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;Make shipping applications more enjoyable.&#xA;&lt;a href=&#34;https://kubevela.io/&#34;&gt;https://kubevela.io/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;ps: &lt;a href=&#34;https://github.com/oam-dev/rudr&#34;&gt;oam-dev/rudr&lt;/a&gt; &lt;img src=&#34;https://img.shields.io/github/stars/oam-dev/rudr.svg&#34; alt=&#34;Github stars&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/languages/top/oam-dev/rudr.svg&#34; alt=&#34;Language&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/v/tag/oam-dev/rudr.svg?sort=semver&#34; alt=&#34;Last Tag&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/last-commit/oam-dev/rudr.svg&#34; alt=&#34;Last commit&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;已经被废弃，转为 KubeVela&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

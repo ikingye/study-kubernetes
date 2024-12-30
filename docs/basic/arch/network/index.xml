@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K8s 网络 on Kubernetes 学习笔记</title>
+    <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/</link>
+    <description>Recent content in K8s 网络 on Kubernetes 学习笔记</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s 端口</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/port/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/port/</guid>
+      <description>&lt;h1 id=&#34;k8s-端口&#34;&gt;&#xA;  K8s 端口&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#k8s-%e7%ab%af%e5%8f%a3&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;service 的端口&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;port&lt;/code&gt;：负责处理&lt;strong&gt;对内&lt;/strong&gt;的通信，&#xA;&lt;ul&gt;&#xA;&lt;li&gt;访问方式：&lt;code&gt;clusterIP:port&lt;/code&gt; 或者 &lt;code&gt;externalIP:port&lt;/code&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/docs/concepts/services-networking/service/#external-ips&#34;&gt;externalIP&lt;/a&gt; 不归 kubernetes 管，cluster administrator 自己负责&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;nodePort&lt;/code&gt;：在 node 上，负责&lt;strong&gt;对外&lt;/strong&gt;通信&#xA;&lt;ul&gt;&#xA;&lt;li&gt;访问方式：&lt;code&gt;NodeIP:NodePort&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;pod&lt;/code&gt; 的端口&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;targetPort&lt;/code&gt;：在 pod 上&#xA;&lt;ul&gt;&#xA;&lt;li&gt;从 port 和 nodePort 上来的流量，经过 kube-proxy 流入到后端 pod 的 targetPort 上，最后进入容器&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;容器的端口&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;containerPort&lt;/code&gt;：在容器上，用于被 pod 绑定&#xA;&lt;ul&gt;&#xA;&lt;li&gt;targetPort 和 containerPort 是一致的&lt;/li&gt;&#xA;&lt;li&gt;是可选的，仅仅是提示信息&lt;/li&gt;&#xA;&lt;li&gt;容器中任何监听 &lt;code&gt;0.0.0.0&lt;/code&gt; 的端口，都会暴露出来&lt;/li&gt;&#xA;&lt;li&gt;无法被更新&lt;/li&gt;&#xA;&lt;li&gt;主机的端口&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;hostPort&lt;/code&gt;：容器暴露的端口映射到的主机端口&#xA;&lt;ul&gt;&#xA;&lt;li&gt;尽量不要为 Pod 指定 hostPort&lt;/li&gt;&#xA;&lt;li&gt;将 Pod 绑定到 hostPort 时，它会限制 Pod 可以调度的位置数，因为每个 &lt;code&gt;&amp;lt;hostIP, hostPort, protocol&amp;gt;&lt;/code&gt; 组合必须是唯一的&lt;/li&gt;&#xA;&lt;li&gt;如果您没有明确指定 hostIP 和 protocol，Kubernetes 将使用 &lt;code&gt;0.0.0.0&lt;/code&gt; 作为默认 hostIP 和 TCP 作为默认 protocol&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200401160659.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>故障排查</title>
+      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/troubleshoot/</guid>
+      <description>&lt;h1 id=&#34;kubernetes-网络故障排查&#34;&gt;&#xA;  Kubernetes 网络故障排查&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#kubernetes-%e7%bd%91%e7%bb%9c%e6%95%85%e9%9a%9c%e6%8e%92%e6%9f%a5&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;</description>
+    </item>
+  </channel>
+</rss>

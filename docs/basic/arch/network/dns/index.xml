@@ -1,25 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>K8s DNS on Kubernetes 学习笔记</title>
-    <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/</link>
-    <description>Recent content in K8s DNS on Kubernetes 学习笔记</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CoreDNS</title>
-      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</guid>
-      <description>&lt;h1 id=&#34;coredns&#34;&gt;&#xA;  CoreDNS&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#coredns&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/coredns/coredns&#34;&gt;coredns/coredns&lt;/a&gt; &lt;img src=&#34;https://img.shields.io/github/stars/coredns/coredns.svg&#34; alt=&#34;Github stars&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/languages/top/coredns/coredns.svg&#34; alt=&#34;Language&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/v/tag/coredns/coredns.svg?sort=semver&#34; alt=&#34;Last Tag&#34; /&gt; &lt;img src=&#34;https://img.shields.io/github/last-commit/coredns/coredns.svg&#34; alt=&#34;Last commit&#34; /&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>KubeDNS</title>
-      <link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</guid>
-      <description>&lt;h1 id=&#34;kubedns&#34;&gt;&#xA;  KubeDNS&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#kubedns&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件，&#xA;普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nameserver 10.99.0.2  # 这里存储的是 kube-dns 的 Service IP&#xA;search default.svc.cluster.local. svc.cluster.local. cluster.local.&#xA;options ndots:5&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;如何进入-kube-dns-容器进行抓包&#34;&gt;&#xA;  如何进入 kube-dns 容器进行抓包&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%a6%82%e4%bd%95%e8%bf%9b%e5%85%a5-kube-dns-%e5%ae%b9%e5%99%a8%e8%bf%9b%e8%a1%8c%e6%8a%93%e5%8c%85&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker inspect --format &amp;#34;{{.State.Pid}}&amp;#34; dns_container_id&#xA;# 进入 container 的 network namespace&#xA;nsenter -n -t pid&#xA;# 对 53 端口进行抓包&#xA;tcpdump -i eth0 -N udp dst port 53&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;dnspolicy&#34;&gt;&#xA;  dnsPolicy&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#dnspolicy&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;clusterfirst默认&#34;&gt;&#xA;  &lt;code&gt;ClusterFirst&lt;/code&gt;（默认）&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#clusterfirst%e9%bb%98%e8%ae%a4&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;优先使用 &lt;code&gt;kubedns&lt;/code&gt; 或者 &lt;code&gt;coredns&lt;/code&gt; 进行域名解析。&#xA;如果解析不成功，才会使用宿主机的 DNS 配置进行解析。&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>K8s DNS on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/</link><description>Recent content in K8s DNS on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/index.xml" rel="self" type="application/rss+xml"/><item><title>CoreDNS</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/coredns/</guid><description>&lt;h1 id="coredns">
+ CoreDNS
+ &lt;a class="anchor" href="#coredns">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://github.com/coredns/coredns">coredns/coredns&lt;/a> &lt;img src="https://img.shields.io/github/stars/coredns/coredns.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/coredns/coredns.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/coredns/coredns.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/coredns/coredns.svg" alt="Last commit" />&lt;/p></description></item><item><title>KubeDNS</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/network/dns/kubedns/</guid><description>&lt;h1 id="kubedns">
+ KubeDNS
+ &lt;a class="anchor" href="#kubedns">#&lt;/a>
+&lt;/h1>
+&lt;p>在 Linux 系统中，/etc/resolv.conf 是存储 DNS 服务器的文件，
+普通 Pod 的 /etc/resolv.conf 文件应该存储的是 kube-dns 的 Service IP。&lt;/p>
+&lt;pre tabindex="0">&lt;code>nameserver 10.99.0.2 # 这里存储的是 kube-dns 的 Service IP
+search default.svc.cluster.local. svc.cluster.local. cluster.local.
+options ndots:5
+&lt;/code>&lt;/pre>&lt;h2 id="如何进入-kube-dns-容器进行抓包">
+ 如何进入 kube-dns 容器进行抓包
+ &lt;a class="anchor" href="#%e5%a6%82%e4%bd%95%e8%bf%9b%e5%85%a5-kube-dns-%e5%ae%b9%e5%99%a8%e8%bf%9b%e8%a1%8c%e6%8a%93%e5%8c%85">#&lt;/a>
+&lt;/h2>
+&lt;p>DNS 容器往往不具备 bash，所以不能通过 docker exec 或者 kubectl exec 的方式进入容器抓包。&lt;/p>
+&lt;pre tabindex="0">&lt;code>docker inspect --format &amp;#34;{{.State.Pid}}&amp;#34; dns_container_id
+# 进入 container 的 network namespace
+nsenter -n -t pid
+# 对 53 端口进行抓包
+tcpdump -i eth0 -N udp dst port 53
+&lt;/code>&lt;/pre>&lt;h2 id="dnspolicy">
+ dnsPolicy
+ &lt;a class="anchor" href="#dnspolicy">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="clusterfirst默认">
+ &lt;code>ClusterFirst&lt;/code>（默认）
+ &lt;a class="anchor" href="#clusterfirst%e9%bb%98%e8%ae%a4">#&lt;/a>
+&lt;/h3>
+&lt;p>优先使用 &lt;code>kubedns&lt;/code> 或者 &lt;code>coredns&lt;/code> 进行域名解析。
+如果解析不成功，才会使用宿主机的 DNS 配置进行解析。&lt;/p></description></item></channel></rss>

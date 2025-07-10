@@ -17,17 +17,33 @@
  安装
  &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85">#&lt;/a>
 &lt;/h2>
+&lt;div class="book-tabs">
 
 
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+&lt;label for="tabs-uniqueid-0">MacOS&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">
+
+下载: https://download.docker.com/mac/stable/Docker.dmg
+
+&lt;/div>
 
 
-&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
- &lt;label for="tabs-uniqueid-0">MacOS&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">下载: &lt;a href="https://download.docker.com/mac/stable/Docker.dmg">https://download.docker.com/mac/stable/Docker.dmg&lt;/a>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
- &lt;label for="tabs-uniqueid-1">Linux&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" />
- &lt;label for="tabs-uniqueid-2">Windows&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;/div>
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
+&lt;label for="tabs-uniqueid-1">Linux&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">
+
+&lt;/div>
+
+
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" />
+&lt;label for="tabs-uniqueid-2">Windows&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">
+
+&lt;/div>
+
+
+&lt;/div>
 
 &lt;h2 id="登陆阿里云镜像仓库">
  登陆阿里云镜像仓库

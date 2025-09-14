@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>组件 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/</link><description>Recent content in 组件 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/component/index.xml" rel="self" type="application/rss+xml"/><item><title>api-server</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</guid><description>&lt;h1 id="api-server-基础">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>组件 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/</link><description>Recent content in 组件 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/basic/arch/component/index.xml" rel="self" type="application/rss+xml"/><item><title>api-server</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/api-server/</guid><description>&lt;h1 id="api-server-基础"&gt;
  api-server 基础
- &lt;a class="anchor" href="#api-server-%e5%9f%ba%e7%a1%80">#&lt;/a>
-&lt;/h1></description></item><item><title>Kube-proxy</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</guid><description>&lt;h1 id="kube-proxy">
+ 
+ &lt;a class="anchor" href="#api-server-%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;</description></item><item><title>Kube-proxy</title><link>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/basic/arch/component/kube-proxy/</guid><description>&lt;h1 id="kube-proxy"&gt;
  Kube-proxy
- &lt;a class="anchor" href="#kube-proxy">#&lt;/a>
-&lt;/h1></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#kube-proxy"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;</description></item></channel></rss>

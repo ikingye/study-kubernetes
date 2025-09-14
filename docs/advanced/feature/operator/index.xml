@@ -1,49 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operator on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/</link><description>Recent content in Operator on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/index.xml" rel="self" type="application/rss+xml"/><item><title>kubebuilder</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid><description>&lt;h1 id="kubebuilder">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operator on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/</link><description>Recent content in Operator on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/index.xml" rel="self" type="application/rss+xml"/><item><title>kubebuilder</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid><description>&lt;h1 id="kubebuilder"&gt;
  kubebuilder
- &lt;a class="anchor" href="#kubebuilder">#&lt;/a>
-&lt;/h1>
-&lt;h3 id="kubernetes-sigskubebuilderhttpsgithubcomkubernetes-sigskubebuilder-github-starshttpsimgshieldsiogithubstarskubernetes-sigskubebuildersvg-languagehttpsimgshieldsiogithublanguagestopkubernetes-sigskubebuildersvg-last-taghttpsimgshieldsiogithubvtagkubernetes-sigskubebuildersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitkubernetes-sigskubebuildersvg">
- &lt;a href="https://github.com/kubernetes-sigs/kubebuilder">kubernetes-sigs/kubebuilder&lt;/a> &lt;img src="https://img.shields.io/github/stars/kubernetes-sigs/kubebuilder.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kubebuilder.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kubebuilder.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kubebuilder.svg" alt="Last commit" />
- &lt;a class="anchor" href="#kubernetes-sigskubebuilderhttpsgithubcomkubernetes-sigskubebuilder-github-starshttpsimgshieldsiogithubstarskubernetes-sigskubebuildersvg-languagehttpsimgshieldsiogithublanguagestopkubernetes-sigskubebuildersvg-last-taghttpsimgshieldsiogithubvtagkubernetes-sigskubebuildersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitkubernetes-sigskubebuildersvg">#&lt;/a>
-&lt;/h3>
-&lt;p>Kubebuilder - SDK for building Kubernetes APIs using CRDs
-&lt;a href="http://book.kubebuilder.io/">http://book.kubebuilder.io/&lt;/a>&lt;/p></description></item><item><title>etcd Operator</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid><description>&lt;h1 id="etcd-operator">
+ 
+ &lt;a class="anchor" href="#kubebuilder"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h3 id="kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;
+ &lt;a href="https://github.com/kubernetes-sigs/kubebuilder"&gt;kubernetes-sigs/kubebuilder&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes-sigs/kubebuilder.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kubebuilder.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kubebuilder.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kubebuilder.svg" alt="Last commit" /&gt;
+ 
+ &lt;a class="anchor" href="#kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;Kubebuilder - SDK for building Kubernetes APIs using CRDs
+&lt;a href="http://book.kubebuilder.io/"&gt;http://book.kubebuilder.io/&lt;/a&gt;&lt;/p&gt;</description></item><item><title>etcd Operator</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid><description>&lt;h1 id="etcd-operator"&gt;
  etcd Operator
- &lt;a class="anchor" href="#etcd-operator">#&lt;/a>
-&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/coreos/etcd-operator
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 为 Etcd Operator 创建 RBAC 规则&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ example/rbac/create_role.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Etcd Operator 本身，其实就是一个 Deployment&lt;/p>
-&lt;p>而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来&lt;/p>
-&lt;p>这个 CRD 名叫 &lt;code>etcdclusters.etcd.database.coreos.com&lt;/code>&lt;/p>
-&lt;p>实际上是在 Kubernetes 里添加了一个名叫 &lt;strong>EtcdCluster&lt;/strong> 的自定义资源类型（CRD）。&lt;/p>
-&lt;p>而 Etcd Operator 本身，就是这个 CRD 对应的&lt;strong>自定义控制器&lt;/strong>。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">extensions/v1beta1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">etcd-operator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">etcd-operator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">etcd-operator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">quay.io/coreos/etcd-operator:v0.9.2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">etcd-operator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">env&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">MY_POD_NAMESPACE&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">valueFrom&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">fieldRef&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">fieldPath&lt;/span>: &lt;span style="color:#ae81ff">metadata.namespace&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">MY_POD_NAME&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">valueFrom&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">fieldRef&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">fieldPath&lt;/span>: &lt;span style="color:#ae81ff">metadata.name&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。&lt;/p></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#etcd-operator"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ git clone https://github.com/coreos/etcd-operator
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 为 Etcd Operator 创建 RBAC 规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ example/rbac/create_role.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Etcd Operator 本身，其实就是一个 Deployment&lt;/p&gt;
+&lt;p&gt;而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来&lt;/p&gt;
+&lt;p&gt;这个 CRD 名叫 &lt;code&gt;etcdclusters.etcd.database.coreos.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;实际上是在 Kubernetes 里添加了一个名叫 &lt;strong&gt;EtcdCluster&lt;/strong&gt; 的自定义资源类型（CRD）。&lt;/p&gt;
+&lt;p&gt;而 Etcd Operator 本身，就是这个 CRD 对应的&lt;strong&gt;自定义控制器&lt;/strong&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;apiVersion&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;extensions/v1beta1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;kind&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;etcd-operator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;replicas&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;template&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;etcd-operator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;etcd-operator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;image&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;quay.io/coreos/etcd-operator:v0.9.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;command&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;etcd-operator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;MY_POD_NAMESPACE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;valueFrom&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldRef&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldPath&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;metadata.namespace&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;MY_POD_NAME&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;valueFrom&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldRef&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldPath&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;metadata.name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。&lt;/p&gt;</description></item></channel></rss>

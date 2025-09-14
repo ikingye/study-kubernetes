@@ -1,23 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.5 故障排查 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/</link><description>Recent content in 2.5 故障排查 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>pod 排错</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</guid><description>&lt;h1 id="pod-排错">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.5 故障排查 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/</link><description>Recent content in 2.5 故障排查 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>pod 排错</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</guid><description>&lt;h1 id="pod-排错"&gt;
  pod 排错
- &lt;a class="anchor" href="#pod-%e6%8e%92%e9%94%99">#&lt;/a>
-&lt;/h1>
-&lt;p>排查 Pod 异常的常用命令如下：&lt;/p>
-&lt;ul>
-&lt;li>查看 Pod 状态：&lt;code>kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide&lt;/code>&lt;/li>
-&lt;li>查看 Pod 的 yaml 配置：&lt;code>kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o yaml&lt;/code>&lt;/li>
-&lt;li>查看 Pod 的事件：&lt;code>kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code>&lt;/li>
-&lt;li>查看 Pod 容器日志：&lt;code>kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="pending-状态">
+ 
+ &lt;a class="anchor" href="#pod-%e6%8e%92%e9%94%99"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;排查 Pod 异常的常用命令如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看 Pod 状态：&lt;code&gt;kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看 Pod 的 yaml 配置：&lt;code&gt;kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o yaml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看 Pod 的事件：&lt;code&gt;kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看 Pod 容器日志：&lt;code&gt;kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="pending-状态"&gt;
  Pending 状态
- &lt;a class="anchor" href="#pending-%e7%8a%b6%e6%80%81">#&lt;/a>
-&lt;/h2>
-&lt;p>Pending 状态说明 Pod 还没有调度到某个 Node 上面&lt;/p>
-&lt;p>可以通过  &lt;code>kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code>  命令查看到 Pod 的事件&lt;/p>
-&lt;p>参考：&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.feisky.xyz/troubleshooting/pod">Kubernetes 指南 - Pod 排错&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/opsnull/kubernetes-troubleshooting-book/blob/master/%E6%8E%92%E9%94%99%E6%8C%87%E5%8D%97-Pod.md">排错指南 - Pod&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods">Kubernetes Docs - Troubleshoot Applications&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#pending-%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Pending 状态说明 Pod 还没有调度到某个 Node 上面&lt;/p&gt;
+&lt;p&gt;可以通过  &lt;code&gt;kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code&gt;  命令查看到 Pod 的事件&lt;/p&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.feisky.xyz/troubleshooting/pod"&gt;Kubernetes 指南 - Pod 排错&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/opsnull/kubernetes-troubleshooting-book/blob/master/%E6%8E%92%E9%94%99%E6%8C%87%E5%8D%97-Pod.md"&gt;排错指南 - Pod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods"&gt;Kubernetes Docs - Troubleshoot Applications&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

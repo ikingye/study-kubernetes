@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes 网络 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/network/</link><description>Recent content in Kubernetes 网络 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Calico</title><link>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</guid><description>&lt;h1 id="calico">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes 网络 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/network/</link><description>Recent content in Kubernetes 网络 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Calico</title><link>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/network/calico/</guid><description>&lt;h1 id="calico"&gt;
  Calico
- &lt;a class="anchor" href="#calico">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;a href="https://github.com/projectcalico/calico">projectcalico/calico&lt;/a> &lt;img src="https://img.shields.io/github/stars/projectcalico/calico.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/projectcalico/calico.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/projectcalico/calico.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/projectcalico/calico.svg" alt="Last commit" />&lt;/p>
-&lt;p>&lt;a href="https://docs.projectcalico.org/">https://docs.projectcalico.org/&lt;/a>&lt;/p>
-&lt;h2 id="calicokube-controllers">
+ 
+ &lt;a class="anchor" href="#calico"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/projectcalico/calico"&gt;projectcalico/calico&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/projectcalico/calico.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/projectcalico/calico.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/projectcalico/calico.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/projectcalico/calico.svg" alt="Last commit" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.projectcalico.org/"&gt;https://docs.projectcalico.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="calicokube-controllers"&gt;
  calico/kube-controllers
- &lt;a class="anchor" href="#calicokube-controllers">#&lt;/a>
-&lt;/h2></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#calicokube-controllers"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;</description></item></channel></rss>

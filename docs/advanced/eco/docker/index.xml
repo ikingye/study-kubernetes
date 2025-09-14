@@ -1,292 +1,352 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/</link><description>Recent content in Docker on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 快速上手</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</guid><description>&lt;h1 id="docker-快速上手">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/</link><description>Recent content in Docker on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/eco/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 快速上手</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/quick/</guid><description>&lt;h1 id="docker-快速上手"&gt;
  Docker 快速上手
- &lt;a class="anchor" href="#docker-%e5%bf%ab%e9%80%9f%e4%b8%8a%e6%89%8b">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="安装">
+ 
+ &lt;a class="anchor" href="#docker-%e5%bf%ab%e9%80%9f%e4%b8%8a%e6%89%8b"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="安装"&gt;
  安装
- &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85">#&lt;/a>
-&lt;/h2>
-&lt;div class="book-tabs">
+ 
+ &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;div class="book-tabs"&gt;
 
 
-&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
-&lt;label for="tabs-uniqueid-0">MacOS&lt;/label>
-&lt;div class="book-tabs-content markdown-inner">
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" /&gt;
+&lt;label for="tabs-uniqueid-0"&gt;MacOS&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
 
 下载: https://download.docker.com/mac/stable/Docker.dmg
 
-&lt;/div>
+&lt;/div&gt;
 
 
-&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
-&lt;label for="tabs-uniqueid-1">Linux&lt;/label>
-&lt;div class="book-tabs-content markdown-inner">
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" /&gt;
+&lt;label for="tabs-uniqueid-1"&gt;Linux&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
 
-&lt;/div>
-
-
-&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" />
-&lt;label for="tabs-uniqueid-2">Windows&lt;/label>
-&lt;div class="book-tabs-content markdown-inner">
-
-&lt;/div>
+&lt;/div&gt;
 
 
-&lt;/div>
+&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" /&gt;
+&lt;label for="tabs-uniqueid-2"&gt;Windows&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
 
-&lt;h2 id="登陆阿里云镜像仓库">
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;h2 id="登陆阿里云镜像仓库"&gt;
  登陆阿里云镜像仓库
- &lt;a class="anchor" href="#%e7%99%bb%e9%99%86%e9%98%bf%e9%87%8c%e4%ba%91%e9%95%9c%e5%83%8f%e4%bb%93%e5%ba%93">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com&lt;/code>&lt;/li>
-&lt;li>密码：阿里云密码&lt;/li>
-&lt;/ul>
-&lt;p>拉取 &lt;code>k8s.gcr.io&lt;/code> 镜像：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 k8s.gcr.io/kube-apiserver:v1.20.8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rmi -f registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 遇到 aliyun 没有的，可以直接在 https://hub.docker.com/ 搜索&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull bitnami/kube-state-metrics:2.1.1
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>cat &lt;span style="color:#e6db74">&amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">[kubernetes]
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">name=Kubernetes
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">enabled=1
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">gpgcheck=1
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">repo_gpgcheck=1
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EOF&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y kubelet-1.20.8 kubeadm-1.20.8 kubectl-1.20.8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable kubelet &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl start kubelet
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url&lt;span style="color:#f92672">=&lt;/span>registry.cn-hangzhou.aliyuncs.com/google_containers
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>version&lt;span style="color:#f92672">=&lt;/span>v1.20.8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>images&lt;span style="color:#f92672">=(&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>kubeadm config images list --kubernetes-version&lt;span style="color:#f92672">=&lt;/span>$version|awk -F &lt;span style="color:#e6db74">&amp;#39;/&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;{print $2}&amp;#39;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> imagename in &lt;span style="color:#e6db74">${&lt;/span>images[@]&lt;span style="color:#e6db74">}&lt;/span> ; &lt;span style="color:#66d9ef">do&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker pull $url/$imagename
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker tag $url/$imagename k8s.gcr.io/$imagename
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker rmi -f $url/$imagename
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>命令</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</guid><description>&lt;h1 id="docker-命令">
+ 
+ &lt;a class="anchor" href="#%e7%99%bb%e9%99%86%e9%98%bf%e9%87%8c%e4%ba%91%e9%95%9c%e5%83%8f%e4%bb%93%e5%ba%93"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker login --username=657336244@qq.com registry.cn-shanghai.aliyuncs.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;密码：阿里云密码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;拉取 &lt;code&gt;k8s.gcr.io&lt;/code&gt; 镜像：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8 k8s.gcr.io/kube-apiserver:v1.20.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rmi -f registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.20.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 遇到 aliyun 没有的，可以直接在 https://hub.docker.com/ 搜索&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull bitnami/kube-state-metrics:2.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat &lt;span style="color:#e6db74"&gt;&amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;[kubernetes]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;name=Kubernetes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;enabled=1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;gpgcheck=1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;repo_gpgcheck=1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install -y kubelet-1.20.8 kubeadm-1.20.8 kubectl-1.20.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl enable kubelet &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start kubelet
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;url&lt;span style="color:#f92672"&gt;=&lt;/span&gt;registry.cn-hangzhou.aliyuncs.com/google_containers
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;version&lt;span style="color:#f92672"&gt;=&lt;/span&gt;v1.20.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;images&lt;span style="color:#f92672"&gt;=(&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;kubeadm config images list --kubernetes-version&lt;span style="color:#f92672"&gt;=&lt;/span&gt;$version|awk -F &lt;span style="color:#e6db74"&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; imagename in &lt;span style="color:#e6db74"&gt;${&lt;/span&gt;images[@]&lt;span style="color:#e6db74"&gt;}&lt;/span&gt; ; &lt;span style="color:#66d9ef"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker pull $url/$imagename
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker tag $url/$imagename k8s.gcr.io/$imagename
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker rmi -f $url/$imagename
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>命令</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/command/</guid><description>&lt;h1 id="docker-命令"&gt;
  Docker 命令
- &lt;a class="anchor" href="#docker-%e5%91%bd%e4%bb%a4">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="docker-ps">
+ 
+ &lt;a class="anchor" href="#docker-%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="docker-ps"&gt;
  docker ps
- &lt;a class="anchor" href="#docker-ps">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="docker-ps-vs-docker-container-ls">
+ 
+ &lt;a class="anchor" href="#docker-ps"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="docker-ps-vs-docker-container-ls"&gt;
  docker ps vs docker container ls
- &lt;a class="anchor" href="#docker-ps-vs-docker-container-ls">#&lt;/a>
-&lt;/h3>
-&lt;p>&lt;strong>Management Commands&lt;/strong> vs Commands&lt;/p>
-&lt;p>Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.&lt;/p>
-&lt;p>For example docker container ls is the new way to do docker ps.&lt;/p>
-&lt;p>Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run &lt;code>docker image ls&lt;/code>, &lt;code>docker network ls&lt;/code> or &lt;code>docker volume ls&lt;/code>. There’s consistency across all of these commands.&lt;/p></description></item><item><title>版本</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</guid><description>&lt;h1 id="docker-版本httpsdocsdockercomenginerelease-notes">
- &lt;a href="https://docs.docker.com/engine/release-notes/">Docker 版本&lt;/a>
- &lt;a class="anchor" href="#docker-%e7%89%88%e6%9c%achttpsdocsdockercomenginerelease-notes">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="查看版本">
+ 
+ &lt;a class="anchor" href="#docker-ps-vs-docker-container-ls"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Management Commands&lt;/strong&gt; vs Commands&lt;/p&gt;
+&lt;p&gt;Docker 1.13+ introduced grouped commands to help organize a bunch of Docker commands. Both commands do the same thing.&lt;/p&gt;
+&lt;p&gt;For example docker container ls is the new way to do docker ps.&lt;/p&gt;
+&lt;p&gt;Sure it’s more typing, but it’s a lot more clear on what it does. Likewise, now you can run &lt;code&gt;docker image ls&lt;/code&gt;, &lt;code&gt;docker network ls&lt;/code&gt; or &lt;code&gt;docker volume ls&lt;/code&gt;. There’s consistency across all of these commands.&lt;/p&gt;</description></item><item><title>版本</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/version/</guid><description>&lt;h1 id="docker-版本"&gt;
+ &lt;a href="https://docs.docker.com/engine/release-notes/"&gt;Docker 版本&lt;/a&gt;
+ 
+ &lt;a class="anchor" href="#docker-%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="查看版本"&gt;
  查看版本
- &lt;a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac">#&lt;/a>
-&lt;/h2>
-&lt;pre tabindex="0">&lt;code>docker -v
+ 
+ &lt;a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;docker -v
 docker --version #查看版本
 docker-compose --version #查看版本
 docker-machine --version #查看版本
 docker version #查看client和server端版本，并可以查看是否开启体验功能
-&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200601161256.png" alt="" />&lt;/p>
-&lt;hr>
-&lt;h2 id="历史版本">
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200601161256.png" alt="" /&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="历史版本"&gt;
  历史版本
- &lt;a class="anchor" href="#%e5%8e%86%e5%8f%b2%e7%89%88%e6%9c%ac">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;a href="https://docs.docker.com/engine/release-notes/">最新版本&lt;/a>&lt;/p>
-&lt;h3 id="1903httpsdocsdockercomenginerelease-notes1903-2019-07-22">
- &lt;a href="https://docs.docker.com/engine/release-notes/19.03/">19.03&lt;/a> (2019-07-22)
- &lt;a class="anchor" href="#1903httpsdocsdockercomenginerelease-notes1903-2019-07-22">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="190312-2020-06-18">
+ 
+ &lt;a class="anchor" href="#%e5%8e%86%e5%8f%b2%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://docs.docker.com/engine/release-notes/"&gt;最新版本&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="1903-2019-07-22"&gt;
+ &lt;a href="https://docs.docker.com/engine/release-notes/19.03/"&gt;19.03&lt;/a&gt; (2019-07-22)
+ 
+ &lt;a class="anchor" href="#1903-2019-07-22"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;h4 id="190312-2020-06-18"&gt;
  19.03.12 (2020-06-18)
- &lt;a class="anchor" href="#190312-2020-06-18">#&lt;/a>
-&lt;/h4>
-&lt;hr>
-&lt;h3 id="1809httpsdocsdockercomenginerelease-notes1809-2018-11-08">
- &lt;a href="https://docs.docker.com/engine/release-notes/18.09/">18.09&lt;/a> (2018-11-08)
- &lt;a class="anchor" href="#1809httpsdocsdockercomenginerelease-notes1809-2018-11-08">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="docker-合并版本号">
+ 
+ &lt;a class="anchor" href="#190312-2020-06-18"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3 id="1809-2018-11-08"&gt;
+ &lt;a href="https://docs.docker.com/engine/release-notes/18.09/"&gt;18.09&lt;/a&gt; (2018-11-08)
+ 
+ &lt;a class="anchor" href="#1809-2018-11-08"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;h4 id="docker-合并版本号"&gt;
  Docker 合并版本号
- &lt;a class="anchor" href="#docker-%e5%90%88%e5%b9%b6%e7%89%88%e6%9c%ac%e5%8f%b7">#&lt;/a>
-&lt;/h4>
-&lt;p>New in 18.09 is an aligned release model for &lt;strong>Docker Engine - Community&lt;/strong> and &lt;strong>Docker Engine - Enterprise&lt;/strong>.
+ 
+ &lt;a class="anchor" href="#docker-%e5%90%88%e5%b9%b6%e7%89%88%e6%9c%ac%e5%8f%b7"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;p&gt;New in 18.09 is an aligned release model for &lt;strong&gt;Docker Engine - Community&lt;/strong&gt; and &lt;strong&gt;Docker Engine - Enterprise&lt;/strong&gt;.
 The new versioning scheme is YY.MM.x where x is an incrementing patch version.
 The enterprise engine is a superset of the community engine.
-They will ship concurrently with the same x patch version based on the same code base.&lt;/p></description></item><item><title>端口</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid><description>&lt;h1 id="docker-端口">
+They will ship concurrently with the same x patch version based on the same code base.&lt;/p&gt;</description></item><item><title>端口</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/port/</guid><description>&lt;h1 id="docker-端口"&gt;
  Docker 端口
- &lt;a class="anchor" href="#docker-%e7%ab%af%e5%8f%a3">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="端口映射">
+ 
+ &lt;a class="anchor" href="#docker-%e7%ab%af%e5%8f%a3"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="端口映射"&gt;
  端口映射
- &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>-P&lt;/code>（大写）：将容器内部开放的网络端口&lt;strong>随机&lt;/strong>映射到宿主机的一个端口上&lt;/li>
-&lt;li>&lt;code>-p&lt;/code>（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器
-&lt;ul>
-&lt;li>可以有多个 &lt;code>-p&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="端口映射格式">
+ 
+ &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-P&lt;/code&gt;（大写）：将容器内部开放的网络端口&lt;strong&gt;随机&lt;/strong&gt;映射到宿主机的一个端口上&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p&lt;/code&gt;（小写）：指定要映射的端口，一个指定端口上只可以绑定一个容器
+&lt;ul&gt;
+&lt;li&gt;可以有多个 &lt;code&gt;-p&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="端口映射格式"&gt;
  端口映射格式
- &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e6%a0%bc%e5%bc%8f">#&lt;/a>
-&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 指定 ip、指定宿主机 port、指定容器 port&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ip:hostport:containerport
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 指定 ip、未指定宿主机 port（随机）、指定容器 port&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ip::containerport
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 未指定 ip、指定宿主机 port、指定容器 port&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hostport:containerport
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="端口映射命令">
+ 
+ &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 指定 ip、指定宿主机 port、指定容器 port&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip:hostport:containerport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 指定 ip、未指定宿主机 port（随机）、指定容器 port&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip::containerport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 未指定 ip、指定宿主机 port、指定容器 port&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hostport:containerport
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="端口映射命令"&gt;
  端口映射命令
- &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%91%bd%e4%bb%a4">#&lt;/a>
-&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将容器暴露的所有端口，都随机映射到宿主机上（不推荐）&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -P -it ubuntu /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将容器指定端口随机映射到宿主机一个随机端口&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -P &lt;span style="color:#ae81ff">80&lt;/span> -it ubuntu /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 有两个冒号 :&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -P 192.168.0.100::80 -it ubuntu /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将容器指定端口指定映射到宿主机的指定端口上&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 8000:80 -it ubuntu /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将容器指定端口，指定映射到宿主机指定 ip 和端口&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 只能访问 192.168.0.100:8000，&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 访问 127.0.0.1:8000 或 localhost:8000 都不行&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 192.168.0.100:8000:80 -it ubuntu /bin/bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="指定通信协议比如-tcpudp">
+ 
+ &lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将容器暴露的所有端口，都随机映射到宿主机上（不推荐）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -P -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将容器指定端口随机映射到宿主机一个随机端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -P &lt;span style="color:#ae81ff"&gt;80&lt;/span&gt; -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将容器指定端口，随机映射到宿主机的指定 ip 的随机端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 有两个冒号 :&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -P 192.168.0.100::80 -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将容器指定端口指定映射到宿主机的指定端口上&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -p 8000:80 -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将容器指定端口，指定映射到宿主机指定 ip 和端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 只能访问 192.168.0.100:8000，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 访问 127.0.0.1:8000 或 localhost:8000 都不行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -p 192.168.0.100:8000:80 -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="指定通信协议比如-tcpudp"&gt;
  指定通信协议，比如 tcp、udp
- &lt;a class="anchor" href="#%e6%8c%87%e5%ae%9a%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae%e6%af%94%e5%a6%82-tcpudp">#&lt;/a>
-&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># tcp&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -ti -d --name my-nginx5 -p 8099:80/tcp docker.io/nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># udp&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -ti -d --name my-nginx6 -p 192.168.10.214:8077:80/udp docker.io/nginx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看映射端口配置">
+ 
+ &lt;a class="anchor" href="#%e6%8c%87%e5%ae%9a%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae%e6%af%94%e5%a6%82-tcpudp"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# tcp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -ti -d --name my-nginx5 -p 8099:80/tcp docker.io/nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# udp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -ti -d --name my-nginx6 -p 192.168.10.214:8077:80/udp docker.io/nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="查看映射端口配置"&gt;
  查看映射端口配置
- &lt;a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e6%98%a0%e5%b0%84%e7%ab%af%e5%8f%a3%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 结果输出： 80/tcp -&amp;gt; 0.0.0.0:800&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker port container_ID &lt;span style="color:#75715e"># 容器 ID&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="通过宿主机的-iptables-进行-nat-转发">
+ 
+ &lt;a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e6%98%a0%e5%b0%84%e7%ab%af%e5%8f%a3%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 结果输出： 80/tcp -&amp;gt; 0.0.0.0:800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker port container_ID &lt;span style="color:#75715e"&gt;# 容器 ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="通过宿主机的-iptables-进行-nat-转发"&gt;
  通过宿主机的 iptables 进行 nat 转发
- &lt;a class="anchor" href="#%e9%80%9a%e8%bf%87%e5%ae%bf%e4%b8%bb%e6%9c%ba%e7%9a%84-iptables-%e8%bf%9b%e8%a1%8c-nat-%e8%bd%ac%e5%8f%91">#&lt;/a>
-&lt;/h2>
-&lt;p>容器除了在启动时添加端口映射关系，还可以通过宿主机的 iptables 进行 nat 转发，将宿主机的端口映射到容器的内部端口上，
-这种方式适用于容器启动时没有指定端口映射的情况。&lt;/p></description></item><item><title>containerd</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</guid><description>&lt;h1 id="containerd">
+ 
+ &lt;a class="anchor" href="#%e9%80%9a%e8%bf%87%e5%ae%bf%e4%b8%bb%e6%9c%ba%e7%9a%84-iptables-%e8%bf%9b%e8%a1%8c-nat-%e8%bd%ac%e5%8f%91"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;容器除了在启动时添加端口映射关系，还可以通过宿主机的 iptables 进行 nat 转发，将宿主机的端口映射到容器的内部端口上，
+这种方式适用于容器启动时没有指定端口映射的情况。&lt;/p&gt;</description></item><item><title>containerd</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/containerd/</guid><description>&lt;h1 id="containerd"&gt;
  containerd
- &lt;a class="anchor" href="#containerd">#&lt;/a>
-&lt;/h1></description></item><item><title>dockerfile</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid><description>&lt;h1 id="dockerfile">
+ 
+ &lt;a class="anchor" href="#containerd"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;</description></item><item><title>dockerfile</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/dockerfile/</guid><description>&lt;h1 id="dockerfile"&gt;
  dockerfile
- &lt;a class="anchor" href="#dockerfile">#&lt;/a>
-&lt;/h1>
-&lt;p>目标:&lt;/p>
-&lt;ul>
-&lt;li>更快的构建速度&lt;/li>
-&lt;li>更小的 Docker 镜像大小&lt;/li>
-&lt;li>更少的 Docker 镜像层&lt;/li>
-&lt;li>充分利用镜像缓存&lt;/li>
-&lt;li>增加 Dockerfile 可读性&lt;/li>
-&lt;li>让 Docker 容器使用起来更简单&lt;/li>
-&lt;/ul>
-&lt;p>做法：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>编写 &lt;code>.dockerignore&lt;/code> 文件&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>容器只运行单个应用&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>将多个 RUN 指令合并为一个&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>基础镜像的标签不要用 latest&lt;/p>
-&lt;ul>
-&lt;li>如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>每个 RUN 指令后删除多余文件&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RUN apt-get update &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt-get install -y nodejs &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#75715e"># added lines&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm -rf /var/lib/apt/lists/*
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>选择合适的基础镜像 (&lt;code>alpine&lt;/code> 版本最好)&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>alpine&lt;/code> 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>设置 WORKDIR 和 CMD&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>FROM node:7-alpine
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WORKDIR /app
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>COPY . /app
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RUN npm install
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CMD 指令可以设置容器创建是执行的默认命令。另外，你应该讲命令写在一个数组中，数组中每个元素为命令的每个单词。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CMD &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#e6db74">&amp;#34;npm&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;start&amp;#34;&lt;/span>&lt;span style="color:#f92672">]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;ul>
-&lt;li>
-&lt;p>使用 ENTRYPOINT (可选)&lt;/p></description></item><item><title>教程</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid><description>&lt;h1 id="docker-教程">
+ 
+ &lt;a class="anchor" href="#dockerfile"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;目标:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更快的构建速度&lt;/li&gt;
+&lt;li&gt;更小的 Docker 镜像大小&lt;/li&gt;
+&lt;li&gt;更少的 Docker 镜像层&lt;/li&gt;
+&lt;li&gt;充分利用镜像缓存&lt;/li&gt;
+&lt;li&gt;增加 Dockerfile 可读性&lt;/li&gt;
+&lt;li&gt;让 Docker 容器使用起来更简单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;做法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;编写 &lt;code&gt;.dockerignore&lt;/code&gt; 文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;容器只运行单个应用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将多个 RUN 指令合并为一个&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基础镜像的标签不要用 latest&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你的确需要使用最新版的基础镜像，可以使用 latest 标签，否则的话，最好指定确定的镜像标签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每个 RUN 指令后删除多余文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 假设我们更新了 apt-get 源，下载，解压并安装了一些软件包，它们都保存在 /var/lib/apt/lists/ 目录中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN apt-get update &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y nodejs &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# added lines&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择合适的基础镜像 (&lt;code&gt;alpine&lt;/code&gt; 版本最好)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;alpine&lt;/code&gt; 是一个极小化的 Linux 发行版，只有 4MB，这让它非常适合作为基础镜像&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置 WORKDIR 和 CMD&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;FROM node:7-alpine
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# WORKDIR 指令可以设置默认目录，也就是运行 RUN / CMD / ENTRYPOINT 指令的地方。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;WORKDIR /app
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;COPY . /app
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN npm install
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# CMD 指令可以设置容器创建是执行的默认命令。另外，你应该讲命令写在一个数组中，数组中每个元素为命令的每个单词。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CMD &lt;span style="color:#f92672"&gt;[&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;npm&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;start&amp;#34;&lt;/span&gt;&lt;span style="color:#f92672"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用 ENTRYPOINT (可选)&lt;/p&gt;</description></item><item><title>教程</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/tutorial/</guid><description>&lt;h1 id="docker-教程"&gt;
  Docker 教程
- &lt;a class="anchor" href="#docker-%e6%95%99%e7%a8%8b">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="p8952bockerhttpsgithubcomp8952bocker-github-starshttpsimgshieldsiogithubstarsp8952bockersvg-languagehttpsimgshieldsiogithublanguagestopp8952bockersvg-last-taghttpsimgshieldsiogithubvtagp8952bockersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitp8952bockersvg">
- &lt;a href="https://github.com/p8952/bocker">p8952/bocker&lt;/a> &lt;img src="https://img.shields.io/github/stars/p8952/bocker.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/p8952/bocker.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/p8952/bocker.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/p8952/bocker.svg" alt="Last commit" />
- &lt;a class="anchor" href="#p8952bockerhttpsgithubcomp8952bocker-github-starshttpsimgshieldsiogithubstarsp8952bockersvg-languagehttpsimgshieldsiogithublanguagestopp8952bockersvg-last-taghttpsimgshieldsiogithubvtagp8952bockersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitp8952bockersvg">#&lt;/a>
-&lt;/h2>
-&lt;p>Docker implemented in around 100 lines of bash&lt;/p>
-&lt;h2 id="yeasydocker_practicehttpsgithubcomyeasydocker_practice-github-starshttpsimgshieldsiogithubstarsyeasydocker_practicesvg-languagehttpsimgshieldsiogithublanguagestopyeasydocker_practicesvg-last-taghttpsimgshieldsiogithubvtagyeasydocker_practicesvgsortsemver-last-commithttpsimgshieldsiogithublast-commityeasydocker_practicesvg">
- &lt;a href="https://github.com/yeasy/docker_practice">yeasy/docker_practice&lt;/a> &lt;img src="https://img.shields.io/github/stars/yeasy/docker_practice.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/yeasy/docker_practice.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/yeasy/docker_practice.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/yeasy/docker_practice.svg" alt="Last commit" />
- &lt;a class="anchor" href="#yeasydocker_practicehttpsgithubcomyeasydocker_practice-github-starshttpsimgshieldsiogithubstarsyeasydocker_practicesvg-languagehttpsimgshieldsiogithublanguagestopyeasydocker_practicesvg-last-taghttpsimgshieldsiogithubvtagyeasydocker_practicesvgsortsemver-last-commithttpsimgshieldsiogithublast-commityeasydocker_practicesvg">#&lt;/a>
-&lt;/h2>
-&lt;p>Learn and understand Docker technologies, with real DevOps practice!&lt;/p>
-&lt;p>Docker 从入门到实践&lt;/p>
-&lt;h2 id="play-with-dockerplay-with-dockerhttpsgithubcomplay-with-dockerplay-with-docker-github-starshttpsimgshieldsiogithubstarsplay-with-dockerplay-with-dockersvg-languagehttpsimgshieldsiogithublanguagestopplay-with-dockerplay-with-dockersvg-last-taghttpsimgshieldsiogithubvtagplay-with-dockerplay-with-dockersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitplay-with-dockerplay-with-dockersvg">
- &lt;a href="https://github.com/play-with-docker/play-with-docker">play-with-docker/play-with-docker&lt;/a> &lt;img src="https://img.shields.io/github/stars/play-with-docker/play-with-docker.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/play-with-docker/play-with-docker.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/play-with-docker/play-with-docker.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/play-with-docker/play-with-docker.svg" alt="Last commit" />
- &lt;a class="anchor" href="#play-with-dockerplay-with-dockerhttpsgithubcomplay-with-dockerplay-with-docker-github-starshttpsimgshieldsiogithubstarsplay-with-dockerplay-with-dockersvg-languagehttpsimgshieldsiogithublanguagestopplay-with-dockerplay-with-dockersvg-last-taghttpsimgshieldsiogithubvtagplay-with-dockerplay-with-dockersvgsortsemver-last-commithttpsimgshieldsiogithublast-commitplay-with-dockerplay-with-dockersvg">#&lt;/a>
-&lt;/h2>
-&lt;p>Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&lt;/p></description></item><item><title>关注项目</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</guid><description>&lt;h1 id="关注">
+ 
+ &lt;a class="anchor" href="#docker-%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="p8952bocker-github-stars-language-last-tag-last-commit"&gt;
+ &lt;a href="https://github.com/p8952/bocker"&gt;p8952/bocker&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/p8952/bocker.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/p8952/bocker.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/p8952/bocker.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/p8952/bocker.svg" alt="Last commit" /&gt;
+ 
+ &lt;a class="anchor" href="#p8952bocker-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Docker implemented in around 100 lines of bash&lt;/p&gt;
+&lt;h2 id="yeasydocker_-github-stars-language-last-tag-last-commit"&gt;
+ &lt;a href="https://github.com/yeasy/docker_practice"&gt;yeasy/docker_practice&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/yeasy/docker_practice.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/yeasy/docker_practice.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/yeasy/docker_practice.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/yeasy/docker_practice.svg" alt="Last commit" /&gt;
+ 
+ &lt;a class="anchor" href="#yeasydocker_-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Learn and understand Docker technologies, with real DevOps practice!&lt;/p&gt;
+&lt;p&gt;Docker 从入门到实践&lt;/p&gt;
+&lt;h2 id="play-with-dockerplay-with-docker-github-stars-language-last-tag-last-commit"&gt;
+ &lt;a href="https://github.com/play-with-docker/play-with-docker"&gt;play-with-docker/play-with-docker&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/play-with-docker/play-with-docker.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/play-with-docker/play-with-docker.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/play-with-docker/play-with-docker.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/play-with-docker/play-with-docker.svg" alt="Last commit" /&gt;
+ 
+ &lt;a class="anchor" href="#play-with-dockerplay-with-docker-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&lt;/p&gt;</description></item><item><title>关注项目</title><link>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/eco/docker/attention/</guid><description>&lt;h1 id="关注"&gt;
  关注
- &lt;a class="anchor" href="#%e5%85%b3%e6%b3%a8">#&lt;/a>
-&lt;/h1>
-&lt;h3 id="mobymobyhttpsgithubcommobymoby-github-starshttpsimgshieldsiogithubstarsmobymobysvg">
- &lt;a href="https://github.com/moby/moby">moby/moby&lt;/a> &lt;img src="https://img.shields.io/github/stars/moby/moby.svg" alt="Github stars" />
- &lt;a class="anchor" href="#mobymobyhttpsgithubcommobymoby-github-starshttpsimgshieldsiogithubstarsmobymobysvg">#&lt;/a>
-&lt;/h3>
-&lt;p>Moby Project - a collaborative project for the container ecosystem to assemble container-based systems &lt;a href="https://mobyproject.org/">https://mobyproject.org/&lt;/a>&lt;/p>
-&lt;h3 id="dockerdocker-cehttpsgithubcomdockerdocker-ce-github-starshttpsimgshieldsiogithubstarsdockerdocker-cesvg">
- &lt;a href="https://github.com/docker/docker-ce">docker/docker-ce&lt;/a> &lt;img src="https://img.shields.io/github/stars/docker/docker-ce.svg" alt="Github stars" />
- &lt;a class="anchor" href="#dockerdocker-cehttpsgithubcomdockerdocker-ce-github-starshttpsimgshieldsiogithubstarsdockerdocker-cesvg">#&lt;/a>
-&lt;/h3>
-&lt;p>Docker CE &lt;a href="https://www.docker.com/community-edition">https://www.docker.com/community-edition&lt;/a>&lt;/p>
-&lt;h3 id="play-with-dockerplay-with-dockerhttpsgithubcomplay-with-dockerplay-with-docker-github-starshttpsimgshieldsiogithubstarsplay-with-dockerplay-with-dockersvg">
- &lt;a href="https://github.com/play-with-docker/play-with-docker">play-with-docker/play-with-docker&lt;/a> &lt;img src="https://img.shields.io/github/stars/play-with-docker/play-with-docker.svg" alt="Github stars" />
- &lt;a class="anchor" href="#play-with-dockerplay-with-dockerhttpsgithubcomplay-with-dockerplay-with-docker-github-starshttpsimgshieldsiogithubstarsplay-with-dockerplay-with-dockersvg">#&lt;/a>
-&lt;/h3>
-&lt;p>Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&lt;/p>
-&lt;p>Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.&lt;/p></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#%e5%85%b3%e6%b3%a8"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h3 id="mobymoby-github-stars"&gt;
+ &lt;a href="https://github.com/moby/moby"&gt;moby/moby&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/moby/moby.svg" alt="Github stars" /&gt;
+ 
+ &lt;a class="anchor" href="#mobymoby-github-stars"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;Moby Project - a collaborative project for the container ecosystem to assemble container-based systems &lt;a href="https://mobyproject.org/"&gt;https://mobyproject.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="dockerdocker-ce-github-stars"&gt;
+ &lt;a href="https://github.com/docker/docker-ce"&gt;docker/docker-ce&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/docker/docker-ce.svg" alt="Github stars" /&gt;
+ 
+ &lt;a class="anchor" href="#dockerdocker-ce-github-stars"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;Docker CE &lt;a href="https://www.docker.com/community-edition"&gt;https://www.docker.com/community-edition&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="play-with-dockerplay-with-docker-github-stars"&gt;
+ &lt;a href="https://github.com/play-with-docker/play-with-docker"&gt;play-with-docker/play-with-docker&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/play-with-docker/play-with-docker.svg" alt="Github stars" /&gt;
+ 
+ &lt;a class="anchor" href="#play-with-dockerplay-with-docker-github-stars"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;Play With Docker gives you the experience of having a free Alpine Linux Virtual Machine in the cloud where you can build and run Docker containers and even create clusters with Docker features like Swarm Mode.&lt;/p&gt;
+&lt;p&gt;Under the hood DIND or Docker-in-Docker is used to give the effect of multiple VMs/PCs.&lt;/p&gt;</description></item></channel></rss>

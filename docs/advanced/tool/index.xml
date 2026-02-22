@@ -1,47 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.2 工具 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/</link><description>Recent content in 2.2 工具 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubectl</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</guid><description>&lt;h1 id="kubectl"&gt;
- Kubectl
- 
- &lt;a class="anchor" href="#kubectl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="集群信息查询"&gt;
- 集群信息查询
- 
- &lt;a class="anchor" href="#%e9%9b%86%e7%be%a4%e4%bf%a1%e6%81%af%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.2 工具 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/</link><description>Recent content in 2.2 工具 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubectl</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kubectl/</guid><description>&lt;h1 id="kubectl"&gt;Kubectl&lt;a class="anchor" href="#kubectl"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="集群信息查询"&gt;集群信息查询&lt;a class="anchor" href="#%e9%9b%86%e7%be%a4%e4%bf%a1%e6%81%af%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;kubectl cluster-info&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="node"&gt;
- node
- 
- &lt;a class="anchor" href="#node"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="node"&gt;node&lt;a class="anchor" href="#node"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;kubectl get nodes&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;kubectl describe node&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="常用操作"&gt;
- 常用操作
- 
- &lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="设置"&gt;
- 设置
- 
- &lt;a class="anchor" href="#%e8%ae%be%e7%bd%ae"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;h4 id="设置-role"&gt;
- 设置 role
- 
- &lt;a class="anchor" href="#%e8%ae%be%e7%bd%ae-role"&gt;#&lt;/a&gt;
- 
-&lt;/h4&gt;
+&lt;h2 id="常用操作"&gt;常用操作&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="设置"&gt;设置&lt;a class="anchor" href="#%e8%ae%be%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="设置-role"&gt;设置 role&lt;a class="anchor" href="#%e8%ae%be%e7%bd%ae-role"&gt;#&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 添加&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role&lt;span style="color:#f92672"&gt;=&lt;/span&gt;master
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role&lt;span style="color:#f92672"&gt;=&lt;/span&gt;worker
@@ -50,21 +20,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl label node ime-rd5-edge0-node2-kunlun kubernetes.io/role&lt;span style="color:#f92672"&gt;=&lt;/span&gt;worker
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 重置 role&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&amp;lt;your_new_label&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="获取-service-ip-port"&gt;
- 获取 service ip, port
- 
- &lt;a class="anchor" href="#%e8%8e%b7%e5%8f%96-service-ip-port"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;kubectl get service/servicename -o jsonpath=&amp;#39;{.spec.clusterIP}:{.spec.ports[*].port}&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h3 id="kubectl-get-结果排序"&gt;
- kubectl get 结果排序
- 
- &lt;a class="anchor" href="#kubectl-get-%e7%bb%93%e6%9e%9c%e6%8e%92%e5%ba%8f"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl label --overwrite nodes &amp;lt;your_node&amp;gt; kubernetes.io/role&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&amp;lt;your_new_label&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="获取-service-ip-port"&gt;获取 service ip, port&lt;a class="anchor" href="#%e8%8e%b7%e5%8f%96-service-ip-port"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;kubectl get service/servicename -o jsonpath=&amp;#39;{.spec.clusterIP}:{.spec.ports[*].port}&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h3 id="kubectl-get-结果排序"&gt;kubectl get 结果排序&lt;a class="anchor" href="#kubectl-get-%e7%bb%93%e6%9e%9c%e6%8e%92%e5%ba%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--sort-by&lt;span style="color:#f92672"&gt;=&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;##### pod&lt;/span&gt;
@@ -114,13 +72,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# age&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get nodes -o wide --sort-by&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;{.metadata.creationTimestamp}&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# kubectl get nodes -o wide --sort-by=&amp;#39;{.metadata.creationTimestamp}&amp;#39; | tac&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# kubectl get nodes -o wide --sort-by=&amp;#39;{.metadata.creationTimestamp}&amp;#39; | sort -r&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>Kustomize</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</guid><description>&lt;h1 id="kustomize"&gt;
- Kustomize
- 
- &lt;a class="anchor" href="#kustomize"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# kubectl get nodes -o wide --sort-by=&amp;#39;{.metadata.creationTimestamp}&amp;#39; | sort -r&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>Kustomize</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/kustomize/</guid><description>&lt;h1 id="kustomize"&gt;Kustomize&lt;a class="anchor" href="#kustomize"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://github.com/kubernetes-sigs/kustomize"&gt;kubernetes-sigs/kustomize&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kustomize.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kustomize.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kustomize.svg" alt="Last commit" /&gt;&lt;/p&gt;
 &lt;p&gt;Customization of kubernetes YAML configurations&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;kustomize&lt;/code&gt; lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.&lt;/p&gt;
@@ -134,35 +86,15 @@
 &lt;li&gt;如何以某种方式管理不同环境的微小差异，使得资源配置可以复用，减少 copy and change 的工作量&lt;/li&gt;
 &lt;li&gt;如何简化维护应用的流程，不需要额外学习模板语法&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Kustomize 通过以下几种方式解决了上述问题：&lt;/p&gt;</description></item><item><title>client-go</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</guid><description>&lt;h1 id="kubernetesclient-go-github-stars"&gt;
- &lt;a href="https://github.com/kubernetes/client-go"&gt;kubernetes/client-go&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes/client-go.svg" alt="Github stars" /&gt;
- 
- &lt;a class="anchor" href="#kubernetesclient-go-github-stars"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="安装"&gt;
- &lt;a href="https://github.com/kubernetes/client-go/blob/master/INSTALL.md"&gt;安装&lt;/a&gt;
- 
- &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h2 id="版本"&gt;
- 版本
- 
- &lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="v0xy"&gt;
- &lt;code&gt;v0.x.y&lt;/code&gt;
- 
- &lt;a class="anchor" href="#v0xy"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;p&gt;Kustomize 通过以下几种方式解决了上述问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;kustomize 通过 Base &amp;amp; Overlays 方式 (下文会说明) 方式维护不同环境的应用配置&lt;/li&gt;
+&lt;li&gt;kustomize 使用 patch 方式复用 Base 配置，并在 Overlay 描述与 Base 应用配置的差异部分来实现资源复用&lt;/li&gt;
+&lt;li&gt;kustomize 管理的都是 Kubernetes 原生 YAML 文件，不需要学习额外的 DSL 语法&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>client-go</title><link>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/tool/client-go/</guid><description>&lt;h1 id="kubernetesclient-go-github-stars"&gt;&lt;a href="https://github.com/kubernetes/client-go"&gt;kubernetes/client-go&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes/client-go.svg" alt="Github stars" /&gt;&lt;a class="anchor" href="#kubernetesclient-go-github-stars"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="安装"&gt;&lt;a href="https://github.com/kubernetes/client-go/blob/master/INSTALL.md"&gt;安装&lt;/a&gt;&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="版本"&gt;版本&lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="v0xy"&gt;&lt;code&gt;v0.x.y&lt;/code&gt;&lt;a class="anchor" href="#v0xy"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Kubernetes releases &amp;gt;= v1.17.0&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id="kubernetes-1xy"&gt;
- &lt;code&gt;kubernetes-1.x.y&lt;/code&gt;
- 
- &lt;a class="anchor" href="#kubernetes-1xy"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="kubernetes-1xy"&gt;&lt;code&gt;kubernetes-1.x.y&lt;/code&gt;&lt;a class="anchor" href="#kubernetes-1xy"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Kubernetes releases &amp;lt; v1.17.0&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>

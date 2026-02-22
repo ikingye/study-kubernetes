@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.5 故障排查 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/</link><description>Recent content in 2.5 故障排查 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>pod 排错</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</guid><description>&lt;h1 id="pod-排错"&gt;
- pod 排错
- 
- &lt;a class="anchor" href="#pod-%e6%8e%92%e9%94%99"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.5 故障排查 on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/</link><description>Recent content in 2.5 故障排查 on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>pod 排错</title><link>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/debug/pod/</guid><description>&lt;h1 id="pod-排错"&gt;pod 排错&lt;a class="anchor" href="#pod-%e6%8e%92%e9%94%99"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;排查 Pod 异常的常用命令如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;查看 Pod 状态：&lt;code&gt;kubectl get pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt; -o wide&lt;/code&gt;&lt;/li&gt;
@@ -11,12 +6,7 @@
 &lt;li&gt;查看 Pod 的事件：&lt;code&gt;kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;查看 Pod 容器日志：&lt;code&gt;kubectl logs -n &amp;lt;namespace&amp;gt; &amp;lt;pod-name&amp;gt; [-c &amp;lt;container-name&amp;gt;]&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="pending-状态"&gt;
- Pending 状态
- 
- &lt;a class="anchor" href="#pending-%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="pending-状态"&gt;Pending 状态&lt;a class="anchor" href="#pending-%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Pending 状态说明 Pod 还没有调度到某个 Node 上面&lt;/p&gt;
 &lt;p&gt;可以通过  &lt;code&gt;kubectl describe pods &amp;lt;pod-name&amp;gt; -n &amp;lt;namespace&amp;gt;&lt;/code&gt;  命令查看到 Pod 的事件&lt;/p&gt;
 &lt;p&gt;参考：&lt;/p&gt;

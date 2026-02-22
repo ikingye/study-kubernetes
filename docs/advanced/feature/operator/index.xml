@@ -1,28 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operator on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/</link><description>Recent content in Operator on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/index.xml" rel="self" type="application/rss+xml"/><item><title>kubebuilder</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid><description>&lt;h1 id="kubebuilder"&gt;
- kubebuilder
- 
- &lt;a class="anchor" href="#kubebuilder"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h3 id="kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;
- &lt;a href="https://github.com/kubernetes-sigs/kubebuilder"&gt;kubernetes-sigs/kubebuilder&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes-sigs/kubebuilder.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kubebuilder.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kubebuilder.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kubebuilder.svg" alt="Last commit" /&gt;
- 
- &lt;a class="anchor" href="#kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operator on Kubernetes 学习笔记</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/</link><description>Recent content in Operator on Kubernetes 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-kubernetes/docs/advanced/feature/operator/index.xml" rel="self" type="application/rss+xml"/><item><title>kubebuilder</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/kubebuilder/</guid><description>&lt;h1 id="kubebuilder"&gt;kubebuilder&lt;a class="anchor" href="#kubebuilder"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h3 id="kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;&lt;a href="https://github.com/kubernetes-sigs/kubebuilder"&gt;kubernetes-sigs/kubebuilder&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/kubernetes-sigs/kubebuilder.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/kubernetes-sigs/kubebuilder.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/kubernetes-sigs/kubebuilder.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/kubernetes-sigs/kubebuilder.svg" alt="Last commit" /&gt;&lt;a class="anchor" href="#kubernetes-sigskubebuilder-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Kubebuilder - SDK for building Kubernetes APIs using CRDs
-&lt;a href="http://book.kubebuilder.io/"&gt;http://book.kubebuilder.io/&lt;/a&gt;&lt;/p&gt;</description></item><item><title>etcd Operator</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid><description>&lt;h1 id="etcd-operator"&gt;
- etcd Operator
- 
- &lt;a class="anchor" href="#etcd-operator"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;a href="http://book.kubebuilder.io/"&gt;http://book.kubebuilder.io/&lt;/a&gt;&lt;/p&gt;</description></item><item><title>etcd Operator</title><link>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-kubernetes/docs/advanced/feature/operator/etcd/</guid><description>&lt;h1 id="etcd-operator"&gt;etcd Operator&lt;a class="anchor" href="#etcd-operator"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ git clone https://github.com/coreos/etcd-operator
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 因为，Etcd Operator 需要访问 Kubernetes 的 APIServer 来创建对象&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 为 Etcd Operator 创建 RBAC 规则&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ example/rbac/create_role.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Etcd Operator 本身，其实就是一个 Deployment&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ example/rbac/create_role.sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Etcd Operator 本身，其实就是一个 Deployment&lt;/p&gt;
 &lt;p&gt;而一旦 Etcd Operator 的 Pod 进入了 Running 状态，你就会发现，有一个 CRD 被自动创建了出来&lt;/p&gt;
 &lt;p&gt;这个 CRD 名叫 &lt;code&gt;etcdclusters.etcd.database.coreos.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;实际上是在 Kubernetes 里添加了一个名叫 &lt;strong&gt;EtcdCluster&lt;/strong&gt; 的自定义资源类型（CRD）。&lt;/p&gt;
@@ -51,5 +35,4 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;MY_POD_NAME&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;valueFrom&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldRef&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldPath&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;metadata.name&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。&lt;/p&gt;</description></item></channel></rss>
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;fieldPath&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;metadata.name&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当 Etcd Operator 部署好之后，接下来在这个 Kubernetes 里创建一个 Etcd 集群的工作就非常简单了。&lt;/p&gt;</description></item></channel></rss>
